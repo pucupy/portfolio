@@ -27,4 +27,4 @@ Add your CV at `cv/cv.pdf` — the nav and hero link to `https://pucupy.github.i
 - Pages carry their assets inline, so file sizes are large (`creative-archive.html` ~4MB — the GIFs can't be compressed without losing animation). First load is a single request per page; nothing lazy-loads from elsewhere.
 - Each page unpacks its embedded assets in the browser, so **JavaScript is required**; a static monogram splash shows while unpacking and as the no-JS fallback.
 - Do not hand-edit these files. Edit the `.dc.html` sources in the design project and re-export.
-- Exported 30 July 2026, including the restored `design-systems` case study.
+- Exported 30 July 2026 — v8 content, internal links rewritten to `.html`, demo.yapily.com entry now carries two stacked images.
