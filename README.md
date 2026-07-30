@@ -25,6 +25,6 @@ Add your CV at `cv/cv.pdf` — the nav and hero link to `https://pucupy.github.i
 ## Notes
 
 - Pages carry their assets inline, so file sizes are large (`creative-archive.html` ~4MB — the GIFs can't be compressed without losing animation). First load is a single request per page; nothing lazy-loads from elsewhere.
-- Each page unpacks its embedded assets in the browser, so **JavaScript is required**; a static monogram splash shows while unpacking and as the no-JS fallback.
+- Each page unpacks its embedded assets in the browser, so **JavaScript is required**; a static monogram splash and a quiet "Loading" indicator show while assets are prepared, and the splash doubles as the no-JS fallback.
 - Do not hand-edit these files. Edit the `.dc.html` sources in the design project and re-export.
 - Exported 30 July 2026 — content at the 30 July corrected revision, internal links rewritten to `.html`.
