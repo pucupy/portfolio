@@ -13,10 +13,10 @@
   --ink-3: #7d8683; /* date qualifiers, italic notes */
   --ink-4: #4a5250; /* · separators only */
 
-  /* Accent — gold. Eyebrows, indices, date labels, underlines, focus, selection */
-  --gold: #C9A86A;
-  --gold-underline: rgba(201, 168, 106, 0.55); /* resting link underline */
-  --gold-border: rgba(201, 168, 106, 0.35);    /* outcomes callout */
+  /* Accent — green. Eyebrows, indices, date labels, underlines, focus, selection */
+  --gold: #6FCB92;
+  --gold-underline: rgba(111, 203, 146, 0.55); /* resting link underline */
+  --gold-border: rgba(111, 203, 146, 0.35);    /* outcomes callout */
 
   /* Rules */
   --rule-strong: rgba(244, 246, 245, 0.14); /* section-opening rules, grid dividers */
