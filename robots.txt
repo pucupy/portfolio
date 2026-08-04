@@ -1,6 +1,2 @@
 User-agent: *
-Allow: /
-Disallow: /Homepage%20Directions.html
-Disallow: /homepage-directions.html
-Disallow: /directions/
-Disallow: /drafts/
+Disallow: /

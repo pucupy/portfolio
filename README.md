@@ -21,16 +21,20 @@ Add your CV at `cv/cv.pdf` — the nav and hero link to `https://pucupy.github.i
 | `design-systems.html` | Case study 03 — Custard, Mark and Yapily UI |
 | `research-practice.html` | Case study 04 — Research practice |
 | `headbox.html` | Case study 05 — HeadBox, inverting a marketplace |
+| `su4erheroes.html` | Earlier work — Su4erheroes, the consultancy years |
 | `creative-archive.html` | Creative archive |
 
 ## Interactive artefacts
 
-Both are linked from their case studies and open in a new tab.
+All are linked from their case studies and open in a new tab.
 
 | File | What it is |
 |---|---|
 | `embeds/design-system-reference.html` | **The canonical design system artefact.** Foundations, components and patterns as live markup with their token specs, plus the Custard, Mark and shared-core views. |
 | `embeds/custard-payment-journey.html` | The twenty-one hosted screens — payment, account access, mobile and failure states. |
+| `embeds/hosted-pages-prototype.html` | **Hosted pages user flows.** The clickable end-to-end journey in two viewpoints — phone (app opens in place) and desktop (QR handoff to a phone, then pick-up). |
+| `embeds/console-screens.html` | The Console self-serve screens — sandbox welcome, applications, theming and analytics. |
+| `embeds/yapily-homepage-mark.html` | The Yapily marketing homepage built in Mark, the brand system. |
 
 ## Not linked from the site
 
@@ -44,4 +48,5 @@ Both are linked from their case studies and open in a new tab.
 - Pages carry their assets inline, so file sizes are large (`creative-archive.html` ~4MB — the GIFs can't be compressed without losing animation). First load is a single request per page; nothing lazy-loads from elsewhere.
 - Each page unpacks its embedded assets in the browser, so **JavaScript is required**; a static monogram splash and a quiet "Loading" indicator show while assets are prepared, and the splash doubles as the no-JS fallback. Every page also ships a static text-only version of its content for crawlers and no-JS readers.
 - Do not hand-edit these files. Edit the `.dc.html` sources in the design project and re-export.
-- Exported 2 August 2026.
+- Exported 4 August 2026 — all ten pages and five embeds rebuilt from source.
+- All pages and embeds carry `noindex, nofollow, noarchive, noimageindex`, and `robots.txt` disallows everything — the site is deliberately not search-indexable.
