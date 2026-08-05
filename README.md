@@ -48,5 +48,5 @@ All are linked from their case studies and open in a new tab.
 - Pages carry their assets inline, so file sizes are large (`creative-archive.html` ~4MB — the GIFs can't be compressed without losing animation). First load is a single request per page; nothing lazy-loads from elsewhere.
 - Each page unpacks its embedded assets in the browser, so **JavaScript is required**; a static monogram splash and a quiet "Loading" indicator show while assets are prepared, and the splash doubles as the no-JS fallback. Every page also ships a static text-only version of its content for crawlers and no-JS readers.
 - Do not hand-edit these files. Edit the `.dc.html` sources in the design project and re-export.
-- Exported 4 August 2026 — all ten pages and five embeds rebuilt from source.
+- Exported 5 August 2026 — all ten pages and five embeds rebuilt from source.
 - All pages and embeds carry `noindex, nofollow, noarchive, noimageindex`, and `robots.txt` disallows everything — the site is deliberately not search-indexable.
