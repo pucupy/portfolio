@@ -334,7 +334,7 @@ Open the interactive reference ↗
 In three cases out of four, the fix wasn't on any of these screens.
 
 #### Bank discoverability
-Across the 2023–2026 usability sessions, search was consistently the primary way users found their bank rather than browsing, taking 5–15 seconds. Commissioned competitor benchmarking put the equivalent at 1–3 seconds, using brand grouping and a most-popular shortcut. Three changes came out of it, and only one was a layout change. We redesigned bank selection, grouped bank branches under one parent brand (critical in markets like Germany, where Sparkasse and Volksbank sit above thousands of sub-branches), and added a popular-banks shortcut. We changed the naming convention: we had been listing banks under the names institutions register under, and users recognise the name on their card and in their app instead, so we matched the display names to that. And we found gaps in our own search index, session after session, people typed aliases, informal names and old brand names that returned nothing. That went to engineering as a change to how search resolved queries rather than as a change to a screen.
+Across the 2023–2026 usability sessions, search was consistently the primary way users found their bank rather than browsing, taking 5–15 seconds. Commissioned competitor benchmarking put the equivalent at 1–3 seconds, using brand grouping and a most-popular shortcut. Three changes came out of it, and only one was a layout change. We redesigned bank selection, grouped bank branches under one parent brand (critical in markets like Germany, where Sparkasse and Volksbank sit above thousands of sub-branches), and added a popular-banks shortcut. We changed the naming convention: we had been listing banks under the names institutions register under, and users recognise the name on their card and in their app instead, so we matched the display names to that. And we found gaps in our own search index, session after session, people typed aliases, informal names and old brand names that returned nothing. The fix landed in how search resolved queries, not on a screen.
 Post-launch, time to find a bank came down to 1–3 seconds in most markets, and 3–5 seconds in the branch-heavy ones where the list is longest. That closes the gap the benchmarking opened: the first figure matches what competitors were achieving, and the second is the honest cost of markets like Germany, where even a grouped list has thousands of entries behind it.
 [image: A flat alphabetical list of every institution]
 BEFORE
@@ -361,7 +361,7 @@ Shortcut grid above a full alphabetical list, the split that later became Popula
 Language can't be inferred from country, the person setting up account access often doesn't live in, or speak the language of, the accountholder's country. Passing country and language via the API still assumed the customer could predict the end user's language in advance, so we moved to an in-flow selector in the header of every screen and let the actual user choose — see it on the mobile screens ↗.
 
 #### Accessibility validation
-Two studies did different jobs. A commissioned audit found contrast failures across multiple screens, and screen readers reading raw SVG markup aloud because alternative text hadn't been implemented properly, a screen reader user couldn't navigate the flow at all. We postponed a release to fix both rather than shipping and correcting afterwards, and I documented the findings for the frontend team to work from. A separate unmoderated study of 21 testers in Germany, including participants with disabilities, tested the new flow against the live demo. 62% preferred the new flow overall, rising to 78% among testers with disabilities. The study also surfaced that a screen reader user couldn't navigate the old flow at all.
+Two studies did different jobs. A commissioned audit found contrast failures and alternative text implemented badly enough that a screen reader user couldn't navigate the flow at all. We postponed a release to fix both rather than shipping and correcting afterwards, and I documented the findings for the frontend team to work from. A separate unmoderated study of 21 testers in Germany, including participants with disabilities, tested the new flow against the live demo. 62% preferred the new flow overall, rising to 78% among testers with disabilities. The study also surfaced that a screen reader user couldn't navigate the old flow at all.
 21
 testers in Germany, including participants with disabilities
 62%
@@ -762,7 +762,7 @@ Three separate Figma libraries sat on top of a shared token library. Tokens were
 White-label, and minimal by design. Customers themed it themselves, logo, typeface, and brand colours applied mainly to buttons and links, with a choice of light, dark or system-matched appearance. Everything else stayed locked. When customers control the surface, the system's job is to expose as little as possible while still reading as their product.
 
 #### Mark — website
-Restyled annually with distinctive, playful work, larger heading spacing, more expressive layout. Coupling it to the product systems would have meant every marketing refresh rippling into production tooling. Separated, it moved at its own pace.
+Restyled annually with distinctive, playful work, larger heading spacing, more expressive layout. Separated from the product systems, it moved at its own pace.
 
 #### Yapily UI — tools
 Dense by nature, analytics and data-heavy pages where vertical rhythm is tight and information density is the point. Its atoms and molecules were built for that.
@@ -903,11 +903,11 @@ Guerrilla sessions for early iterations — fast, cheap, run on whoever was avai
 Matching method cost to decision cost. Guerrilla testing where the question is "is this direction obviously wrong"; commissioned panels where the question is "does this meet a standard we can be held to."
 
 #### Not every finding was a design finding
-Three of the more useful results from the sessions weren't screen changes. We had been listing banks under the names institutions register under, and users don't recognise those, they know the name on their card and in their app, so we matched the display names to what people actually call their bank. Session after session we watched people type a name and get nothing back: aliases, informal names, old brand names our index didn't hold. That went to engineering as a change to how search resolved queries rather than as a change to a screen. And on embedded login we found our retry handling didn't match what banks actually permitted, three retries assumed on credentials where banks varied, and a single retry on SCA codes where banks allowed several. Engineering built the per-bank mapping; research is what established the rule we were enforcing was invented.
+Three of the more useful results from the sessions weren't screen changes. We had been listing banks under the names institutions register under, and users don't recognise those, they know the name on their card and in their app, so we matched the display names to what people actually call their bank. Session after session we watched people type a name and get nothing back: aliases, informal names, old brand names our index didn't hold. The fix landed in how search resolved queries, not on a screen. And on embedded login we found our retry handling didn't match what banks actually permitted, three retries assumed on credentials where banks varied, and a single retry on SCA codes where banks allowed several. Engineering built the per-bank mapping; research is what established the rule we were enforcing was invented.
 None of the three observations would have existed without sitting and watching real people use the flow, and none of the three fixes belonged to design.
 
 #### Accessibility
-On accessibility the standard was WCAG AA, and two studies did different jobs. A commissioned audit found contrast failures across multiple screens, and screen readers reading raw SVG markup aloud because alternative text hadn't been implemented properly, a screen reader user couldn't navigate the flow at all. We postponed a release to fix both rather than shipping and correcting afterwards. I wrote the findings up as a document for the frontend team to work from, and the system now meets AA. A separate unmoderated study of 21 testers in Germany, including participants with disabilities, tested the redesigned flow against the live demo: 62% preferred the new flow, rising to 78% among testers with disabilities.
+On accessibility the standard was WCAG AA, and two studies did different jobs. A commissioned audit found contrast failures and alternative text implemented badly enough that a screen reader user couldn't navigate the flow at all. We postponed a release to fix both rather than shipping and correcting afterwards. I wrote the findings up as a document for the frontend team to work from, and the system now meets AA. A separate unmoderated study of 21 testers in Germany, including participants with disabilities, tested the redesigned flow against the live demo: 62% preferred the new flow, rising to 78% among testers with disabilities.
 
 #### Instrumentation
 Working with engineering and product, we mapped the events needed to measure customer journeys accurately — deciding what to track, and where, so journey performance was measurable rather than inferred. This is the unglamorous half. Without it there's no funnel, no baseline and no experiment, and event schemas designed after the fact are always worse than ones designed alongside the flow.
@@ -965,7 +965,7 @@ Scope: Positioning workshops, competitor analysis, concepts, wireframes, agency 
 2023 — 2024 · Power your product innovation
 [image: Yapily website in 2025: dark green hero reading Open banking platform for frictionless finance with a row of customer logos beneath]
 2025 — 2026 · Platform for frictionless finance
-Three moments in the company's story, not a before-and-after. Each version was right for the stage Yapily was at.
+Each version was right for the stage Yapily was at.
 
 ### Positioning changed five times
 Yapily's explanation of itself moved as the company and the category matured:
@@ -979,7 +979,7 @@ At the same time the existing CMS was expensive and difficult to operate. Publis
 ### The category had converged
 Positioning was shaped through workshops with Marketing, Sales and senior leadership, supported by competitor analysis.
 The analysis revealed a category problem: many open banking websites looked and sounded the same. It was difficult to distinguish providers or understand where one product ended and another began.
-Creating dedicated product sections helped customers understand the offering more clearly and gave the site a stronger information architecture. That was the real work — the visual language followed from it.
+Creating dedicated product sections helped customers understand the offering more clearly and gave the site a stronger information architecture.
 
 ### My role
 The agencies produced the final visual designs. I remained responsible for the direction, the system and implementation quality.
@@ -994,11 +994,11 @@ The agencies produced the final visual designs. I remained responsible for the d
 ### Mark, the website design system
 The website needed a more expressive system than the customer tools. Mark allowed larger typography, richer layouts, campaign visuals, animation and distinctive brand moments without pushing those decisions into dense product interfaces.
 It shared foundational tokens where appropriate but kept its own components and expressive behaviours. Coupling it to the product systems would have meant every marketing refresh rippling into production tooling.
-The same system supported the main website and navigation, product and solution pages, customer case studies, landing pages, blog and resource content, reports and ebooks, sales presentations and tailored demos, and campaign collateral.
+The same system supported the website, campaign and resource content, sales presentations and tailored demos.
 The three systems in detail →
 
 ### Build and launch
-The final agency designs were translated into production with Yapily's frontend team. The migration replaced an expensive, difficult CMS with a system that was easier to use and faster to publish through.
+The final agency designs were translated into production with Yapily's frontend team, on a platform that was easier to use and faster to publish through.
 The platform supported thousands of links, landing pages and blog posts while giving Marketing more independence. The 2025 rebuild produced more than fifty templates in under two months, which was only possible because the component system already existed.
 
 ### Outcome
@@ -1006,7 +1006,7 @@ The platform supported thousands of links, landing pages and blog posts while gi
 —A more maintainable component-led website.
 —Clearer product architecture and customer understanding.
 —A visual identity designed to stand apart from increasingly similar competitors.
-—One brand system extended consistently across the website, sales and marketing materials.
+—Extending the brand beyond the website into sales, marketing and company collateral with my team.
 Commercial pipeline and enquiry data are confidential and are not published here.
 
 ### Reflection
