@@ -1,23 +1,20 @@
 # Interview presentation — full content export
 Ale Velázquez. Exported 7 August 2026 from `Interview Presentation.dc.html`.
 
-122 slides at 1920×1080, built on `deck-stage`. Dark ground #0B0D0D, text #F4F6F5, muted #AAB3AF / #7d8683, green accent #6FCB92. Geist for body, Geist Mono for labels.
-
-Each slide gives its on-slide text, then its speaker note.
-
+122 slides, in order. Speaker notes are quoted under each slide.
 
 ---
 
 ## 00 Title
 
+[image: ]
 PORTFOLIO OVERVIEW
 Alejandro Velázquez
 Lead Product Designer & Design Manager
 Fintech · Open banking · Payments · SaaS · Platforms
 STEVENAGE, UK · ALEUXUK@GMAIL.COM
 
-**Note.** I have worked in digital product design since 2005. My strongest experience is in regulated fintech, open banking, payments and complex platform products. I joined Yapily in 2020 as its first designer and built much of the design function from scratch while remaining hands-on across product strategy, research, interaction design and delivery.
-
+> Speaker notes: I have worked in digital product design since 2005. My strongest experience is in regulated fintech, open banking, payments and complex platform products. I joined Yapily in 2020 as its first designer and built much of the design function from scratch while remaining hands-on across product strategy, research, interaction design and delivery.
 
 ---
 
@@ -32,8 +29,7 @@ Complex regulated systems
 Research and experimentation
 Team and design-system leadership
 
-**Note.** The projects where I add the most value are rarely solved by simplifying one screen. They involve regulation, multiple customer types, technical dependencies, operational processes and fragmented ownership. I try to make the whole system visible before deciding what the interface should do.
-
+> Speaker notes: The projects where I add the most value are rarely solved by simplifying one screen. They involve regulation, multiple customer types, technical dependencies, operational processes and fragmented ownership. I try to make the whole system visible before deciding what the interface should do.
 
 ---
 
@@ -52,8 +48,7 @@ Payango, Payfriendz, Docomo Digital, Caremoni, HeadBox.
 Yapily
 First designer to design lead. Open banking infrastructure across the UK and Europe.
 
-**Note.** I started in Argentina, worked on enterprise products at Globant, then moved into consumer payments and marketplace products in Europe. At Yapily I shifted toward infrastructure and B2B2C journeys, where the customer buying the product and the person using the final flow are often different people.
-
+> Speaker notes: I started in Argentina, worked on enterprise products at Globant, then moved into consumer payments and marketplace products in Europe. At Yapily I shifted toward infrastructure and B2B2C journeys, where the customer buying the product and the person using the final flow are often different people.
 
 ---
 
@@ -75,8 +70,7 @@ Clarifying an evolving platform
 HeadBox
 Changing a marketplace and its revenue model
 
-**Note.** Four stories. Two are Yapily product work, one is the brand and website, and one is HeadBox, which is the clearest example I have of research changing a business model rather than a screen.
-
+> Speaker notes: Four stories. Two are Yapily product work, one is the brand and website, and one is HeadBox, which is the clearest example I have of research changing a business model rather than a screen.
 
 ---
 
@@ -91,8 +85,7 @@ End-to-end conversion, early beta to today
 UK app-to-app journeys can exceed this
 Across banks, markets, devices and licence models. Still in beta as of August 2026.
 
-**Note.** Customers had to build their own checkout, consent, bank discovery and authentication experiences against a raw API. Hosted Pages turned that repeatable work into a pre-built product. I led the original product strategy and design, then the continuing research and optimisation programme.
-
+> Speaker notes: Customers had to build their own checkout, consent, bank discovery and authentication experiences against a raw API. Hosted Pages turned that repeatable work into a pre-built product. I led the original product strategy and design, then the continuing research and optimisation programme.
 
 ---
 
@@ -107,8 +100,7 @@ A six-to-twelve-month assisted journey
 TARGET
 Self-service for the majority of customers
 
-**Note.** The Console had fallen behind the API. Every missing capability was absorbed by Customer Success, Support, Compliance or Engineering. I mapped the full journey, ran a cross-functional hackathon and led the information architecture for a new Console now in beta.
-
+> Speaker notes: The Console had fallen behind the API. Every missing capability was absorbed by Customer Success, Support, Compliance or Engineering. I mapped the full journey, ran a cross-functional hackathon and led the information architecture for a new Console now in beta.
 
 ---
 
@@ -119,8 +111,7 @@ OVERVIEW — BRAND & WEBSITE
 From invisible API to understandable product platform
 Positioning changed. The website and the system had to change with it.
 
-**Note.** Yapily moved through several positions: API-first and invisible, product-led, open banking infrastructure, open finance and finally an open banking platform for frictionless finance. I provided creative direction, first concepts and wireframes, managed agencies and helped turn the final direction into a scalable website and brand system.
-
+> Speaker notes: Yapily moved through several positions: API-first and invisible, product-led, open banking infrastructure, open finance and finally an open banking platform for frictionless finance. I provided creative direction, first concepts and wireframes, managed agencies and helped turn the final direction into a scalable website and brand system.
 
 ---
 
@@ -141,8 +132,7 @@ Guest describes the event
 →
 Venues choose
 
-**Note.** HeadBox expected non-expert guests to choose venues while expert hosts received poorly matched individual enquiries. We reversed the model. Guests described the event, briefs entered a feed and venues selected the opportunities that suited them. The model remains central to the business today.
-
+> Speaker notes: HeadBox expected non-expert guests to choose venues while expert hosts received poorly matched individual enquiries. We reversed the model. Guests described the event, briefs entered a feed and venues selected the opportunities that suited them. The model remains central to the business today.
 
 ---
 
@@ -156,8 +146,7 @@ Research practice built from scratch
 Governance based on evidence, not seniority
 Still hands-on in design and code
 
-**Note.** I want teams and systems to continue working without me in every decision. At Yapily I established research and design-system practices, then delegated ownership while retaining quality and strategic responsibility. I can challenge a decision strongly when necessary, but I also know when to step back.
-
+> Speaker notes: I want teams and systems to continue working without me in every decision. At Yapily I established research and design-system practices, then delegated ownership while retaining quality and strategic responsibility. I can challenge a decision strongly when necessary, but I also know when to step back.
 
 ---
 
@@ -177,8 +166,7 @@ Measure
 Learn
 ↺
 
-**Note.** I use moderated research early when the aim is to understand expectations and reasoning. I use unmoderated studies when coverage and speed matter. After release, instrumentation and percentage rollouts show whether the change works in real conditions.
-
+> Speaker notes: I use moderated research early when the aim is to understand expectations and reasoning. I use unmoderated studies when coverage and speed matter. After release, instrumentation and percentage rollouts show whether the change works in real conditions.
 
 ---
 
@@ -189,8 +177,7 @@ OVERVIEW
 A Lead Product Designer role with room to shape the product.
 Strategy + hands-on design + commercial impact
 
-**Note.** I am looking for a role where I can contribute at product-strategy level while continuing to design. I am comfortable with regulated environments, enterprise stakeholders, ambiguous problems and teams that need stronger evidence or operating structure.
-
+> Speaker notes: I am looking for a role where I can contribute at product-strategy level while continuing to design. I am comfortable with regulated environments, enterprise stakeholders, ambiguous problems and teams that need stronger evidence or operating structure.
 
 ---
 
@@ -204,8 +191,7 @@ linkedin.com/in/velazquezalejandro
 CV (PDF)
 Happy to take questions.
 
-**Note.** Happy to take questions.
-
+> Speaker notes: Happy to take questions.
 
 ---
 
@@ -216,8 +202,7 @@ Yapily Hosted Pages
 Making open banking easier to launch, use and trust
 LEAD PRODUCT DESIGNER & DESIGN MANAGER · 2022 — PRESENT · LIVE IN BETA
 
-**Note.** Deck 01 — Yapily Hosted Pages deep dive. Recommended 18 to 22 slides, 35 to 45 minutes.
-
+> Speaker notes: Deck 01 — Yapily Hosted Pages deep dive. Recommended 18 to 22 slides, 35 to 45 minutes.
 
 ---
 
@@ -235,8 +220,7 @@ approximately 65–75% today
 UK APP-TO-APP
 Can exceed 85%
 
-**Note.** The integration figure was observed by Pre-sales and Implementation through the reduced need for guidance and support. Conversion varies by use case, market, bank, device and infrastructure reliability. Design contributed, but frontend, backend, coverage and bank reliability were equally important.
-
+> Speaker notes: The integration figure was observed by Pre-sales and Implementation through the reduced need for guidance and support. Conversion varies by use case, market, bank, device and infrastructure reliability. Design contributed, but frontend, backend, coverage and bank reliability were equally important.
 
 ---
 
@@ -252,8 +236,7 @@ Authentication
 Error and retry states
 Market and bank-specific constraints
 
-**Note.** I interviewed payment companies, identity-verification companies and banks. Participants included CTOs, CPOs, Heads of Product, Design and Technology, and lead engineers. The recurring issue was not a missing screen. Customers were being forced to become experts in hundreds of banks and regional rules.
-
+> Speaker notes: I interviewed payment companies, identity-verification companies and banks. Participants included CTOs, CPOs, Heads of Product, Design and Technology, and lead engineers. The recurring issue was not a missing screen. Customers were being forced to become experts in hundreds of banks and regional rules.
 
 ---
 
@@ -268,8 +251,7 @@ WHAT WAS NEEDED
 Remove the plumbing
 Better documentation helped. It did not remove the work.
 
-**Note.** The first response was improved documentation and guidance. Customers still spent months integrating, testing banks and maintaining exceptions. Some smaller companies churned before launch. Since Yapily's commercial value depends on successful consents after launch, slow integration was a product and business problem.
-
+> Speaker notes: The first response was improved documentation and guidance. Customers still spent months integrating, testing banks and maintaining exceptions. Some smaller companies churned before launch. Since Yapily's commercial value depends on successful consents after launch, slow integration was a product and business problem.
 
 ---
 
@@ -280,8 +262,7 @@ HOSTED PAGES
 There was no brief
 The idea of a widget and an embeddable checkout came out of the documentation work, not from anyone’s roadmap. The PM and I co-originated it.
 
-**Note.** There was no brief for this. Working with the product manager, we tried the cheaper fix first — better guidance and documentation. It helped, and it didn't hold, because customers were still building bank plumbing instead of their own product. The idea of a widget and an embeddable checkout came out of that, not from anyone's roadmap. The two of us co-originated it.
-
+> Speaker notes: There was no brief for this. Working with the product manager, we tried the cheaper fix first — better guidance and documentation. It helped, and it didn't hold, because customers were still building bank plumbing instead of their own product. The idea of a widget and an embeddable checkout came out of that, not from anyone's roadmap. The two of us co-originated it.
 
 ---
 
@@ -293,8 +274,7 @@ The majority needed a faster path
 ~80%
 of customers were smaller or non-enterprise businesses
 
-**Note.** The first target was SMEs, which represented the largest group and needed the least support-heavy route. Enterprises also used Hosted Pages for quick tests, account verification or markets where building a bespoke journey was not economically worthwhile.
-
+> Speaker notes: The first target was SMEs, which represented the largest group and needed the least support-heavy route. Enterprises also used Hosted Pages for quick tests, account verification or markets where building a bespoke journey was not economically worthwhile.
 
 ---
 
@@ -312,8 +292,7 @@ Bank
 Merchant
 A compliant, white-label flow for payments and account data.
 
-**Note.** The earliest concepts emerged in a 2022 Product and Technology brainstorm. We considered SDKs and widgets. The first version prioritised a practical hosted experience that could launch quickly. Broader embeddability, SDKs, returning-user support and some authentication patterns were left out of the earliest scope.
-
+> Speaker notes: The earliest concepts emerged in a 2022 Product and Technology brainstorm. We considered SDKs and widgets. The first version prioritised a practical hosted experience that could launch quickly. Broader embeddability, SDKs, returning-user support and some authentication patterns were left out of the earliest scope.
 
 ---
 
@@ -327,8 +306,7 @@ PM + frontend engineer + me
 LATER
 Design, frontend, backend and analytics support
 
-**Note.** I led the initial product strategy and design, created the reference wireflows, worked with Compliance and Engineering, and tested the experience. As the team grew, I continued to own direction, customer conversations, workshops and design quality while delegating more detailed testing and design-system work.
-
+> Speaker notes: I led the initial product strategy and design, created the reference wireflows, worked with Compliance and Engineering, and tested the experience. As the team grew, I continued to own direction, customer conversations, workshops and design quality while delegating more detailed testing and design-system work.
 
 ---
 
@@ -349,8 +327,7 @@ Bank capability
 What each institution actually supports
 Some combinations do not exist. cVRP is UK-only, so market does not multiply it. A preselected institution on a direct licence skips every screen we make. It is a sparse matrix, not a neat grid.
 
-**Note.** The customer's licence model and API configuration determine some branches. Market, device, product and bank capability determine others. A preselected institution may skip bank selection. A direct-licence customer may remove a consent screen. cVRP exists only in the UK. This is a sparse matrix, not a neat grid.
-
+> Speaker notes: The customer's licence model and API configuration determine some branches. Market, device, product and bank capability determine others. A preselected institution may skip bank selection. A direct-licence customer may remove a consent screen. cVRP exists only in the UK. This is a sparse matrix, not a neat grid.
 
 ---
 
@@ -364,8 +341,7 @@ Embedded login
 Desktop-to-mobile handoff
 Direct handoff after bank selection
 
-**Note.** Which model a user receives depends on their bank and country. The bank experience itself is outside Yapily's control, but Hosted Pages must prepare the user, make the handoff understandable and recover correctly when control returns.
-
+> Speaker notes: Which model a user receives depends on their bank and country. The bank experience itself is outside Yapily's control, but Hosted Pages must prepare the user, make the handoff understandable and recover correctly when control returns.
 
 ---
 
@@ -376,8 +352,7 @@ HOSTED PAGES
 Reference wireflows became backend logic
 Design + Product + Business Analysis + Engineering + market expertise. The artefacts that mattered were wireflows, funnel definitions and journey maps, not isolated screens.
 
-**Note.** I worked with business analysts, PMs and engineers to map payments and data journeys. Bank capability data and market knowledge were translated into conditions the backend could execute. The key design artefacts were reference wireflows, funnel definitions and journey maps rather than isolated screens.
-
+> Speaker notes: I worked with business analysts, PMs and engineers to map payments and data journeys. Bank capability data and market knowledge were translated into conditions the backend could execute. The key design artefacts were reference wireflows, funnel definitions and journey maps rather than isolated screens.
 
 ---
 
@@ -391,10 +366,9 @@ Weak aliases
 Repeated logos
 Poor scale
 A hard-coded popular-bank grid. We explored grids, two columns, search-only and accordions.
-> [image] First-draft Hosted Pages bank selection: a search field reading Search from 1800 banks above a three-by-three grid of mostly empty bank tiles
+[image: First-draft Hosted Pages bank selection: a search field reading Search from 1800 banks above a three-by-three grid of mostly empty bank tiles]
 
-**Note.** The grid was visually prominent but difficult to maintain. Labels did not fit, branch-heavy countries produced repetitive results and search did not reflect how people referred to their bank. We explored grids, two columns, search-only and accordions.
-
+> Speaker notes: The grid was visually prominent but difficult to maintain. Labels did not fit, branch-heavy countries produced repetitive results and search did not reflect how people referred to their bank. We explored grids, two columns, search-only and accordions.
 
 ---
 
@@ -409,10 +383,9 @@ Unmoderated
 Coverage, speed and error rates. Part of ~1,000 end-user sessions, 2023–2026, across ~20 banks.
 Production experiments
 Real traffic and real banks, in percentage rollouts.
-> [image] Seven people around a dark table writing on paper, a laptop showing Task 2 instructions, a Cambridge railway poster on the wall
+[image: Seven people around a dark table writing on paper, a laptop showing Task 2 instructions, a Cambridge railway poster on the wall]
 
-**Note.** Early rounds were often 10 to 15 users in a market. Around 1,000 end-user sessions ran between 2023 and 2026, moderated and unmoderated, testing usability, market coverage and live bank integrations with real people connecting real accounts. Qualitative work discarded weak ideas quickly. Stronger concepts moved into percentage rollouts and live experiments.
-
+> Speaker notes: Early rounds were often 10 to 15 users in a market. Around 1,000 end-user sessions ran between 2023 and 2026, moderated and unmoderated, testing usability, market coverage and live bank integrations with real people connecting real accounts. Qualitative work discarded weak ideas quickly. Stronger concepts moved into percentage rollouts and live experiments.
 
 ---
 
@@ -428,13 +401,12 @@ Better display names
 Aliases and synonyms
 Accent-insensitive search
 Search was the main way people found their bank, taking five to fifteen seconds. Popular-bank testing brought lookup below three seconds in many cases.
-> [image] Bank selection before: a single flat alphabetical list of institutions under a search field
+[image: Bank selection before: a single flat alphabetical list of institutions under a search field]
 BEFORE · FLAT LIST
-> [image] Bank selection after: popular banks grouped at the top of the list, above the remaining institutions
+[image: Bank selection after: popular banks grouped at the top of the list, above the remaining institutions]
 AFTER · POPULAR GROUPED
 
-**Note.** Search was consistently the main way people found their bank and could take five to fifteen seconds. The winning direction was a single-column list supported by better naming and search data. Popular-bank testing brought lookup below three seconds in many cases. Later measurements showed fewer people unable to find a bank, a small rise in successful selection and lower search use.
-
+> Speaker notes: Search was consistently the main way people found their bank and could take five to fifteen seconds. The winning direction was a single-column list supported by better naming and search data. Popular-bank testing brought lookup below three seconds in many cases. Later measurements showed fewer people unable to find a bank, a small rise in successful selection and lower search use.
 
 ---
 
@@ -445,14 +417,13 @@ HOSTED PAGES
 Two optimisations wanted the same space
 FIRST VISIT
 Needs popular banks
-> [image] Bank selection on a first visit, with a recommended group of popular banks at the top
+[image: Bank selection on a first visit, with a recommended group of popular banks at the top]
 RETURNING
 Needs their previous bank
-> [image] Bank selection for a returning user, with their previously used bank promoted into the first slot
+[image: Bank selection for a returning user, with their previously used bank promoted into the first slot]
 The recent bank was promoted into the first slot; popular banks filled the rest. De-duplication stopped the same institution appearing twice.
 
-**Note.** Rather than create two competing sections, the recent bank was promoted into the first slot and popular banks filled the remaining positions. De-duplication prevented the same institution appearing twice.
-
+> Speaker notes: Rather than create two competing sections, the recent bank was promoted into the first slot and popular banks filled the remaining positions. De-duplication prevented the same institution appearing twice.
 
 ---
 
@@ -463,15 +434,14 @@ HOSTED PAGES
 Sometimes the best QR screen is no QR screen
 Remove it
 Where app-to-app coverage is weak, or the bank shows its own competing code.
-> [image] The original QR handoff screen for Monzo, showing a code to scan with little surrounding guidance
+[image: The original QR handoff screen for Monzo, showing a code to scan with little surrounding guidance]
 BEFORE
 Improve it
 Where the handoff genuinely helps — better guidance and layout.
-> [image] The revised QR handoff for Lloyds, with step-by-step guidance beside the code
+[image: The revised QR handoff for Lloyds, with step-by-step guidance beside the code]
 AFTER · GUIDED
 
-**Note.** The original assumption was that mobile bank apps were more usable, so desktop journeys should hand off to a phone. Outside the UK, coverage was inconsistent. Some banks introduced their own QR codes and users faced competing codes. In weak markets we removed the Yapily QR step. In stronger markets we improved the guidance and layout.
-
+> Speaker notes: The original assumption was that mobile bank apps were more usable, so desktop journeys should hand off to a phone. Outside the UK, coverage was inconsistent. Some banks introduced their own QR codes and users faced competing codes. In weak markets we removed the Yapily QR step. In stronger markets we improved the guidance and layout.
 
 ---
 
@@ -485,13 +455,12 @@ Named bank
 Regulated provider
 Customer branding
 Explicit warning
-> [image] Embedded bank login before: plain credential fields with generic security wording
+[image: Embedded bank login before: plain credential fields with generic security wording]
 BEFORE · PLAIN
-> [image] Embedded bank login after: bank-specific fields, the named bank, the regulated provider and an explicit warning about one-time codes
+[image: Embedded bank login after: bank-specific fields, the named bank, the regulated provider and an explicit warning about one-time codes]
 AFTER · TRUST SIGNALS
 
-**Note.** Entering bank credentials into an unfamiliar interface resembles phishing. Generic padlock language was not enough. Testing improved bank-specific field mapping and trust signals. The experience explicitly warns users never to enter a one-time code where it should only be used inside their bank's own experience.
-
+> Speaker notes: Entering bank credentials into an unfamiliar interface resembles phishing. Generic padlock language was not enough. Testing improved bank-specific field mapping and trust signals. The experience explicitly warns users never to enter a one-time code where it should only be used inside their bank's own experience.
 
 ---
 
@@ -502,8 +471,7 @@ HOSTED PAGES
 Design did not always own the fix
 Retry limits were different by bank. Research surfaced the mismatch; Engineering built per-bank mappings.
 
-**Note.** The interface assumed generic retry behaviour. Some banks allowed more credential or SCA attempts than Hosted Pages. Research surfaced the mismatch; Engineering created per-bank mappings. This is a recurring pattern in the case study: research found the user problem, but the solution belonged in platform intelligence.
-
+> Speaker notes: The interface assumed generic retry behaviour. Some banks allowed more credential or SCA attempts than Hosted Pages. Research surfaced the mismatch; Engineering created per-bank mappings. This is a recurring pattern in the case study: research found the user problem, but the solution belonged in platform intelligence.
 
 ---
 
@@ -514,8 +482,7 @@ HOSTED PAGES
 We delayed the release by two sprints
 A commissioned audit found contrast failures, and screen readers announcing raw SVG markup — which left the flow unnavigable by screen reader. We postponed a release to fix both rather than shipping and correcting afterwards.
 
-**Note.** A commissioned accessibility study found insufficient colour contrast in multiple places, and screen readers reading raw SVG markup aloud because alternative text had not been implemented correctly — meaning a screen reader user could not navigate the flow. A release was postponed to fix both rather than shipping and correcting later. I wrote the findings up as a document for the frontend team to work from.
-
+> Speaker notes: A commissioned accessibility study found insufficient colour contrast in multiple places, and screen readers reading raw SVG markup aloud because alternative text had not been implemented correctly — meaning a screen reader user could not navigate the flow. A release was postponed to fix both rather than shipping and correcting later. I wrote the findings up as a document for the frontend team to work from.
 
 ---
 
@@ -529,8 +496,7 @@ Logo and colour
 THE SYSTEM LOCKS
 Interaction, accessibility and compliance
 
-**Note.** Hosted Pages needed its own system because customers theme the surface. Custard exposes a limited, deliberate set of brand controls while locking the elements that protect usability and compliance. It shares foundations where useful but keeps product-specific components separate.
-
+> Speaker notes: Hosted Pages needed its own system because customers theme the surface. Custard exposes a limited, deliberate set of brand controls while locking the elements that protect usability and compliance. It shares foundations where useful but keeps product-specific components separate.
 
 ---
 
@@ -548,8 +514,7 @@ Germany
 Wider Europe
 Reliability was the main launch risk. Visual quality cannot compensate for an unsuccessful bank connection.
 
-**Note.** Prototypes began in late 2022 and early 2023. Alpha and beta work followed, with the first launch around May 2023. Rollout was shaped by the customer pipeline. Reliability was the main launch risk because visual quality cannot compensate for an unsuccessful bank connection.
-
+> Speaker notes: Prototypes began in late 2022 and early 2023. Alpha and beta work followed, with the first launch around May 2023. Rollout was shaped by the customer pipeline. Reliability was the main launch risk because visual quality cannot compensate for an unsuccessful bank connection.
 
 ---
 
@@ -561,11 +526,10 @@ Self-service for most. Guidance for customers who need control.
 Hosted Pages
 UX guidance
 Interactive demos
-> [image] The Yapily demo hub, showing Walldo Wallet and Rocket Shop use-case cards with QR codes and developer-guide links
+[image: The Yapily demo hub, showing Walldo Wallet and Rocket Shop use-case cards with QR codes and developer-guide links]
 THE DEMO HUB — USE CASES AND AGENT GUIDES
 
-**Note.** Enterprise and direct-licence customers still needed help designing their own checkouts, compliance screens, bank lists, authentication and consent dashboards. I worked with Pre-sales and Implementation, designed the documentation and built the first interactive demos. My team continued expanding them.
-
+> Speaker notes: Enterprise and direct-licence customers still needed help designing their own checkouts, compliance screens, bank lists, authentication and consent dashboards. I worked with Pre-sales and Implementation, designed the documentation and built the first interactive demos. My team continued expanding them.
 
 ---
 
@@ -582,8 +546,7 @@ Faster, more reliable bank discovery
 Not all of this was design. Bank coverage, API reliability, frontend and backend work all contributed. Design's clearest contribution was discoverability, handoff guidance, authentication accuracy, trust and accessibility.
 In a separate unmoderated study of 21 testers in Germany including participants with disabilities, 62% preferred the new flow overall, rising to 78% among testers with disabilities.
 
-**Note.** Do not attribute the entire conversion movement to design. Bank coverage, API reliability, frontend and backend work all contributed. Design's clearest contribution was in discoverability, handoff guidance, authentication accuracy, trust and accessibility.
-
+> Speaker notes: Do not attribute the entire conversion movement to design. Bank coverage, API reliability, frontend and backend work all contributed. Design's clearest contribution was in discoverability, handoff guidance, authentication accuracy, trust and accessibility.
 
 ---
 
@@ -594,8 +557,7 @@ HOSTED PAGES — REFLECTION
 I would design for licence flexibility and embeddability earlier.
 One product can hide more than one customer type.
 
-**Note.** The first version was appropriately focused on customers using Yapily's licence. Direct-licence customers later needed more flexibility. The lesson is not to anticipate everything; it is to identify when one surface serves genuinely different customer models before the retrofit becomes expensive.
-
+> Speaker notes: The first version was appropriately focused on customers using Yapily's licence. Direct-licence customers later needed more flexibility. The lesson is not to anticipate everything; it is to identify when one surface serves genuinely different customer models before the retrofit becomes expensive.
 
 ---
 
@@ -606,8 +568,7 @@ Yapily Console
 Turning a sales-led onboarding journey into a self-service platform
 LEAD PRODUCT DESIGNER & DESIGN MANAGER · 2020 — PRESENT · NEW CONSOLE IN BETA
 
-**Note.** Deck 02 — Yapily Console deep dive. Recommended 18 to 20 slides, 35 to 45 minutes.
-
+> Speaker notes: Deck 02 — Yapily Console deep dive. Recommended 18 to 20 slides, 35 to 45 minutes.
 
 ---
 
@@ -618,8 +579,7 @@ CONSOLE
 Nobody asked me to do this
 The Console wasn’t on the roadmap. The first task wasn’t design — it was making the case that a deprioritised internal tool was one of the more expensive things in the business.
 
-**Note.** Nobody asked me to do this. I decided it needed doing. The Console wasn't on the roadmap. The priority was launching integrations in more regions — the growth engine, and what customers asked for in sales conversations. The resistance came from senior management on the platform side, and their objection was fair: Console work takes capacity away from that. So the first task wasn't design. It was making the case, with evidence rather than opinion, that a deprioritised internal tool was one of the more expensive things in the business. Earlier attempts had failed because the case had only ever been made by design, to product. It needed to be made by five functions at once. Senior management made the decision to reprioritise.
-
+> Speaker notes: Nobody asked me to do this. I decided it needed doing. The Console wasn't on the roadmap. The priority was launching integrations in more regions — the growth engine, and what customers asked for in sales conversations. The resistance came from senior management on the platform side, and their objection was fair: Console work takes capacity away from that. So the first task wasn't design. It was making the case, with evidence rather than opinion, that a deprioritised internal tool was one of the more expensive things in the business. Earlier attempts had failed because the case had only ever been made by design, to product. It needed to be made by five functions at once. Senior management made the decision to reprioritise.
 
 ---
 
@@ -630,8 +590,7 @@ CONSOLE
 The goal was not a better dashboard
 It was to remove repeatable human work from the customer journey.
 
-**Note.** Customers could not onboard, enable products, configure Hosted Pages or manage compliance without employees acting on their behalf. The new strategy separates enterprise customers who need support from the majority who should be able to self-serve.
-
+> Speaker notes: Customers could not onboard, enable products, configure Hosted Pages or manage compliance without employees acting on their behalf. The new strategy separates enterprise customers who need support from the majority who should be able to self-serve.
 
 ---
 
@@ -646,17 +605,16 @@ One
 licence model
 One
 application container
-> [image] The 2020 Yapily Dashboard welcome screen
+[image: The 2020 Yapily Dashboard welcome screen]
 2020 · WELCOME
-> [image] The Console certificates table, a long list of certificate rows
+[image: The Console certificates table, a long list of certificate rows]
 CERTIFICATES
-> [image] The 2021 Dashboard quickstart home screen
+[image: The 2021 Dashboard quickstart home screen]
 2021 · QUICKSTART
-> [image] The 2022 Console application settings screen
+[image: The 2022 Console application settings screen]
 2022 · SETTINGS
 
-**Note.** The Dashboard was built for the small number of customers that held their own open banking licence. It was appropriate for that moment but had almost no product analytics, organisational model or onboarding guidance.
-
+> Speaker notes: The Dashboard was built for the small number of customers that held their own open banking licence. It was appropriate for that moment but had almost no product analytics, organisational model or onboarding guidance.
 
 ---
 
@@ -670,8 +628,7 @@ New licence model
 New products
 Thousands of banks
 
-**Note.** Between 2022 and 2025, Yapily migrated major technical foundations and repeatedly rebranded the Console without substantially extending the experience. Legacy Vue packages, a Java backend and missing organisation concepts made changes expensive.
-
+> Speaker notes: Between 2022 and 2025, Yapily migrated major technical foundations and repeatedly rebranded the Console without substantially extending the experience. Legacy Vue packages, a Java backend and missing organisation concepts made changes expensive.
 
 ---
 
@@ -687,8 +644,7 @@ Product
 Engineering
 The product gap presented as a need for more headcount.
 
-**Note.** Employees enabled products, curated institution coverage, managed customisation, explained compliance and moved customers through onboarding. The product gap presented as a need for more headcount.
-
+> Speaker notes: Employees enabled products, curated institution coverage, managed customisation, explained compliance and moved customers through onboarding. The product gap presented as a need for more headcount.
 
 ---
 
@@ -699,8 +655,7 @@ CONSOLE
 Six to twelve months to production
 The journey moved at the speed of whoever had calendar space.
 
-**Note.** Pre-sales, implementation and customer-success reports showed onboarding could take six months or more. Enterprise customers expected support. Smaller customers, roughly 80% of the base, were sitting through a process built for much larger accounts.
-
+> Speaker notes: Pre-sales, implementation and customer-success reports showed onboarding could take six months or more. Enterprise customers expected support. Smaller customers, roughly 80% of the base, were sitting through a process built for much larger accounts.
 
 ---
 
@@ -713,8 +668,7 @@ Customer interviews
 Cross-functional workshop
 Two-day hackathon
 
-**Note.** Earlier attempts had failed because Design raised the problem only with Product. This time Sales, Customer Success, Support, Engineering, Product and Design built a shared account of the journey.
-
+> Speaker notes: Earlier attempts had failed because Design raised the problem only with Product. This time Sales, Customer Success, Support, Engineering, Product and Design built a shared account of the journey.
 
 ---
 
@@ -729,10 +683,9 @@ Sandbox problems
 Confusing IDs
 An undocumented CORS issue
 Two were fixed directly: the CORS problem, and a fuller sandbox that also improved automated testing.
-> [image] A meeting room during the hackathon: one person placing yellow sticky notes on a whiteboard while about ten colleagues watch from a long table with laptops open
+[image: A meeting room during the hackathon: one person placing yellow sticky notes on a whiteboard while about ten colleagues watch from a long table with laptops open]
 
-**Note.** Engineering, PMs, Design and Implementation role-played as a customer. They encountered permissions failures, sandbox problems, confusing IDs and an undocumented CORS issue. Two issues were fixed directly: the CORS problem and a more complete sandbox that also improved automated testing.
-
+> Speaker notes: Engineering, PMs, Design and Implementation role-played as a customer. They encountered permissions failures, sandbox problems, confusing IDs and an undocumented CORS issue. Two issues were fixed directly: the CORS problem and a more complete sandbox that also improved automated testing.
 
 ---
 
@@ -753,8 +706,7 @@ Go live
 →
 Renew
 
-**Note.** I mapped the full journey rather than only the logged-in experience. It included website, documentation, support, sales, compliance, technical onboarding and renewal. The map made visible how many steps were manual and how little continuity existed between channels.
-
+> Speaker notes: I mapped the full journey rather than only the logged-in experience. It included website, documentation, support, sales, compliance, technical onboarding and renewal. The map made visible how many steps were manual and how little continuity existed between channels.
 
 ---
 
@@ -770,8 +722,7 @@ Everyone received the same journey
 03
 Users were invisible across channels
 
-**Note.** The most important finding was not one broken step. The whole system depended on employee availability. Enterprise and smaller customers received the same path despite having different expectations and value.
-
+> Speaker notes: The most important finding was not one broken step. The whole system depended on employee availability. Enterprise and smaller customers received the same path despite having different expectations and value.
 
 ---
 
@@ -785,8 +736,7 @@ Assisted
 MOST CUSTOMERS
 Self-service
 
-**Note.** The design did not try to eliminate human support. It reserved it for customers whose complexity warrants it and moved repeatable work into the product for everyone else.
-
+> Speaker notes: The design did not try to eliminate human support. It reserved it for customers whose complexity warrants it and moved repeatable work into the product for everyone else.
 
 ---
 
@@ -800,8 +750,7 @@ Transparent steps
 Clear status
 A target outcome, not yet a measured adoption result.
 
-**Note.** This is the target outcome, not yet a fully measured adoption result. The new Console is in beta and the remaining rollout risk is mainly around single-tenant environments and technical testing.
-
+> Speaker notes: This is the target outcome, not yet a fully measured adoption result. The new Console is in beta and the remaining rollout risk is mainly around single-tenant environments and technical testing.
 
 ---
 
@@ -816,8 +765,7 @@ Applications
 Institutions
 Settings
 
-**Note.** The old model placed too much inside an application. The new architecture separates company-level concerns — billing, entitlements, teams, jurisdictions and audit — from technical application configuration.
-
+> Speaker notes: The old model placed too much inside an application. The new architecture separates company-level concerns — billing, entitlements, teams, jurisdictions and audit — from technical application configuration.
 
 ---
 
@@ -831,8 +779,7 @@ Regions
 Compliance states
 Each sub-application holds its own compliance status, so one can be live while another is still under review.
 
-**Note.** Sub-applications support both reseller merchants and regional entities. Each can hold its own compliance status, so one may be live while another remains under review. This solved both operational and billing problems created by the original one-application model.
-
+> Speaker notes: Sub-applications support both reseller merchants and regional entities. Each can hold its own compliance status, so one may be live while another remains under review. This solved both operational and billing problems created by the original one-application model.
 
 ---
 
@@ -842,13 +789,12 @@ Each sub-application holds its own compliance status, so one can be live while a
 CONSOLE
 Make the next step self-evident
 A seven-step route instead of a Customer Success explanation.
-> [image] Console home screen welcoming the user, with cards for Applications and Institutions and a How to Get Started guide
+[image: Console home screen welcoming the user, with cards for Applications and Institutions and a How to Get Started guide]
 HOME
-> [image] The Get Started page with tabs for what you can build, how you can build it, get trial app and start your journey, offering data and payment walk-throughs
+[image: The Get Started page with tabs for what you can build, how you can build it, get trial app and start your journey, offering data and payment walk-throughs]
 GET STARTED
 
-**Note.** Testing showed the guided journey reduced ambiguity and the need for external instruction. The flow covers account, organisation, compliance, application setup, product scope and first successful implementation.
-
+> Speaker notes: Testing showed the guided journey reduced ambiguity and the need for external instruction. The flow covers account, organisation, compliance, application setup, product scope and first successful implementation.
 
 ---
 
@@ -862,8 +808,7 @@ Bank performance
 Sessions
 Request IDs
 
-**Note.** Analytics was initially delayed but became essential. Customers need to separate product drop-off from bank reliability, identify specific failed sessions and understand where conversion changes across markets, devices and institutions.
-
+> Speaker notes: Analytics was initially delayed but became essential. Customers need to separate product drop-off from bank reliability, identify specific failed sessions and understand where conversion changes across markets, devices and institutions.
 
 ---
 
@@ -880,8 +825,7 @@ Design
 Support
 CSM
 
-**Note.** Research involved customer roles and internal teams. Tasks included finding banks, setting up applications, regenerating secrets, configuring Hosted Pages, inviting teams and understanding compliance and billing states.
-
+> Speaker notes: Research involved customer roles and internal teams. Tasks included finding banks, setting up applications, regenerating secrets, configuring Hosted Pages, inviting teams and understanding compliance and billing states.
 
 ---
 
@@ -895,8 +839,7 @@ Regenerate secrets instead of silent replacement
 Visible filters
 Clear states and next actions
 
-**Note.** Task testing found people could locate institutions and manage credentials faster and with fewer errors. These improvements were supported by the new design system rather than created as isolated page-specific patterns.
-
+> Speaker notes: Task testing found people could locate institutions and manage credentials faster and with fewer errors. These improvements were supported by the new design system rather than created as isolated page-specific patterns.
 
 ---
 
@@ -911,8 +854,7 @@ Analytics
 Permissions
 Compliance states
 
-**Note.** Yapily UI evolved from the first shared component work in 2020 into a React and Storybook system used across customer products and roughly twenty internal tools. I owned the original system, accessibility guidance and governance, then delegated maintenance to a product designer.
-
+> Speaker notes: Yapily UI evolved from the first shared component work in 2020 into a React and Storybook system used across customer products and roughly twenty internal tools. I owned the original system, accessibility guidance and governance, then delegated maintenance to a product designer.
 
 ---
 
@@ -933,8 +875,7 @@ Approval
 →
 Adoption
 
-**Note.** Anyone could propose a component. The proposal had to be tested for usability and accessibility and documented with use and non-use cases before review. Frontend joined early so implementation cost surfaced while the design was still inexpensive to change.
-
+> Speaker notes: Anyone could propose a component. The proposal had to be tested for usability and accessibility and documented with use and non-use cases before review. Frontend joined early so implementation cost surfaced while the design was still inexpensive to change.
 
 ---
 
@@ -945,8 +886,7 @@ CONSOLE
 The configurator proves the model
 A customer task replaced a support ticket and an engineering task.
 
-**Note.** Hosted Pages customisation previously required Support and Engineering on every request. The self-service configurator moved this into the Console, and those repetitive requests stopped. Sub-applications, webhooks and other pieces also shipped before the full beta.
-
+> Speaker notes: Hosted Pages customisation previously required Support and Engineering on every request. The self-service configurator moved this into the Console, and those repetitive requests stopped. Sub-applications, webhooks and other pieces also shipped before the full beta.
 
 ---
 
@@ -960,8 +900,7 @@ Smaller compliance backlog
 Reduced operational dependency
 Exact support, backlog and setup figures are confidential.
 
-**Note.** Exact support, backlog and setup figures are confidential. The public case study should state the direction and the product mechanism without exposing internal volumes.
-
+> Speaker notes: Exact support, backlog and setup figures are confidential. The public case study should state the direction and the product mechanism without exposing internal volumes.
 
 ---
 
@@ -972,8 +911,7 @@ CONSOLE — REFLECTION
 Ask cardinality questions early.
 Can there be more than one licence, organisation, merchant, region or behaviour?
 
-**Note.** The recurring mistake was assuming the singular case. The lesson is not to design infinite flexibility. It is to identify the dimensions where multiple models are plausible before the architecture hardens around one.
-
+> Speaker notes: The recurring mistake was assuming the singular case. The lesson is not to design infinite flexibility. It is to identify the dimensions where multiple models are plausible before the architecture hardens around one.
 
 ---
 
@@ -984,8 +922,7 @@ HeadBox — turning a marketplace the right way round
 Research changed the business model, not just the interface
 LEAD PRODUCT DESIGNER · 2018 — 2019 · LONDON
 
-**Note.** Deck 03 — HeadBox deep dive. Recommended 18 to 20 slides, 35 to 45 minutes.
-
+> Speaker notes: Deck 03 — HeadBox deep dive. Recommended 18 to 20 slides, 35 to 45 minutes.
 
 ---
 
@@ -1000,10 +937,9 @@ paying customers
 prior annual revenue
 1,500+
 enquiries in month one
-> [image] The HeadBox Lead Feed: a filter bar reading Weekday events, shows 85 of 200 leads, above rows of event enquiries with location, budget, guest count, timings and an I'm available button on each
+[image: The HeadBox Lead Feed: a filter bar reading Weekday events, shows 85 of 200 leads, above rows of event enquiries with location, budget, guest count, timings and an I'm available button on each]
 
-**Note.** 117 paying customers, four times the prior annual revenue, and more than 1,500 enquiries in the first month.
-
+> Speaker notes: 117 paying customers, four times the prior annual revenue, and more than 1,500 enquiries in the first month.
 
 ---
 
@@ -1014,8 +950,7 @@ HEADBOX
 The brief was to improve conversion
 It assumed the marketplace needed to work harder. The research said the shape was wrong. What I proposed was inverting who does the difficult part — and the company changed its revenue model as a consequence.
 
-**Note.** This isn't only a Yapily pattern. At HeadBox in 2019 I was asked to improve conversion on a two-sided marketplace where one in ten searches turned into anything. The brief assumed the marketplace needed to work harder. The research said the shape was wrong: guests who plan one event a year were making expert decisions, while hosts who do it daily were handed a queue they couldn't act on. What I proposed was inverting who does the difficult part. The company changed its revenue model as a consequence — £150,228 ARR from 117 paying venues in three months, four times the prior model. The wizard is still their front door in 2026.
-
+> Speaker notes: This isn't only a Yapily pattern. At HeadBox in 2019 I was asked to improve conversion on a two-sided marketplace where one in ten searches turned into anything. The brief assumed the marketplace needed to work harder. The research said the shape was wrong: guests who plan one event a year were making expert decisions, while hosts who do it daily were handed a queue they couldn't act on. What I proposed was inverting who does the difficult part. The company changed its revenue model as a consequence — £150,228 ARR from 117 paying venues in three months, four times the prior model. The wizard is still their front door in 2026.
 
 ---
 
@@ -1027,8 +962,7 @@ An events agency with a digital marketplace
 Guests sent briefs to venues
 Account managers supported corporate customers
 
-**Note.** The proposition appeared simple, but the digital product and the operating model were disconnected. The marketplace served self-service customers while the company still relied heavily on manual matching and concierge support.
-
+> Speaker notes: The proposition appeared simple, but the digital product and the operating model were disconnected. The marketplace served self-service customers while the company still relied heavily on manual matching and concierge support.
 
 ---
 
@@ -1041,10 +975,9 @@ Product decisions were separated from customer evidence
 marketplace conversion
 90%
 left before sending an enquiry
-> [image] OLD and NEW model diagram. Old: a 90% path of search, browse, browse ending in Disappear, and a 10% path ending in Send the brief and a skull. New: people send brief, pool of briefs, venues handpick briefs from the pool
+[image: OLD and NEW model diagram. Old: a 90% path of search, browse, browse ending in Disappear, and a 10% path ending in Send the brief and a skull. New: people send brief, pool of briefs, venues handpick briefs from the pool]
 
-**Note.** A previous Head of Product and freelance designer had defined the experience and handed detailed specifications to a remote development agency. The result was a marketplace converting at around 10%, 90% of users leaving before the first main call to action and a CRM venues did not want to use.
-
+> Speaker notes: A previous Head of Product and freelance designer had defined the experience and handed detailed specifications to a remote development agency. The result was a marketplace converting at around 10%, 90% of users leaving before the first main call to action and a CRM venues did not want to use.
 
 ---
 
@@ -1058,10 +991,9 @@ Who is it for?
 What evidence do we have?
 Is this the priority?
 Nobody could answer any of them. The first task became building understanding.
-> [image] The 2019 HeadBox search page: fields for What type of Spaces, Location, Collection, Dates, Budget range, Price type, Slot, Guests and Facilities, a red SEARCH button, and a map of London on the right
+[image: The 2019 HeadBox search page: fields for What type of Spaces, Location, Collection, Dates, Budget range, Price type, Slot, Guests and Facilities, a red SEARCH button, and a map of London on the right]
 
-**Note.** The task exposed that the team could not explain the user, the problem, the data or the relationship to the rest of the system. My confidence in making a useful design decision was close to zero, so the first task became building understanding.
-
+> Speaker notes: The task exposed that the team could not explain the user, the problem, the data or the relationship to the rest of the system. My confidence in making a useful design decision was close to zero, so the first task became building understanding.
 
 ---
 
@@ -1079,10 +1011,9 @@ Support analysis
 Message analysis
 Competitor review
 Existing data, in one place
-> [image] Guest persona slide for Bill, a B2C booker in his late twenties planning his wedding, with bio, behaviours, goals and pains listed alongside his photograph
+[image: Guest persona slide for Bill, a B2C booker in his late twenties planning his wedding, with bio, behaviours, goals and pains listed alongside his photograph]
 
-**Note.** I ran three rounds of interviews with 45 customers and non-customers, observed the existing journey, analysed support and chat, reviewed thousands of messages between guests and venues, mapped flows and brought existing data into one place.
-
+> Speaker notes: I ran three rounds of interviews with 45 customers and non-customers, observed the existing journey, analysed support and chat, reviewed thousands of messages between guests and venues, mapped flows and brought existing data into one place.
 
 ---
 
@@ -1094,13 +1025,12 @@ A report was not enough for a sales-heavy company
 Weekly “bad news” email
 Open interviews and workshops
 Funny synthesis videos
-> [image] Three people around a laptop in an office, running a user interview
-> [image] An interview in a white-linen event venue, a participant looking at the Enquiry Hub on a laptop
-> [image] Two people arranging sticky notes on large yellow boards during host research synthesis
-> [image] A dozen colleagues sitting in a circle sketching on paper during a workshop in a room marked Innovation Think Tank
+[image: Three people around a laptop in an office, running a user interview]
+[image: An interview in a white-linen event venue, a participant looking at the Enquiry Hub on a laptop]
+[image: Two people arranging sticky notes on large yellow boards during host research synthesis]
+[image: A dozen colleagues sitting in a circle sketching on paper during a workshop in a room marked Innovation Think Tank]
 
-**Note.** Research initially struggled for attention. I used a light tone to communicate difficult evidence, invited colleagues into interviews and turned synthesis into memorable videos. The objective was shared understanding, not a Design repository nobody opened.
-
+> Speaker notes: Research initially struggled for attention. I used a light tone to communicate difficult evidence, invited colleagues into interviews and turned synthesis into memorable videos. The objective was shared understanding, not a Design repository nobody opened.
 
 ---
 
@@ -1109,7 +1039,7 @@ Funny synthesis videos
 65 ·
 HEADBOX
 Both sides were failing for opposite reasons
-> [image] Harriet's emotional journey searching for an off-site venue: starting level at the landing page, then falling through confused about type of space, all spaces look corporate and boring, cannot find the breakout spaces on the pics, do I have to sign up just for an enquiry, ending at we lost Harriet
+[image: Harriet's emotional journey searching for an off-site venue: starting level at the landing page, then falling through confused about type of space, all spaces look corporate and boring, cannot find the breakout spaces on the pics, do I have to sign up just for an enquiry, ending at we lost Harriet]
 GUESTS
 Overwhelmed and inexperienced
 Most plan one event a year. They did not know what type to choose or what it should cost.
@@ -1117,8 +1047,7 @@ VENUES
 Too much irrelevant, fragmented demand
 They wanted more events, not spam, and were managing enquiries across platforms and email.
 
-**Note.** Guests often plan one event a year. They did not know what venue type to choose, what things should cost or which requirements mattered. Venues wanted more events but did not want spam and were managing enquiries across multiple platforms and email threads.
-
+> Speaker notes: Guests often plan one event a year. They did not know what venue type to choose, what things should cost or which requirements mattered. Venues wanted more events but did not want spam and were managing enquiries across multiple platforms and email threads.
 
 ---
 
@@ -1132,10 +1061,9 @@ Spreadsheets
 Slides
 Chasing
 One booking, mapped message by message. A guest and a venue exchanging enquiries, proposals, a cancellation, a re-booking and repeated reminders about tea and coffee, with HeadBox support stepping in to chase on their behalf.
-> [image] A tall purple flowchart tracing every message between a guest and a venue for a single booking, from enquiry through proposal, cancellation and re-booking to repeated reminders about tea and coffee
+[image: A tall purple flowchart tracing every message between a guest and a venue for a single booking, from enquiry through proposal, cancellation and re-booking to repeated reminders about tea and coffee]
 
-**Note.** The operating model could support a small number of large corporate accounts, but not the many smaller customers generating most of the volume. Manual work was compensating for product limitations.
-
+> Speaker notes: The operating model could support a small number of large corporate accounts, but not the many smaller customers generating most of the volume. Manual work was compensating for product limitations.
 
 ---
 
@@ -1147,8 +1075,7 @@ The expertise was on the wrong side.
 Non-experts were choosing venues
 Experts were waiting to be chosen
 
-**Note.** Non-experts were choosing venues while experts waited to be chosen.
-
+> Speaker notes: Non-experts were choosing venues while experts waited to be chosen.
 
 ---
 
@@ -1165,8 +1092,7 @@ Venue selection
 →
 Conversation
 
-**Note.** The new flow allowed guests to describe the event in familiar terms. The brief entered a central feed and venues chose the opportunities that suited them. This reduced guest overload and gave venues control over relevance.
-
+> Speaker notes: The new flow allowed guests to describe the event in familiar terms. The brief entered a central feed and venues chose the opportunities that suited them. This reduced guest overload and gave venues control over relevance.
 
 ---
 
@@ -1182,8 +1108,7 @@ venues
 confirmed events
 It proved venues were better at matching, and that they would pay for access, before we built anything.
 
-**Note.** We exported recent enquiries, filtered them and showed them to venues. Hosts called matched guests. Eighteen of twenty events became confirmed bookings. The experiment proved venues were better at matching and were interested in paying for access before we built the product.
-
+> Speaker notes: We exported recent enquiries, filtered them and showed them to venues. Hosts called matched guests. Eighteen of twenty events became confirmed bookings. The experiment proved venues were better at matching and were interested in paying for access before we built the product.
 
 ---
 
@@ -1198,8 +1123,7 @@ venues
 guests
 Coded prototypes
 
-**Note.** The concept evolved through fuller venue and guest prototypes. Testing changed the number and order of steps, the location-radius interaction and the amount of detail requested.
-
+> Speaker notes: The concept evolved through fuller venue and guest prototypes. Testing changed the number and order of steps, the location-radius interaction and the amount of detail requested.
 
 ---
 
@@ -1218,8 +1142,7 @@ Facilities
 Timing
 Brief completion improved directionally from roughly 50% to around 75% after simplification. Personal details moved later, once the product had helped clarify the event.
 
-**Note.** The guest should provide enough information for a venue to act, but no more than they can confidently answer. Personal details appear later, after the product has helped clarify the event. The brief completion rate improved directionally from roughly 50% to around 75% after simplification.
-
+> Speaker notes: The guest should provide enough information for a venue to act, but no more than they can confidently answer. Personal details appear later, after the product has helped clarify the event. The brief completion rate improved directionally from roughly 50% to around 75% after simplification.
 
 ---
 
@@ -1233,8 +1156,7 @@ A reason to return
 HIGH VOLUME
 One central place to manage demand
 
-**Note.** Underperforming venues stopped logging in because they saw too little activity. Multi-venue operators lost enquiries across emails and properties. Lead Feed attracted the first group with opportunity and helped the second organise it.
-
+> Speaker notes: Underperforming venues stopped logging in because they saw too little activity. Multi-venue operators lost enquiries across emails and properties. Lead Feed attracted the first group with opportunity and helped the second organise it.
 
 ---
 
@@ -1247,8 +1169,7 @@ Potential booking value
 Relevant enquiry volume
 Response behaviour
 
-**Note.** Hosts wanted the potential value of a brief and metrics that encouraged faster responses. Email nudges brought users back into the product, where they logged in to read and continue conversations.
-
+> Speaker notes: Hosts wanted the potential value of a brief and metrics that encouraged faster responses. Email nudges brought users back into the product, where they logged in to read and continue conversations.
 
 ---
 
@@ -1258,10 +1179,9 @@ Response behaviour
 HEADBOX
 Self-service did not replace expert service
 High-value corporate events, some worth £1–2 million, were filtered out and routed to account managers.
-> [image] Histogram of booking values: a tall cluster of low-value bookings on the left inside an orange dashed box annotated we want to no-touch these, and a long flat tail to the right annotated to enable account managers to deliver these
+[image: Histogram of booking values: a tall cluster of low-value bookings on the left inside an orange dashed box annotated we want to no-touch these, and a long flat tail to the right annotated to enable account managers to deliver these]
 
-**Note.** Very large events could be worth around one to two million pounds. They were filtered and handled manually by account managers. Designing this route from the beginning reduced launch risk and avoided applying one model to every customer.
-
+> Speaker notes: Very large events could be worth around one to two million pounds. They were filtered and handled manually by account managers. Designing this route from the beginning reduced launch risk and avoided applying one model to every customer.
 
 ---
 
@@ -1275,14 +1195,13 @@ Briefs viewed
 Unlocked leads
 Responses
 Confirmed bookings
-> [image] Funnel dashboard showing opt-in, host match and guest match columns with value entered, volume of enquiries, percentage responded to and average responses per enquiry
+[image: Funnel dashboard showing opt-in, host match and guest match columns with value entered, volume of enquiries, percentage responded to and average responses per enquiry]
 FUNNEL AND HOST ENGAGEMENT
-> [image] Matches Admin table listing recent enquiries with created date, event info, location, budget, message count, guest details and status
+[image: Matches Admin table listing recent enquiries with created date, event info, location, budget, message count, guest details and status]
 MATCHES ADMIN
 A data analyst later supported matching models. I was not involved in creating those models.
 
-**Note.** Before this, much of the data was manually collected by Marketing. Account-level funnels helped us find who to interview and where the product was losing users. A data analyst later supported matching models; I was not involved in creating those models.
-
+> Speaker notes: Before this, much of the data was manually collected by Marketing. Account-level funnels helped us find who to interview and where the product was losing users. A data analyst later supported matching models; I was not involved in creating those models.
 
 ---
 
@@ -1293,8 +1212,7 @@ HEADBOX
 Predictable access revenue, with commission on confirmed bookings
 117 × £1,284 annual subscription = £150,228 ARR
 
-**Note.** Venues paid a subscription to access Lead Feed, with commission retained on confirmed bookings. The product shifted the business toward scalable, repeatable revenue while maintaining value from completed events.
-
+> Speaker notes: Venues paid a subscription to access Lead Feed, with commission retained on confirmed bookings. The product shifted the business toward scalable, repeatable revenue while maintaining value from completed events.
 
 ---
 
@@ -1305,8 +1223,7 @@ HEADBOX
 Approximately 90% of the original structure remains.
 Small refinements, not a fundamental redesign. The model has stayed useful for around seven years.
 
-**Note.** The current product remains close to the flow and structure I designed. This is stronger evidence than visual similarity alone: the underlying model has remained useful for around seven years.
-
+> Speaker notes: The current product remains close to the flow and structure I designed. This is stronger evidence than visual similarity alone: the underlying model has remained useful for around seven years.
 
 ---
 
@@ -1324,8 +1241,7 @@ Analytics reviews
 Workshops
 The core new-products squad was a PM, an engineer and me.
 
-**Note.** The core new-products squad was a PM, an engineer and me. I designed the initial prototypes and first production experience, established research and design-system practices, led workshops and reviewed analytics weekly. A separate team maintained current products.
-
+> Speaker notes: The core new-products squad was a PM, an engineer and me. I designed the initial prototypes and first production experience, established research and design-system practices, led workshops and reviewed analytics weekly. A separate team maintained current products.
 
 ---
 
@@ -1339,8 +1255,7 @@ It stops a product gap becoming a headcount requirement.
 Precise analytics are necessary
 Research explains behaviour; analytics measures where it happens.
 
-**Note.** Both HeadBox and Yapily focused heavily on large enterprise accounts while smaller customers represented roughly 80% of volume. Self-service prevents a product gap becoming a headcount requirement. Research explains behaviour; analytics measures where it happens and whether the solution works.
-
+> Speaker notes: Both HeadBox and Yapily focused heavily on large enterprise accounts while smaller customers represented roughly 80% of volume. Self-service prevents a product gap becoming a headcount requirement. Research explains behaviour; analytics measures where it happens and whether the solution works.
 
 ---
 
@@ -1351,8 +1266,7 @@ Yapily Brand & Website
 Making an evolving company easier to understand and harder to confuse with competitors
 CREATIVE DIRECTION · CONCEPTS · AGENCY MANAGEMENT · SYSTEM GOVERNANCE
 
-**Note.** Deck 04 — Yapily Brand and Website deep dive. Recommended 10 to 12 slides, 20 to 25 minutes.
-
+> Speaker notes: Deck 04 — Yapily Brand and Website deep dive. Recommended 10 to 12 slides, 20 to 25 minutes.
 
 ---
 
@@ -1370,15 +1284,14 @@ Open banking infrastructure
 Open finance
 →
 Open banking platform for frictionless finance
-> [image] Yapily website in 2020: black headline reading Open Banking API connectivity beside a yellow block with floating spheres
+[image: Yapily website in 2020: black headline reading Open Banking API connectivity beside a yellow block with floating spheres]
 2020 — 2021 · Open Banking API connectivity
-> [image] Yapily website in 2023: dark green hero reading Power your product innovation with open banking, over a mint green statistics band
+[image: Yapily website in 2023: dark green hero reading Power your product innovation with open banking, over a mint green statistics band]
 2023 — 2024 · Power your product innovation
-> [image] Yapily website in 2025: dark green hero reading Open banking platform for frictionless finance, with a row of customer logos beneath
+[image: Yapily website in 2025: dark green hero reading Open banking platform for frictionless finance, with a row of customer logos beneath]
 2025 — 2026 · Platform for frictionless finance
 
-**Note.** The company changed its explanation several times as it grew.
-
+> Speaker notes: The company changed its explanation several times as it grew.
 
 ---
 
@@ -1391,8 +1304,7 @@ Similar language
 Similar layouts
 Unclear product differences
 
-**Note.** Competitor analysis showed a category that had converged visually and verbally. It was difficult to tell providers apart or understand what each company actually sold.
-
+> Speaker notes: Competitor analysis showed a category that had converged visually and verbally. It was difficult to tell providers apart or understand what each company actually sold.
 
 ---
 
@@ -1403,8 +1315,7 @@ BRAND & WEBSITE
 Customers needed to understand the offering, not only the mission
 Dedicated product sections clarified what Yapily provided, and how platform, Hosted Pages, data and payments related to each other.
 
-**Note.** As Yapily moved beyond an API-only narrative, the website needed distinct product pages and a clearer relationship between platform, Hosted Pages, data and payment capabilities.
-
+> Speaker notes: As Yapily moved beyond an API-only narrative, the website needed distinct product pages and a clearer relationship between platform, Hosted Pages, data and payment capabilities.
 
 ---
 
@@ -1418,8 +1329,7 @@ Sales
 Senior leadership
 Competitor analysis
 
-**Note.** Workshops created shared direction. The website then translated the position into navigation, product architecture, page structure and visual expression.
-
+> Speaker notes: Workshops created shared direction. The website then translated the position into navigation, product architecture, page structure and visual expression.
 
 ---
 
@@ -1436,8 +1346,7 @@ System governance
 Collateral
 Agencies completed the final visual designs.
 
-**Note.** Agencies completed the final visual designs. I provided creative direction, designed the first concepts and wireframes, managed agency relationships, worked with the frontend team and oversaw the design and component system.
-
+> Speaker notes: Agencies completed the final visual designs. I provided creative direction, designed the first concepts and wireframes, managed agency relationships, worked with the frontend team and oversaw the design and component system.
 
 ---
 
@@ -1452,8 +1361,7 @@ Campaign visuals
 Animation
 Kept separate from the dense product tools and the white-label Hosted Pages system, so Marketing could move at its own pace.
 
-**Note.** Mark remained separate from the dense product tools and white-label Hosted Pages system. It shared foundations where useful but allowed Marketing to move at a different pace without pushing campaign decisions into customer software.
-
+> Speaker notes: Mark remained separate from the dense product tools and white-label Hosted Pages system. It shared foundations where useful but allowed Marketing to move at a different pace without pushing campaign decisions into customer software.
 
 ---
 
@@ -1470,8 +1378,7 @@ Ebooks
 Demos
 Sales collateral
 
-**Note.** The work extended beyond a homepage redesign. It shaped how Yapily presented products and customer evidence across the entire go-to-market journey.
-
+> Speaker notes: The work extended beyond a homepage redesign. It shaped how Yapily presented products and customer evidence across the entire go-to-market journey.
 
 ---
 
@@ -1482,8 +1389,7 @@ BRAND & WEBSITE
 The old CMS was expensive and difficult to operate
 Migration improved publishing speed across thousands of links, landing pages and blog posts, and gave Marketing more independence.
 
-**Note.** The migration improved ease of use and publishing speed across thousands of links, landing pages and blog posts, giving Marketing more independence.
-
+> Speaker notes: The migration improved ease of use and publishing speed across thousands of links, landing pages and blog posts, giving Marketing more independence.
 
 ---
 
@@ -1494,8 +1400,7 @@ BRAND & WEBSITE
 Clearer products, stronger differentiation, faster publishing
 Commercial pipeline evidence is confidential.
 
-**Note.** Do not publish customer-pipeline or enquiry figures. Safe claims are improved customer understanding, stronger category differentiation, easier publishing and a maintainable component-led system.
-
+> Speaker notes: Do not publish customer-pipeline or enquiry figures. Safe claims are improved customer understanding, stronger category differentiation, easier publishing and a maintainable component-led system.
 
 ---
 
@@ -1506,8 +1411,7 @@ BRAND & WEBSITE — REFLECTION
 A website cannot fix unclear positioning, but it exposes it.
 The information architecture became a strategic tool, not only a publishing structure.
 
-**Note.** The most valuable design work was forcing clarity about what Yapily offered and how the products related. The information architecture became a strategic tool rather than only a publishing structure.
-
+> Speaker notes: The most valuable design work was forcing clarity about what Yapily offered and how the products related. The information architecture became a strategic tool rather than only a publishing structure.
 
 ---
 
@@ -1517,8 +1421,7 @@ APPENDIX A
 Research practice
 Use inside Hosted Pages and Console rather than as a standalone case study.
 
-**Note.** Appendix A — Research practice. Use these slides inside Hosted Pages and Console. Do not present Research Practice as a standalone main case study unless an interviewer specifically asks about Research Operations.
-
+> Speaker notes: Appendix A — Research practice. Use these slides inside Hosted Pages and Console. Do not present Research Practice as a standalone main case study unless an interviewer specifically asks about Research Operations.
 
 ---
 
@@ -1529,8 +1432,7 @@ APPENDIX A — RESEARCH
 Yapily had no dedicated research function
 Research had to be continuous, lightweight and understandable outside Design.
 
-**Note.** Before I joined, product decisions were largely based on internal assumptions. I started customer interviews, introduced usability testing for the Console and documentation, and helped reframe negative feedback as prioritisation evidence rather than criticism.
-
+> Speaker notes: Before I joined, product decisions were largely based on internal assumptions. I started customer interviews, introduced usability testing for the Console and documentation, and helped reframe negative feedback as prioritisation evidence rather than criticism.
 
 ---
 
@@ -1543,8 +1445,7 @@ Monthly customer conversations
 Direct Slack feedback
 Targeted studies
 
-**Note.** I ran regular customer sessions from 2020 onward, with PMs and engineers involved. Formal interviews were supported by customer Slack channels and feedback gathered through Documentation and Console touchpoints.
-
+> Speaker notes: I ran regular customer sessions from 2020 onward, with PMs and engineers involved. Formal interviews were supported by customer Slack channels and feedback gathered through Documentation and Console touchpoints.
 
 ---
 
@@ -1558,8 +1459,7 @@ Businesses integrating the platform
 THE END USER
 Consumers connecting their bank
 
-**Note.** Customer interviews explained implementation pain. They could not explain why a consumer abandoned a QR handoff or distrusted an embedded login. Hosted Pages therefore needed direct end-user research across markets.
-
+> Speaker notes: Customer interviews explained implementation pain. They could not explain why a consumer abandoned a QR handoff or distrusted an embedded login. Hosted Pages therefore needed direct end-user research across markets.
 
 ---
 
@@ -1573,8 +1473,7 @@ Moderated research
 Unmoderated scale
 Production experiments
 
-**Note.** Internal testing was appropriate when employees matched the target role, such as engineers testing technical documentation. Moderated work explored reasoning. Unmoderated studies measured task time and error rates at scale. Production experiments tested live behaviour.
-
+> Speaker notes: Internal testing was appropriate when employees matched the target role, such as engineers testing technical documentation. Moderated work explored reasoning. Unmoderated studies measured task time and error rates at scale. Production experiments tested live behaviour.
 
 ---
 
@@ -1590,8 +1489,7 @@ Mixed or incomplete evidence
 Stop
 No effect, negative effect or changed context
 
-**Note.** Primary metrics and guardrails were reviewed together. A positive trend without enough certainty led to iteration rather than an inflated success claim. A full sample with no effect was a reason to stop.
-
+> Speaker notes: Primary metrics and guardrails were reviewed together. A positive trend without enough certainty led to iteration rather than an inflated success claim. A full sample with no effect was a reason to stop.
 
 ---
 
@@ -1610,8 +1508,7 @@ Decision
 →
 Next step
 
-**Note.** I presented experiment results in team meetings and shared short videos or quotes when they made the behaviour tangible. As the team grew, external research providers and designers on my team ran more of the studies while I retained direction and review.
-
+> Speaker notes: I presented experiment results in team meetings and shared short videos or quotes when they made the behaviour tangible. As the team grew, external research providers and designers on my team ran more of the studies while I retained direction and review.
 
 ---
 
@@ -1622,8 +1519,7 @@ APPENDIX A — RESEARCH
 More feedback is not automatically better
 An embedded documentation chat produced more volume than the team could manage. Collection without triage creates noise.
 
-**Note.** The lesson was that collection without triage creates noise. We used colour-coded spreadsheets, boards and cross-functional prioritisation so repeated issues became weighted themes rather than a list of loud individual requests.
-
+> Speaker notes: The lesson was that collection without triage creates noise. We used colour-coded spreadsheets, boards and cross-functional prioritisation so repeated issues became weighted themes rather than a list of loud individual requests.
 
 ---
 
@@ -1633,8 +1529,7 @@ An embedded documentation chat produced more volume than the team could manage. 
 APPENDIX A — RESEARCH
 I would establish a central repository and dedicated research support earlier.
 
-**Note.** The main constraint was context switching. A dedicated researcher and a central, scalable evidence repository would have increased consistency and reduced duplicated synthesis work.
-
+> Speaker notes: The main constraint was context switching. A dedicated researcher and a central, scalable evidence repository would have increased consistency and reduced duplicated synthesis work.
 
 ---
 
@@ -1644,8 +1539,7 @@ APPENDIX B
 Design systems
 Custard into Hosted Pages, Yapily UI into Console, Mark into Brand & Website.
 
-**Note.** Appendix B — Design systems. Integrate Custard into Hosted Pages, Yapily UI into Console and Mark into Brand and Website.
-
+> Speaker notes: Appendix B — Design systems. Integrate Custard into Hosted Pages, Yapily UI into Console and Mark into Brand and Website.
 
 ---
 
@@ -1659,8 +1553,7 @@ Speed
 Accessibility
 Maintainability
 
-**Note.** When I joined, customer and internal tools had been built independently in Vaadin and Java, often with inline styles and little reuse. The systems evolved as frontend capability and the company brand changed.
-
+> Speaker notes: When I joined, customer and internal tools had been built independently in Vaadin and Java, often with inline styles and little reuse. The systems evolved as frontend capability and the company brand changed.
 
 ---
 
@@ -1680,8 +1573,7 @@ React, Storybook and shared tokens
 2026
 Markdown and AI-assisted workflows
 
-**Note.** From disconnected interfaces to shared foundations, across six years.
-
+> Speaker notes: From disconnected interfaces to shared foundations, across six years.
 
 ---
 
@@ -1697,8 +1589,7 @@ Dense customer and internal tools. Tables and filters.
 Mark
 Expressive marketing website. Typography, campaigns, motion.
 
-**Note.** The systems share foundations only where the overlap is genuine. Custard must remain neutral and configurable. Yapily UI needs dense tables and filters. Mark needs large typography, campaigns and motion.
-
+> Speaker notes: The systems share foundations only where the overlap is genuine. Custard must remain neutral and configurable. Yapily UI needs dense tables and filters. Mark needs large typography, campaigns and motion.
 
 ---
 
@@ -1711,8 +1602,7 @@ Common problem
 Stable definition
 Lower shared upkeep than duplication
 
-**Note.** Shared tokens included foundational colour, type and spacing where appropriate. Product-specific gradients, grey scales, layouts and QR components remained separate.
-
+> Speaker notes: Shared tokens included foundational colour, type and spacing where appropriate. Product-specific gradients, grey scales, layouts and QR components remained separate.
 
 ---
 
@@ -1727,8 +1617,7 @@ Focus
 Screen-reader behaviour
 An external provider identified approximately 94 changes across code, contrast and focus behaviour.
 
-**Note.** An external provider identified approximately 94 changes across code, contrast and focus behaviour. I ran accessibility workshops and treated accessibility as part of component quality rather than a final review stage.
-
+> Speaker notes: An external provider identified approximately 94 changes across code, contrast and focus behaviour. I ran accessibility workshops and treated accessibility as part of component quality rather than a final review stage.
 
 ---
 
@@ -1746,8 +1635,7 @@ components
 50+
 website templates in under two months
 
-**Note.** The component set grew from roughly 32 to 46 components. The new beta Console frontend was designed and built rapidly because the system and team foundations already existed. The 2025 website rebuild produced more than 50 templates in under two months.
-
+> Speaker notes: The component set grew from roughly 32 to 46 components. The new beta Console frontend was designed and built rapidly because the system and team foundations already existed. The 2025 website rebuild produced more than 50 templates in under two months.
 
 ---
 
@@ -1762,8 +1650,7 @@ Markdown instructions
 Design/code contracts
 Too new to claim quantified maintenance savings.
 
-**Note.** Manual Figma-to-code updates were slow. The newer workflow documents tokens, component rules and accessibility expectations in Markdown for AI-assisted design and coding, supported by design-system contract experiments. It is too new to claim quantified maintenance savings.
-
+> Speaker notes: Manual Figma-to-code updates were slow. The newer workflow documents tokens, component rules and accessibility expectations in Markdown for AI-assisted design and coding, supported by design-system contract experiments. It is too new to claim quantified maintenance savings.
 
 ---
 
@@ -1777,8 +1664,7 @@ Migration paths
 Human changelogs
 Synchronised Figma and code releases
 
-**Note.** The team never formalised these processes enough. I would add explicit breaking-change decisions, deprecation periods and release notes pushed into the channels teams actually read.
-
+> Speaker notes: The team never formalised these processes enough. I would add explicit breaking-change decisions, deprecation periods and release notes pushed into the channels teams actually read.
 
 ---
 
@@ -1788,8 +1674,7 @@ APPENDIX C
 Open banking UX guidance and demos
 Supporting material for the Hosted Pages deck.
 
-**Note.** Appendix C — Open banking UX guidance and demos. Use as supporting material in the Hosted Pages deck.
-
+> Speaker notes: Appendix C — Open banking UX guidance and demos. Use as supporting material in the Hosted Pages deck.
 
 ---
 
@@ -1804,8 +1689,7 @@ Authentication
 Bank selection
 Consent management
 
-**Note.** Direct-licence and enterprise customers sometimes needed more control than Hosted Pages. Poor customer-built journeys affected both their conversion and Yapily's platform outcomes.
-
+> Speaker notes: Direct-licence and enterprise customers sometimes needed more control than Hosted Pages. Poor customer-built journeys affected both their conversion and Yapily's platform outcomes.
 
 ---
 
@@ -1816,8 +1700,7 @@ APPENDIX C — GUIDANCE
 Documentation and interactive demos, designed from scratch
 Built with Pre-sales and Implementation, then expanded by my team. We reviewed customer implementations together before launch.
 
-**Note.** I designed the original documentation and interactive demos. We reviewed customer implementations as a team before launch, which led to fewer questions and stronger experiences.
-
+> Speaker notes: I designed the original documentation and interactive demos. We reviewed customer implementations as a team before launch, which led to fewer questions and stronger experiences.
 
 ---
 
@@ -1829,12 +1712,11 @@ Make an infrastructure product visible
 How a payment works
 How data sharing works
 How the bank journey looks
-> [image] Two demo cards, Apple ID and Apple Wallet, each showing a QR code for the mobile version and a link to the desktop customer journey
+[image: Two demo cards, Apple ID and Apple Wallet, each showing a QR code for the mobile version and a link to the desktop customer journey]
 APPLE ID AND APPLE WALLET, RUNNING ON YAPILY’S API
 One asset across Sales, Pre-sales, Implementation and customers.
 
-**Note.** The demos explained the product offering, the types of products customers could build and the broader potential of open banking. They were used across Sales, Pre-sales, Implementation and by customers themselves.
-
+> Speaker notes: The demos explained the product offering, the types of products customers could build and the broader potential of open banking. They were used across Sales, Pre-sales, Implementation and by customers themselves.
 
 ---
 
@@ -1844,8 +1726,7 @@ APPENDIX D
 HeadBox evidence and artefacts
 Optional, for a longer presentation or Q&A.
 
-**Note.** Appendix D — detailed HeadBox evidence and artefacts. Optional slides for a longer presentation or Q and A.
-
+> Speaker notes: Appendix D — detailed HeadBox evidence and artefacts. Optional slides for a longer presentation or Q and A.
 
 ---
 
@@ -1861,8 +1742,7 @@ Small rooms generated losses
 Venues wanted demand without spam
 90% left before the main action
 
-**Note.** These findings came from interviews, observed behaviour, support analysis, message analysis, internal workshops and existing product data.
-
+> Speaker notes: These findings came from interviews, observed behaviour, support analysis, message analysis, internal workshops and existing product data.
 
 ---
 
@@ -1877,8 +1757,7 @@ Payments and invoicing automation
 Two inherited product launches
 Customer-support chat
 
-**Note.** The team did not have the luxury of pausing delivery. We maintained the current experience, launched internationally, automated manual processes and released products already in progress while rebuilding the evidence base.
-
+> Speaker notes: The team did not have the luxury of pausing delivery. We maintained the current experience, launched internationally, automated manual processes and released products already in progress while rebuilding the evidence base.
 
 ---
 
@@ -1893,8 +1772,7 @@ Suitability
 Completeness
 Incomplete listings became visibly less likely to receive relevant opportunities.
 
-**Note.** The previous form was long and prose-led. The redesign prioritised the information Lead Feed needed and made incomplete listings visibly less likely to receive relevant opportunities.
-
+> Speaker notes: The previous form was long and prose-led. The redesign prioritised the information Lead Feed needed and made incomplete listings visibly less likely to receive relevant opportunities.
 
 ---
 
@@ -1907,8 +1785,7 @@ Account activity
 Customer health
 Opportunity oversight
 
-**Note.** The admin and monitoring tools allowed account managers to oversee activity and identify issues while the product handled the repeatable matching and communication work.
-
+> Speaker notes: The admin and monitoring tools allowed account managers to oversee activity and identify issues while the product handled the repeatable matching and communication work.
 
 ---
 
@@ -1918,4 +1795,4 @@ Opportunity oversight
 THROUGH-LINE
 I build the evidence before I argue for the design.
 
-**Note.** If there is one thing to take from all four stories, it is this. In each case the work I am proudest of is the evidence that made the design arguable, not the screens themselves.
+> Speaker notes: If there is one thing to take from all four stories, it is this. In each case the work I am proudest of is the evidence that made the design arguable, not the screens themselves.
