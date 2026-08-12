@@ -14,7 +14,10 @@
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
 
 <link rel="preload" href="fonts/SchibstedGrotesk-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
-<style>@font-face{font-family:'Schibsted Grotesk';src:url(fonts/SchibstedGrotesk-VariableFont_wght.ttf) format('truetype');font-weight:400 700;font-style:normal;font-display:swap}</style>
+<style>@font-face{font-family:'Schibsted Grotesk';src:url(fonts/SchibstedGrotesk-VariableFont_wght.ttf) format('truetype');font-weight:400 700;font-style:normal;font-display:swap}.dcard{transition:border-color 200ms cubic-bezier(.4,0,.2,1),background-color 200ms cubic-bezier(.4,0,.2,1)}
+.dcard:hover{border-color:rgba(111,203,146,.5)!important;background-color:rgba(237,239,236,.03)}
+@media (max-width:760px){.dcards{grid-template-columns:1fr!important}}
+</style>
 <style>
   body { margin:0; background:#0F1211; color:#EDEFEC; font-family:'Schibsted Grotesk',-apple-system,BlinkMacSystemFont,sans-serif; -webkit-font-smoothing:antialiased; }
   a { color:#EDEFEC; text-decoration:underline; text-decoration-color:rgba(111,203,146,.5); text-underline-offset:4px; text-decoration-thickness:1px; }
@@ -266,6 +269,38 @@
         <figcaption style="font-size:14px;line-height:1.5;color:#79837C;margin-top:12px;">Lovelace, printed</figcaption>
       </figure>
     </div>
+  </section>
+
+  <section style="padding-top:80px;">
+    <div style="display:flex;gap:20px;align-items:baseline;flex-wrap:wrap;margin-bottom:8px;">
+      <h2 style="font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0;">User-journey demos</h2>
+      <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:14px;color:#79837C;">Yapily, 2021</span>
+    </div>
+    <div style="border-top:1px solid rgba(237,239,236,.14);margin:24px 0 32px 0;"></div>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 32px 0;text-wrap:pretty;">Working screens rather than slides. Customers building their own open banking flows could click through a real journey, then copy the patterns into their product. All three still run.</p>
+    <ul class="dcards" style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;">
+      <li>
+        <a class="dcard" href="design-system-2020/" target="_blank" rel="noopener" style="height:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:10px;min-height:44px;padding:24px;border:1px solid rgba(237,239,236,.14);border-radius:12px;color:#EDEFEC;text-decoration:none;">
+          <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;">2020</span>
+          <span style="display:flex;align-items:center;gap:10px;font-size:17px;line-height:1.35;font-weight:500;">The first Yapily design system<span aria-hidden="true" style="color:#6FCB92;">&rarr;</span></span>
+          <span style="font-size:14px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">Brand, principles and the component library the demos above were built from. The starting point for everything that followed.</span>
+        </a>
+      </li>
+      <li>
+        <a class="dcard" href="hub/" target="_blank" rel="noopener" style="height:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:10px;min-height:44px;padding:24px;border:1px solid rgba(237,239,236,.14);border-radius:12px;color:#EDEFEC;text-decoration:none;">
+          <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;">GENERAL</span>
+          <span style="display:flex;align-items:center;gap:10px;font-size:17px;line-height:1.35;font-weight:500;">The demo hub<span aria-hidden="true" style="color:#6FCB92;">&rarr;</span></span>
+          <span style="font-size:14px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">AIS, payments, VRP and QR journeys, with the guides that went alongside them.</span>
+        </a>
+      </li>
+      <li>
+        <a class="dcard" href="apple/" target="_blank" rel="noopener" style="height:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:10px;min-height:44px;padding:24px;border:1px solid rgba(237,239,236,.14);border-radius:12px;color:#EDEFEC;text-decoration:none;">
+          <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;">BUILT FOR ONE CUSTOMER</span>
+          <span style="display:flex;align-items:center;gap:10px;font-size:17px;line-height:1.35;font-weight:500;">The Apple demo<span aria-hidden="true" style="color:#6FCB92;">&rarr;</span></span>
+          <span style="font-size:14px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">A journey built specifically for Apple, covering wallet, desktop and mobile flows.</span>
+        </a>
+      </li>
+    </ul>
   </section>
 
   <section style="padding-top:80px;">
