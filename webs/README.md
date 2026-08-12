@@ -21,7 +21,7 @@ Shell for every screen: sticky white header (logo 170px wide, right-side "My ven
 | Screen | Purpose | Notes |
 |---|---|---|
 | Landing | Sell free listing | Two-column (1fr / max 420px illustration panel on #2f2f2f, radius 12px). H1 46px (32px mobile), lede 18px #5a5a5a, numbered 3-step list with 40px #16719B circles, primary CTA "Join for free". Below: "Listing your venue" 3 benefit cards in `repeat(auto-fit,minmax(240px,1fr))`, then "Trusted by" logo row (52px tall, 28px gap). |
-| Join | Create account | Logo upload (72px dashed square) + 2-col form grid (Company name, Role select, First/Last name, Venue email, Password + hint), marketing opt-in checkbox. |
+| Join | Create account | Logo upload (72px dashed square) + single-column form (Company name, Role select, First/Last name, Venue email, Password), each label above its control with hint text between, marketing opt-in checkbox, "Create account" below the last field. Full client-side validation with error summary. |
 | My venues | Manage venues/spaces | H1 + "+ Add venue" outline button; venue card (1px #e4e4e4, radius 12px, 20px pad) with space cards (max 280px, 3:2 photo, name, status) and "+ Add space" primary button. |
 | Venue location | Address capture | Full-width Venue name, description textarea (288 char max), Address; then Postal code / City / Country in 2-col grid. |
 | Event types | Positioning | Fieldset + legend; pill checkbox chips, **max 3**, live "N of 3 chosen" (aria-live=polite); over-limit chips drop to opacity .45 / not-allowed. |
@@ -39,6 +39,36 @@ Sidebar stepper (venue and space step groups, hidden below 860px): 240px column 
 
 ### Guest brief flow (`index.html`)
 Landing → eight brief steps (type, location, date, guests, format, must-haves, budget, what's your event) → matching animation → venue results. Same shell, chips and stepper vocabulary as above. `HeadBox - Type of event (polished|current).dc.html` and `venue-location-current.html` are before/after single-screen comparisons.
+
+## Since the previous export
+
+- Header "Save & exit" removed from every screen and both flows, along with the account-prompt
+  dialog and its logic.
+- Contrast: the icon SVGs shipped at #CCCCCC (1.6:1) and #2A9FD8 (2.8:1) and are recoloured to
+  #2f2f2f / #16719B; the five "Trusted by" logos were white-filled (invisible on white) and are
+  now #2f2f2f; the hero illustration's blue accents lifted to #7FC4E8 for 3:1 on #2f2f2f; chip
+  checkbox boundary #9a9a9a → #8a8a8a; the amber status dot is ringed #8a6d1f so its shape is
+  discernible. Every glyph and control boundary now clears 3:1, every text colour AA.
+- "Trusted by" logos normalised to a 40×120 box with object-fit: contain.
+- Prototype navigation reduced to two entries: Create your free listing, Find the perfect venue.
+- design-system/ carries styles.css, the tokens and the design guide.
+
+- Join is a real `<form>`: single column, no placeholders, hint text above the control, submit
+  directly below the last field. On submit it validates, renders an error summary (`role="alert"`,
+  links to each field), marks fields `aria-invalid`, moves focus to the first invalid field, then
+  shows "Creating account…" with `aria-busy` and blocks duplicate submits.
+- `box-sizing: border-box` on all controls; every field is one width (the 640px form column).
+- Venue location and Billing follow the same single-column rules.
+- Wordmark is a `<button aria-label="HeadBox home">`, not an `<a href="#">`.
+- Added `prefers-reduced-motion`, `touch-action: manipulation`, deliberate tap-highlight,
+  `scroll-margin-top` under the sticky header, tabular numerals on capacity inputs, per-screen
+  `document.title`, font `preconnect` + `display=swap`, `width`/`height` on every image and
+  `loading="lazy"` below the fold.
+- Typography: real ellipses, curly apostrophes, non-breaking amounts, `text-wrap: pretty`.
+- "Trusted by" logos normalised to a 40×120 box with `object-fit: contain`.
+- Header "Save & exit" removed. The account-prompt `<dialog>` remains in the source but is no
+  longer reachable — delete it if the pattern isn't wanted.
+- Prototype navigation is two entries: Create your free listing, Find the perfect venue.
 
 ## Interactions & behaviour
 - Navigation is a linear `next`/`back` map over screen keys; sidebar steps jump directly. Every transition scrolls to top.

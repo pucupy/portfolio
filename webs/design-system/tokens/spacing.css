@@ -1,0 +1,23 @@
+:root {
+  --hb-space-1: 4px;
+  --hb-space-2: 8px;
+  --hb-space-3: 12px;
+  --hb-space-4: 16px;
+  --hb-space-5: 20px;
+  --hb-space-6: 24px;
+  --hb-space-7: 28px;   /* rhythm between form fields */
+  --hb-space-8: 32px;
+  --hb-space-9: 36px;
+  --hb-space-10: 48px;
+  --hb-space-11: 56px;  /* sidebar to content, desktop */
+
+  --hb-gutter: clamp(16px, 4vw, 20px);
+  --hb-page-max: 1200px;
+  --hb-form-max: 640px;   /* single-column form measure */
+  --hb-prose-max: 52ch;
+
+  --hb-sidebar-w: 240px;
+  --hb-sidebar-w-sm: 200px;   /* <1080px */
+  --hb-bp-narrow: 860px;      /* sidebar collapses, type steps down */
+  --hb-bp-mid: 1080px;
+}

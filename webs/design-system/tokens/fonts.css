@@ -1,0 +1,4 @@
+/* HeadBox loads its two families from Google Fonts. No self-hosted binaries were
+   provided, so no @font-face rules are declared here — link this in <head>:
+   https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans");

@@ -3,17 +3,17 @@
                                             <g id="Artboard" transform="translate(-174.000000, -246.000000)">
                                                 <g id="ushape" transform="translate(174.000000, 246.000000)">
                                                     <g id="svg7">
-                                                        <circle id="Oval" fill="#2A9FD8" cx="22.7568979" cy="2.96829103" r="2.96829103"></circle>
-                                                        <circle id="Oval" fill="#2A9FD8" cx="32.6512013" cy="2.96829103" r="2.96829103"></circle>
+                                                        <circle id="Oval" fill="#16719B" cx="22.7568979" cy="2.96829103" r="2.96829103"></circle>
+                                                        <circle id="Oval" fill="#16719B" cx="32.6512013" cy="2.96829103" r="2.96829103"></circle>
                                                         <circle id="Oval" fill="#000000" cx="42.5455048" cy="12.8625945" r="2.96829103"></circle>
-                                                        <circle id="Oval" fill="#2A9FD8" cx="42.5455048" cy="23.7463282" r="2.96829103"></circle>
-                                                        <circle id="Oval" fill="#2A9FD8" cx="42.5455048" cy="12.8625945" r="2.96829103"></circle>
-                                                        <circle id="Oval" fill="#2A9FD8" cx="2.96829103" cy="12.8625945" r="2.96829103"></circle>
-                                                        <circle id="Oval" fill="#2A9FD8" cx="12.8625945" cy="2.96829103" r="2.96829103"></circle>
-                                                        <circle id="Oval" fill="#2A9FD8" cx="2.96829103" cy="23.7463282" r="2.96829103"></circle>
-                                                        <polyline id="Path-2" stroke="#CCCCCC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="10.8837338 25.0396048 10.8837338 11.187857 34.4409027 11.187857 34.4409027 25.0396048"></polyline>
+                                                        <circle id="Oval" fill="#16719B" cx="42.5455048" cy="23.7463282" r="2.96829103"></circle>
+                                                        <circle id="Oval" fill="#16719B" cx="42.5455048" cy="12.8625945" r="2.96829103"></circle>
+                                                        <circle id="Oval" fill="#16719B" cx="2.96829103" cy="12.8625945" r="2.96829103"></circle>
+                                                        <circle id="Oval" fill="#16719B" cx="12.8625945" cy="2.96829103" r="2.96829103"></circle>
+                                                        <circle id="Oval" fill="#16719B" cx="2.96829103" cy="23.7463282" r="2.96829103"></circle>
+                                                        <polyline id="Path-2" stroke="#2f2f2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="10.8837338 25.0396048 10.8837338 11.187857 34.4409027 11.187857 34.4409027 25.0396048"></polyline>
                                                     </g>
-                                                    <rect id="Rectangle" fill="#CCCCCC" x="14.4117647" y="28.8235294" width="16.4705882" height="6.17647059"></rect>
+                                                    <rect id="Rectangle" fill="#2f2f2f" x="14.4117647" y="28.8235294" width="16.4705882" height="6.17647059"></rect>
                                                 </g>
                                             </g>
                                         </g>

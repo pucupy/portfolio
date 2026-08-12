@@ -16,11 +16,10 @@ a:hover { color: #0F5473; }
 input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-serif; }
 </style>
 </helmet>
-<nav aria-label="Prototypes" style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;background:#2f2f2f;padding:8px 16px;font-family:'Montserrat',helvetica,arial,sans-serif">
+<nav aria-label="Prototypes" style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;background:#2f2f2f;padding:8px clamp(12px,3vw,16px);font-family:'Montserrat',helvetica,arial,sans-serif">
   <span style="color:#9a9a9a;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:700;margin-right:10px">Prototypes</span>
-  <a href="index.html" aria-current="page" style="color:#fff;background:#16719B;font-size:13px;font-weight:700;padding:6px 12px;border-radius:6px">Full flow</a>
-  <a href="event-type-polished.html" style="color:#e6e6e6;font-size:13px;font-weight:400;padding:6px 12px;border-radius:6px" style-hover="background:#454545;color:#fff">Type of event — polished</a>
-  <a href="event-type-current.html" style="color:#e6e6e6;font-size:13px;font-weight:400;padding:6px 12px;border-radius:6px" style-hover="background:#454545;color:#fff">Type of event — current</a>
+  <a href="venue-listing.html" style="color:#e6e6e6;font-size:13px;font-weight:400;padding:11px 12px;border-radius:6px;text-decoration:none" style-hover="background:#454545;color:#fff">Create your free listing</a>
+  <a href="index.html" aria-current="page" style="color:#fff;background:#16719B;font-size:13px;font-weight:700;padding:11px 12px;border-radius:6px;text-decoration:none">Find the perfect venue</a>
 </nav>
 <div style="background:#fff;color:#2f2f2f;font-family:'Montserrat',helvetica,arial,sans-serif;font-size:18px;min-height:100vh;position:relative;padding-bottom:{{ shellPadBottom }}">
   <a href="#main" style="position:absolute;left:20px;top:12px;z-index:3000;background:#16719B;color:#fff;padding:12px 16px;border-radius:5px;font-size:14px;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap" style-focus="width:auto;height:auto;clip:auto;overflow:visible">Skip to content</a>
@@ -40,7 +39,6 @@ input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-seri
           <a href="#" style="font-size:14px;padding:12px 10px">Login</a>
         </sc-if>
         <sc-if value="{{ isFlow }}" hint-placeholder-val="{{ false }}">
-          <a href="#" onClick="{{ goHome }}" style="font-size:14px;padding:12px 10px">Save &amp; exit</a>
         </sc-if>
       </nav>
     </div>

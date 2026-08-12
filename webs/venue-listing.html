@@ -8,38 +8,45 @@
 <body>
 <x-dc>
 <helmet>
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans&display=swap" rel="stylesheet" />
+<meta name="theme-color" content="#ffffff" />
 <style>
 body { margin: 0; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 a { color: #16719B; text-decoration: none; font-weight: 700; }
 a:hover { color: #0F5473; }
-input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-serif; }
+input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-serif; box-sizing: border-box; }
 *:focus-visible { outline: 3px solid #0F5473; outline-offset: 2px; border-radius: 4px; }
 ::placeholder { color: #6b6b6b; opacity: 1; }
+button, a, label, input, select, textarea { touch-action: manipulation; -webkit-tap-highlight-color: rgba(22,113,155,0.12); }
+input[type="number"] { font-variant-numeric: tabular-nums; }
+h1, h2, [id] { scroll-margin-top: 96px; }
+p { text-wrap: pretty; }
+img { max-width: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+}
 </style>
 </helmet>
 <nav aria-label="Prototypes" style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;background:#2f2f2f;padding:8px clamp(12px,3vw,16px);font-family:'Montserrat',helvetica,arial,sans-serif">
-  <span style="color:#9a9a9a;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:700;margin-right:10px">Prototypes</span>
-  <a href="index.html" style="color:#e6e6e6;font-size:13px;font-weight:400;padding:11px 12px;border-radius:6px" style-hover="background:#454545;color:#fff">Full flow</a>
-  <a href="event-type-polished.html" style="color:#e6e6e6;font-size:13px;font-weight:400;padding:11px 12px;border-radius:6px" style-hover="background:#454545;color:#fff">Type of event — polished</a>
-  <a href="event-type-current.html" style="color:#e6e6e6;font-size:13px;font-weight:400;padding:11px 12px;border-radius:6px" style-hover="background:#454545;color:#fff">Type of event — current</a>
-  <a href="venue-listing.html" aria-current="page" style="color:#fff;background:#16719B;font-size:13px;font-weight:700;padding:11px 12px;border-radius:6px">Venue listing</a>
-  <a href="venue-location-current.html" style="color:#e6e6e6;font-size:13px;font-weight:400;padding:11px 12px;border-radius:6px" style-hover="background:#454545;color:#fff">Venue location — current</a>
+  <span style="color:#c9c9c9;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:700;margin-right:10px">Prototypes</span>
+  <a href="venue-listing.html" aria-current="page" style="color:#fff;background:#16719B;font-size:13px;font-weight:700;padding:11px 12px;border-radius:6px;text-decoration:none">Create your free listing</a>
+  <a href="index.html" style="color:#e6e6e6;font-size:13px;font-weight:400;padding:11px 12px;border-radius:6px;text-decoration:none" style-hover="background:#454545;color:#fff">Find the perfect venue</a>
 </nav>
 <a href="#main" style="position:absolute;left:-9999px;top:0;z-index:3000;background:#16719B;color:#fff;padding:12px 16px;border-radius:0 0 8px 0;font-family:'Montserrat',helvetica,arial,sans-serif;font-size:15px" style-focus="left:0">Skip to content</a>
 <div style="background:#fff;color:#2f2f2f;font-family:'Montserrat',helvetica,arial,sans-serif;font-size:18px;min-height:100vh;position:relative;padding-bottom:{{ shellPadBottom }}">
   <header style="width:100%;border-bottom:1px solid #f1eae1;position:sticky;top:0;z-index:2000;background-color:#fff;box-shadow:rgb(219,219,219) 0px 4px 2px -2px">
     <div style="margin:0 auto;max-width:1200px;padding:16px clamp(16px,4vw,20px);display:flex;align-items:center;justify-content:space-between;gap:20px">
       <div style="width:170px">
-        <a href="#" onClick="{{ goHome }}" aria-label="HeadBox home">
+        <button type="button" onClick="{{ goHome }}" aria-label="HeadBox home" style="border:0;background:none;padding:0;cursor:pointer;display:block;width:100%">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2340 450" width="100%" role="img" aria-label="HeadBox">
             <path fill="#AF231C" d="M2002.3 82.2h-279.6c-6.7 0-12.2 5.2-12.2 11.9v278.5c.2 6.6 5.5 11.9 12.1 11.9h63.4v-46.9h-27.2V129.2h207.3v208.3h-112.7l-68.2 89.3 25.3 20.5c5.3 4.2 13 3.2 17.1-2.1l47.8-60.8h126.7c6.6 0 12-5.3 12.2-11.9v-278c.1-6.7-5.3-12.3-12-12.3M2341.2 82h-41.5s-9.8.1-16.6 3.6c-4.5 2.3-13.2 13.1-13.2 13.1l-76.1 99.8-89.1-116.6h-55.1l115.9 153.5-114.7 148.4h45.2s6.3-.2 11.7-3.1c5.2-2.8 9.3-7.5 9.3-7.5l76.8-100.5 83.6 111.2h57.9L2222 235.4 2341.2 82zM1607.5 321.9c-13.2 12.5-24.3 16.2-40.1 16.7l-3.6.1h-118.6v-135c16.7 0 116-.1 116.7-.1 18.8 0 33.2 5.9 45.2 18.5 12.6 13.2 23.1 27.7 23.1 48.4.1 19.9-9.6 38.8-22.7 51.4M1545.2 46s23.9 1 37 14.2c10.6 10.7 18.3 24.6 18.3 42 0 16.7-6.2 28.5-16.9 39.1-16.1 16.1-38.3 15.8-38.3 15.8l-100.1 1.3V47.3c15.4-.2 100.1-1.3 100-1.3m69.6 126.1c22.8-21.1 30.3-42.2 31.4-69.4 1.1-27.3-7.6-50.4-24.9-68.5-15.5-16.3-31-30.7-71.5-31.7l-104.7-.1h-34.4-.5c-.1 0-5.9-.4-9.6 3.3-3.5 3.6-3.3 8.9-3.3 8.9v368.3h167.6c.5 0 31.8-2.1 46.4-9.8 19.6-10.4 60.4-34.8 64.1-101.5 1.7-31-13.7-59-33.3-79.7-8.1-8.8-17.8-14.4-27.3-19.8M256.2 5.9c-3.5 3.7-3.3 9.3-3.3 9.3v144.3h-205V2.3H12S7.6 2 3.8 5.6C.3 8.8 0 14.2 0 14.2v370h36.7s4.8-.2 7.5-3.1c4-4.3 3.8-7.4 3.8-7.4v-168h205v178.5h36.8s4.4-.1 7.7-3.8c3.1-3.3 3.2-8.3 3.2-8.3V2.4h-34.9s-5.9-.5-9.6 3.5M1193.3 345.3c-61.7 0-111.8-50-111.8-111.8s50-111.8 111.8-111.8 111.8 50 111.8 111.8-50 111.8-111.8 111.8M1306.1 5.9c-3.5 3.7-3.3 9.3-3.3 9.3v105.7c-28.3-27.5-66.9-44.5-109.4-44.5-86.8 0-157.2 70.4-157.2 157.2s70.4 157.2 157.2 157.2c42.6 0 81.1-17 109.4-44.5v38h36.8s4.4-.1 7.7-3.8c2.3-2.5 3-6 3.1-7.5 0-.3.1-.5.1-.5V2.4h-34.9c.1 0-5.8-.5-9.5 3.5M387.9 202.1c13.7-44.8 55.4-77.4 104.6-77.4s90.9 32.6 104.6 77.4H387.9zM492.5 77.7c-86.4 0-156.5 70.1-156.5 156.5s70.1 156.5 156.5 156.5c62.4 0 116.2-36.5 141.3-89.4L602.7 285s-4-2.5-8.1-1.3c-1.3.4-5.3 1.5-6.9 4.3-18.8 33.2-54.4 55.6-95.2 55.6-55.7 0-101.6-41.6-108.5-95.3l264.3-.5c.4-4.5.6-9 .6-13.6 0-11-1.1-21.7-3.3-32C631 131 568 77.7 492.5 77.7M842.5 346.4c-61.7 0-111.8-50-111.8-111.8s50-111.8 111.8-111.8c61.7 0 111.8 50 111.8 111.8s-50.1 111.8-111.8 111.8M955.2 90.9c-3.5 3.7-3.3 9.3-3.3 9.3V122C923.6 94.5 885 77.5 842.5 77.5c-86.8 0-157.1 70.4-157.1 157.2s70.4 157.2 157.1 157.2c42.6 0 81.1-17 109.4-44.5v36.8H988.8s4.1-.1 7.5-3.4c3.1-2.9 3.4-7.2 3.4-7.2V87.3h-34.9c0 .1-5.9-.3-9.6 3.6"></path>
           </svg>
-        </a>
+        </button>
       </div>
       <nav aria-label="Main" style="display:flex;align-items:center;gap:8px">
         <button type="button" onClick="{{ goVenues }}" style="font-family:inherit;border:0;cursor:pointer;background:none;color:#16719B;font-weight:700;font-size:14px;padding:12px 8px;min-height:44px;align-items:center;display:{{ myVenuesLinkDisplay }}">My venues</button>
-        <button type="button" onClick="{{ goHome }}" style="font-family:inherit;border:0;cursor:pointer;background:none;color:#16719B;font-weight:700;font-size:14px;padding:12px 8px;min-height:44px;display:inline-flex;align-items:center">Save &amp; exit</button>
       </nav>
     </div>
   </header>
@@ -77,7 +84,7 @@ input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-seri
               <button type="button" onClick="{{ start }}" style="font-family:inherit;border:0;cursor:pointer;background-color:#16719B;color:#fff;border-radius:8px;padding:12px 22px;font-size:16px;font-weight:700;display:inline-flex;align-items:center;min-height:44px" style-hover="background:#0F5473">Join for free</button>
             </div>
             <div style="display:{{ heroDisplay }};background-color:#2f2f2f;border-radius:12px;padding:24px">
-              <img src="img/venues/hero-illustration.svg" alt="" style="width:100%;display:block" />
+              <img src="img/venues/hero-illustration.svg" alt="" width="420" height="320" style="width:100%;height:auto;display:block" />
             </div>
           </div>
           <section style="border-top:1px solid #e6e6e6;padding:40px 0">
@@ -100,60 +107,84 @@ input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-seri
           <section style="border-top:1px solid #e6e6e6;padding:32px 0 48px 0">
             <h2 style="font-size:19px;margin:0 0 20px 0;font-weight:700">Trusted by</h2>
             <div style="display:flex;flex-wrap:wrap;align-items:center;gap:28px">
-              <img src="img/venues/logos/sky.svg" alt="Sky" style="height:52px;width:auto" />
-              <img src="img/venues/logos/amazon.svg" alt="Amazon" style="height:52px;width:auto" />
-              <img src="img/venues/logos/uber.svg" alt="Uber" style="height:52px;width:auto" />
-              <img src="img/venues/logos/pret.svg" alt="Pret" style="height:52px;width:auto" />
-              <img src="img/venues/logos/hsbc.svg" alt="HSBC" style="height:52px;width:auto" />
+              <img src="img/venues/logos/sky.svg" alt="Sky" width="120" height="40" loading="lazy" decoding="async" style="height:40px;width:120px;object-fit:contain;object-position:left center" />
+              <img src="img/venues/logos/amazon.svg" alt="Amazon" width="120" height="40" loading="lazy" decoding="async" style="height:40px;width:120px;object-fit:contain;object-position:left center" />
+              <img src="img/venues/logos/uber.svg" alt="Uber" width="120" height="40" loading="lazy" decoding="async" style="height:40px;width:120px;object-fit:contain;object-position:left center" />
+              <img src="img/venues/logos/pret.svg" alt="Pret" width="120" height="40" loading="lazy" decoding="async" style="height:40px;width:120px;object-fit:contain;object-position:left center" />
+              <img src="img/venues/logos/hsbc.svg" alt="HSBC" width="120" height="40" loading="lazy" decoding="async" style="height:40px;width:120px;object-fit:contain;object-position:left center" />
             </div>
           </section>
         </sc-if>
 
         <sc-if value="{{ isJoin }}" hint-placeholder-val="{{ false }}">
-          <h1 style="font-size:{{ titleSize }};line-height:1.2;margin:0 0 24px 0;font-weight:700">Join HeadBox and list your venue for FREE</h1>
-          <div style="display:flex;align-items:center;gap:16px;margin-bottom:28px">
-            <button type="button" aria-label="Add company logo" style="font-family:inherit;cursor:pointer;background:#fff;width:72px;height:72px;border:2px dashed #8f8f8f;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:26px;color:#16719B" style-hover="border-color:#16719B">+</button>
-            <button type="button" style="font-family:inherit;border:0;cursor:pointer;background:none;color:#16719B;font-size:15px;font-weight:700;padding:10px 0;min-height:44px">Add company logo</button>
+          <h1 style="font-size:{{ titleSize }};line-height:1.2;margin:0 0 12px 0;font-weight:700">Join HeadBox and list your venue for FREE</h1>
+          <p style="margin:0 0 32px 0;color:#5a5a5a;max-width:52ch">Create your account. It takes about two minutes and costs nothing to list.</p>
+          <div role="alert" tabIndex="-1" ref="{{ summaryRef }}" style="display:{{ errorSummaryDisplay }};border:2px solid #B3241C;border-radius:8px;padding:20px;margin-bottom:32px;max-width:640px">
+            <h2 style="font-size:19px;margin:0 0 12px 0;font-weight:700">There is a problem</h2>
+            <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px">
+              <sc-for list="{{ joinErrorList }}" as="e" hint-placeholder-count="0">
+                <li style="font-size:16px"><a href="#{{ e.id }}" onClick="{{ e.focus }}">{{ e.message }}</a></li>
+              </sc-for>
+            </ul>
           </div>
-          <div style="display:grid;grid-template-columns:{{ formCols }};gap:20px 24px;max-width:760px">
-            <div>
-              <label for="company" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Company name</label>
-              <input id="company" type="text" placeholder="Company name" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
+          <form onSubmit="{{ submitJoin }}" noValidate="{{ true }}" style="max-width:640px">
+            <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px">
+              <button type="button" aria-label="Add company logo" style="font-family:inherit;cursor:pointer;background:#fff;width:72px;height:72px;border:2px dashed #8f8f8f;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:26px;color:#16719B;touch-action:manipulation" style-hover="border-color:#16719B">+</button>
+              <button type="button" style="font-family:inherit;border:0;cursor:pointer;background:none;color:#16719B;font-size:15px;font-weight:700;padding:10px 0;min-height:44px;touch-action:manipulation">Add company logo</button>
             </div>
-            <div>
-              <label for="role" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Role</label>
-              <select id="role" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block">
-                <option disabled="true" selected="true">Select your role</option>
-                <option>Sales</option>
-                <option>Business Development</option>
-                <option>Marketing</option>
-                <option>Admin Support</option>
-                <option>CEO/Founder</option>
-                <option>Director/Partner</option>
-              </select>
+            <div style="display:flex;flex-direction:column;gap:28px">
+              <div>
+                <label for="company" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Company name</label>
+                <p id="company-error" role="alert" style="display:{{ errcompanyDisplay }};margin:0 0 8px 0;font-size:14px;font-weight:700;color:#B3241C">{{ errcompany }}</p>
+                <input id="company" name="company" type="text" autoComplete="organization" aria-invalid="{{ companyInvalid }}" aria-describedby="company-error" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
+              </div>
+              <div>
+                <label for="role" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Role</label>
+                <p id="role-error" role="alert" style="display:{{ errroleDisplay }};margin:0 0 8px 0;font-size:14px;font-weight:700;color:#B3241C">{{ errrole }}</p>
+                <select id="role" name="role" aria-invalid="{{ roleInvalid }}" aria-describedby="role-error" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block">
+                  <option value="">Select your role</option>
+                  <option>Sales</option>
+                  <option>Business Development</option>
+                  <option>Marketing</option>
+                  <option>Admin Support</option>
+                  <option>CEO/Founder</option>
+                  <option>Director/Partner</option>
+                </select>
+              </div>
+              <div>
+                <label for="fname" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">First name</label>
+                <p id="fname-error" role="alert" style="display:{{ errfnameDisplay }};margin:0 0 8px 0;font-size:14px;font-weight:700;color:#B3241C">{{ errfname }}</p>
+                <input id="fname" name="fname" type="text" autoComplete="given-name" aria-invalid="{{ fnameInvalid }}" aria-describedby="fname-error" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
+              </div>
+              <div>
+                <label for="lname" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Last name</label>
+                <p id="lname-error" role="alert" style="display:{{ errlnameDisplay }};margin:0 0 8px 0;font-size:14px;font-weight:700;color:#B3241C">{{ errlname }}</p>
+                <input id="lname" name="lname" type="text" autoComplete="family-name" aria-invalid="{{ lnameInvalid }}" aria-describedby="lname-error" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
+              </div>
+              <div>
+                <label for="vemail" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Venue email</label>
+                <p id="vemail-hint" style="margin:0 0 8px 0;font-size:14px;color:#5a5a5a">Enquiries from guests are sent to this address.</p>
+                <p id="vemail-error" role="alert" style="display:{{ errvemailDisplay }};margin:0 0 8px 0;font-size:14px;font-weight:700;color:#B3241C">{{ errvemail }}</p>
+                <input id="vemail" name="email" type="email" inputMode="email" autoComplete="email" aria-invalid="{{ vemailInvalid }}" aria-describedby="vemail-hint vemail-error" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
+              </div>
+              <div>
+                <label for="pwd" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Create a password</label>
+                <p id="pwd-hint" style="margin:0 0 8px 0;font-size:14px;color:#5a5a5a">At least 10 characters and one number.</p>
+                <p id="pwd-error" role="alert" style="display:{{ errpwdDisplay }};margin:0 0 8px 0;font-size:14px;font-weight:700;color:#B3241C">{{ errpwd }}</p>
+                <input id="pwd" name="password" type="password" autoComplete="new-password" aria-invalid="{{ pwdInvalid }}" aria-describedby="pwd-hint pwd-error" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
+              </div>
+              <div>
+                <label style="display:inline-flex;align-items:flex-start;gap:12px;cursor:pointer;font-size:16px;padding:10px 0;min-height:44px;touch-action:manipulation">
+                  <input type="checkbox" name="marketing" style="width:22px;height:22px;accent-color:#16719B;margin-top:2px;flex:0 0 auto" />
+                  <span>Email me HeadBox news, updates and promotions</span>
+                </label>
+              </div>
             </div>
-            <div>
-              <label for="fname" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">First name</label>
-              <input id="fname" type="text" placeholder="First name" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
+            <div style="margin-top:36px;display:flex;flex-direction:column;align-items:flex-start;gap:20px">
+              <button type="submit" aria-busy="{{ submitting }}" style="font-family:inherit;border:0;cursor:pointer;background:#16719B;color:#fff;border-radius:8px;padding:14px 24px;font-size:17px;font-weight:700;min-height:48px;touch-action:manipulation" style-hover="background:#0F5473">{{ submitLabel }}</button>
+              <button type="button" onClick="{{ goBack }}" style="font-family:inherit;border:0;cursor:pointer;background:none;color:#16719B;font-size:15px;font-weight:700;padding:10px 0;min-height:44px;touch-action:manipulation">&larr; Back</button>
             </div>
-            <div>
-              <label for="lname" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Last name</label>
-              <input id="lname" type="text" placeholder="Last name" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
-            </div>
-            <div>
-              <label for="vemail" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Venue email</label>
-              <input id="vemail" type="email" placeholder="events@venue.com" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
-            </div>
-            <div>
-              <label for="pwd" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Password</label>
-              <input id="pwd" type="password" placeholder="Password" aria-describedby="pwdhelp" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
-              <p id="pwdhelp" style="margin:8px 0 0 0;font-size:13px;color:#5a5a5a">Password should contain one number and be at least 10 characters long</p>
-            </div>
-          </div>
-          <label style="display:inline-flex;align-items:flex-start;gap:12px;cursor:pointer;margin-top:28px;font-size:16px">
-            <input type="checkbox" style="width:22px;height:22px;accent-color:#16719B;margin-top:2px" />
-            <span>Would you like to hear about HeadBox news, updates and promotions?</span>
-          </label>
+          </form>
         </sc-if>
 
         <sc-if value="{{ isVenues }}" hint-placeholder-val="{{ false }}">
@@ -169,7 +200,7 @@ input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-seri
             <div style="display:{{ spaceListDisplay }};gap:16px;flex-wrap:wrap;padding:20px 0 4px 0">
               <sc-for list="{{ spaces }}" as="sp">
                 <div style="border:1px solid #e4e4e4;border-radius:10px;padding:10px;width:100%;max-width:280px">
-                  <sc-if value="{{ sp.img }}"><img src="{{ sp.img }}" alt="" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;display:block" /></sc-if>
+                  <sc-if value="{{ sp.img }}"><img src="{{ sp.img }}" alt="" width="600" height="400" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;display:block" /></sc-if>
                   <p style="margin:12px 0 4px 0;font-size:17px;font-weight:700">{{ sp.name }}</p>
                   <p style="margin:0;font-size:14px;color:{{ sp.statusColor }}">{{ sp.status }}</p>
                 </div>
@@ -182,10 +213,10 @@ input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-seri
         <sc-if value="{{ isLocation }}" hint-placeholder-val="{{ false }}">
           <h1 style="font-size:{{ titleSize }};line-height:1.2;margin:0 0 12px 0;font-weight:700">Venue location</h1>
           <p style="margin:0 0 24px 0">Tell us where your venue is</p>
-          <div style="display:grid;grid-template-columns:{{ formCols }};gap:20px 24px;max-width:760px">
+          <div style="display:grid;grid-template-columns:1fr;gap:28px;max-width:640px">
             <div style="grid-column:1 / -1">
               <label for="vname" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Venue name</label>
-              <input id="vname" type="text" placeholder="Venue name" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
+              <input id="vname" type="text" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
             </div>
             <div style="grid-column:1 / -1">
               <label for="vdesc" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Short description of your venue</label>
@@ -193,19 +224,19 @@ input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-seri
             </div>
             <div style="grid-column:1 / -1">
               <label for="addr" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Address</label>
-              <input id="addr" type="text" placeholder="Address" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
+              <input id="addr" type="text" autoComplete="street-address" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
             </div>
             <div>
               <label for="pcode" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Postal code</label>
-              <input id="pcode" type="text" placeholder="Postal code" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
+              <input id="pcode" type="text" autoComplete="postal-code" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
             </div>
             <div>
               <label for="city" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">City</label>
-              <input id="city" type="text" placeholder="City" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
+              <input id="city" type="text" autoComplete="address-level2" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
             </div>
             <div>
               <label for="country" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Country</label>
-              <input id="country" type="text" placeholder="Country" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
+              <input id="country" type="text" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
             </div>
           </div>
         </sc-if>
@@ -214,7 +245,7 @@ input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-seri
           <fieldset style="border:0;margin:0;padding:0">
             <legend style="padding:0;margin:0;display:block">
               <h1 style="font-size:{{ titleSize }};line-height:1.2;margin:0 0 12px 0;font-weight:700">Event types</h1>
-              <p style="margin:0 0 8px 0">Please choose 3 maximum. This space is great for...</p>
+              <p style="margin:0 0 8px 0">Please choose 3 maximum. This space is great for…</p>
               <p aria-live="polite" style="margin:0;font-size:15px;color:#5a5a5a">{{ eventTypeCount }}</p>
             </legend>
             <div style="display:flex;flex-wrap:wrap;gap:12px;padding:20px 0">
@@ -241,7 +272,7 @@ input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-seri
               <sc-for list="{{ facilities }}" as="f">
                 <label style="display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:2px solid {{ f.border }};background:{{ f.bg }};color:{{ f.color }};border-radius:999px;padding:10px 16px;font-size:15px;font-weight:700;min-height:44px;box-shadow:{{ f.shadow }}" style-hover="border-color:#16719B">
                   <input type="checkbox" checked="{{ f.checked }}" onChange="{{ f.toggle }}" onFocus="{{ f.focus }}" onBlur="{{ f.blur }}" style="position:absolute;opacity:0;width:1px;height:1px" />
-                  <sc-if value="{{ f.icon }}"><img src="{{ f.icon }}" alt="" style="width:24px;height:24px;object-fit:contain;flex:0 0 auto" /></sc-if>
+                  <sc-if value="{{ f.icon }}"><img src="{{ f.icon }}" alt="" width="24" height="24" loading="lazy" decoding="async" style="width:24px;height:24px;object-fit:contain;flex:0 0 auto" /></sc-if>
                   <span aria-hidden="true" style="width:18px;height:18px;border-radius:4px;border:2px solid {{ f.boxBorder }};background:{{ f.boxBg }};display:flex;align-items:center;justify-content:center">
                     <span style="width:4px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px);display:{{ f.tick }}"></span>
                   </span>
@@ -259,7 +290,7 @@ input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-seri
               <sc-for list="{{ services }}" as="f">
                 <label style="display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:2px solid {{ f.border }};background:{{ f.bg }};color:{{ f.color }};border-radius:999px;padding:10px 16px;font-size:15px;font-weight:700;min-height:44px;box-shadow:{{ f.shadow }}" style-hover="border-color:#16719B">
                   <input type="checkbox" checked="{{ f.checked }}" onChange="{{ f.toggle }}" onFocus="{{ f.focus }}" onBlur="{{ f.blur }}" style="position:absolute;opacity:0;width:1px;height:1px" />
-                  <sc-if value="{{ f.icon }}"><img src="{{ f.icon }}" alt="" style="width:24px;height:24px;object-fit:contain;flex:0 0 auto" /></sc-if>
+                  <sc-if value="{{ f.icon }}"><img src="{{ f.icon }}" alt="" width="24" height="24" loading="lazy" decoding="async" style="width:24px;height:24px;object-fit:contain;flex:0 0 auto" /></sc-if>
                   <span aria-hidden="true" style="width:18px;height:18px;border-radius:4px;border:2px solid {{ f.boxBorder }};background:{{ f.boxBg }};display:flex;align-items:center;justify-content:center">
                     <span style="width:4px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px);display:{{ f.tick }}"></span>
                   </span>
@@ -284,31 +315,32 @@ input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-seri
           <h1 style="font-size:{{ titleSize }};line-height:1.2;margin:0 0 12px 0;font-weight:700">Billing</h1>
           <p style="margin:0 0 28px 0">🤑 We ask for these details so you get paid when your space is booked</p>
           <h2 style="font-size:22px;margin:0 0 16px 0;font-weight:700">Bank details</h2>
-          <div style="display:grid;grid-template-columns:{{ formCols }};gap:20px 24px;max-width:760px;margin-bottom:36px">
+          <div style="display:grid;grid-template-columns:1fr;gap:28px;max-width:640px;margin-bottom:36px">
             <div style="grid-column:1 / -1">
               <label for="bank" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Bank name</label>
-              <input id="bank" type="text" placeholder="Bank name" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
+              <input id="bank" type="text" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
             </div>
             <div>
               <label for="acct" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Account number</label>
-              <input id="acct" type="text" placeholder="Account number" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
+              <input id="acct" type="text" inputMode="numeric" autoComplete="off" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
             </div>
             <div>
               <label for="sort" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Sort code</label>
-              <input id="sort" type="text" placeholder="Sort code" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
+              <p id="sorthelp" style="margin:0 0 8px 0;font-size:14px;color:#5a5a5a">Six digits, for example 12 34 56.</p>
+              <input id="sort" type="text" inputMode="numeric" autoComplete="off" aria-describedby="sorthelp" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block" />
             </div>
           </div>
           <h2 style="font-size:22px;margin:0 0 16px 0;font-weight:700">Invoicing details</h2>
           <div style="max-width:500px">
             <label for="invco" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Company name</label>
-            <input id="invco" type="text" placeholder="Company name" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block;margin-bottom:20px" />
+            <input id="invco" type="text" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block;margin-bottom:20px" />
             <label style="display:inline-flex;align-items:center;gap:12px;cursor:pointer;margin-bottom:16px">
               <input type="checkbox" checked="{{ vatRegistered }}" onChange="{{ toggleVat }}" style="width:22px;height:22px;accent-color:#16719B" />
               <span>VAT registered</span>
             </label>
-            <input type="text" placeholder="VAT number" aria-label="VAT number" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:{{ vatFieldDisplay }}" />
+            <input type="text" aria-label="VAT number" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:{{ vatFieldDisplay }}" />
           </div>
-          <p style="margin:28px 0 0 0"><button type="button" onClick="{{ skipBilling }}" style="font-family:inherit;border:0;cursor:pointer;background:none;color:#16719B;font-size:15px;font-weight:700;padding:10px 0;min-height:44px;text-align:left">I'll do this later →</button></p>
+          <p style="margin:28px 0 0 0"><button type="button" onClick="{{ skipBilling }}" style="font-family:inherit;border:0;cursor:pointer;background:none;color:#16719B;font-size:15px;font-weight:700;padding:10px 0;min-height:44px;text-align:left">I’ll do this later →</button></p>
         </sc-if>
 
         <sc-if value="{{ isSpaceDetails }}" hint-placeholder-val="{{ false }}">
@@ -316,7 +348,7 @@ input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-seri
           <p style="margin:0 0 24px 0">A space is the part of your venue that can be hired</p>
           <div style="max-width:640px">
             <label for="sname" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Space name</label>
-            <input id="sname" type="text" placeholder="Space name" value="{{ spaceName }}" onChange="{{ setSpaceName }}" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block;margin-bottom:24px" />
+            <input id="sname" type="text" value="{{ spaceName }}" onChange="{{ setSpaceName }}" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block;margin-bottom:24px" />
             <label for="sdesc" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">Describe your space. What makes it special?</label>
             <textarea id="sdesc" maxlength="288" rows="4" value="{{ spaceDesc }}" onChange="{{ setSpaceDesc }}" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:17px;padding:12px 14px;width:100%;display:block"></textarea>
             <p style="margin:8px 0 0 0;font-size:14px;color:#5a5a5a">{{ descCount }} characters left</p>
@@ -328,7 +360,7 @@ input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-seri
           <p style="margin:0 0 24px 0">Most guests choose venues based on photography. <a href="https://www.headbox.com/en/spaces/2660-book-the-gallery-lumiere-london" target="_blank">See examples of great photography</a></p>
           <div style="display:grid;grid-template-columns:{{ photoCols }};gap:16px;max-width:760px;margin-bottom:20px">
             <sc-for list="{{ photos }}" as="p">
-              <sc-if value="{{ p.src }}"><img src="{{ p.src }}" alt="" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:10px;display:block" /></sc-if>
+              <sc-if value="{{ p.src }}"><img src="{{ p.src }}" alt="" width="600" height="400" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:10px;display:block" /></sc-if>
             </sc-for>
             <label for="photoUpload" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:2px dashed #8f8f8f;border-radius:10px;aspect-ratio:3/2;cursor:pointer;text-align:center;padding:12px" style-hover="border-color:#16719B;background:#F7FBFD">
               <span style="font-size:15px;font-weight:700">Drag and drop</span>
@@ -345,10 +377,10 @@ input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-seri
           <div style="display:grid;grid-template-columns:{{ capacityCols }};gap:20px;max-width:820px">
             <sc-for list="{{ capacities }}" as="c">
               <div style="border:1px solid #e4e4e4;border-radius:10px;padding:16px;display:flex;align-items:center;gap:14px">
-                <sc-if value="{{ c.icon }}"><img src="{{ c.icon }}" alt="" style="width:34px;height:34px;object-fit:contain;flex:0 0 auto" /></sc-if>
+                <sc-if value="{{ c.icon }}"><img src="{{ c.icon }}" alt="" width="34" height="34" loading="lazy" decoding="async" style="width:34px;height:34px;object-fit:contain;flex:0 0 auto" /></sc-if>
                 <div style="flex:1 1 auto">
                   <label for="{{ c.id }}" style="display:block;font-size:14px;font-weight:700;margin-bottom:8px">{{ c.label }}</label>
-                  <input id="{{ c.id }}" type="number" min="0" placeholder="Number of people" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:16px;padding:10px;width:100%;display:block" />
+                  <input id="{{ c.id }}" type="number" min="0" style="background:#fff;border:2px solid #8a8a8a;border-radius:8px;font-size:16px;padding:10px;width:100%;display:block" />
                 </div>
               </div>
             </sc-for>
@@ -357,7 +389,7 @@ input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-seri
 
         <sc-if value="{{ isBooking }}" hint-placeholder-val="{{ false }}">
           <h1 style="font-size:{{ titleSize }};line-height:1.2;margin:0 0 12px 0;font-weight:700">Booking type</h1>
-          <p style="margin:0 0 24px 0;max-width:700px">On HeadBox, a guest can make an enquiry to discuss their requirements and receive a proposal, or they can instant book at set prices. If hiring your space usually costs more than <strong>£5000</strong>, we recommend that you <strong>don't</strong> allow instant booking.</p>
+          <p style="margin:0 0 24px 0;max-width:700px">On HeadBox, a guest can make an enquiry to discuss their requirements and receive a proposal, or they can instant book at set prices. If hiring your space usually costs more than <strong>£5,000</strong>, we recommend that you <strong>don't</strong> allow instant booking.</p>
           <label style="display:inline-flex;align-items:center;gap:12px;cursor:pointer;border:2px solid {{ instantBorder }};background:{{ instantBg }};border-radius:10px;padding:14px 18px">
             <input type="checkbox" checked="{{ instantBook }}" onChange="{{ toggleInstant }}" style="width:22px;height:22px;accent-color:#16719B" />
             <span style="font-weight:700">Allow instant booking</span>
@@ -369,7 +401,7 @@ input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-seri
           <p style="margin:0 0 28px 0;max-width:660px">The HeadBox team will review and optimise your space before it is published. This could take up to 48hrs.</p>
           <div style="display:grid;grid-template-columns:{{ confirmCols }};gap:32px;max-width:900px">
             <div>
-              <sc-if value="{{ confirmPhoto }}"><img src="{{ confirmPhoto }}" alt="" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;display:block" /></sc-if>
+              <sc-if value="{{ confirmPhoto }}"><img src="{{ confirmPhoto }}" alt="" width="600" height="400" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;display:block" /></sc-if>
             </div>
             <div>
               <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
@@ -406,6 +438,7 @@ input, textarea, select { font-family: 'Montserrat', helvetica, arial, sans-seri
     </div>
   </main>
 
+
   <nav aria-label="Listing navigation" style="display:{{ footerNavDisplay }};width:100%;position:fixed;bottom:0;left:0;background:#fff;border-top:1px solid #e6e6e6;z-index:1000;box-shadow:0 -2px 8px rgba(0,0,0,0.06)">
     <div style="margin:0 auto;max-width:1200px;padding:12px clamp(16px,4vw,20px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 16px">
       <button type="button" onClick="{{ goBack }}" style="font-family:inherit;border:0;cursor:pointer;background:none;color:#16719B;font-size:15px;font-weight:700;padding:12px 8px;min-height:44px;display:inline-flex;align-items:center">&larr; Back</button>
@@ -439,17 +472,52 @@ class Component extends DCLogic {
     screen: "home", w: 1200, focus: null,
     types: [], facilities: [], services: [],
     spaceName: "", spaceDesc: "", photos: [ALMA],
-    vat: true, instant: false, spaceSaved: false
+    vat: true, instant: false, spaceSaved: false,
+    joinErrors: {}, submitting: false
   };
+
+  summaryRef = React.createRef();
 
   componentDidMount() {
     this.onResize = () => this.setState({ w: window.innerWidth });
     this.onResize();
     window.addEventListener("resize", this.onResize);
+    this.setTitle(this.state.screen);
   }
   componentWillUnmount() { window.removeEventListener("resize", this.onResize); }
 
-  go(screen) { this.setState({ screen, focus: null }); window.scrollTo(0, 0); }
+  go(screen) {
+    this.setState({ screen, focus: null });
+    window.scrollTo(0, 0);
+    this.setTitle(screen);
+  }
+
+  setTitle(screen) {
+    const t = {
+      home: "List your venue", join: "Join HeadBox", venues: "My venues",
+      location: "Venue location", types: "Event types", facilities: "Venue facilities",
+      documents: "Venue documents", billing: "Billing", details: "Space details",
+      photos: "Space photos", capacity: "Capacity", booking: "Booking type",
+      confirm: "Review your listing", review: "Under review"
+    }[screen];
+    document.title = (t || "List your venue") + " — HeadBox";
+  }
+
+  validateJoin(form) {
+    const v = n => (form.elements[n] ? String(form.elements[n].value).trim() : "");
+    const e = {};
+    if (!v("company")) e.company = "Enter your company name";
+    if (!v("role")) e.role = "Select your role";
+    if (!v("fname")) e.fname = "Enter your first name";
+    if (!v("lname")) e.lname = "Enter your last name";
+    const email = v("email");
+    if (!email) e.vemail = "Enter your venue email address";
+    else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) e.vemail = "Enter an email address in the format name@example.com";
+    const pwd = v("password");
+    if (!pwd) e.pwd = "Enter a password";
+    else if (pwd.length < 10 || !/\d/.test(pwd)) e.pwd = "Your password must be at least 10 characters and include a number";
+    return e;
+  }
 
   toggleIn(key, label, max) {
     const list = this.state[key];
@@ -465,7 +533,7 @@ class Component extends DCLogic {
       border: on ? "#16719B" : "#8a8a8a",
       bg: on ? "#F2F9FC" : "#fff",
       color: on ? "#0F5473" : "#2f2f2f",
-      boxBorder: on ? "#16719B" : "#9a9a9a",
+      boxBorder: on ? "#16719B" : "#8a8a8a",
       boxBg: on ? "#16719B" : "#fff",
       tick: on ? "block" : "none",
       shadow: focused ? "0 0 0 3px rgba(22,113,155,0.35)" : "none",
@@ -499,6 +567,7 @@ class Component extends DCLogic {
       capacity: "photos", booking: "capacity", confirm: "booking", review: "confirm"
     };
 
+    // submitJoin lives in renderVals
     const labels = { billing: "Save & continue →", booking: "Review listing →", confirm: "Submit for review →", join: "Create account →", venues: "Add venue →" };
 
     const steps = (list, activeIdx) => list.map((label, i) => ({
@@ -520,14 +589,34 @@ class Component extends DCLogic {
     const activeIdx = inVenue ? venueStep : spaceStep;
     const showSidebar = (inVenue || inSpace) && !narrow;
 
+    const je = s.joinErrors;
+    const errText = { company: "Company name", role: "Role", fname: "First name", lname: "Last name", vemail: "Venue email", pwd: "Password" };
+    const errFields = ["company", "role", "fname", "lname", "vemail", "pwd"];
+    const errEntries = errFields.filter(k => je[k]);
+
     return {
+      submitting: s.submitting ? "true" : "false",
+      submitLabel: s.submitting ? "Creating account…" : "Create account",
+      summaryRef: this.summaryRef,
+      errorSummaryDisplay: errEntries.length ? "block" : "none",
+      joinErrorList: errEntries.map(k => ({
+        id: k, message: je[k],
+        focus: ev => { ev.preventDefault(); const el = document.getElementById(k); if (el) el.focus(); }
+      })),
+      errcompany: je.company || "", errcompanyDisplay: je.company ? "block" : "none", companyInvalid: je.company ? "true" : "false",
+      errrole: je.role || "", errroleDisplay: je.role ? "block" : "none", roleInvalid: je.role ? "true" : "false",
+      errfname: je.fname || "", errfnameDisplay: je.fname ? "block" : "none", fnameInvalid: je.fname ? "true" : "false",
+      errlname: je.lname || "", errlnameDisplay: je.lname ? "block" : "none", lnameInvalid: je.lname ? "true" : "false",
+      errvemail: je.vemail || "", errvemailDisplay: je.vemail ? "block" : "none", vemailInvalid: je.vemail ? "true" : "false",
+      errpwd: je.pwd || "", errpwdDisplay: je.pwd ? "block" : "none", pwdInvalid: je.pwd ? "true" : "false",
+
       isHome: scr === "home", isJoin: scr === "join", isVenues: scr === "venues",
       isLocation: scr === "location", isEventTypes: scr === "types", isFacilities: scr === "facilities",
       isDocuments: scr === "documents", isBilling: scr === "billing",
       isSpaceDetails: scr === "details", isPhotos: scr === "photos", isCapacity: scr === "capacity",
       isBooking: scr === "booking", isConfirm: scr === "confirm", isReview: scr === "review",
 
-      shellPadBottom: scr === "home" || scr === "review" ? "40px" : "110px",
+      shellPadBottom: scr === "home" || scr === "review" || scr === "join" ? "48px" : "110px",
       shellCols: showSidebar ? (s.w < 1080 ? "200px minmax(0,1fr)" : "240px minmax(0,1fr)") : "1fr",
       shellGap: showSidebar ? (s.w < 1080 ? "32px" : "56px") : "0",
       sidebarDisplay: showSidebar ? "block" : "none",
@@ -541,12 +630,27 @@ class Component extends DCLogic {
       homeTitleSize: narrow ? "32px" : "46px",
       homeCols: narrow ? "1fr" : "minmax(0,1fr) minmax(0,420px)",
       benefitCols: narrow ? "1fr" : "repeat(auto-fit,minmax(240px,1fr))",
-      formCols: narrow ? "1fr" : "1fr 1fr",
       photoCols: narrow ? "repeat(auto-fill,minmax(140px,1fr))" : "repeat(auto-fill,minmax(200px,1fr))",
       capacityCols: "repeat(auto-fit,minmax(280px,1fr))",
       confirmCols: narrow ? "1fr" : "minmax(0,340px) minmax(0,1fr)",
       heroDisplay: narrow ? "none" : "block",
 
+      submitJoin: ev => {
+        ev.preventDefault();
+        if (s.submitting) return;
+        const form = ev.target;
+        const errs = this.validateJoin(form);
+        const keys = Object.keys(errs);
+        if (keys.length) {
+          this.setState({ joinErrors: errs }, () => {
+            const first = document.getElementById(errFields.find(k => errs[k]));
+            if (first) first.focus();
+          });
+          return;
+        }
+        this.setState({ joinErrors: {}, submitting: true });
+        window.setTimeout(() => { this.setState({ submitting: false }); this.go("venues"); }, 700);
+      },
       goHome: () => this.go("home"),
       goVenues: () => this.go("venues"),
       start: () => this.go("join"),
@@ -560,7 +664,7 @@ class Component extends DCLogic {
       continueLabel: labels[scr] || "Continue →",
       hintText: scr === "types" ? "Choose up to 3" : "",
       hintDisplay: scr === "types" && !narrow ? "inline" : "none",
-      footerNavDisplay: scr === "home" || scr === "review" ? "none" : "block",
+      footerNavDisplay: scr === "home" || scr === "review" || scr === "join" ? "none" : "block",
       myVenuesLinkDisplay: scr === "home" || scr === "join" ? "none" : "inline-flex",
 
       eventTypes: EVENT_TYPES.map(l => this.chip(l, s.types.includes(l), f === l,
@@ -575,8 +679,8 @@ class Component extends DCLogic {
       spaceDesc: s.spaceDesc,
       setSpaceDesc: e => this.setState({ spaceDesc: e.target.value.slice(0, 288) }),
       descCount: 288 - s.spaceDesc.length,
-      spaceNameShown: s.spaceName || "Alma's room",
-      spaceDescShown: s.spaceDesc || "Alma's Room is our largest private dining room. The room is spacious and provides natural daylight, this is the perfect space for business meetings and private dining.",
+      spaceNameShown: s.spaceName || "Alma\u2019s room",
+      spaceDescShown: s.spaceDesc || "Alma\u2019s Room is our largest private dining room. The room is spacious and provides natural daylight, this is the perfect space for business meetings and private dining.",
       chosenTypes: (s.types.length ? s.types : ["Conferences", "Screenings", "Product launch"]).map(l => ({ label: l })),
 
       photos: s.photos.map(src => ({ src })),
@@ -594,7 +698,7 @@ class Component extends DCLogic {
 
       spaceListDisplay: scr === "venues" ? "flex" : "none",
       confirmPhoto: s.photos[0] || ALMA,
-      spaces: [{ name: "Alma's room", img: ALMA, status: "Under review", statusColor: "#8a6d1f" }]
+      spaces: [{ name: "Alma\u2019s room", img: ALMA, status: "Under review", statusColor: "#8a6d1f" }]
     };
   }
 }

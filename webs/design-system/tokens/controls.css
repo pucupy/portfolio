@@ -1,0 +1,15 @@
+:root {
+  --hb-control-border-width: 2px;
+  --hb-control-padding: 12px 14px;
+  --hb-control-min-target: 44px;   /* every interactive element */
+  --hb-button-padding: 10px 20px;
+  --hb-button-padding-lg: 14px 24px;
+  --hb-chip-padding: 10px 16px;
+  --hb-checkbox-size: 22px;
+}
+
+input, select, textarea { box-sizing: border-box; font-family: var(--hb-font-ui); }
+::placeholder { color: var(--hb-ink-muted); opacity: 1; }
+*:focus-visible { outline: var(--hb-focus-outline); outline-offset: var(--hb-focus-offset); border-radius: var(--hb-radius-sm); }
+a { color: var(--hb-text-link); }
+a:hover { color: var(--hb-text-link-hover); }

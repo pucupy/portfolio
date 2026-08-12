@@ -14,7 +14,11 @@
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
 
 <link rel="preload" href="fonts/SchibstedGrotesk-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
-<style>@font-face{font-family:'Schibsted Grotesk';src:url(fonts/SchibstedGrotesk-VariableFont_wght.ttf) format('truetype');font-weight:400 700;font-style:normal;font-display:swap}</style>
+<style>@font-face{font-family:'Schibsted Grotesk';src:url(fonts/SchibstedGrotesk-VariableFont_wght.ttf) format('truetype');font-weight:400 700;font-style:normal;font-display:swap}.vcard,.plink{transition:border-color 200ms cubic-bezier(.4,0,.2,1),background-color 200ms cubic-bezier(.4,0,.2,1)}
+.vcard:hover{border-color:rgba(111,203,146,.5)!important;background-color:rgba(237,239,236,.03)}
+.plink:hover{border-color:rgba(111,203,146,.7)!important;background-color:rgba(237,239,236,.03)}
+@media (max-width:760px){.cols,.cols2{grid-template-columns:1fr!important}}
+</style>
 <style>
   body { margin:0; background:#0F1211; color:#EDEFEC; font-family:'Schibsted Grotesk',-apple-system,BlinkMacSystemFont,sans-serif; -webkit-font-smoothing:antialiased; }
   a { color:#EDEFEC; text-decoration:underline; text-decoration-color:rgba(111,203,146,.5); text-underline-offset:4px; text-decoration-thickness:1px; }
@@ -86,6 +90,15 @@
     <p style="font-size:18px;line-height:1.6;color:#EDEFEC;margin:0 0 24px 0;text-wrap:pretty;">My only non-Yapily case study, and the clearest example I have of research changing a business model rather than a screen.</p>
     </section>
 
+  <section style="padding:0;">
+    <figure style="margin:0;">
+      <div style="padding:18px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:16px;">
+        <img src="images/headbox/headbox-prototype-create-your-free-listing.png" alt="The host-side listing page: Create your free listing, with three steps and a Join for free button" width="1400" height="727" decoding="async" style="display:block;width:100%;height:auto;border-radius:10px;">
+      </div>
+      <figcaption style="margin-top:14px;max-width:820px;font-size:14px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">The host side of the reversed model: venues list free, and pay only when a brief becomes a booking.</figcaption>
+    </figure>
+  </section>
+
   <section style="max-width:700px;padding:40px 0 0 0;">
     <div style="border:1px solid rgba(237,239,236,.14);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:18px;">
       <h2 style="font-family:'Schibsted Grotesk',sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;color:#6FCB92;margin:0;">AT A GLANCE</h2>
@@ -143,9 +156,7 @@
   </section>
 
 
-  <section style="padding-bottom:16px;">
-    <div role="img" aria-label="The lead feed, and the wizard that feeds it" style="width:100%;aspect-ratio:2200/1120;background:#1A1F1D;border-radius:12px"></div>
-  </section>
+  
 
   <section style="padding:80px 0 0 0;">
     <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">An Airbnb for event spaces, converting at 10%</h2>
@@ -207,6 +218,34 @@
     </div>
   </section>
 
+  <section style="padding:80px 0 0 0;">
+    <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">In their own words</h2>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 36px 0;text-wrap:pretty;">Three of the customer interviews behind the research, recorded with permission. Each opens on YouTube.</p>
+    <ul class="cols" style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;">
+      <li>
+        <a class="vcard" href="https://www.youtube.com/watch?v=PtFHSvGQ8pI" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:14px;min-height:44px;padding:22px;border:1px solid rgba(237,239,236,.14);border-radius:12px;color:#EDEFEC;text-decoration:none;">
+          <span aria-hidden="true" style="width:34px;height:34px;border-radius:50%;background:rgba(111,203,146,.14);display:inline-flex;align-items:center;justify-content:center;"><svg width="13" height="14" viewBox="0 0 13 14" fill="#6FCB92"><path d="M12 6.13a1 1 0 0 1 0 1.74l-10.5 6A1 1 0 0 1 0 13V1a1 1 0 0 1 1.5-.87z"></path></svg></span>
+          <span style="font-size:16px;line-height:1.4;font-weight:500;">Customer interview, one</span>
+          <span style="font-size:13.5px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">Watch on YouTube</span>
+        </a>
+      </li>
+      <li>
+        <a class="vcard" href="https://www.youtube.com/watch?v=nb9XqJQ1wow" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:14px;min-height:44px;padding:22px;border:1px solid rgba(237,239,236,.14);border-radius:12px;color:#EDEFEC;text-decoration:none;">
+          <span aria-hidden="true" style="width:34px;height:34px;border-radius:50%;background:rgba(111,203,146,.14);display:inline-flex;align-items:center;justify-content:center;"><svg width="13" height="14" viewBox="0 0 13 14" fill="#6FCB92"><path d="M12 6.13a1 1 0 0 1 0 1.74l-10.5 6A1 1 0 0 1 0 13V1a1 1 0 0 1 1.5-.87z"></path></svg></span>
+          <span style="font-size:16px;line-height:1.4;font-weight:500;">Customer interview, two</span>
+          <span style="font-size:13.5px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">Watch on YouTube</span>
+        </a>
+      </li>
+      <li>
+        <a class="vcard" href="https://www.youtube.com/watch?v=RLAsJmpgzhs" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:14px;min-height:44px;padding:22px;border:1px solid rgba(237,239,236,.14);border-radius:12px;color:#EDEFEC;text-decoration:none;">
+          <span aria-hidden="true" style="width:34px;height:34px;border-radius:50%;background:rgba(111,203,146,.14);display:inline-flex;align-items:center;justify-content:center;"><svg width="13" height="14" viewBox="0 0 13 14" fill="#6FCB92"><path d="M12 6.13a1 1 0 0 1 0 1.74l-10.5 6A1 1 0 0 1 0 13V1a1 1 0 0 1 1.5-.87z"></path></svg></span>
+          <span style="font-size:16px;line-height:1.4;font-weight:500;">Customer interview, three</span>
+          <span style="font-size:13.5px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">Watch on YouTube</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
   <section style="max-width:700px;padding:80px 0 0 0;">
     <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">The insight: the expertise was on the wrong side</h2>
     <p style="max-width:700px;font-size:18px;line-height:1.6;color:#EDEFEC;margin:0 0 24px 0;padding-left:20px;border-left:2px solid #6FCB92;text-wrap:pretty;">We were asking guests, who do this once a year, to make expert decisions. And we were handing hosts, who are genuine experts and do this daily, a queue they couldn&rsquo;t act on.</p>
@@ -217,9 +256,12 @@
     <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">The bet: capture requirements, let experts choose</h2>
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Guests complete a short wizard that captures what they need rather than browsing a directory. Those enquiries pool into a feed. Hosts choose the events they want, rather than events choosing them.</p>
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;"><span style="color:#EDEFEC;">The revenue model changed as a consequence rather than as a goal.</span> Venues pay for access to the feed instead of commission on the sale — which also designs out the off-platform leakage, because there&rsquo;s no percentage left to avoid. Marketplace to SaaS.</p>
-      <div style="margin-top:36px;">
-        <div role="img" aria-label="The lead feed — a brief a host can act on in seconds" style="width:100%;aspect-ratio:2200/1120;background:#1A1F1D;border-radius:12px"></div>
-      </div>
+      <figure style="margin:36px 0 0 0;">
+        <div style="padding:18px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:16px;">
+          <img src="images/headbox/headbox-prototype-brief-type-of-event.png" alt="Step 1 of 8 of the brief wizard: Type of event, with a picture card per event type and an eight-step sidebar" width="1400" height="871" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:10px;">
+        </div>
+        <figcaption style="margin-top:14px;max-width:820px;font-size:14px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">Step one of eight. The brief asks what the event is, not which venue you want &mdash; the choosing is left to the hosts.</figcaption>
+      </figure>
   </section>
 
   <section style="padding:80px 0 0 0;">
@@ -236,26 +278,7 @@
           <span style="font-size:14px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">Listing a space in 2019: prose-first, directory-shaped, and no sense of whether what you&rsquo;d entered was enough to be matched on.</span>
         </figcaption>
       </figure>
-    <div class="cols" style="margin-top:36px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start;">
-        <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
-          <div style="padding:20px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:16px;">
-            <div role="img" aria-label="Venue creation, before" style="width:100%;aspect-ratio:1400/1000;background:#1A1F1D;border-radius:10px"></div>
-          </div>
-          <figcaption>
-            <div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:11px;letter-spacing:.14em;color:#79837C;margin-bottom:8px;">BEFORE</div>
-            <p style="margin:0;font-size:13.5px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">One long form. Capacity and suitability buried among optional fields, so they were frequently left blank, and you could finish and still have an unmatchable venue.</p>
-          </figcaption>
-        </figure>
-        <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
-          <div style="padding:20px;background:rgba(237,239,236,.04);border:1px solid rgba(111, 203, 146,.35);border-radius:16px;">
-            <div role="img" aria-label="Venue creation, after" style="width:100%;aspect-ratio:1400/1000;background:#1A1F1D;border-radius:10px"></div>
-          </div>
-          <figcaption>
-            <div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:11px;letter-spacing:.14em;color:#79837C;margin-bottom:8px;">AFTER</div>
-            <p style="margin:0;font-size:13.5px;line-height:1.55;color:#A2ACA5;text-wrap:pretty;">Structured capacity, layout and suitability first, in resumable steps. Completeness is visible and tied to a consequence the host cares about: an incomplete venue sees fewer briefs.</p>
-          </figcaption>
-        </figure>
-    </div>
+    
   </section>
 
   <section style="padding:80px 0 0 0;">
@@ -263,9 +286,26 @@
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">The Enquiry Hub shipped first as a deliberately small experiment: London only, capped at £10k. It showed the platform connected hosts and guests well but converted poorly, which is what justified the larger bet rather than assuming it.</p>
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">The first prototype of the feed was a spreadsheet: a list of recent enquiries, filtered, shown to twenty venues. Hosts called the guests they matched with, and eighteen of the twenty events became confirmed bookings. That established both things we needed to know &mdash; that venues were better at matching than any algorithm we could have written, and that they would pay for access &mdash; before anyone built anything. It evolved through Figma into coded prototypes.</p>
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Guest-side prototyping started as a Google Form, for the same reason. Find the cheapest thing that produces real evidence.</p>
-      <div style="margin-top:36px;">
-        <div role="img" aria-label="The spreadsheet prototype, and what it became" style="width:100%;aspect-ratio:2200/840;background:#1A1F1D;border-radius:12px"></div>
-      </div>
+      <figure style="margin:36px 0 0 0;">
+        <div style="padding:18px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:16px;">
+          <img src="images/headbox/headbox-prototype-plan-your-event-landing.png" alt="The coded prototype&rsquo;s landing screen: three numbered steps and a single Plan your event call to action" width="1400" height="766" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:10px;">
+        </div>
+        <figcaption style="margin-top:14px;max-width:820px;font-size:14px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">The coded prototype the spreadsheet became: three steps stated up front, and one way in.</figcaption>
+      </figure>
+            <ul class="cols2" style="list-style:none;margin:28px 0 0 0;padding:0;max-width:700px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;">
+        <li>
+          <a class="plink" href="webs/" target="_blank" rel="noopener" style="height:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:8px;min-height:44px;padding:22px 24px;border:1px solid rgba(111,203,146,.35);border-radius:12px;color:#EDEFEC;text-decoration:none;">
+            <span style="display:flex;align-items:center;gap:10px;font-size:16px;line-height:1.4;font-weight:500;">Finding your venue<span aria-hidden="true" style="color:#6FCB92;">&rarr;</span></span>
+            <span style="font-size:13.5px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">The guest side — the wizard that turns a brief into matched venues. Opens in a new tab.</span>
+          </a>
+        </li>
+        <li>
+          <a class="plink" href="webs/venue-listing.html" target="_blank" rel="noopener" style="height:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:8px;min-height:44px;padding:22px 24px;border:1px solid rgba(111,203,146,.35);border-radius:12px;color:#EDEFEC;text-decoration:none;">
+            <span style="display:flex;align-items:center;gap:10px;font-size:16px;line-height:1.4;font-weight:500;">Listing your venue<span aria-hidden="true" style="color:#6FCB92;">&rarr;</span></span>
+            <span style="font-size:13.5px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">The host side — sign-up and listing creation. Opens in a new tab.</span>
+          </a>
+        </li>
+      </ul>
   </section>
 
   <section style="padding:80px 0 0 0;">
