@@ -915,8 +915,25 @@
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">The decoupled flow starts on desktop, hands off to the bank’s mobile app, and comes back. It was built on an assumption: that mobile bank logins are more usable than desktop ones, so moving the user to their phone should improve completion wherever app-to-app is supported.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">That makes it one of the two points in the flow with the most drop-off risk — handoffs are where people leave. The user has to pick up a second device, do something in an app we don’t control, and return to a browser tab they may have already lost. It’s also the step where the screen can give the least help, because for most of it the user isn’t looking at our screen at all.</p>
       <figure style="margin:28px 0 32px 0;display:flex;flex-direction:column;gap:14px;">
-        <div style="padding:16px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;">
-          <img width="1400" height="1101" decoding="async" loading="lazy" data-expandable="" src="images/custard/custard-qr-handoff-lumen-desktop.webp" alt="Verify your account — the QR handoff, with numbered steps on the left, the bank named above the code, and a continue-on-this-device fallback" style="display:block;width:100%;height:auto;border-radius:10px;" />
+        <div class="cols" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start;">
+          <span style="display:flex;flex-direction:column;gap:14px;">
+            <span style="display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;aspect-ratio:1400/1101;min-height:0;overflow:hidden;">
+              <img data-expandable="" src="images/hosted-pages-qr-handoff-before.webp" alt="The original QR screen: a heading, the bank name, one sentence of instructions containing an unresolved bank_short_name placeholder, the code, and a continue-on-desktop link at the foot" loading="lazy" style="cursor:zoom-in;display:block;max-width:100%;max-height:100%;width:auto;height:auto;border-radius:10px;" />
+            </span>
+            <span style="display:flex;align-items:baseline;gap:12px;">
+              <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:12px;letter-spacing:.12em;color:#79837C;">BEFORE</span>
+              <span style="font-size:14px;line-height:1.5;color:#79837C;text-wrap:pretty;">One sentence, an unresolved placeholder, and no account of what happens on the phone</span>
+            </span>
+          </span>
+          <span style="display:flex;flex-direction:column;gap:14px;">
+            <span style="display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;aspect-ratio:1400/1101;min-height:0;overflow:hidden;">
+              <img data-expandable="" src="images/custard/custard-qr-handoff-lumen-desktop.webp" alt="Verify your account — the QR handoff, with numbered steps on the left, the bank named above the code, and a continue-on-this-device fallback" loading="lazy" style="cursor:zoom-in;display:block;width:100%;height:auto;border-radius:10px;" />
+            </span>
+            <span style="display:flex;align-items:baseline;gap:12px;">
+              <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:12px;letter-spacing:.12em;color:#6FCB92;">AFTER</span>
+              <span style="font-size:14px;line-height:1.5;color:#79837C;text-wrap:pretty;">Numbered steps, the bank named, and a continue-on-this-device fallback</span>
+            </span>
+          </span>
         </div>
         <figcaption style="max-width:700px;font-size:14px;line-height:1.55;color:#79837C;text-wrap:pretty;">The handoff screen. Numbered steps set the expectation of what happens on the phone and that the desktop tab will continue on its own, and the same-device route stays available for users who can’t or won’t switch.</figcaption>
       </figure>
@@ -1194,5 +1211,55 @@
   </footer>
 
 </main>
+<script>
+(function(){
+  if (window.__imgZoomInit) return;
+  window.__imgZoomInit = true;
+  var ID = 'om-image-zoom';
+  function viewer(){
+    var v = document.getElementById(ID);
+    if (v) return v;
+    v = document.createElement('div');
+    v.id = ID;
+    v.setAttribute('role','dialog');
+    v.setAttribute('aria-modal','true');
+    v.setAttribute('aria-label','Expanded image');
+    v.style.cssText = 'position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:28px;background:rgba(0,0,0,.88);cursor:zoom-out;';
+    var i = document.createElement('img');
+    i.style.cssText = 'max-width:100%;max-height:100%;object-fit:contain;border-radius:6px;box-shadow:0 12px 48px rgba(0,0,0,.5);cursor:zoom-out;';
+    v.appendChild(i);
+    var x = document.createElement('button');
+    x.type = 'button';
+    x.setAttribute('aria-label','Close');
+    x.textContent = '\u2715';
+    x.title = 'Close';
+    x.style.cssText = 'position:absolute;top:18px;right:18px;width:44px;height:44px;padding:0;margin:0;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-family:inherit;font-size:16px;font-weight:400;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);';
+    x.addEventListener('mouseenter', function(){ x.style.background = 'rgba(255,255,255,.26)'; });
+    x.addEventListener('mouseleave', function(){ x.style.background = 'rgba(255,255,255,.14)'; });
+    x.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); close(); });
+    v.appendChild(x);
+    v.addEventListener('click', function(e){ e.stopPropagation(); close(); });
+    document.body.appendChild(v);
+    return v;
+  }
+  function close(){
+    var all = document.querySelectorAll('#' + ID);
+    for (var n = 0; n < all.length; n++) all[n].style.display = 'none';
+    if (opener && opener.focus) { opener.focus(); opener = null; }
+  }
+  var opener = null;
+  document.addEventListener('click', function(e){
+    var img = e.target.closest && e.target.closest('img[data-expandable]');
+    if (!img) return;
+    opener = img;
+    var el = viewer();
+    el.firstChild.src = img.currentSrc || img.src;
+    el.firstChild.alt = img.alt || '';
+    el.style.display = 'flex';
+    el.querySelector('button').focus();
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+})();
+</script>
 </body>
 </html>
