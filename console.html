@@ -17,6 +17,7 @@
 <style>@font-face{font-family:'Schibsted Grotesk';src:url(fonts/SchibstedGrotesk-VariableFont_wght.ttf) format('truetype');font-weight:400 700;font-style:normal;font-display:swap}</style>
 
 <style>
+  html { color-scheme: dark; }
   body { margin:0; background:#0F1211; color:#EDEFEC; font-family:'Schibsted Grotesk',-apple-system,BlinkMacSystemFont,sans-serif; -webkit-font-smoothing:antialiased; }
   a { color:#EDEFEC; text-decoration:underline; text-decoration-color:rgba(111,203,146,.5); text-underline-offset:4px; text-decoration-thickness:1px; }
   a:hover { text-decoration-color:#6FCB92; }
@@ -97,9 +98,6 @@
     </a>
   </section>
 
-  <section style="padding-bottom:16px;">
-    <img loading="lazy" width="1160" height="560" src="assets/con-hero.webp" alt="Console — redesigned dashboard" style="width:100%;height:560px;border-radius:12px;object-fit:contain;display:block" decoding="async">
-  </section>
 
   <section style="max-width:700px;padding:40px 0 0 0;">
     <div style="border:1px solid rgba(237,239,236,.14);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:18px;">
@@ -187,7 +185,7 @@
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">The consequence is what matters.</p>
       <figure data-om-raster style="margin:32px 0 0 0;">
         <img width="1200" height="640" decoding="async" loading="lazy" src="diagrams/console-evolution-2026-organisation-container.svg" alt="The Console, 2026 beta — the organisation becomes the container" style="display:block;width:100%;height:auto;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
-        <figcaption style="margin-top:14px;max-width:700px;font-size:14px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">Where it landed. Teams, billing, KYB and analytics sit at organisation level; applications hold sub-applications, each carrying its own compliance state. Product scopes are gated by KYB and billing rather than by a support ticket.</figcaption>
+        <figcaption style="margin-top:14px;max-width:700px;font-size:14px;line-height:1.55;color:#79837C;text-wrap:pretty;">Where it landed. Teams, billing, KYB and analytics sit at organisation level; applications hold sub-applications, each carrying its own compliance state. Product scopes are gated by KYB and billing rather than by a support ticket.</figcaption>
       </figure>
   </section>
 
@@ -572,7 +570,7 @@
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">It wasn’t called the Console. The Dashboard was a certificate vault and an application manager, built for the five customers Yapily had in 2020 — Intuit among them — who held their own licence. The right scope for the company at that size, and it could tell a customer nothing about how their integration was performing. Hosted Pages didn’t exist yet, and neither did Yapily Connect.</p>
       <figure data-om-raster style="margin:32px 0 0 0;">
         <img width="1200" height="430" decoding="async" loading="lazy" src="diagrams/console-evolution-2020-dashboard.svg" alt="The Dashboard, 2020 — one licence model, the application as container" style="display:block;width:100%;height:auto;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
-        <figcaption style="margin-top:14px;max-width:700px;font-size:14px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">One licensing model. Customers with their own licence create an application, manage certificates, register banks and enable a few hundred institutions. The application is the container, and analytics are API logs only.</figcaption>
+        <figcaption style="margin-top:14px;max-width:700px;font-size:14px;line-height:1.55;color:#79837C;text-wrap:pretty;">One licensing model. Customers with their own licence create an application, manage certificates, register banks and enable a few hundred institutions. The application is the container, and analytics are API logs only.</figcaption>
       </figure>
       
     </div>
@@ -610,7 +608,7 @@
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Two things arrived at once. Yapily Connect let customers operate under our licence, creating a second customer type; and new markets, Germany above all, took coverage from hundreds of institutions to thousands. The Dashboard became the Console. Scale changed what the old screens were being asked to do, a certificate list built for a handful of registrations is a different object at nineteen thousand rows.</p>
       <figure data-om-raster style="margin:32px 0 0 0;">
         <img width="1200" height="530" decoding="async" loading="lazy" src="diagrams/console-evolution-2022-two-licence-models.svg" alt="The Console, 2022 — two licensing models, one container" style="display:block;width:100%;height:auto;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
-        <figcaption style="margin-top:14px;max-width:700px;font-size:14px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">Yapily Connect customers skip certificate management and bank registration entirely and reach thousands of banks. The application is still the only container, a second customer type fitted into a shape built for the first.</figcaption>
+        <figcaption style="margin-top:14px;max-width:700px;font-size:14px;line-height:1.55;color:#79837C;text-wrap:pretty;">Yapily Connect customers skip certificate management and bank registration entirely and reach thousands of banks. The application is still the only container, a second customer type fitted into a shape built for the first.</figcaption>
       </figure>
       <div style="margin-top:28px;">
         <img width="1440" height="1314" src="assets/console-certificates-scale.webp" alt="Console wireframe — certificate management at scale" style="width:100%;aspect-ratio:1440/1314;border-radius:12px;object-fit:contain;display:block;height:auto" decoding="async" loading="lazy">
@@ -623,7 +621,7 @@
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Every gap between what it did and what customers needed got absorbed by a person. CSMs, PMs and support staff manually enabled features, curated bank coverage on a customer’s behalf, and told customers which banks supported what. None of that looked like a design problem. It looked like we needed more people.</p>
       <figure data-om-raster style="margin:32px 0 0 0;">
         <img width="1200" height="610" decoding="async" loading="lazy" src="diagrams/console-evolution-2022-2025-support-led.svg" alt="The Console, 2022 to 2025 — guidance that ends at a sales form" style="display:block;width:100%;height:auto;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
-        <figcaption style="margin-top:14px;max-width:700px;font-size:14px;line-height:1.55;color:#9aa39f;text-wrap:pretty;">Guidance improved, then handed the customer to a person: the get-started guide ends at a sales form. Hosted Pages configuration and scope enablement stayed support-led, a ticket, a support person and an engineer, per customer, per request.</figcaption>
+        <figcaption style="margin-top:14px;max-width:700px;font-size:14px;line-height:1.55;color:#79837C;text-wrap:pretty;">Guidance improved, then handed the customer to a person: the get-started guide ends at a sales form. Hosted Pages configuration and scope enablement stayed support-led, a ticket, a support person and an engineer, per customer, per request.</figcaption>
       </figure>
       <div style="margin-top:28px;">
         <img width="1400" height="1237" decoding="async" loading="lazy" src="images/console/console-2025-get-started-sales-form.webp" alt="The Console Get Started page — three tabs of guidance ending in a contact form that a Yapily salesperson responds to" style="display:block;width:100%;height:auto;border:1px solid rgba(237,239,236,.09);border-radius:12px;">

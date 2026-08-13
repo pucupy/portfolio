@@ -2,8 +2,11 @@
 <html>
 <head>
   <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0F1211">
   <title>Alejandro Velázquez — Interview deck</title>
   <style>
+  html { color-scheme: dark; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #0B0D0D; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
     #__bundler_loading { position: fixed; bottom: 20px; right: 20px; font: 13px/1.4 -apple-system, BlinkMacSystemFont, sans-serif; color: #666; background: #fff; padding: 8px 14px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.12); z-index: 10000; }
@@ -29,7 +32,7 @@
     <rect x="150" y="560" width="200" height="14" rx="7" fill="#6FCB92"></rect>
   </svg>
 </div>
-  <div id="__bundler_loading">Unpacking...</div>
+  <div id="__bundler_loading">Unpacking…</div>
 
   <script>
     
@@ -220,7 +223,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
 
     const uuids = Object.keys(manifest);
-    setStatus('Unpacking ' + uuids.length + ' assets...');
+    setStatus('Unpacking ' + uuids.length + ' assets…');
 
     await Promise.all(uuids.map(async (uuid) => {
       const entry = manifest[uuid];
@@ -285,7 +288,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     // consumers read these Blobs directly. Survives the swap like the error sink.
     window.__resourceBlobs = resourceBlobs;
 
-    setStatus('Rendering...');
+    setStatus('Rendering…');
     // Page uuids have no blob here — they ride inside about:blank#<uuid>
     // frame markers the pass below resolves after the swap.
     for (const uuid of uuids) {
