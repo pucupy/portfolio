@@ -10,15 +10,15 @@
 
   <rect width="1200" height="530" fill="#0B0D0D"></rect>
 
-  <text x="48" y="54" fill="#C9A86A" font-size="12.5" letter-spacing="2.6" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">2022 · A SECOND LICENSING MODEL</text>
+  <text x="48" y="54" fill="#6FCB92" font-size="12.5" letter-spacing="2.6" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">2022 · A SECOND LICENSING MODEL</text>
   <text x="48" y="94" fill="#F4F6F5" font-size="25" font-weight="600">Two customer types. One container, retrofitted.</text>
 
   
   <text x="48" y="146" fill="#9AA39F" font-size="11.5" letter-spacing="2" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">DIRECT — OWN LICENCE</text>
 
-  <rect x="48" y="162" width="180" height="78" rx="8" fill="#141716" stroke="#C9A86A" stroke-opacity="0.55"></rect>
-  <text x="138" y="195" fill="#C9A86A" font-size="14.5" text-anchor="middle">Customer&#39;s own</text>
-  <text x="138" y="215" fill="#C9A86A" font-size="14.5" text-anchor="middle">licence</text>
+  <rect x="48" y="162" width="180" height="78" rx="8" fill="#141716" stroke="#6FCB92" stroke-opacity="0.55"></rect>
+  <text x="138" y="195" fill="#6FCB92" font-size="14.5" text-anchor="middle">Customer&#39;s own</text>
+  <text x="138" y="215" fill="#6FCB92" font-size="14.5" text-anchor="middle">licence</text>
 
   <rect x="279" y="162" width="180" height="78" rx="8" fill="#141716" stroke="#F4F6F5" stroke-opacity="0.16"></rect>
   <text x="369" y="207" fill="#F4F6F5" font-size="14.5" text-anchor="middle">App creation</text>
@@ -41,11 +41,11 @@
   <line x1="929" y1="201" x2="964" y2="201" stroke="#6E7671" stroke-width="1.4" marker-end="url(#arw2)"></line>
 
   
-  <text x="48" y="288" fill="#C9A86A" font-size="11.5" letter-spacing="2" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">NEW — YAPILY CONNECT</text>
+  <text x="48" y="288" fill="#6FCB92" font-size="11.5" letter-spacing="2" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">NEW — YAPILY CONNECT</text>
 
-  <rect x="48" y="304" width="180" height="78" rx="8" fill="#141716" stroke="#C9A86A" stroke-opacity="0.55"></rect>
-  <text x="138" y="337" fill="#C9A86A" font-size="14.5" text-anchor="middle">Yapily&#39;s</text>
-  <text x="138" y="357" fill="#C9A86A" font-size="14.5" text-anchor="middle">licence</text>
+  <rect x="48" y="304" width="180" height="78" rx="8" fill="#141716" stroke="#6FCB92" stroke-opacity="0.55"></rect>
+  <text x="138" y="337" fill="#6FCB92" font-size="14.5" text-anchor="middle">Yapily&#39;s</text>
+  <text x="138" y="357" fill="#6FCB92" font-size="14.5" text-anchor="middle">licence</text>
 
   <rect x="279" y="304" width="180" height="78" rx="8" fill="#141716" stroke="#F4F6F5" stroke-opacity="0.16"></rect>
   <text x="369" y="349" fill="#F4F6F5" font-size="14.5" text-anchor="middle">App creation</text>
@@ -58,7 +58,7 @@
   <text x="831" y="337" fill="#6E7671" font-size="14.5" text-anchor="middle">No bank</text>
   <text x="831" y="357" fill="#6E7671" font-size="14.5" text-anchor="middle">registration</text>
 
-  <rect x="972" y="304" width="180" height="78" rx="8" fill="#141716" stroke="#C9A86A" stroke-opacity="0.4"></rect>
+  <rect x="972" y="304" width="180" height="78" rx="8" fill="#141716" stroke="#6FCB92" stroke-opacity="0.4"></rect>
   <text x="1062" y="337" fill="#F4F6F5" font-size="14.5" text-anchor="middle">Thousands of</text>
   <text x="1062" y="357" fill="#F4F6F5" font-size="14.5" text-anchor="middle">banks</text>
 
@@ -71,7 +71,7 @@
 
   
   <line x1="48" y1="466" x2="1152" y2="466" stroke="#F4F6F5" stroke-opacity="0.14"></line>
-  <text x="48" y="500" fill="#C9A86A" font-size="11.5" letter-spacing="2.2" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">ANALYTICS</text>
+  <text x="48" y="500" fill="#6FCB92" font-size="11.5" letter-spacing="2.2" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">ANALYTICS</text>
   <text x="180" y="501" fill="#9AA39F" font-size="14">API logs only — unchanged</text>
 
   <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" fill="#9AA39F">
