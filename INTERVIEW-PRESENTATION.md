@@ -395,7 +395,7 @@ Real traffic and real banks, in percentage rollouts.
 HOSTED PAGES
 What looked like a layout problem was an intelligence problem
 Popular banks
-Recent bank
+Bank pre-selection
 Regional grouping
 Better display names
 Aliases and synonyms
@@ -420,10 +420,10 @@ Needs popular banks
 [image: Bank selection on a first visit, with a recommended group of popular banks at the top]
 RETURNING
 Needs their previous bank
-[image: Bank selection for a returning user, with their previously used bank promoted into the first slot]
-The recent bank was promoted into the first slot; popular banks filled the rest. De-duplication stopped the same institution appearing twice.
+[image: Payment screen for a returning user, with their bank pre-selected and a Change bank action beside the name]
+Returning users skip selection entirely: their bank is pre-selected on the payment screen, and Change bank, beside the bank name, goes back to the full list.
 
-> Speaker notes: Rather than create two competing sections, the recent bank was promoted into the first slot and popular banks filled the remaining positions. De-duplication prevented the same institution appearing twice.
+> Speaker notes: Rather than create two competing sections, returning users skip the list entirely: their bank is pre-selected on the payment screen, with a Change bank action beside the bank name as the way back. First-time visitors get popular banks.
 
 ---
 
