@@ -1,5 +1,5 @@
 # Interview presentation — full content export
-Ale Velázquez. Exported 7 August 2026 from `Interview Presentation.dc.html`.
+Ale Velazquez. Exported 7 August 2026 from `Interview Presentation.dc.html`.
 
 122 slides, in order. Speaker notes are quoted under each slide.
 
@@ -9,7 +9,7 @@ Ale Velázquez. Exported 7 August 2026 from `Interview Presentation.dc.html`.
 
 [image: ]
 PORTFOLIO OVERVIEW
-Alejandro Velázquez
+Alejandro Velazquez
 Lead Product Designer & Design Manager
 Fintech · Open banking · Payments · SaaS · Platforms
 STEVENAGE, UK · ALEUXUK@GMAIL.COM
@@ -43,7 +43,7 @@ Argentina, then Globant
 Enterprise product design for Google, JP Morgan, PwC, Coca-Cola and Telefónica.
 2012 — 2019
 Payments, fintech, marketplaces
-Payango, Payfriendz, Docomo Digital, Caremoni, HeadBox.
+Payango, Payfriendz, Su4erheroes, HeadBox.
 2020 — PRESENT
 Yapily
 First designer to design lead. Open banking infrastructure across the UK and Europe.
@@ -184,7 +184,7 @@ Strategy + hands-on design + commercial impact
 ## 11 Contact
 
 CONTACT
-Alejandro Velázquez
+Alejandro Velazquez
 Stevenage, UK
 aleuxuk@gmail.com
 linkedin.com/in/velazquezalejandro
@@ -380,12 +380,12 @@ Match the method to the decision
 Moderated
 Reasoning and expectations. Often 10–15 users in a market.
 Unmoderated
-Coverage, speed and error rates. Part of ~1,000 end-user sessions, 2023–2026, across ~20 banks.
+Coverage, speed and error rates. Part of the 2023–2026 end-user testing programme, moderated and unmoderated.
 Production experiments
 Real traffic and real banks, in percentage rollouts.
 [image: Seven people around a dark table writing on paper, a laptop showing Task 2 instructions, a Cambridge railway poster on the wall]
 
-> Speaker notes: Early rounds were often 10 to 15 users in a market. Around 1,000 end-user sessions ran between 2023 and 2026, moderated and unmoderated, testing usability, market coverage and live bank integrations with real people connecting real accounts. Qualitative work discarded weak ideas quickly. Stronger concepts moved into percentage rollouts and live experiments.
+> Speaker notes: Early rounds were often 10 to 15 users in a market. The programme ran between 2023 and 2026, moderated and unmoderated, testing usability, market coverage and live bank integrations with real people connecting real accounts. Qualitative work discarded weak ideas quickly. Stronger concepts moved into percentage rollouts and live experiments.
 
 ---
 
@@ -479,7 +479,7 @@ Retry limits were different by bank. Research surfaced the mismatch; Engineering
 
 29 ·
 HOSTED PAGES
-We delayed the release by two sprints
+We postponed the release to fix it
 A commissioned audit found contrast failures, and screen readers announcing raw SVG markup — which left the flow unnavigable by screen reader. We postponed a release to fix both rather than shipping and correcting afterwards.
 
 > Speaker notes: A commissioned accessibility study found insufficient colour contrast in multiple places, and screen readers reading raw SVG markup aloud because alternative text had not been implemented correctly — meaning a screen reader user could not navigate the flow. A release was postponed to fix both rather than shipping and correcting later. I wrote the findings up as a document for the frontend team to work from.
@@ -920,7 +920,7 @@ Can there be more than one licence, organisation, merchant, region or behaviour?
 DECK 03
 HeadBox — turning a marketplace the right way round
 Research changed the business model, not just the interface
-LEAD PRODUCT DESIGNER · 2018 — 2019 · LONDON
+LEAD PRODUCT DESIGNER · DEC 2018 – DEC 2019 · LONDON
 
 > Speaker notes: Deck 03 — HeadBox deep dive. Recommended 18 to 20 slides, 35 to 45 minutes.
 

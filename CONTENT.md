@@ -1,5 +1,5 @@
 # Portfolio — full content export
-Ale Velázquez. Exported 7 August 2026 from the source pages.
+Ale Velazquez. Exported 7 August 2026 from the source pages.
 
 Every page's text in reading order, with image descriptions in square brackets.
 
@@ -8,13 +8,13 @@ Every page's text in reading order, with image descriptions in square brackets.
 
 # Home
 
-# Alejandro Velázquez
+# Alejandro Velazquez
 Product designer and design lead. Regulated fintech, open banking and payments.
 I work on products where the interface is only part of the problem. Regulation, third-party systems, operations and data decide most of what a customer sees. My job is to understand that, then make something people can actually use.
 FOUNDING DESIGNER
 Built Yapily's design function from the first hire.
 CONTINUOUS RESEARCH
-200+ customer interviews since 2020, and around 1,000 end-user sessions across usability, market coverage and live bank integrations.
+200+ customer interviews since 2020, and continuous end-user testing across usability, market coverage and live bank integrations, moderated and unmoderated.
 REGULATED PRODUCTS
 Open banking, payments, compliance, enterprise SaaS.
 HANDS-ON
@@ -22,7 +22,7 @@ Strategy, research, interaction design, systems, prototypes, code.
 2020 — PRESENT
 Yapily. Founding designer and design lead across Hosted Pages, the Console, three design systems, research and go-to-market design. Hosted Pages is now used by 200 companies; Yapily's customers include Google, Adyen, Intuit, Ant Financial and Revolut, and I worked directly with designers and product managers at Google over two years. The work sits inside FCA guidelines and I've supported the compliance team in preparing presentations to the regulator. I manage two designers.
 2012 — 2019
-Lead and senior product design for consumer fintech, payments and marketplaces, Payango, Payfriendz, Docomo Digital, Caremoni, HeadBox. Payfriendz reached 150,000 users and a top-three position in the App Store finance category. Remote from the US at first; moved to London in January 2014.
+Lead and senior product design for consumer fintech, payments and marketplaces, Payango, Payfriendz, Su4erheroes, HeadBox. Payfriendz reached 150,000 users and a top-three position in the App Store finance category. Remote from the US at first; moved to London in January 2014.
 2005 — 2011
 Argentina. Started freelance, then at small agencies, before joining Globant in 2008, enterprise product design for clients including Google, JP Morgan, PwC, Coca-Cola and Telefónica, alongside interaction and motion design work for clients across Latin America and Europe.
 Lead Product Designer & Design Manager — Founding Designer, Yapily
@@ -169,7 +169,7 @@ Since then I've worked on peer-to-peer payments across the UK and Germany, marke
 
 ## Let’s talk
 I am interested in Lead Product Designer and design leadership roles where product strategy, hands-on design and complex systems are equally important.
-Alejandro Velázquez
+Alejandro Velazquez
 Stevenage, UK
 aleuxuk@gmail.com
 linkedin.com/in/velazquezalejandro
