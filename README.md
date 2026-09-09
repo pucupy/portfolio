@@ -1,4 +1,4 @@
-# Alejandro Velazquez — portfolio
+# Alejandro Velázquez — portfolio
 
 Static site, self-contained HTML pages. No build step, no dependencies, no network calls at render time — every image and font is embedded in the page that uses it.
 
