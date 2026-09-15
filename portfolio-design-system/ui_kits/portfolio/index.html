@@ -1,0 +1,128 @@
+<!-- @dsCard group="Portfolio" viewport="1160x900" subtitle="Home — hero, career timeline, numbered work list" name="Home" -->
+<!-- @startingPoint section="Portfolio" subtitle="Portfolio home page" viewport="1160x1400" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home — portfolio UI kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  .wrap { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); }
+  .measure { max-width: var(--text-max); }
+  .ph { display:flex; align-items:flex-end; padding:14px; background:#0f1212; border:var(--border-hairline);
+        border-radius:var(--radius-image); font-family:var(--font-mono); font-size:12px; color:var(--ink-3); }
+  nav a:hover { color: var(--ink-1); }
+  @media (max-width:600px){ .wrap{ padding:0 var(--container-pad-sm); } .cols{ grid-template-columns:1fr !important; } }
+</style>
+</head>
+<body>
+<header style="position:sticky;top:0;z-index:50;background:var(--ground-translucent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:var(--border-hairline);">
+  <div class="wrap" style="padding:18px var(--container-pad);display:flex;justify-content:space-between;align-items:center;gap:var(--space-24);flex-wrap:wrap;">
+    <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+      <img src="../../assets/avatar.svg" alt="" width="26" height="26" style="border-radius:var(--radius-avatar-sm);">
+      <span style="font-size:var(--type-ui);font-weight:500;letter-spacing:var(--tracking-name);color:var(--ink-1);">Alejandro Velázquez</span>
+    </a>
+    <nav style="display:flex;align-items:center;gap:22px;font-size:var(--type-ui);">
+      <a href="index.html#work" style="color:var(--ink-2);text-decoration:none;">Work</a>
+      <a href="#" style="color:var(--ink-2);text-decoration:none;">About</a>
+      <a href="#" style="color:var(--ink-2);text-decoration:none;">CV</a>
+      <a href="#" style="color:var(--ink-2);text-decoration:none;">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+  <section class="measure" style="padding:var(--page-top-home) 0 var(--space-96);">
+    <h1 style="margin:0 0 var(--space-40);font-size:var(--type-h1-home);font-weight:500;letter-spacing:var(--tracking-h1);line-height:var(--leading-h1-home);">Alejandro Velázquez</h1>
+    <p style="margin:0 0 var(--space-40);font-size:var(--type-lead);line-height:var(--leading-body);color:var(--ink-1);">Product designer and design lead. The intro paragraph sits at 18px in the brightest ink and runs no wider than 700px.</p>
+    <div style="display:flex;flex-direction:column;gap:var(--space-26);margin-bottom:var(--space-44);">
+      <div><div style="font-family:var(--font-mono);font-size:var(--type-meta);letter-spacing:var(--tracking-mono-date);color:var(--gold);margin-bottom:var(--space-8);">2020 — PRESENT</div><p style="margin:0;font-size:var(--type-body);line-height:var(--leading-body);color:var(--ink-2);">A period of the career, in one paragraph.</p></div><div><div style="font-family:var(--font-mono);font-size:var(--type-meta);letter-spacing:var(--tracking-mono-date);color:var(--gold);margin-bottom:var(--space-8);">2012 — 2019</div><p style="margin:0;font-size:var(--type-body);line-height:var(--leading-body);color:var(--ink-2);">A period of the career, in one paragraph.</p></div><div><div style="font-family:var(--font-mono);font-size:var(--type-meta);letter-spacing:var(--tracking-mono-date);color:var(--gold);margin-bottom:var(--space-8);">2005 — 2011</div><p style="margin:0;font-size:var(--type-body);line-height:var(--leading-body);color:var(--ink-2);">A period of the career, in one paragraph.</p></div>
+    </div>
+    <p style="margin:0 0 var(--space-20);font-size:var(--type-ui);color:var(--ink-2);font-style:italic;">Lead UX Designer &amp; Manager — Founding Designer, Yapily</p>
+    <div style="display:flex;gap:var(--space-18);flex-wrap:wrap;align-items:baseline;font-size:var(--type-link);">
+      <a href="mailto:aleuxuk@gmail.com">aleuxuk@gmail.com</a>
+      <span aria-hidden="true" style="color:var(--ink-4);">·</span>
+      <a href="#">Download CV (PDF)</a>
+      <span aria-hidden="true" style="color:var(--ink-4);">·</span>
+      <a href="https://www.linkedin.com/in/velazquezalejandro/">LinkedIn</a>
+    </div>
+  </section>
+
+  <section id="work" style="padding-top:var(--space-24);">
+    <h2 style="margin:0 0 var(--space-8);font-size:var(--type-h2-large);font-weight:500;letter-spacing:var(--tracking-h2-large);">Selected work</h2>
+    <div style="border-top:var(--border-strong);margin-top:var(--space-40);"></div>
+    <article style="padding:var(--entry-padding) 0;border-bottom:var(--border-hairline);">
+  <header style="display:flex;gap:var(--space-20);align-items:baseline;flex-wrap:wrap;margin-bottom:var(--space-14);">
+    <span style="font-family:var(--font-mono);font-size:var(--type-ui);color:var(--gold);">01</span>
+    <h3 style="margin:0;font-size:var(--type-h3-entry);font-weight:500;letter-spacing:var(--tracking-h2-mid);color:var(--ink-1);">Yapily Hosted Pages</h3>
+    
+  </header>
+  <div class="measure" style="font-size:var(--type-body);line-height:var(--leading-body);color:var(--ink-2);">
+    <p style="margin:0 0 var(--space-16);">Copy for this entry lives in the site's own content source; this kit shows the layout, rhythm and type only.</p>
+  </div>
+  <div style="margin-top:var(--space-28);font-size:var(--type-link);"><a href="case-study.html">Full case study →</a></div>
+  <div style="margin-top:var(--space-36);"><div class="ph" style="height:460px;">2200×920 · contain</div></div>
+</article>
+    <article style="padding:var(--entry-padding) 0;border-bottom:var(--border-hairline);">
+  <header style="display:flex;gap:var(--space-20);align-items:baseline;flex-wrap:wrap;margin-bottom:var(--space-14);">
+    <span style="font-family:var(--font-mono);font-size:var(--type-ui);color:var(--gold);">02</span>
+    <h3 style="margin:0;font-size:var(--type-h3-entry);font-weight:500;letter-spacing:var(--tracking-h2-mid);color:var(--ink-1);">Yapily Console</h3>
+    
+  </header>
+  <div class="measure" style="font-size:var(--type-body);line-height:var(--leading-body);color:var(--ink-2);">
+    <p style="margin:0 0 var(--space-16);">Copy for this entry lives in the site's own content source; this kit shows the layout, rhythm and type only.</p>
+  </div>
+  <div style="margin-top:var(--space-28);font-size:var(--type-link);"><a href="case-study.html">Full case study →</a></div>
+  <div style="margin-top:var(--space-36);"><div class="ph" style="height:460px;">2200×920 · contain</div></div>
+</article>
+    <article style="padding:var(--entry-padding) 0;border-bottom:var(--border-hairline);">
+  <header style="display:flex;gap:var(--space-20);align-items:baseline;flex-wrap:wrap;margin-bottom:var(--space-14);">
+    <span style="font-family:var(--font-mono);font-size:var(--type-ui);color:var(--gold);">03</span>
+    <h3 style="margin:0;font-size:var(--type-h3-entry);font-weight:500;letter-spacing:var(--tracking-h2-mid);color:var(--ink-1);">Yapily UI, Custard and Mark</h3>
+    
+  </header>
+  <div class="measure" style="font-size:var(--type-body);line-height:var(--leading-body);color:var(--ink-2);">
+    <p style="margin:0 0 var(--space-16);">Copy for this entry lives in the site's own content source; this kit shows the layout, rhythm and type only.</p>
+  </div>
+  
+  <div style="margin-top:var(--space-36);"><div class="cols" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--grid-gap-image);"><div class="ph" style="height:340px;">1080×680 · contain</div><div class="ph" style="height:340px;">1080×680 · contain</div></div></div>
+</article>
+    <article style="padding:var(--entry-padding) 0;border-bottom:var(--border-hairline);">
+  <header style="display:flex;gap:var(--space-20);align-items:baseline;flex-wrap:wrap;margin-bottom:var(--space-14);">
+    <span style="font-family:var(--font-mono);font-size:var(--type-ui);color:var(--gold);">09</span>
+    <h3 style="margin:0;font-size:var(--type-h3-entry);font-weight:500;letter-spacing:var(--tracking-h2-mid);color:var(--ink-1);">Docomo Digital</h3>
+    <span style="font-family:var(--font-mono);font-size:var(--type-meta);color:var(--ink-3);">2016–2018</span>
+  </header>
+  <div class="measure" style="font-size:var(--type-body);line-height:var(--leading-body);color:var(--ink-2);">
+    <p style="margin:0 0 var(--space-16);">Copy for this entry lives in the site's own content source; this kit shows the layout, rhythm and type only.</p>
+  </div>
+  
+  <p style="margin:var(--space-24) 0 0;font-size:var(--type-meta);line-height:var(--leading-note);color:var(--ink-3);font-style:italic;">No imagery — this work is under NDA.</p>
+</article>
+    <article style="padding:var(--entry-padding) 0;border-bottom:none;">
+  <header style="display:flex;gap:var(--space-20);align-items:baseline;flex-wrap:wrap;margin-bottom:var(--space-14);">
+    <span style="font-family:var(--font-mono);font-size:var(--type-ui);color:var(--gold);">11</span>
+    <h3 style="margin:0;font-size:var(--type-h3-entry);font-weight:500;letter-spacing:var(--tracking-h2-mid);color:var(--ink-1);">Payfriendz</h3>
+    <span style="font-family:var(--font-mono);font-size:var(--type-meta);color:var(--ink-3);">2013–2016</span>
+  </header>
+  <div class="measure" style="font-size:var(--type-body);line-height:var(--leading-body);color:var(--ink-2);">
+    <p style="margin:0 0 var(--space-16);">Copy for this entry lives in the site's own content source; this kit shows the layout, rhythm and type only.</p>
+  </div>
+  
+  <div style="margin-top:var(--space-36);"><div class="cols" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--grid-gap-image);"><div class="ph" style="height:400px;">700×800</div><div class="ph" style="height:400px;">700×800</div><div class="ph" style="height:400px;">700×800</div></div></div>
+</article>
+  </section>
+</main>
+<div class="wrap"><footer class="measure" style="padding:var(--space-120) 0 var(--space-96);">
+  <div style="border-top:var(--border-strong);padding-top:var(--space-36);display:flex;gap:var(--space-18);flex-wrap:wrap;align-items:baseline;font-size:var(--type-link);">
+    <a href="mailto:aleuxuk@gmail.com">aleuxuk@gmail.com</a>
+    <span aria-hidden="true" style="color:var(--ink-4);">·</span>
+    <a href="#">Download CV (PDF)</a>
+    <span aria-hidden="true" style="color:var(--ink-4);">·</span>
+    <a href="https://www.linkedin.com/in/velazquezalejandro/">LinkedIn</a>
+  </div>
+</footer></div>
+</body>
+</html>

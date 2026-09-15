@@ -1,0 +1,176 @@
+{
+  "$schema": "./contract.schema.json",
+  "id": "cst.button-footer",
+  "name": "ButtonFooter",
+  "version": "1.0.0",
+  "status": "draft",
+  "description": "The component with the most variants in the system: consent copy differs by product and region, and the layout differs by device. Twelve combinations, one component, documented rather than redrawn. The cancel is a text action, never a second button.",
+  "semantics": {
+    "element": "footer"
+  },
+  "props": [
+    {
+      "name": "product",
+      "description": "AIS asks for account access; PIS initiates a payment. The label comes from product × region.",
+      "type": {
+        "enum": [
+          "ais",
+          "pis"
+        ]
+      },
+      "default": "pis",
+      "bindings": {
+        "figma": {
+          "kind": "VARIANT",
+          "property": "Product",
+          "values": {
+            "ais": "AIS",
+            "pis": "PIS"
+          }
+        },
+        "code": {
+          "prop": "product"
+        }
+      }
+    },
+    {
+      "name": "region",
+      "type": {
+        "enum": [
+          "uk",
+          "eu"
+        ]
+      },
+      "default": "eu",
+      "bindings": {
+        "figma": {
+          "kind": "VARIANT",
+          "property": "Region",
+          "values": {
+            "uk": "UK",
+            "eu": "EU"
+          }
+        },
+        "code": {
+          "prop": "region"
+        }
+      }
+    },
+    {
+      "name": "device",
+      "description": "Mobile stacks full-width; desktop is inline and right-aligned.",
+      "type": {
+        "enum": [
+          "mobile",
+          "desktop"
+        ]
+      },
+      "default": "desktop",
+      "bindings": {
+        "figma": {
+          "kind": "VARIANT",
+          "property": "Device",
+          "values": {
+            "mobile": "Mobile",
+            "desktop": "Desktop"
+          }
+        },
+        "code": {
+          "prop": "device"
+        }
+      }
+    },
+    {
+      "name": "primaryLabel",
+      "type": "text",
+      "default": "Continue to your bank",
+      "required": true,
+      "bindings": {
+        "figma": {
+          "kind": "TEXT",
+          "property": "PrimaryLabel"
+        },
+        "code": {
+          "prop": "primaryLabel"
+        }
+      }
+    },
+    {
+      "name": "cancelLabel",
+      "type": "text",
+      "default": "Cancel payment",
+      "required": true,
+      "bindings": {
+        "figma": {
+          "kind": "TEXT",
+          "property": "CancelLabel"
+        },
+        "code": {
+          "prop": "cancelLabel"
+        }
+      }
+    }
+  ],
+  "states": [],
+  "anatomy": {
+    "root": {
+      "layout": {
+        "display": "flex",
+        "direction": "{device.direction}",
+        "align": "stretch",
+        "justify": "end"
+      },
+      "tokens": {
+        "gap": "{space.gap.control}",
+        "padding-block": "{space.inset-y.md}"
+      },
+      "parts": {
+        "cancel": {
+          "element": "button",
+          "content": {
+            "prop": "cancelLabel"
+          },
+          "description": "Text action. Reachable at every step.",
+          "tokens": {
+            "min-height": "{size.button.md}",
+            "color": "{color.action.text.foreground}",
+            "font-size": "{font.control.size}",
+            "font-weight": "{font.control.weight}",
+            "background-color": "transparent"
+          }
+        },
+        "primary": {
+          "element": "button",
+          "content": {
+            "prop": "primaryLabel"
+          },
+          "tokens": {
+            "min-height": "{size.button.lg}",
+            "background-color": "{color.action.primary.background}",
+            "color": "{color.action.primary.foreground}",
+            "border-radius": "{radius.button}",
+            "padding-inline": "{space.inset-x.lg}",
+            "font-size": "{font.control.size}",
+            "font-weight": "{font.control.weight}"
+          },
+          "states": {
+            "focus-visible": {
+              "outline-color": "{color.border.focus}"
+            }
+          }
+        }
+      }
+    }
+  },
+  "a11y": {
+    "focusVisible": true,
+    "minHitArea": 44,
+    "contrast": "AA"
+  },
+  "anchors": {
+    "code": {
+      "importPath": "src/journey/ButtonFooter",
+      "export": "ButtonFooter"
+    }
+  }
+}

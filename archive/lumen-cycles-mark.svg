@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="6 4 108 84" role="img" aria-label="Lumen Cycles">
+<g fill="#17191C"><path d="M24.0,60.7 L12.0,58.0 L24.0,55.3 Z"></path><path d="M24.4,51.9 L13.4,46.4 L25.7,46.7 Z"></path><path d="M26.9,43.5 L17.6,35.5 L29.5,38.7 Z"></path><path d="M31.4,35.9 L24.3,25.9 L35.1,31.9 Z"></path><path d="M37.6,29.7 L33.2,18.2 L42.1,26.6 Z"></path><path d="M45.2,25.1 L42.6,10.1 L50.2,23.2 Z"></path><path d="M53.6,22.5 L54.7,7.3 L58.9,21.9 Z"></path><path d="M61.1,21.9 L65.3,7.3 L66.4,22.5 Z"></path><path d="M69.8,23.2 L77.4,10.1 L74.8,25.1 Z"></path><path d="M77.9,26.6 L86.8,18.2 L82.4,29.7 Z"></path><path d="M84.9,31.9 L95.7,25.9 L88.6,35.9 Z"></path><path d="M90.5,38.7 L102.4,35.5 L93.1,43.5 Z"></path><path d="M94.3,46.7 L106.6,46.4 L95.6,51.9 Z"></path><path d="M96.0,55.3 L108.0,58.0 L96.0,60.7 Z"></path></g>
+<g fill="none" stroke="#17191C" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round">
+<ellipse cx="60" cy="58" rx="33" ry="26"></ellipse>
+<circle cx="42" cy="64" r="13"></circle>
+<circle cx="78" cy="64" r="13"></circle>
+<path d="M42 64 L54 44 L69 44 L78 64"></path>
+<path d="M54 44 L61 64 L42 64"></path>
+</g>
+</svg>

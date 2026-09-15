@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0F1211">
+<link rel="preload" href="fonts/schibsted-grotesk.ttf" as="font" type="font/ttf" crossorigin>
+<style>@font-face{font-family:'Schibsted Grotesk';src:url('fonts/schibsted-grotesk.ttf') format('truetype-variations'),url('fonts/schibsted-grotesk.ttf') format('truetype');font-weight:400 700;font-style:normal;font-display:swap}</style>
+<title>HeadBox: Alejandro Velazquez</title>
+<meta name="description" content="Case study: inverting a two-sided venue marketplace.">
+<meta property="og:title" content="HeadBox, Alejandro Velazquez">
+<meta property="og:description" content="Case study: inverting a two-sided venue marketplace.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://pucupy.github.io/portfolio/og-card.png">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+
+<style>
+  html { color-scheme: dark; }
+  body { margin:0; background:#0F1211; color:#EDEFEC; font-family:'Schibsted Grotesk',-apple-system,BlinkMacSystemFont,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#EDEFEC; text-decoration:underline; text-decoration-color:rgba(111,203,146,.5); text-underline-offset:4px; text-decoration-thickness:1px; }
+  a:hover { text-decoration-color:#6FCB92; }
+  a:focus-visible { outline:2px solid #6FCB92; outline-offset:3px; border-radius:2px; }
+  ::selection { background:#6FCB92; color:#0F1211; }
+  .skiplink:focus { left:0 !important; }
+  @media (max-width:800px){ .cols{ grid-template-columns:1fr !important; } .cols2{ grid-template-columns:1fr !important; } }
+  @media (max-width:1000px){ .stats{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; } }
+  @media (max-width:600px){ .wrap{ padding-left:20px !important; padding-right:20px !important; } .stats{ grid-template-columns:1fr !important; } }
+
+@keyframes eyel{0%,25%{transform:translate(0,0)}26%,50%,75%{transform:translate(0,-10px)}100%{transform:translate(0,0)}}
+@keyframes eyer{0%,25%{transform:translate(0,0)}26%,50%,75%{transform:translate(0,5px)}100%{transform:translate(0,0)}}
+@keyframes face{0%{transform:translate(200px,200px)}25%,26%,50%,75%{transform:translate(150px,50px)}100%{transform:translate(200px,200px)}}
+@keyframes rocketfly2{0%{transform:translate(225px,197px) rotate(-360deg) translate(-223px,-196px) translate(59px,92px)}100%{transform:translate(224px,196px) rotate(-360deg) translate(-222px,-195px) translate(58px,91px)}}
+@keyframes flame{0%{opacity:0}100%{opacity:1}}
+@keyframes moon{0%{transform:translateX(400px) translateY(100px);opacity:.5}50%{transform:translateX(100px) translateY(200px);opacity:1}100%{transform:translateX(-50px) translateY(300px);opacity:0}}
+@keyframes stars{0%{transform:translateX(0) translateY(0);opacity:0}100%{transform:translateX(-500px) translateY(300px);opacity:.7}}
+#lefte,#fmLefte{animation:eyel 5s ease infinite}
+#righte,#fmRighte{animation:eyer 5s ease infinite}
+#head{animation:face 5s ease infinite}
+#rocket2{animation:rocketfly2 .1s ease infinite}
+#flame{animation:flame .1s ease infinite}
+#moon{opacity:0;animation:moon 10s linear infinite}
+#stars{animation:stars .5s linear infinite}
+@media (prefers-reduced-motion:reduce){#lefte,#righte,#fmLefte,#fmRighte,#head,#rocket2,#flame,#moon,#stars{animation:none}#moon{opacity:1}}
+</style>
+</head>
+<body>
+<div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;justify-content:center;">
+    <div style="width:100%;max-width:1224px;height:100%;border-left:1px solid rgba(237,239,236,.06);border-right:1px solid rgba(237,239,236,.06);"></div>
+  </div>
+
+
+  <a href="#main" class="skiplink" style="position:absolute;left:-9999px;top:0;z-index:100;background:#6FCB92;color:#0F1211;padding:10px 16px;border-radius:0 0 8px 0;font-size:14px;font-weight:500;text-decoration:none;">Skip to content</a>
+
+
+
+<header style="position:sticky;top:0;z-index:50;background:rgba(15,18,17,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(237,239,236,.09);">
+  <div class="wrap" style="max-width:1160px;margin:0 auto;padding:18px 56px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
+    <a href="index.html" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 146" role="img" aria-label="Alejandro Velazquez" style="display:block;width:auto;height:30px;flex:none">
+
+<g>
+                                            <path d="M106.761905,61.1022421 C107.438325,60.8883196 108.143812,60.7751196 108.869048,60.7751196 C113.911933,60.7751196 118,66.248385 118,73 C118,79.751615 113.911933,85.2248804 108.869048,85.2248804 C108.143812,85.2248804 107.438325,85.1116804 106.761905,84.8977579 L106.761905,104.7 C106.761905,127.50936 88.2712649,146 65.4619048,146 L51.8357143,146 C29.0263541,146 10.5357143,127.50936 10.5357143,104.7 L10.5357143,41.3 C10.5357143,18.4906398 29.0263541,4.19001149e-15 51.8357143,0 L65.4619048,0 C88.2712649,-4.19001149e-15 106.761905,18.4906398 106.761905,41.3 L106.761905,61.1022421 Z" id="Combined-Shape" fill="#6FCB92"></path>
+                                            <rect id="fmLefte" fill="#0F1211" x="2.80952381" y="41.215311" width="36.5238095" height="8.38277512" rx="1.4"></rect>
+                                            <rect id="fmRighte" fill="#0F1211" x="58.297619" y="41.215311" width="36.5238095" height="8.38277512" rx="1.4"></rect>
+                                            <rect id="Rectangle-46" fill="#EDEFEC" opacity="0.329352679" x="0" y="59.3779904" width="47.0595238" height="27.2440191" rx="7"></rect>
+                                            <rect id="Rectangle-47" fill="#0F1211" x="23.8809524" y="67.7607656" width="5.61904762" height="11.8755981" rx="2.8"></rect>
+                                            <rect id="Rectangle-48" fill="#0F1211" transform="translate(50.929976, 77.989290) rotate(-75.000000) translate(-50.929976, -77.989290) " x="33.3704525" y="68.558668" width="35.1190476" height="18.861244" rx="9.43062201"></rect>
+                                            <rect id="Rectangle-48" fill="#6FCB92" transform="translate(55.654021, 78.402022) rotate(-75.000000) translate(-55.654021, -78.402022) " x="38.0944967" y="68.9714001" width="35.1190476" height="18.861244" rx="9.43062201"></rect>
+                                            <rect id="Rectangle-46" fill="#EDEFEC" opacity="0.329352679" x="58" y="59" width="47.0595238" height="27.2440191" rx="7"></rect>
+                                            <rect id="Rectangle-47" fill="#0F1211" x="81" y="68" width="5.61904762" height="11.8755981" rx="2.8"></rect>
+                                            <path d="M50.2393595,110.143165 C50.2393595,117.322867 56.0596578,123.143165 63.2393595,123.143165 C70.4190613,123.143165 76.2393595,117.322867 76.2393595,110.143165" id="Oval-26" stroke="#0F1211" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" transform="translate(63.239360, 116.643165) rotate(-15.000000) translate(-63.239360, -116.643165) "></path>
+                                        </g></svg>Alejandro Velazquez</a>
+    <nav style="display:flex;align-items:center;gap:22px;font-size:15px;">
+      <a href="index.html#work" style="color:#A2ACA5;text-decoration:none;">Work</a>
+      <a href="about.html" style="color:#A2ACA5;text-decoration:none;">About</a>
+      <a href="cv/Alejandro-Velazquez-CV.pdf" style="color:#A2ACA5;text-decoration:none;">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap" style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 56px;">
+
+  <section style="max-width:700px;padding:110px 0 56px 0;">
+    <div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:14px;letter-spacing:.1em;color:#6FCB92;margin-bottom:20px;">05: CASE STUDY</div>
+    <h1 style="font-size:clamp(38px,7.5vw,60px);font-weight:600;letter-spacing:-0.02em;line-height:1.05;margin:0 0 32px 0;">Turning a marketplace the right way round</h1>
+    <p style="font-size:18px;line-height:1.6;color:#EDEFEC;margin:0 0 24px 0;text-wrap:pretty;">My only non-Yapily case study, and the clearest example I have of research changing a business model rather than a screen.</p>
+    </section>
+
+  <section style="padding:0;">
+    <figure style="margin:0;">
+      <div style="padding:18px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:16px;">
+        <img src="images/headbox-prototype-create-your-free-listing.webp" alt="The host-side listing page: Create your free listing, with three steps and a Join for free button" width="1400" height="727" decoding="async" style="display:block;width:100%;height:auto;border-radius:10px;" fetchpriority="high" decoding="async">
+      </div>
+      <figcaption style="margin-top:14px;max-width:700px;font-size:14px;line-height:1.55;color:#79837C;text-wrap:pretty;">The host side of the reversed model: venues list free, and pay only when a brief becomes a booking.</figcaption>
+    </figure>
+  </section>
+
+  <section style="max-width:700px;padding:40px 0 0 0;">
+    <div style="border:1px solid rgba(237,239,236,.14);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:18px;">
+      <h2 style="font-family:'Schibsted Grotesk',sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;color:#6FCB92;margin:0;">AT A GLANCE</h2>
+      <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:18px;align-items:baseline;">
+        <div style="font-family:'Schibsted Grotesk',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#79837C;">PERIOD</div>
+        <div style="font-size:16px;line-height:1.55;color:#A2ACA5;text-wrap:pretty;">December 2018: December 2019</div>
+      </div>
+      <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:18px;align-items:baseline;">
+        <div style="font-family:'Schibsted Grotesk',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#79837C;">COMPANY</div>
+        <div style="font-size:16px;line-height:1.55;color:#A2ACA5;text-wrap:pretty;">HeadBox, enterprise event technology</div>
+      </div>
+      <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:18px;align-items:baseline;">
+        <div style="font-family:'Schibsted Grotesk',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#79837C;">WORKING WITH</div>
+        <div style="font-size:16px;line-height:1.55;color:#A2ACA5;text-wrap:pretty;">Sales, account management</div>
+      </div>
+      <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:18px;align-items:baseline;">
+        <div style="font-family:'Schibsted Grotesk',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#79837C;">STATUS</div>
+        <div style="font-size:16px;line-height:1.55;color:#A2ACA5;text-wrap:pretty;">Shipped; the company pivoted its business model on the result</div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="star-heading" style="max-width:700px;padding:44px 0 0 0;">
+    <h2 id="star-heading" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;">Summary</h2>
+    <div style="padding:26px 0;border-top:1px solid rgba(237,239,236,.10);">
+      <h3 style="font-family:'Schibsted Grotesk',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#6FCB92;margin:0 0 12px 0;">SITUATION</h3>
+      <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">HeadBox was a two-sided marketplace where guests searched a directory of venues, filtered, messaged two to four of them and waited. Around one in ten searches turned into anything. Guests aren’t event experts: most plan one event a year. So faced with a directory they shortlisted a few venues, googled them and rang them directly, off the platform entirely. Hosts received enquiries from every direction with almost none matched to their venue, and only 20% of enquiries ever received a proposal. Around 80% of the company was sales and account managers matching enquiries to venues by hand out of spreadsheets and slides.</p>
+    </div>
+    <div style="padding:26px 0;border-top:1px solid rgba(237,239,236,.10);">
+      <h3 style="font-family:'Schibsted Grotesk',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#6FCB92;margin:0 0 12px 0;">TASK</h3>
+      <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">As Lead Product Designer I was asked to improve conversion. The brief assumed the marketplace needed to work harder. A better directory, better search, better matching. Which is what every previous attempt had assumed too. The research took me somewhere else. What I concluded, and proposed, was that the shape of the marketplace was the problem rather than its execution, and that fixing conversion meant inverting who did the difficult part. The company changed its revenue model as a consequence.</p>
+    </div>
+    <div style="padding:26px 0;border-top:1px solid rgba(237,239,236,.10);">
+      <h3 style="font-family:'Schibsted Grotesk',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#6FCB92;margin:0 0 12px 0;">ACTIONS</h3>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;">
+          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Ran three rounds of research with 45 customers and non-customers, much of it on site in the venues themselves, plus usability sessions and internal research with the sales and account management teams.</li>
+          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Identified that the expertise was on the wrong side: guests who do this once a year were being asked to make expert decisions, while hosts who do it daily were handed a queue they couldn’t act on.</li>
+          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Designed the inversion: guests complete a short wizard capturing what they need, enquiries pool into a central feed, and hosts choose the events they want.</li>
+          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Rebuilt venue creation around structured capacity, layout and suitability rather than prose, in resumable steps, with the fields the feed depends on made unavoidable.</li>
+          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Tested the cheapest thing that produced real evidence at each stage: the Enquiry Hub shipped London-only capped at &pound;10k; the feed’s first prototype was a spreadsheet; guest-side prototyping started as a Google Form, before moving through Figma into coded prototypes.</li>
+          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Established the design system, governance framework and research practice used across the organisation.</li>
+      </ul>
+    </div>
+    <div style="padding:26px 0;border-top:1px solid rgba(237,239,236,.10);border-bottom:1px solid rgba(237,239,236,.10);">
+      <h3 style="font-family:'Schibsted Grotesk',sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#6FCB92;margin:0 0 12px 0;">RESULT</h3>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;">
+          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>&pound;150,228 ARR from 117 paying venues within three months. Four times the prior revenue model, and the company’s first scalable, profitable product.</li>
+          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>More than 1,500 leads in the first month.</li>
+          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Brief completion improved directionally from roughly 50% to around 75% after the guest flow was simplified.</li>
+          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Hosts logged in every day from launch, which is the exact thing every previous attempt had failed to achieve.</li>
+          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>The company pivoted its business model on the result, moving from commission on the sale to venues paying for access to the feed. Which also designed out the off-platform leakage, because there was no percentage left to avoid.</li>
+          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Approximately 90% of the original product structure remains in the current experience, and the wizard is still HeadBox’s front door in 2026. <a href="#credit" style="color:#6FCB92;text-decoration:underline;text-underline-offset:3px;">Credit, precisely</a>.</li>
+      </ul>
+    </div>
+  </section>
+
+
+
+  <section style="padding:80px 0 0 0;">
+    <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">An Airbnb for event spaces, converting at 10%</h2>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">HeadBox was a two-sided marketplace: search a directory of venues, filter, message two to four of them, wait. Around one in ten searches turned into anything.</p>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">The old homepage stated the problem without meaning to. The first thing it asked was <em style="font-style:italic;color:#EDEFEC;">what type of Space?</em>, a question that assumes the person already knows the answer. Further down sat an account management phone number, which is what a business does when the product can&rsquo;t carry the customer on its own.</p>
+      <figure style="margin:36px 0 0 0;">
+        <div style="padding:18px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:16px;">
+          <img src="images/headbox-2019-homepage.webp" alt="The HeadBox homepage in 2019. A search box asking what type of space, and an account management phone number" style="display:block;width:100%;height:auto;border-radius:10px;" loading="lazy" decoding="async">
+        </div>
+        <figcaption style="display:flex;align-items:baseline;gap:12px;margin-top:14px;max-width:820px;">
+          <span style="flex:none;font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:11px;letter-spacing:.14em;color:#79837C;">SUPERSEDED</span>
+          <span style="font-size:14px;line-height:1.55;color:#79837C;text-wrap:pretty;">The homepage in 2019. A search box that assumes expertise, and a phone number for when it doesn&rsquo;t.</span>
+        </figcaption>
+      </figure>
+  </section>
+
+  <section style="padding:80px 0 0 0;">
+    <h2 style="max-width:700px;font-size:clamp(28px,5.5vw,44px);font-weight:600;letter-spacing:-0.018em;margin:0 0 12px 0;">Both sides were failing, for opposite reasons</h2>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Three rounds of research with 45 customers and non-customers, usability sessions, and internal research with the sales and account management teams, alongside observation of the existing journey, support and chat analysis, and a review of thousands of messages between guests and venues. Much of the host research was done on site rather than over video, in venues ranging from local pubs to Kensington Palace and the O2. The picture that came back was symmetrical.</p>
+    <div style="border-top:1px solid rgba(237,239,236,.14);margin-top:32px;"></div>
+
+    <div style="padding:56px 0;border-bottom:1px solid rgba(237,239,236,.09);">
+      <h3 style="max-width:700px;font-size:clamp(21px,4vw,26px);font-weight:600;letter-spacing:-0.02em;margin:0 0 16px 0;">Guests were overwhelmed, not underserved</h3>
+      <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">They aren&rsquo;t event experts, most plan one event a year and don&rsquo;t know what they want or what it should cost. Faced with a directory and too many options, they&rsquo;d shortlist a few venues, Google them, and ring them directly. Off the platform entirely.</p>
+      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0;padding-left:20px;border-left:2px solid rgba(111, 203, 146,.5);text-wrap:pretty;">The behaviour that looks like poor conversion was people getting the job done outside the product, because the product was harder than a phone call.</p>
+    </div>
+
+    <div style="padding:56px 0;border-bottom:1px solid rgba(237,239,236,.09);">
+      <h3 style="max-width:700px;font-size:clamp(21px,4vw,26px);font-weight:600;letter-spacing:-0.02em;margin:0 0 16px 0;">Hosts were drowning in undifferentiated leads</h3>
+      <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Enquiries arrived from every direction, almost none matched to their venue, so the genuine ones got buried and hosts stopped logging in. Only 20% of enquiries ever received a proposal.</p>
+      <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Some of the leakage was deliberate. Passing contact details outside the platform to avoid the commission is a structural weakness of any marketplace taking a percentage, not a policing problem, a design one.</p>
+      <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">A CRM for venues, built before I joined, was meant to solve the host side. Its own marketing page made the case against it: 57% of venue enquiries arrive outside office hours, and the tool existed to capture them around the clock. A product whose entire value proposition depends on people logging in, that people won&rsquo;t log into, has no value proposition.</p>
+      <div class="cols" style="margin-top:36px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start;">
+        <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
+          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;">
+            <img src="images/headbox-2019-stack-crm.webp" alt="The HeadBox Stack CRM marketing page, 2019" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
+          </div>
+          <figcaption>
+            <div style="font-size:15px;line-height:1.4;color:#EDEFEC;">Stack, the venue CRM</div>
+            <p style="margin:6px 0 0 0;font-size:13.5px;line-height:1.55;color:#79837C;text-wrap:pretty;">Pitched as the tool that would organise every enquiry in one place. Venues wouldn&rsquo;t sign in, so the enquiries sat unanswered.</p>
+          </figcaption>
+        </figure>
+        <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
+          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;">
+            <img src="images/headbox-2019-stack-crm-outside-hours.webp" alt="Stack marketing claim, 57% of venue enquiries arrive outside office hours" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
+          </div>
+          <figcaption>
+            <div style="font-size:15px;line-height:1.4;color:#EDEFEC;">The number in its own marketing</div>
+            <p style="margin:6px 0 0 0;font-size:13.5px;line-height:1.55;color:#79837C;text-wrap:pretty;">57% of enquiries arrive outside office hours, the argument for the tool, and the reason it couldn&rsquo;t work as a thing you log into.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div style="padding:56px 0;border-bottom:1px solid rgba(237,239,236,.09);">
+      <h3 style="max-width:700px;font-size:clamp(21px,4vw,26px);font-weight:600;letter-spacing:-0.02em;margin:0 0 16px 0;">And the company was absorbing the difference</h3>
+      <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Around 80% of the company was sales and account managers, running the business out of spreadsheets and slides, matching enquiries to venues by hand, chasing both sides.</p>
+      <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">That works for a handful of large corporate accounts. It doesn&rsquo;t work for the many small and medium ones, which is where the volume was. The same pattern I&rsquo;d meet again at Yapily: a product gap that presents as a headcount need.</p>
+    </div>
+  </section>
+
+  <section style="padding:80px 0 0 0;">
+    <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">Who the two sides are</h2>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 32px 0;text-wrap:pretty;">One side does this every day for a living. The other does it once.</p>
+    <div class="cols" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start;">
+
+      <div style="border:1px solid rgba(237,239,236,.14);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#6FCB92;">HOST</div>
+        <div>
+          <div style="font-size:19px;font-weight:600;color:#EDEFEC;margin-bottom:4px;">The venue owner</div>
+          <div style="font-size:15px;line-height:1.55;color:#A2ACA5;">Anything from a pub back room to a single hire space to the O2. A one&#8209;person operation and a full events team are the same user here.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 14px;align-items:baseline;">
+          <div style="font-family:'Schibsted Grotesk',sans-serif;font-size:11px;letter-spacing:.08em;color:#6FCB92;white-space:nowrap;">WANTS</div>
+          <div style="font-size:15px;line-height:1.55;color:#EDEFEC;">The venue full all year, and enough forward visibility to plan against, not a rush and then nothing.</div>
+          <div style="font-family:'Schibsted Grotesk',sans-serif;font-size:11px;letter-spacing:.08em;color:#6FCB92;white-space:nowrap;">SO</div>
+          <div style="font-size:15px;line-height:1.55;color:#A2ACA5;">Enquiries with the requirements already stated, so a host can judge fit in seconds and quote only for the ones worth quoting for.</div>
+        </div>
+      </div>
+
+      <div style="border:1px solid rgba(237,239,236,.14);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:16px;">
+        <div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#6FCB92;">GUEST</div>
+        <div>
+          <div style="font-size:19px;font-weight:600;color:#EDEFEC;margin-bottom:4px;">The occasional booker</div>
+          <div style="font-size:15px;line-height:1.55;color:#A2ACA5;">Usually an assistant or someone in HR organising a team party, or a person planning their own wedding or birthday.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 14px;align-items:baseline;">
+          <div style="font-family:'Schibsted Grotesk',sans-serif;font-size:11px;letter-spacing:.08em;color:#6FCB92;white-space:nowrap;">WANTS</div>
+          <div style="font-size:15px;line-height:1.55;color:#EDEFEC;">A venue that works, booked without becoming an expert in venue hire first.</div>
+          <div style="font-family:'Schibsted Grotesk',sans-serif;font-size:11px;letter-spacing:.08em;color:#6FCB92;white-space:nowrap;">SO</div>
+          <div style="font-size:15px;line-height:1.55;color:#A2ACA5;">Describe the event rather than filter a directory, and let the people who do this for a living do the matching.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section style="padding:80px 0 0 0;">
+    <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">In their own words</h2>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 36px 0;text-wrap:pretty;">Three of the customer interviews behind the research, recorded with permission. Each opens on YouTube.</p>
+    <ul class="cols" style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;">
+      <li>
+        <a href="https://www.youtube.com/watch?v=PtFHSvGQ8pI" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:14px;min-height:44px;padding:22px;border:1px solid rgba(237,239,236,.14);border-radius:16px;color:#EDEFEC;text-decoration:none;transition:border-color 200ms cubic-bezier(.4,0,.2,1),background-color 200ms cubic-bezier(.4,0,.2,1);" style-hover="border-color:rgba(111,203,146,.5);background-color:rgba(237,239,236,.03)">
+          <span aria-hidden="true" style="width:34px;height:34px;border-radius:50%;background:rgba(111,203,146,.14);display:inline-flex;align-items:center;justify-content:center;"><svg width="13" height="14" viewBox="0 0 13 14" fill="#6FCB92"><path d="M12 6.13a1 1 0 0 1 0 1.74l-10.5 6A1 1 0 0 1 0 13V1a1 1 0 0 1 1.5-.87z"></path></svg></span>
+          <span style="font-size:16px;line-height:1.4;font-weight:500;">Customer interview, one</span>
+          <span style="font-size:13.5px;line-height:1.55;color:#79837C;text-wrap:pretty;">Watch on YouTube</span>
+        <span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;"> (opens in a new tab)</span></a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=nb9XqJQ1wow" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:14px;min-height:44px;padding:22px;border:1px solid rgba(237,239,236,.14);border-radius:16px;color:#EDEFEC;text-decoration:none;transition:border-color 200ms cubic-bezier(.4,0,.2,1),background-color 200ms cubic-bezier(.4,0,.2,1);" style-hover="border-color:rgba(111,203,146,.5);background-color:rgba(237,239,236,.03)">
+          <span aria-hidden="true" style="width:34px;height:34px;border-radius:50%;background:rgba(111,203,146,.14);display:inline-flex;align-items:center;justify-content:center;"><svg width="13" height="14" viewBox="0 0 13 14" fill="#6FCB92"><path d="M12 6.13a1 1 0 0 1 0 1.74l-10.5 6A1 1 0 0 1 0 13V1a1 1 0 0 1 1.5-.87z"></path></svg></span>
+          <span style="font-size:16px;line-height:1.4;font-weight:500;">Customer interview, two</span>
+          <span style="font-size:13.5px;line-height:1.55;color:#79837C;text-wrap:pretty;">Watch on YouTube</span>
+        <span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;"> (opens in a new tab)</span></a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=RLAsJmpgzhs" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:14px;min-height:44px;padding:22px;border:1px solid rgba(237,239,236,.14);border-radius:16px;color:#EDEFEC;text-decoration:none;transition:border-color 200ms cubic-bezier(.4,0,.2,1),background-color 200ms cubic-bezier(.4,0,.2,1);" style-hover="border-color:rgba(111,203,146,.5);background-color:rgba(237,239,236,.03)">
+          <span aria-hidden="true" style="width:34px;height:34px;border-radius:50%;background:rgba(111,203,146,.14);display:inline-flex;align-items:center;justify-content:center;"><svg width="13" height="14" viewBox="0 0 13 14" fill="#6FCB92"><path d="M12 6.13a1 1 0 0 1 0 1.74l-10.5 6A1 1 0 0 1 0 13V1a1 1 0 0 1 1.5-.87z"></path></svg></span>
+          <span style="font-size:16px;line-height:1.4;font-weight:500;">Customer interview, three</span>
+          <span style="font-size:13.5px;line-height:1.55;color:#79837C;text-wrap:pretty;">Watch on YouTube</span>
+        <span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;"> (opens in a new tab)</span></a>
+      </li>
+    </ul>
+  </section>
+
+  <section style="max-width:700px;padding:80px 0 0 0;">
+    <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">The insight: the expertise was on the wrong side</h2>
+    <p style="max-width:700px;font-size:18px;line-height:1.6;color:#EDEFEC;margin:0 0 24px 0;padding-left:20px;border-left:2px solid #6FCB92;text-wrap:pretty;">We were asking guests, who do this once a year, to make expert decisions. And we were handing hosts, who are genuine experts and do this daily, a queue they couldn&rsquo;t act on.</p>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Every previous attempt had tried to make the existing shape work harder, a better marketplace, an agency model, a CRM. None of them questioned who was being asked to do the difficult part.</p>
+  </section>
+
+  <section style="padding:80px 0 0 0;">
+    <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">The bet: capture requirements, let experts choose</h2>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Guests complete a short wizard that captures what they need rather than browsing a directory. Those enquiries pool into a feed. Hosts choose the events they want, rather than events choosing them.</p>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;"><span style="color:#EDEFEC;">The revenue model changed as a consequence rather than as a goal.</span> Venues pay for access to the feed instead of commission on the sale. Which also designs out the off-platform leakage, because there&rsquo;s no percentage left to avoid. Marketplace to SaaS.</p>
+      <figure style="margin:36px 0 0 0;">
+        <div style="padding:18px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:16px;">
+          <img src="images/headbox-prototype-brief-type-of-event.webp" alt="Step 1 of 8 of the brief wizard: Type of event, with a picture card per event type and an eight-step sidebar" width="1400" height="871" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:10px;">
+        </div>
+        <figcaption style="margin-top:14px;max-width:700px;font-size:14px;line-height:1.55;color:#79837C;text-wrap:pretty;">Step one of eight. The brief asks what the event is, not which venue you want. The choosing is left to the hosts.</figcaption>
+      </figure>
+  </section>
+
+  <section style="padding:80px 0 0 0;">
+    <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">Venue creation, rebuilt around what the feed needs</h2>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Listing a venue had been a long form built for a directory page, prose descriptions, galleries, a wall of optional fields. Once matching moved to the host, the listing&rsquo;s job changed: it exists so a host can be shown the briefs worth their time.</p>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">The range is what forced the structure. Host research was run on site, in venues from local pubs to Kensington Palace and the O2, and no single prose description can serve a feed that has to match a pub back room and an arena against the same brief. Capacity, layout and suitability had to stop being copy and become data.</p>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">So the form was rebuilt around structured capacity, layout and suitability rather than copy, split into resumable steps, with the fields the feed depends on made unavoidable and the rest genuinely optional.</p>
+      <figure style="margin:36px 0 0 0;">
+        <div style="padding:18px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:16px;">
+          <img src="images/headbox-2019-list-your-space.webp" alt="The 2019 list-your-space page. One long form built for a directory listing" style="display:block;width:100%;height:auto;border-radius:10px;" loading="lazy" decoding="async">
+        </div>
+        <figcaption style="display:flex;align-items:baseline;gap:12px;margin-top:14px;max-width:820px;">
+          <span style="flex:none;font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:11px;letter-spacing:.14em;color:#79837C;">BEFORE</span>
+          <span style="font-size:14px;line-height:1.55;color:#79837C;text-wrap:pretty;">Listing a space in 2019: prose-first, directory-shaped, and no sense of whether what you&rsquo;d entered was enough to be matched on.</span>
+        </figcaption>
+      </figure>
+  </section>
+
+  <section style="padding:80px 0 0 0;">
+    <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">Testing it before building it</h2>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">The Enquiry Hub shipped first as a deliberately small experiment: London only, capped at £10k. It showed the platform connected hosts and guests well but converted poorly, which is what justified the larger bet rather than assuming it.</p>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">The first prototype of the feed was a spreadsheet: a list of recent enquiries, filtered, shown to twenty venues. Hosts called the guests they matched with, and eighteen of the twenty events became confirmed bookings. That established both things we needed to know. That venues were better at matching than any algorithm we could have written, and that they would pay for access. Before anyone built anything. It evolved through Figma into coded prototypes.</p>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Guest-side prototyping started as a Google Form, for the same reason. Find the cheapest thing that produces real evidence.</p>
+      <figure style="margin:36px 0 0 0;">
+        <div style="padding:18px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:16px;">
+          <img src="images/headbox-lead-feed-2023.webp" alt="The Lead Feed: rows of briefs with location, budget, guest count, timings, a fit label and an I&rsquo;m available action" width="1600" height="1265" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:10px;">
+        </div>
+        <figcaption style="margin-top:14px;max-width:700px;font-size:14px;line-height:1.55;color:#79837C;text-wrap:pretty;">The Lead Feed the spreadsheet turned into: budget, guests, timings and fit on one row, and a single action to respond.</figcaption>
+      </figure>
+      <ul class="cols2" style="list-style:none;margin:28px 0 0 0;padding:0;max-width:700px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;">
+        <li>
+          <a href="https://pucupy.github.io/portfolio/webs/" target="_blank" rel="noopener" style="height:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:8px;min-height:44px;padding:22px 24px;border:1px solid rgba(111,203,146,.35);border-radius:16px;color:#EDEFEC;text-decoration:none;transition:border-color 200ms cubic-bezier(.4,0,.2,1),background-color 200ms cubic-bezier(.4,0,.2,1);" style-hover="border-color:rgba(111,203,146,.7);background-color:rgba(237,239,236,.03)">
+            <span style="display:flex;align-items:center;gap:10px;font-size:16px;line-height:1.4;font-weight:500;">Finding your venue<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></span>
+            <span style="font-size:13.5px;line-height:1.55;color:#79837C;text-wrap:pretty;">The guest side: the wizard that turns a brief into matched venues. Opens in a new tab.</span>
+          <span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;"> (opens in a new tab)</span></a>
+        </li>
+        <li>
+          <a href="https://pucupy.github.io/portfolio/webs/lead-feed.html" target="_blank" rel="noopener" style="height:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:8px;min-height:44px;padding:22px 24px;border:1px solid rgba(111,203,146,.35);border-radius:16px;color:#EDEFEC;text-decoration:none;transition:border-color 200ms cubic-bezier(.4,0,.2,1),background-color 200ms cubic-bezier(.4,0,.2,1);" style-hover="border-color:rgba(111,203,146,.7);background-color:rgba(237,239,236,.03)">
+            <span style="display:flex;align-items:center;gap:10px;font-size:16px;line-height:1.4;font-weight:500;">The Lead Feed<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></span>
+            <span style="font-size:13.5px;line-height:1.55;color:#79837C;text-wrap:pretty;">The host side of the reversal: briefs a venue can accept or pass on. Opens in a new tab.</span>
+          <span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;"> (opens in a new tab)</span></a>
+        </li>
+        <li>
+          <a href="https://pucupy.github.io/portfolio/webs/venue-listing.html" target="_blank" rel="noopener" style="height:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:8px;min-height:44px;padding:22px 24px;border:1px solid rgba(111,203,146,.35);border-radius:16px;color:#EDEFEC;text-decoration:none;transition:border-color 200ms cubic-bezier(.4,0,.2,1),background-color 200ms cubic-bezier(.4,0,.2,1);" style-hover="border-color:rgba(111,203,146,.7);background-color:rgba(237,239,236,.03)">
+            <span style="display:flex;align-items:center;gap:10px;font-size:16px;line-height:1.4;font-weight:500;">Listing your venue<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></span>
+            <span style="font-size:13.5px;line-height:1.55;color:#79837C;text-wrap:pretty;">The host side: sign-up and listing creation. Opens in a new tab.</span>
+          <span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;"> (opens in a new tab)</span></a>
+        </li>
+      </ul>
+  </section>
+
+  <section style="padding:80px 0 0 0;">
+    <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">What it produced</h2>
+    <p style="max-width:700px;font-size:18px;line-height:1.65;color:#EDEFEC;margin:0 0 36px 0;text-wrap:pretty;">£150,228 ARR from 117 customers within three months, four times the prior model&rsquo;s performance, and the company&rsquo;s first scalable, profitable product.</p>
+    <div class="stats" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;padding-top:36px;border-top:1px solid rgba(237,239,236,.14);">
+        <div>
+          <div style="font-size:34px;font-weight:500;letter-spacing:-0.018em;color:#6FCB92;line-height:1.1;margin-bottom:10px;">£150,228</div>
+          <div style="font-size:15px;line-height:1.5;color:#A2ACA5;">ARR within three months</div>
+        </div>
+        <div>
+          <div style="font-size:40px;font-weight:500;letter-spacing:-0.018em;color:#6FCB92;line-height:1.1;margin-bottom:10px;">117</div>
+          <div style="font-size:15px;line-height:1.5;color:#A2ACA5;">paying venues</div>
+        </div>
+        <div>
+          <div style="font-size:40px;font-weight:500;letter-spacing:-0.018em;color:#6FCB92;line-height:1.1;margin-bottom:10px;">4×</div>
+          <div style="font-size:15px;line-height:1.5;color:#A2ACA5;">the prior revenue model</div>
+        </div>
+        <div>
+          <div style="font-size:34px;font-weight:500;letter-spacing:-0.018em;color:#6FCB92;line-height:1.1;margin-bottom:10px;">1,500+</div>
+          <div style="font-size:15px;line-height:1.5;color:#A2ACA5;">leads in the first month</div>
+        </div>
+    </div>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:36px 0 0 0;text-wrap:pretty;"><span style="color:#EDEFEC;">Hosts logged in every day from launch.</span> That&rsquo;s the number I&rsquo;d point at, because it&rsquo;s the exact thing every previous attempt had failed to achieve. A tool venues wouldn&rsquo;t open leaked revenue; a feed they check daily is the whole thesis proven.</p>
+  </section>
+
+  <section style="padding:96px 0 0 0;">
+    <h2 style="max-width:700px;font-size:clamp(28px,5.5vw,44px);font-weight:600;letter-spacing:-0.018em;margin:0 0 12px 0;">The model outlived me</h2>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">The wizard is still HeadBox&rsquo;s front door in 2026, and the three steps beside every screen are the same ones: tell us what you&rsquo;re looking for, we share your enquiry with suitable venues, venues message you. Seven years is a reasonable test of whether a structural bet was right.</p>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">The screens have moved well beyond anything I shipped, and the best of them makes the original argument better than my version did, the budget step doesn&rsquo;t just ask what you want to spend, it tells you what things cost before asking you to commit.</p>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">The ordering carries the argument too. One product asks who you are before it asks what you want; the other earns the personal details by being useful first.</p>
+    <div class="cols" style="margin-top:44px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 28px;align-items:start;">
+        <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
+          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;">
+            <img src="images/headbox-wizard-event-type.webp" alt="Wizard step. What are you planning?" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
+          </div>
+          <figcaption>
+            <div style="font-size:15px;line-height:1.4;color:#EDEFEC;">What are you planning?</div>
+            <p style="margin:6px 0 0 0;font-size:13.5px;line-height:1.55;color:#79837C;text-wrap:pretty;">The opening question is about the occasion, not the venue. Nine plain options where the old site asked <em style="font-style:italic;">what type of Space?</em></p>
+          </figcaption>
+        </figure>
+        <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
+          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;">
+            <img src="images/headbox-wizard-guests-layout.webp" alt="Wizard step. Who is invited and how the space is set up" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
+          </div>
+          <figcaption>
+            <div style="font-size:15px;line-height:1.4;color:#EDEFEC;">Who&rsquo;s invited</div>
+            <p style="margin:6px 0 0 0;font-size:13.5px;line-height:1.55;color:#79837C;text-wrap:pretty;">Headcount and standing or seated. Two answers a guest always has, and the two a host most needs to triage on.</p>
+          </figcaption>
+        </figure>
+        <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
+          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;">
+            <img src="images/headbox-wizard-location-radius.webp" alt="Wizard step. Location with a radius slider on a map" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
+          </div>
+          <figcaption>
+            <div style="font-size:15px;line-height:1.4;color:#EDEFEC;">Where, within a radius</div>
+            <p style="margin:6px 0 0 0;font-size:13.5px;line-height:1.55;color:#79837C;text-wrap:pretty;">A radius slider with a plain statement of the consequence: you&rsquo;ll mainly hear from venues inside the circle. The mechanism is visible rather than implied.</p>
+          </figcaption>
+        </figure>
+        <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
+          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;">
+            <img src="images/headbox-wizard-budget-guidance.webp" alt="Wizard step. Budget with a distribution chart and typical price range" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
+          </div>
+          <figcaption>
+            <div style="font-size:15px;line-height:1.4;color:#EDEFEC;">Budget, with the answer supplied</div>
+            <p style="margin:6px 0 0 0;font-size:13.5px;line-height:1.55;color:#79837C;text-wrap:pretty;">A party for 23 in London usually costs £460 to £2,875, plotted, and converted to per-head. The expertise gap closed directly: the product tells you before it asks you.</p>
+          </figcaption>
+        </figure>
+        <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
+          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;">
+            <img src="images/headbox-wizard-venue-styles.webp" alt="Wizard step. Venue styles" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
+          </div>
+          <figcaption>
+            <div style="font-size:15px;line-height:1.4;color:#EDEFEC;">Style, as adjectives</div>
+            <p style="margin:6px 0 0 0;font-size:13.5px;line-height:1.55;color:#79837C;text-wrap:pretty;">Formal, casual, industrial, blank canvas. Vocabulary a non-expert already owns, which is also structured enough for a host to filter on.</p>
+          </figcaption>
+        </figure>
+        <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
+          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;">
+            <img src="images/headbox-wizard-facilities-catering.webp" alt="Wizard step. Facilities and catering requirements" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
+          </div>
+          <figcaption>
+            <div style="font-size:15px;line-height:1.4;color:#EDEFEC;">Facilities and catering</div>
+            <p style="margin:6px 0 0 0;font-size:13.5px;line-height:1.55;color:#79837C;text-wrap:pretty;">Structured requirements plus one free-text field. The structure serves matching; the free text catches everything the structure would have lost.</p>
+          </figcaption>
+        </figure>
+        <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
+          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;">
+            <img src="images/headbox-wizard-event-name-urgency.webp" alt="Wizard step. Event name and how soon you want to book" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
+          </div>
+          <figcaption>
+            <div style="font-size:15px;line-height:1.4;color:#EDEFEC;">How soon are you booking?</div>
+            <p style="margin:6px 0 0 0;font-size:13.5px;line-height:1.55;color:#79837C;text-wrap:pretty;">Lead qualification collected from the guest, in the guest&rsquo;s own interest. It&rsquo;s what lets a host triage a feed instead of treating every enquiry as equivalent.</p>
+          </figcaption>
+        </figure>
+        <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
+          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;">
+            <img src="images/headbox-wizard-personal-details-last.webp" alt="Wizard step. Name, contact number and marketing preferences, at the very end" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
+          </div>
+          <figcaption>
+            <div style="font-size:15px;line-height:1.4;color:#EDEFEC;">Personal details, at the very end</div>
+            <p style="margin:6px 0 0 0;font-size:13.5px;line-height:1.55;color:#79837C;text-wrap:pretty;">Name, phone and marketing preferences come last, after everything about the event. The 2019 signup modal asked for all of it before it asked anything.</p>
+          </figcaption>
+        </figure>
+    </div>
+    <p style="max-width:700px;font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin:28px 0 0 0;">LIVE IN 2026 · EVOLVED BY OTHERS</p>
+  </section>
+
+  <section id="credit" style="max-width:700px;padding:80px 0 0 0;">
+    <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">Credit, precisely</h2>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">I designed the inversion and the first version of the flow, and led the research that produced it. The current wizard is years of other people&rsquo;s work on top of that. I&rsquo;d claim the structure, not the screens.</p>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">I also established the design system, governance framework and research practice used across the organisation while I was there.</p>
+  </section>
+
+  <section style="max-width:700px;padding:80px 0 0 0;">
+    <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">What I&rsquo;d do differently</h2>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;"><span style="color:#EDEFEC;">I&rsquo;d have pushed to kill the old CRM sooner.</span> We ran both for longer than we needed to, and it split attention across two models when only one of them was working.</p>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;"><span style="color:#EDEFEC;">I&rsquo;d have instrumented the host side harder from day one.</span> We knew hosts were logging in daily, which was the headline. What we couldn&rsquo;t say precisely was which enquiries they picked and which they skipped, and that&rsquo;s the data that would have made the matching better rather than just the access.</p>
+  </section>
+
+  <section style="max-width:700px;padding:80px 0 0 0;">
+    <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">What I took from it</h2>
+    <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Every previous attempt had asked how to make the existing shape work harder. The one that worked asked who should be doing the difficult part, and moved it. That&rsquo;s a question about the model, not the interface. And it&rsquo;s the same instinct behind the work I did later on open banking infrastructure, where the most valuable findings were rarely about screens either.</p>
+  </section>
+
+  <nav style="max-width:700px;padding:96px 0 0 0;">
+    <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:36px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:16px;">
+      <a href="brand-website.html">‹ Brand &amp; Website</a>
+      <a href="creative-archive.html">Creative archive ›</a>
+    </div>
+  </nav>
+
+  <footer style="max-width:700px;padding:56px 0 96px 0;">
+    <div style="display:flex;gap:18px;flex-wrap:wrap;font-size:16px;">
+      <a href="mailto:aleuxuk@gmail.com">aleuxuk@gmail.com</a>
+      <span style="color:#4a5250;">·</span>
+      <a href="cv/Alejandro-Velazquez-CV.pdf">Download CV (PDF)</a>
+      <span style="color:#4a5250;">·</span>
+      <a href="https://www.linkedin.com/in/velazquezalejandro/">LinkedIn</a>
+    </div>
+    <div style="padding-top:20px;font-size:14px;color:#79837C;">Last updated August 2026</div>
+  </footer>
+
+</main>
+
+</body>
+</html>

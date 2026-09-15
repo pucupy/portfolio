@@ -1,0 +1,158 @@
+{
+  "$schema": "./contract.schema.json",
+  "id": "yui.bank-list-item",
+  "name": "Bank list item",
+  "version": "2.0.0",
+  "status": "extracted",
+  "source": {
+    "file": "yapilyui.css",
+    "repo": "yapily-brand/webroot",
+    "lines": "3281–3395",
+    "note": "Values transcribed from the shipped stylesheet, not authored for this contract."
+  },
+  "description": "The row a user picks their bank from. A white card with the system border that darkens to black on hover, holding a logo capped at 40px tall and 256px wide so banks with wordmarks and banks with icons sit on the same baseline. The whole row is the anchor.",
+  "semantics": {
+    "element": "a",
+    "role": "link"
+  },
+  "props": [
+    {
+      "name": "name",
+      "type": "text",
+      "default": "Monzo",
+      "bindings": {
+        "figma": {
+          "kind": "TEXT",
+          "property": "Name"
+        },
+        "code": {
+          "prop": "name"
+        }
+      }
+    },
+    {
+      "name": "meta",
+      "type": "text",
+      "default": "",
+      "description": "A <small> beneath the name — account types, availability. Margin-bottom is zeroed so it hugs the row.",
+      "bindings": {
+        "figma": {
+          "kind": "TEXT",
+          "property": "Meta"
+        },
+        "code": {
+          "prop": "meta"
+        }
+      }
+    },
+    {
+      "name": "logo",
+      "type": "image",
+      "description": "Capped, not scaled to fit: max-height 40px, max-width 256px, 4px radius.",
+      "bindings": {
+        "figma": {
+          "kind": "INSTANCE_SWAP",
+          "property": "Logo"
+        },
+        "code": {
+          "prop": "logo"
+        }
+      }
+    },
+    {
+      "name": "layout",
+      "type": {
+        "enum": [
+          "row",
+          "tile"
+        ]
+      },
+      "default": "row",
+      "description": "Row is the institution picker. Tile (.institution-apps-name-logo2) centres logo over name in a column, used for the app grid where the logo is allowed 64px.",
+      "bindings": {
+        "figma": {
+          "kind": "VARIANT",
+          "property": "Layout"
+        },
+        "code": {
+          "prop": "layout"
+        }
+      }
+    }
+  ],
+  "states": [
+    "hover",
+    "focus"
+  ],
+  "figmaStatePreviews": true,
+  "anatomy": {
+    "root": {
+      "tokens": {
+        "background-color": "{color.surface.raised}",
+        "border": "{border.width.default} solid {color.border.default}",
+        "border-radius": "{radius.card}",
+        "padding": "{space.inset.compact}",
+        "color": "{color.text.primary}",
+        "text-align": "left",
+        "text-decoration": "none",
+        "transition-duration": "{motion.transition}"
+      },
+      "states": {
+        "hover": {
+          "border-color": "{color.border.strong}",
+          "$note": "The meta <small> also resolves to full black on hover."
+        },
+        "focus": {
+          "outline": "none",
+          "border-color": "{color.border.focus}"
+        }
+      },
+      "layout": {
+        "display": "grid",
+        "align": "center",
+        "word-break": "break-word"
+      },
+      "parts": {
+        "logo": {
+          "element": "img",
+          "tokens": {
+            "max-height": "{size.logo.list}",
+            "max-width": "{size.logo.max-width}",
+            "border-radius": "{radius.media}"
+          }
+        },
+        "name": {
+          "element": "span",
+          "content": {
+            "prop": "name"
+          }
+        },
+        "meta": {
+          "element": "small",
+          "content": {
+            "prop": "meta"
+          },
+          "tokens": {
+            "margin-bottom": "0",
+            "color": "{color.text.secondary}"
+          }
+        }
+      }
+    }
+  },
+  "a11y": {
+    "minHitArea": 44,
+    "contrast": "AA",
+    "notes": "16px padding around a 40px logo clears 44px comfortably. Focus removes the outline and relies on the border — same gap as the text input."
+  },
+  "anchors": {
+    "css": {
+      "file": "yapilyui.css",
+      "selectors": [
+        ".listed-institution",
+        ".select-institution-container a",
+        ".institution-apps"
+      ]
+    }
+  }
+}

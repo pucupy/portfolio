@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #FFFFFF; -webkit-font-smoothing: antialiased; }
+  a { color: #003839; text-underline-offset: 3px; }
+  a:hover { color: #014E4F; }
+  input { font-family: Inter, sans-serif; }
+</style>
+</helmet>
+<div style="font-family: Inter, sans-serif; color: #171717; min-height: 100vh; display: flex; flex-direction: column">
+
+  <div style="background: #003839; color: #FFFFFF">
+    <div style="border-bottom: 1px solid rgba(255,255,255,.12)">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 10px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+        <svg viewBox="0 0 151 34" role="img" aria-label="Yapily" fill="none" style="height: 17px; width: auto; flex: none; color: #FFFFFF"><path d="M107.968 0.500977H101.764V33.4988H116.413L119.977 28.127H107.968V0.500977Z" fill="currentColor"></path><path d="M93.1637 0.500977H86.9424V33.4988H93.1637V0.500977Z" fill="currentColor"></path><path d="M16.9181 33.5H23.6975L28.1055 26.8686H41.7533V33.4989H47.9572L47.9658 0.5H38.8486L16.917 33.5H16.9181ZM31.6714 21.5043L41.7543 6.33542V21.5043H31.6714Z" fill="currentColor"></path><path d="M77.0412 3.47956C74.5657 1.30029 71.7152 0.5 67.4459 0.5H56.5576V33.4978H62.7789V5.88795H67.7786C69.8976 5.88795 71.5125 6.36447 72.7383 7.58426C73.756 8.59645 74.3597 10.0432 74.3597 11.8395C74.3597 13.6359 73.7148 15.1784 72.6353 16.1949C71.4063 17.3523 69.8434 17.7911 67.7786 17.7911H62.7789L67.8773 23.0371C71.8431 23.0371 74.6405 22.1906 77.0292 20.1017C79.3346 18.0869 80.5994 15.1526 80.5994 11.7696C80.5994 8.3867 79.3302 5.49319 77.0422 3.47956H77.0412Z" fill="currentColor"></path><path d="M121.486 0.5L132.455 16.9995L121.486 33.5H128.421L139.388 16.9995L128.421 0.5H121.486Z" fill="currentColor"></path><path d="M143.423 0.5L135.922 11.7836H142.854L150.357 0.5H143.423Z" fill="currentColor"></path><path d="M6.93443 0.5H0L10.9685 16.9995L0 33.5H6.93443L17.9018 16.9995L6.93443 0.5Z" fill="currentColor"></path><path d="M28.8702 0.5H21.9368L14.4355 11.7836H21.3678L28.8702 0.5Z" fill="currentColor"></path></svg>
+        <span style="font-size: 13.5px; color: #B9D3CF; text-align: center">Sales enablement · your branded demos</span>
+        <a href="Demo Hub.dc.html" style="font-size: 13.5px; font-weight: 500; color: #63DFB3; text-decoration: underline; white-space: nowrap">All demos</a>
+      </div>
+    </div>
+
+    <div style="max-width: 1280px; margin: 0 auto; padding: 44px 40px 40px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 18px; min-width: 320px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #63DFB3">My demos</span>
+        <h1 style="margin: 0; font-size: 44px; line-height: 48px; font-weight: 600; letter-spacing: -.03em; color: #FFFFFF; max-width: 22ch; text-wrap: pretty">Every demo you've branded, in one place</h1>
+        <p style="margin: 0; font-size: 18px; line-height: 30px; color: #B9D3CF; max-width: 56ch; text-wrap: pretty">{{ subline }}</p>
+      </div>
+      <a href="Demo Builder.dc.html" style="height: 52px; padding: 0 24px; border-radius: 8px; background: #63DFB3; color: #003839; font-size: 15px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; white-space: nowrap" style-hover="background: #8BE9C7">+ New demo</a>
+    </div>
+  </div>
+
+  <div style="flex: 1; background: #FAFAFA; border-bottom: 1px solid #EFEFEF">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 32px 40px 48px; display: flex; flex-direction: column; gap: 18px">
+
+      <sc-if value="{{ hasDemos }}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; flex-direction: column; gap: 18px">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+            <span style="flex: 1; min-width: 240px; display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 14px; border: 1px solid #E1E1E1; border-radius: 8px; background: #FFFFFF">
+              <span aria-hidden="true" style="font-size: 13px; color: #737373">⌕</span>
+              <input value="{{ query }}" onChange="{{ setQuery }}" placeholder="Search by customer or flow" style="flex: 1; border: 0; outline: none; font-size: 14.5px; color: #171717; background: transparent" />
+            </span>
+            <span style="font-size: 13.5px; color: #737373">{{ countLabel }}</span>
+          </div>
+
+          <div style="background: #FFFFFF; border: 1px solid #E1E1E1; border-radius: 14px; overflow: hidden">
+            <div style="display: grid; grid-template-columns: 2fr 1.5fr .9fr 1.7fr; gap: 16px; padding: 12px 20px; background: #FAFAFA; border-bottom: 1px solid #E1E1E1; font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #737373">
+              <span>Customer</span><span>Flow</span><span>Created</span><span>Actions</span>
+            </div>
+            <sc-for list="{{ rows }}" as="row" hint-placeholder-count="3">
+              <div style="display: grid; grid-template-columns: 2fr 1.5fr .9fr 1.7fr; gap: 16px; padding: 16px 20px; border-bottom: 1px solid #F0F1F3; align-items: center">
+                <span style="display: flex; align-items: center; gap: 12px; min-width: 0">
+                  <span role="img" aria-label="Customer logo" style="flex: none; width: 40px; height: 40px; border-radius: 9px; border: 1px solid #E1E1E1; background-color: #FAFAFA; background-size: contain; background-position: center; background-repeat: no-repeat; background-image: {{ row.logoBg }}"></span>
+                  <span style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+                    <span style="font-size: 14.5px; font-weight: 600; color: #171717; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{ row.customer }}</span>
+                    <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #737373">
+                      <span style="width: 12px; height: 12px; border-radius: 4px; background: {{ row.colour }}"></span>{{ row.colour }}
+                    </span>
+                  </span>
+                </span>
+                <span style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+                  <span style="font-size: 14px; color: #171717; text-wrap: pretty">{{ row.productName }}</span>
+                  <span style="font-size: 12px; color: #737373">{{ row.device }}</span>
+                </span>
+                <span style="font-size: 13.5px; color: #525252; white-space: nowrap">{{ row.created }}</span>
+                <span style="display: flex; flex-wrap: wrap; gap: 8px">
+                  <a href="{{ row.url }}" style="height: 36px; padding: 0 14px; border-radius: 8px; background: #003839; color: #FFFFFF; font-size: 13px; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; white-space: nowrap" style-hover="background: #014E4F">Open</a>
+                  <button onClick="{{ row.copy }}" style="height: 36px; padding: 0 14px; border: 1px solid #B4B4B4; border-radius: 8px; background: #FFFFFF; color: #171717; font-size: 13px; font-weight: 500; font-family: Inter, sans-serif; cursor: pointer; white-space: nowrap" style-hover="background: #F5F5F5">{{ row.copyLabel }}</button>
+                  <a href="{{ row.editUrl }}" style="height: 36px; padding: 0 14px; border: 1px solid #B4B4B4; border-radius: 8px; background: #FFFFFF; color: #171717; font-size: 13px; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; white-space: nowrap" style-hover="background: #F5F5F5">Edit</a>
+                  <button onClick="{{ row.remove }}" aria-label="Delete demo" style="height: 36px; width: 36px; border: 1px solid #B4B4B4; border-radius: 8px; background: #FFFFFF; color: #B3231F; font-size: 14px; font-family: Inter, sans-serif; cursor: pointer" style-hover="background: #FEECEB; border-color: #B3231F">✕</button>
+                </span>
+              </div>
+            </sc-for>
+          </div>
+
+          <span style="font-size: 13px; line-height: 20px; color: #737373; max-width: 74ch; text-wrap: pretty">Demos are stored in this browser, so they follow your profile rather than your account. Links keep working for anyone you send them to.</span>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isEmpty }}">
+        <div style="background: #FFFFFF; border: 1px solid #E1E1E1; border-radius: 14px; padding: 48px 40px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center">
+          <span style="font-size: 20px; font-weight: 600; letter-spacing: -.02em; color: #003839">No demos yet</span>
+          <span style="font-size: 15px; line-height: 24px; color: #525252; max-width: 52ch; text-wrap: pretty">Pick a customer, a brand colour and a flow — you'll have a shareable link in under a minute. Or open one of the ready-made demos from the hub.</span>
+          <span style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; padding-top: 6px">
+            <a href="Demo Builder.dc.html" style="height: 48px; padding: 0 22px; border-radius: 8px; background: #003839; color: #FFFFFF; font-size: 15px; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center" style-hover="background: #014E4F">Create your first demo</a>
+            <a href="Demo Hub.dc.html" style="height: 48px; padding: 0 22px; border: 1px solid #B4B4B4; border-radius: 8px; color: #171717; font-size: 15px; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center" style-hover="background: #F5F5F5">Browse the hub</a>
+          </span>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ noResults }}">
+        <div style="background: #FFFFFF; border: 1px solid #E1E1E1; border-radius: 14px; padding: 32px; text-align: center; font-size: 14.5px; color: #525252">Nothing matches "{{ query }}".</div>
+      </sc-if>
+
+    </div>
+  </div>
+
+  <div style="background: #FFFFFF">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 28px 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px">
+      <a href="Demo Hub.dc.html" style="font-size: 14px; font-weight: 500">← Back to demo hub</a>
+      <a href="Demo Builder.dc.html" style="font-size: 14px; font-weight: 500">Create another demo</a>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:860}}">
+const KEY = "yapily.demo.library";
+
+const DEVICES = {
+  "Demo Template.dc.html": "Mobile",
+  "Demo Template - Desktop.dc.html": "Desktop",
+  "Demo - App to App.dc.html": "Mobile",
+  "Demo - Recurring Payments.dc.html": "Mobile",
+  "Demo - Connect an Account.dc.html": "Mobile",
+  "Demo - Bulk Payments and Validate.dc.html": "Desktop",
+  "Demo - Embedded Payment EU.dc.html": "Mobile"
+};
+
+class Component extends DCLogic {
+  state = { lib: [], query: "", copiedId: null };
+
+  componentDidMount() {
+    let lib = [];
+    try { lib = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { lib = []; }
+    this.setState({ lib });
+  }
+
+  persist(lib) {
+    localStorage.setItem(KEY, JSON.stringify(lib));
+    this.setState({ lib });
+  }
+
+  renderVals() {
+    const q = this.state.query.trim().toLowerCase();
+    const all = this.state.lib;
+    const list = q
+      ? all.filter(d => (d.customer + " " + (d.productName || "")).toLowerCase().includes(q))
+      : all;
+
+    return {
+      subline: all.length
+        ? "Open one to walk a prospect through it live, copy the link to send ahead of a call, or edit the branding when the deal moves to a different account."
+        : "Nothing here yet. Build one and it stays available for every call with that account.",
+      hasDemos: list.length > 0,
+      isEmpty: all.length === 0,
+      noResults: all.length > 0 && list.length === 0,
+      query: this.state.query,
+      setQuery: e => this.setState({ query: e.target.value }),
+      countLabel: list.length === 1 ? "1 demo" : list.length + " demos",
+      rows: list.map(d => ({
+        customer: d.customer || "Untitled",
+        productName: d.productName || d.product,
+        device: DEVICES[d.file] || "",
+        colour: d.colour,
+        logoBg: d.logo ? "url(" + d.logo + ")" : "none",
+        created: new Date(d.updated || d.created).toLocaleDateString("en-GB", { day: "numeric", month: "short" }),
+        url: d.url,
+        editUrl: "Demo Builder.dc.html?edit=" + d.id,
+        copyLabel: this.state.copiedId === d.id ? "Copied" : "Copy link",
+        copy: () => {
+          const abs = new URL(d.url, location.href).href;
+          const done = () => { this.setState({ copiedId: d.id }); setTimeout(() => this.setState({ copiedId: null }), 1800); };
+          if (navigator.clipboard) navigator.clipboard.writeText(abs).then(done, done); else done();
+        },
+        remove: () => this.persist(this.state.lib.filter(x => x.id !== d.id))
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

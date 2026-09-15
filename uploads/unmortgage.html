@@ -1,0 +1,188 @@
+<!DOCTYPE html >
+<html lang="en">
+   <head>
+      <link type="text/css" href="styles.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
+
+      <link rel="icon" type="image/png" href="favicon.png">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <meta name="robots" content="noindex" />
+      <title>Alejandro Velazquez</title>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-82171777-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-82171777-1');
+</script>
+
+   </head>
+   <body>
+      <script src="menu.js"></script>
+      <div class="mobile" id="mobile-menu">
+         <div class="menu">
+            <button class="hamburger x" onclick="off()">
+            &#10005;
+            </button>
+            <nav class="mobile">
+               <a href="https://ale-portfolio.github.io/ux/"> &larr; Back to home </a>
+            </nav>
+         </div>
+      </div>
+      <header>
+         <div class="centered header">
+            <div class="menu">
+               <button class="hamburger 3 lines" onclick="on()">
+               &#9776;
+               </button>
+            </div>
+            <div class="logo">
+               <a href="https://ale-portfolio.github.io/ux/">Ale <span>UX</span>
+               </a>
+            </div>
+            <nav class="mainnav">
+               <a href="https://ale-portfolio.github.io/ux/"> &larr; Back to home </a>
+            </nav>
+         </div>
+      </header>
+      <main class="centered wrapper">
+         <div class="card">
+            <section class="gridwrappe2">
+               <div>
+                  <h1>Unmortgage</h1>
+                  <p>
+                    2018, London.
+                  </p>
+                  <h2>Free debt ownership</h2>
+                  <h3>The requirements</h3>
+
+
+<p>
+
+                  <em>  You are an owner-tenant and your needs are:
+                    Maintain the property, as and when something happens</em>
+                    <ul>
+                    <li>Report maintenance issues and minor repairs
+                    <li>See major events and maintenance history
+  </ul>
+                    <em>   Pay my rent every month</em>
+  <ul>
+                  <li> How to display my next payment due and previous payments
+                  <li>When will my rent increase and by how much (yearly at the rate of inflation)
+  </ul>
+                    <em>   Increase my ownership regularly</em>
+  <ul>
+              <li> The current ownership level (Starts with a minimum of 5%)
+                  <li>Property valuation (4 times a year) and its history
+                <li> If I want to make one-off staircasing payment or arrange regular staircasing payment
+  </ul>
+
+</p>
+
+  <h3>What it does</h3>
+
+
+                  <p>
+
+  Tools used
+Pen paper, Invision (interactive prototype), Balsamiq (low res prototype), Lucidchart (user flows), Html, Atomic design (UI)
+ </p>
+
+
+                  <h3> Define a proto-persona</h3>
+                                  <p>
+                                    I have to make certain assumptions because I don’t have enough data from customers yet.
+
+<img loading="lazy" src="img/family.jpg" alt="family">
+
+                                  <em> Martha & Robert and Mikey</em>
+<ul>
+                                  <li>Professionals. 38/39 years old.</li>
+                                  <li>Can afford rent, could afford a mortgage, but they don’t trust banks and don’t like long term debts.</li>
+                                  <li> Afraid of future and Brexit. Want to leave something to their son, but properties are unaffordable in London. Renting since 2014.</li>
+                                  <li> They have seen housing markets collapse around the world several times, people losing their homes and jobs.</li>
+                                  <li> Always on the run, busy.</li>
+                                <li>Hyperconnected, their life is digital, banking, communications, work. They love digital because it save time and simplify their already busy life.
+                                  Technology is a tool to make their life easier.</li></ul>
+   </p>
+
+<h3> Basic architecture and user flows</h3>
+<p>
+  Based on the information provided. Tried a few things:
+In the beginning I grouped the main tasks as Activity / Payments / Maintenance because both rent and ownership have a “Payment” component after further consideration
+I ended grouping main tasks as <em>Rent / Ownership / Maintenance</em>. This prevents confusion around what I am paying (ownership or rent?). I believe it aligns better with the company message.
+ It could be validated with a simple card sorting exercise if necessary.
+ <img loading="lazy" src="img/arch.jpeg" alt="arch">
+  <img loading="lazy" src="img/arch2.png" alt="arch">
+</p>
+
+<h3>Maintain the property, as and when something happens</h3>
+
+<p>
+  I assumed, because I owned just a little portion, that Unmortgage was going to pay the cost, find a repair service and that’s why they need me to report it.
+</p>
+  <em>Actor</em><p>
+  Martha & Robert
+</p>
+
+  <em>Scenario</em><p>
+  The chain of the blackout is broken and needs replacement. It’s not easy to change so we have to call a service to repair it.
+</p>
+
+  <em>Basic flow</em><p>
+  Create a report > Confirmation of reception from Unmortgage > Repair or issue is shown in history marked as OPEN or IN PROGRESS > Service comes and repairs > Repair is shown as COMPLETED.
+</p>
+  When I build UI I always try to think how it is going to be coded. An easy way to do this is using atomic design (atoms, molecules, templates , pages). Is a good way to think a bit like a developer and create modularised components that can be re-used, I also consider different states (empty, loading, error, full, partial, I tend to start with a full or partial first).
+  I follow good design principles, common patterns, platform guidelines and usability principles.
+
+<img loading="lazy" src="img/report.jpeg" alt="report">
+ <img loading="lazy" src="img/report.png" alt="report">
+<h3>Pay rent</h3>
+<em>Actor</em>
+<p>Martha & Robert</p>
+
+<em>Scenario</em>
+<p>End of the month, Lorena changed her job recently. Salary still not deposited and they want to know how much and when the rent is due.
+</p>
+<em>Basic flow</em>
+<p>Rent>  Next payment > See amount and date
+</p>
+<p>A calculation of how rent will be reduced in case of increasing ownership could be shown also in the future rent section</p>
+<p>Also a graphic could be shown to represent the evolution of your rent in time or just simply show the future value predictions</p>
+<img loading="lazy" src="img/rent.png" alt="Rent">
+ <img loading="lazy" src="img/rent2.png" alt="Rent">
+ <h3>A prototype</h3>
+ <p>Showing reporting, maintenance and ownership
+ <a href="https://invis.io/SNP67YHFAJ2"> Clickable prototype </a>
+
+ <h3>Visual design</h3>
+ <p>Mini style guide based on brand guidelines<p>
+ <img loading="lazy" src="img/mini.png" alt="Style">
+
+ <h3>Higher fidelity</h3>
+ <p>And example of how ownership section could look in the browser<p>
+
+   <a href="https://ale-portfolio.github.io/ux//unmortgage/">Higher fidelity</a>
+ <img loading="lazy" src="img/higher.png" alt="Hi-fi">
+
+
+          </div>
+
+            </section>
+            <!--section-->
+         </div>
+         <!--card-->
+      </main>
+      <!--wrapper-->
+      <footer>
+         <div class="centered">
+            <p>Built by ALE with some HTML+JS+CSS & SVG</p>
+         </div>
+      </footer>
+   </body>
+
+
+</html>

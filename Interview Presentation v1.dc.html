@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin:0; background:#0B0D0D; color:#F4F6F5; font-family:'Geist',-apple-system,BlinkMacSystemFont,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#F4F6F5; text-decoration:underline; text-decoration-color:rgba(111, 203, 146,.55); text-underline-offset:4px; }
+  a:hover { text-decoration-color:#6FCB92; }
+  ::selection { background:#6FCB92; color:#0B0D0D; }
+</style>
+</helmet>
+
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+<section data-label="00 Positioning" data-screen-label="00" data-speaker-notes="I am a product designer and design lead. I joined Yapily in 2020 as its first designer. Yapily is open banking infrastructure. It connects businesses to banks across the UK and Europe so they can move money and access account data. I now lead design across the platform with a team of two designers, and I built the company's research practice from scratch because we never had a researcher. I'm going to spend most of today on one product, Hosted Pages, because it's the clearest example of the kind of problem I think I'm good at: a product where almost nothing about the experience is under my control, and where improvement has to be earned rather than designed. Then about eight minutes on the Console, which is a different problem. An internal tool nobody owned that had quietly become the most expensive thing in the business. Please interrupt me. I'd rather have the conversation than deliver the talk." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:104px;display:flex;flex-direction:column;justify-content:space-between;">
+  <div style="display:flex;align-items:center;gap:18px;">
+    <img src="avatar.svg" alt="" width="44" height="44" style="display:block;border-radius:10px;">
+    <span style="font-family:'Geist Mono',monospace;font-size:26px;letter-spacing:.16em;color:#6FCB92;">YAPILY · 2020 – PRESENT</span>
+  </div>
+  <div>
+    <h1 style="font-size:112px;font-weight:500;letter-spacing:-0.04em;line-height:1;margin:0 0 28px 0;">Alejandro Velázquez</h1>
+    <p style="font-size:38px;line-height:1.3;color:#AAB3AF;margin:0;max-width:1200px;text-wrap:pretty;">Lead product designer and design manager. Founding designer at Yapily: open banking infrastructure across the UK and Europe.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;">
+    <div style="border-top:2px solid #6FCB92;padding-top:24px;">
+      <div style="font-size:32px;font-weight:500;margin-bottom:10px;">Hosted Pages</div>
+      <div style="font-size:24px;line-height:1.4;color:#7d8683;">The white-label consent and bank-connection flow. 200 companies.</div>
+    </div>
+    <div style="border-top:2px solid rgba(244,246,245,.18);padding-top:24px;">
+      <div style="font-size:32px;font-weight:500;margin-bottom:10px;">The Console</div>
+      <div style="font-size:24px;line-height:1.4;color:#7d8683;">Where customers sign up, manage apps and configure the platform.</div>
+    </div>
+    <div style="border-top:2px solid rgba(244,246,245,.18);padding-top:24px;">
+      <div style="font-size:32px;font-weight:500;margin-bottom:10px;">Three design systems</div>
+      <div style="font-size:24px;line-height:1.4;color:#7d8683;">One shared token layer, mirrored in code, handed to my team.</div>
+    </div>
+  </div>
+</section>
+
+<section data-label="01 What Hosted Pages is" data-screen-label="01" data-speaker-notes="Open banking works like this. To access someone's bank data or initiate a payment, the user has to consent, authenticate directly with their own bank, and come back. Our customers are businesses who need that journey. A lender checking affordability, a platform paying out to sellers, an accounting tool pulling transactions. Hosted Pages is the white-label version of that journey. Our customers get a compliant consent and connection flow without building every bank-specific screen themselves. They can theme it: logo, typeface, brand colour. And it reads as their product. It looks like four screens. The rest of this talk is about why it isn't." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:80px 96px;display:flex;flex-direction:column;gap:48px;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>01 · </span></sc-if>ACT 1: HOSTED PAGES</div>
+    <h2 style="font-size:68px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">What Hosted Pages is</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;">
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:16px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#7d8683;">01 SELECT BANK</div>
+      <image-slot id="deck-hp-flow-1" shape="rounded" radius="10" fit="contain" placeholder="Hosted Pages. Bank selection screen" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:16px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#7d8683;">02 CONSENT</div>
+      <image-slot id="deck-hp-flow-2" shape="rounded" radius="10" fit="contain" placeholder="Hosted Pages. Consent sheet" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:16px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#7d8683;">03 AUTHENTICATE</div>
+      <image-slot id="deck-hp-flow-3" shape="rounded" radius="10" fit="contain" placeholder="Hosted Pages. Bank authentication handoff" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:16px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#7d8683;">04 RETURN</div>
+      <image-slot id="deck-hp-flow-4" shape="rounded" radius="10" fit="contain" placeholder="Hosted Pages. Success / return screen" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+  </div>
+  <p style="font-size:30px;line-height:1.4;color:#AAB3AF;margin:0;max-width:1300px;">White-label: our customers get a compliant consent and connection flow without building every bank-specific screen themselves. It reads as their product.</p>
+</section>
+
+<section data-label="02 The problem" data-screen-label="02" data-speaker-notes="When I joined in 2020, the first thing I did was talk to customers. A pattern came out fast: the API offered almost no abstraction. Everything was raw. With more than 1,500 banks across ten-plus countries, each with its own consent flow, its own data quirks and its own certification requirements, building and maintaining a consent UI meant a full custom integration. Six months. Sometimes over a year for complex cases. Around 80% of our early customers were SMEs. So integration speed wasn't a convenience for them. It decided whether they could adopt at all. Some looked at the work and walked away. Working with the PM, we started with the cheaper fix: better guidance and better documentation. It genuinely helped. It didn't change the underlying problem, because customers were still building bank plumbing instead of building their own product. That's when we started talking about widgets and an embeddable flow. Removing the integration work rather than documenting it. IF CHALLENGED on why not go straight to the product: because documentation was two weeks of work and the product was a year of it, and we didn't yet have evidence that abstraction was the answer rather than clarity. The documentation is what produced that evidence." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:80px 96px;display:flex;flex-direction:column;gap:56px;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>02 · </span></sc-if>ACT 1: HOSTED PAGES</div>
+    <h2 style="font-size:68px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">The problem, and the cheap fix first</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;">
+    <div><div style="font-size:96px;font-weight:500;letter-spacing:-0.04em;line-height:1;">1,500<span style="color:#6FCB92;">+</span></div><div style="font-size:28px;color:#AAB3AF;margin-top:12px;">banks, each with its own consent flow, data quirks and certification</div></div>
+    <div><div style="font-size:96px;font-weight:500;letter-spacing:-0.04em;line-height:1;">10<span style="color:#6FCB92;">+</span></div><div style="font-size:28px;color:#AAB3AF;margin-top:12px;">countries, each with its own regulatory shape</div></div>
+    <div><div style="font-size:96px;font-weight:500;letter-spacing:-0.04em;line-height:1;">80<span style="color:#6FCB92;">%</span></div><div style="font-size:28px;color:#AAB3AF;margin-top:12px;">of early customers were SMEs: speed decided adoption</div></div>
+  </div>
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.14em;color:#7d8683;margin-bottom:16px;">CUSTOM INTEGRATION: TIME TO LIVE</div>
+    <div style="height:26px;border-radius:13px;background:linear-gradient(90deg,#6FCB92,rgba(111, 203, 146,.25));"></div>
+    <div style="display:flex;justify-content:space-between;font-size:26px;color:#AAB3AF;margin-top:14px;"><span>6 months</span><span>12 months+ for complex cases</span></div>
+  </div>
+  <div style="border-left:2px solid #6FCB92;padding-left:32px;max-width:1400px;">
+    <p style="font-size:32px;line-height:1.4;margin:0;">We took the cheap fix first: guidance and documentation. It helped, and it didn't change the problem: customers were still building bank plumbing instead of their own product.</p>
+  </div>
+</section>
+
+<section data-label="03 Forty versions of itself" data-screen-label="03" data-speaker-notes="Hosted Pages looks like four screens. In practice, five decisions branch before the user sees anything, and each one multiplies the ones after it. More than forty distinct paths through what is nominally one flow. Two of the five aren't ours at all. The licence the customer holds, and whether they passed an institution ID in the API call. Those are decided by how our customer chose to integrate. The other three follow from the market, the device and the product. But the multiplication isn't the hard part. The hard part is that this grid isn't rectangular. cVRP only exists in the UK, so the market dimension doesn't multiply it. Hiding the consent sheet is available to customers on their own licence and to nobody else. A preselected institution on a direct licence skips every screen we make and goes straight to the bank. So an entire branch of the tree collapses to nothing. The matrix has holes in it, and the holes aren't symmetrical. You can't write a rule that covers every cell, because some cells don't exist and others exist only under one parent. That's the constraint that shaped every decision in the rest of this talk." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:72px 96px;display:flex;flex-direction:column;gap:40px;">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;">
+    <div>
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>03 · </span></sc-if>ACT 1: HOSTED PAGES</div>
+      <h2 style="font-size:64px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">One flow, more than forty versions of itself</h2>
+    </div>
+    <div style="display:flex;gap:28px;font-family:'Geist Mono',monospace;font-size:24px;color:#AAB3AF;white-space:nowrap;">
+      <span style="display:flex;align-items:center;gap:10px;"><span style="width:16px;height:16px;background:#6FCB92;border-radius:3px;display:inline-block;"></span>CUSTOMER'S INTEGRATION</span>
+      <span style="display:flex;align-items:center;gap:10px;"><span style="width:16px;height:16px;background:#4a5250;border-radius:3px;display:inline-block;"></span>MARKET, PRODUCT, REGULATION</span>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;">
+    <div style="background:rgba(111, 203, 146,.1);border:1px solid #6FCB92;border-radius:12px;padding:26px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#6FCB92;margin-bottom:12px;">01</div>
+      <div style="font-size:29px;font-weight:500;margin-bottom:10px;">Licence held</div>
+      <div style="font-size:24px;color:#AAB3AF;line-height:1.35;">Yapily's licence, or the customer's own direct licence</div>
+    </div>
+    <div style="background:rgba(111, 203, 146,.1);border:1px solid #6FCB92;border-radius:12px;padding:26px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#6FCB92;margin-bottom:12px;">02</div>
+      <div style="font-size:29px;font-weight:500;margin-bottom:10px;">Institution preselected</div>
+      <div style="font-size:24px;color:#AAB3AF;line-height:1.35;">Whether an institution ID was passed in the API call</div>
+    </div>
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.14);border-radius:12px;padding:26px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#7d8683;margin-bottom:12px;">03</div>
+      <div style="font-size:29px;font-weight:500;margin-bottom:10px;">Region</div>
+      <div style="font-size:24px;color:#AAB3AF;line-height:1.35;">Ten-plus markets, each with its own rules</div>
+    </div>
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.14);border-radius:12px;padding:26px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#7d8683;margin-bottom:12px;">04</div>
+      <div style="font-size:29px;font-weight:500;margin-bottom:10px;">Device</div>
+      <div style="font-size:24px;color:#AAB3AF;line-height:1.35;">Mobile or desktop</div>
+    </div>
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.14);border-radius:12px;padding:26px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#7d8683;margin-bottom:12px;">05</div>
+      <div style="font-size:29px;font-weight:500;margin-bottom:10px;">Product</div>
+      <div style="font-size:24px;color:#AAB3AF;line-height:1.35;">Payments, data, or cVRP</div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:start;">
+    <div>
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.14em;color:#7d8683;margin-bottom:18px;">THE MATRIX IS NOT RECTANGULAR</div>
+      <div style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px;">
+        <div style="height:46px;border-radius:6px;background:rgba(111, 203, 146,.75);"></div>
+        <div style="height:46px;border-radius:6px;background:rgba(111, 203, 146,.75);"></div>
+        <div style="height:46px;border-radius:6px;background:rgba(244,246,245,.14);"></div>
+        <div style="height:46px;border-radius:6px;background:rgba(244,246,245,.14);"></div>
+        <div style="height:46px;border-radius:6px;border:1px dashed rgba(244,246,245,.2);"></div>
+        <div style="height:46px;border-radius:6px;background:rgba(244,246,245,.14);"></div>
+        <div style="height:46px;border-radius:6px;background:rgba(111, 203, 146,.75);"></div>
+        <div style="height:46px;border-radius:6px;border:1px dashed rgba(244,246,245,.2);"></div>
+        <div style="height:46px;border-radius:6px;background:rgba(244,246,245,.14);"></div>
+        <div style="height:46px;border-radius:6px;border:1px dashed rgba(244,246,245,.2);"></div>
+        <div style="height:46px;border-radius:6px;background:rgba(111, 203, 146,.75);"></div>
+        <div style="height:46px;border-radius:6px;background:rgba(244,246,245,.14);"></div>
+        <div style="height:46px;border-radius:6px;background:rgba(244,246,245,.14);"></div>
+        <div style="height:46px;border-radius:6px;border:1px dashed rgba(244,246,245,.2);"></div>
+        <div style="height:46px;border-radius:6px;background:rgba(244,246,245,.14);"></div>
+        <div style="height:46px;border-radius:6px;background:rgba(111, 203, 146,.75);"></div>
+        <div style="height:46px;border-radius:6px;border:1px dashed rgba(244,246,245,.2);"></div>
+        <div style="height:46px;border-radius:6px;background:rgba(244,246,245,.14);"></div>
+        <div style="height:46px;border-radius:6px;background:rgba(111, 203, 146,.75);"></div>
+        <div style="height:46px;border-radius:6px;border:1px dashed rgba(244,246,245,.2);"></div>
+        <div style="height:46px;border-radius:6px;background:rgba(244,246,245,.14);"></div>
+        <div style="height:46px;border-radius:6px;background:rgba(244,246,245,.14);"></div>
+        <div style="height:46px;border-radius:6px;border:1px dashed rgba(244,246,245,.2);"></div>
+        <div style="height:46px;border-radius:6px;background:rgba(244,246,245,.14);"></div>
+      </div>
+      <div style="font-size:24px;color:#7d8683;margin-top:16px;">Dashed cells don't exist. 40+ paths through what is nominally one flow.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px;">
+      <div style="font-size:29px;line-height:1.4;color:#F4F6F5;"><span style="color:#6FCB92;">cVRP</span> only exists in the UK, so the market dimension doesn't multiply it.</div>
+      <div style="font-size:29px;line-height:1.4;color:#F4F6F5;">Hiding the <span style="color:#6FCB92;">consent sheet</span> is available on a direct licence and to nobody else.</div>
+      <div style="font-size:29px;line-height:1.4;color:#F4F6F5;">A <span style="color:#6FCB92;">preselected institution on a direct licence</span> skips every screen we make: a whole branch collapses to nothing.</div>
+    </div>
+  </div>
+</section>
+
+<section data-label="04 Authentication branches" data-screen-label="04" data-speaker-notes="Then authentication branches again, and this is where the flow stops being ours at all. Four models. A decoupled QR handoff, where the user starts on desktop and finishes on their phone. A browser redirect. An embedded login where credentials are entered in our page. And in Lithuania, the Netherlands and Sweden, no screen from us whatsoever. The flow hands straight off. Which of the four a given user gets is decided by their bank and their market. Not by us, and not by our customer. There's one further wrinkle on the redirect path. EU payments require additional information, and whether we show a screen to collect it depends on whether the customer included it in their API call. Same product, same market, same bank. Different number of screens, determined by how carefully the integration was built. That's the clearest argument I have for why the documentation and the UX guidance were product work rather than support work. A customer who read them gave their users a shorter journey." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:80px 96px;display:flex;flex-direction:column;gap:44px;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>04 · </span></sc-if>ACT 1: HOSTED PAGES</div>
+    <h2 style="font-size:68px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">And then authentication branches again</h2>
+    <p style="font-size:30px;color:#AAB3AF;margin:20px 0 0 0;">Which model a user gets is decided by their bank and their market. Not by us, and not by our customer.</p>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;min-height:0;">
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-size:27px;font-weight:500;">Decoupled QR handoff</div>
+      <image-slot id="deck-auth-qr" shape="rounded" radius="10" fit="contain" placeholder="QR handoff screen" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-size:27px;font-weight:500;">Browser redirect</div>
+      <image-slot id="deck-auth-redirect" shape="rounded" radius="10" fit="contain" placeholder="Redirect screen" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-size:27px;font-weight:500;">Embedded login</div>
+      <image-slot id="deck-auth-embedded" shape="rounded" radius="10" fit="contain" placeholder="Embedded credentials screen" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+    <div style="border:1px dashed rgba(244,246,245,.24);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-size:27px;font-weight:500;">No screen from us</div>
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;text-align:center;">
+        <div style="font-size:26px;color:#7d8683;line-height:1.4;">Lithuania, the Netherlands, Sweden. The flow hands straight off</div>
+      </div>
+    </div>
+  </div>
+  <div style="border-left:2px solid #6FCB92;padding-left:32px;">
+    <p style="font-size:30px;line-height:1.4;margin:0;max-width:1500px;">On the redirect path, EU payments need extra information. Whether we show a screen to collect it depends on what the customer put in the API call. Same bank, same market, different number of screens.</p>
+  </div>
+</section>
+
+<section data-label="05 What follows" data-screen-label="05" data-speaker-notes="This is the point where the design work stops being about screens. Three things follow from the shape I've just described, and they explain most of what I did next. ONE: prototyping has limited reach. You can't usefully prototype a flow whose shape is chosen at runtime by someone else's integration and someone else's bank. That's why the experimentation pipeline had to run against production traffic, and why the research programme reached hundreds of real people connecting real accounts rather than a panel working through a mock-up. TWO: improvement had to be incremental. There was never a redesign available that fixed the whole surface, because there was never a whole surface. Only a sparse matrix of paths, each of which had to be measured and improved on its own terms. THREE: some of our screens were optional. Both the consent sheet and the QR screen can be switched off by customers on their own licence. Designing a screen that a paying customer is explicitly allowed to delete changes what the screen has to do. It has to earn its place in their flow, not just in ours. IF CHALLENGED that incrementalism is a lack of vision: that's the fair version of the question. First, I did put a structural bet in. The licensing flexibility and the configurator, which is the part of this I'd argue is vision. Second, on the flow itself, a redesign would have been a guess applied across forty paths at once, with no way to know which of them it helped. I'd rather move a screen I can measure than redraw a surface I can't." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:96px;display:flex;flex-direction:column;gap:56px;justify-content:center;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>05 · </span></sc-if>ACT 1: THE ARGUMENT</div>
+    <h2 style="font-size:64px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">What follows from that shape</h2>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:44px;">
+    <div style="display:grid;grid-template-columns:80px 1fr;gap:36px;align-items:baseline;border-top:1px solid rgba(244,246,245,.14);padding-top:34px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:34px;color:#6FCB92;">01</div>
+      <div><div style="font-size:46px;font-weight:500;letter-spacing:-0.02em;margin-bottom:14px;">Prototyping has limited reach</div><div style="font-size:30px;line-height:1.4;color:#AAB3AF;max-width:1400px;">A flow whose shape is chosen at runtime can't be prototyped usefully. So the experiments ran against production traffic and the research ran with real people connecting real accounts.</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:80px 1fr;gap:36px;align-items:baseline;border-top:1px solid rgba(244,246,245,.14);padding-top:34px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:34px;color:#6FCB92;">02</div>
+      <div><div style="font-size:46px;font-weight:500;letter-spacing:-0.02em;margin-bottom:14px;">Improvement had to be incremental</div><div style="font-size:30px;line-height:1.4;color:#AAB3AF;max-width:1400px;">There was never a whole surface to redesign. Only a sparse matrix of paths, each measured and improved on its own terms.</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:80px 1fr;gap:36px;align-items:baseline;border-top:1px solid rgba(244,246,245,.14);padding-top:34px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:34px;color:#6FCB92;">03</div>
+      <div><div style="font-size:46px;font-weight:500;letter-spacing:-0.02em;margin-bottom:14px;">Some of our screens were optional</div><div style="font-size:30px;line-height:1.4;color:#AAB3AF;max-width:1400px;">Customers on their own licence can switch off the consent sheet and the QR screen. A screen a paying customer may delete has to earn its place in their flow, not just in ours.</div></div>
+    </div>
+  </div>
+</section>
+
+<section data-label="06 The apparatus" data-screen-label="06" data-speaker-notes="If improvement has to be incremental and evidenced, you need three things in place before you can design anything. None of them existed, and Yapily never had a dedicated researcher, so this got built alongside the design work rather than handed to someone. CONTINUOUS DISCOVERY. At least three customer interviews a month, sustained from 2020 to now. Over two hundred conversations. A fixed cadence rather than a project-triggered one: you never start a discovery phase from zero, and you notice a shift in what customers are saying before it becomes a roadmap problem. Alongside that, informal Slack channels with customers, for the observations too small to raise a ticket over. TWO AUDIENCES, TWO METHODS. Our customers are businesses: PMs, developers, operations people. They can tell you what's hard to build against. They cannot tell you why someone gave up at the QR screen, because they've never used the flow. So the 2023 to 2026 usability programme put the flow in front of hundreds of ordinary people actually connecting a bank account. In a B2B2C product it's easy to only research the buyer. INSTRUMENTATION. With engineering and product we mapped the events needed to measure the journey accurately. This is the unglamorous half. Without it there's no funnel, no baseline and no experiment. And event schemas designed after the fact are always worse. EXPERIMENTATION. With PMs I defined the pipeline; with engineering we built it in-house so variants could run against real production traffic. And we ran results sessions, because a pipeline only its operators read is a reporting tool. One principle underneath all of it: match the cost of the method to the cost of the decision. Guerrilla sessions where the question is is this direction obviously wrong. Commissioned panels through Testbirds and Applause where the question is does this meet a standard we can be held to. IF CHALLENGED on rigour or sample sizes. Expect this: individual studies were typically ten to fifteen participants, moderated and unmoderated, in-house and through Testbirds. That's the right size for finding usability problems and the wrong size for producing a percentage. The qualitative sessions told us what was breaking; the production experiments told us whether the fix worked at scale. The volume came from running them continuously across three years." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:80px 96px;display:flex;flex-direction:column;gap:44px;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>06 · </span></sc-if>ACT 1: THE APPARATUS</div>
+    <h2 style="font-size:68px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">So I built the apparatus first</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;">
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:30px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#6FCB92;">DISCOVERY</div>
+      <div style="font-size:31px;font-weight:500;">3 interviews a month since 2020</div>
+      <div style="font-size:25px;line-height:1.4;color:#AAB3AF;">200+ conversations on a fixed cadence, plus informal Slack channels with customers.</div>
+    </div>
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:30px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#6FCB92;">USABILITY</div>
+      <div style="font-size:31px;font-weight:500;">Hundreds of end users, 2023 – 2026</div>
+      <div style="font-size:25px;line-height:1.4;color:#AAB3AF;">Real people connecting real accounts. Moderated, unmoderated, Testbirds and Applause.</div>
+    </div>
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:30px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#6FCB92;">INSTRUMENTATION</div>
+      <div style="font-size:31px;font-weight:500;">Events designed with engineering</div>
+      <div style="font-size:25px;line-height:1.4;color:#AAB3AF;">The unglamorous half. Without it there is no funnel, no baseline and no experiment.</div>
+    </div>
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:30px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#6FCB92;">EXPERIMENTATION</div>
+      <div style="font-size:31px;font-weight:500;">In-house pipeline on production traffic</div>
+      <div style="font-size:25px;line-height:1.4;color:#AAB3AF;">Plus results sessions: a pipeline only its operators read is a reporting tool.</div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;">
+    <div style="border:1px solid rgba(244,246,245,.14);border-radius:14px;padding:30px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.12em;color:#7d8683;margin-bottom:14px;">AUDIENCE ONE: THE BUYER</div>
+      <div style="font-size:28px;line-height:1.4;color:#F4F6F5;">PMs, developers, operations people. They can tell you what's hard to build against. They have never used the flow.</div>
+    </div>
+    <div style="border:1px solid rgba(111, 203, 146,.5);border-radius:14px;padding:30px;background:rgba(111, 203, 146,.07);">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.12em;color:#6FCB92;margin-bottom:14px;">AUDIENCE TWO: THE END USER</div>
+      <div style="font-size:28px;line-height:1.4;color:#F4F6F5;">The only people who can tell you why someone gave up at the QR screen. In B2B2C it's easy to research only the buyer.</div>
+    </div>
+  </div>
+  <p style="font-size:30px;color:#AAB3AF;margin:0;">One principle underneath all of it: match the cost of the method to the cost of the decision.</p>
+</section>
+
+<section data-label="07 Bank discoverability" data-screen-label="07" data-speaker-notes="First decision. Users have to find their bank. Across our sessions, search was the primary way they did it rather than browsing, and it was taking them five to fifteen seconds. We commissioned benchmarking of competitors, who were at one to three seconds, using brand grouping and a most-popular shortcut. Three changes came out of that, and only one of them is a layout change. We redesigned the selection screen. A bottom sheet, bank branches grouped under one parent brand, and a popular-banks shortcut. The grouping mattered unevenly by market. In Germany, Sparkasse and Volksbank sit above thousands of sub-branches, so a user looking for their local branch was searching a list where the correct answer was one of thousands of near-identical strings. Grouping turned that into two easy choices. We changed the naming convention. We had been showing banks under the names the institutions register under, and users don't recognise those. They recognise the name on their card and in their app. So we matched the display names to what people actually call their bank. And we found gaps in our search index. In session after session we watched people type a name and get nothing back. Aliases, informal names, old brand names we weren't holding. That wasn't a UI finding at all. It went to engineering as a change to how search resolved queries, not as a change to a screen. That third one is the one I'd point at. The observation only existed because we were sitting watching real people type, and the fix wasn't a design fix. IF CHALLENGED on the five-to-fifteen-second figure: that's from moderated and unmoderated sessions of ten to fifteen participants each, so treat it as a range we observed rather than a population statistic. It was enough to tell us discoverability was the bottleneck." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:76px 96px;display:flex;flex-direction:column;gap:38px;">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:48px;">
+    <div>
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>07 · </span></sc-if>ACT 1: HOSTED PAGES</div>
+      <h2 style="font-size:64px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">Bank discoverability, and the names people actually use</h2>
+    </div>
+    <div style="display:flex;gap:40px;white-space:nowrap;">
+      <div><div style="font-size:56px;font-weight:500;letter-spacing:-0.03em;">5: 15s</div><div style="font-size:24px;color:#7d8683;margin-top:6px;">us, observed</div></div>
+      <div><div style="font-size:56px;font-weight:500;letter-spacing:-0.03em;color:#6FCB92;">1: 3s</div><div style="font-size:24px;color:#7d8683;margin-top:6px;">benchmarked competitors</div></div>
+    </div>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,.9fr);gap:26px;min-height:0;">
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#7d8683;">BEFORE</div>
+      <image-slot id="deck-bank-before" shape="rounded" radius="10" fit="contain" placeholder="Bank selection. Before" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+    <div style="background:rgba(111, 203, 146,.07);border:1px solid rgba(111, 203, 146,.45);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#6FCB92;">AFTER: GROUPED, WITH POPULAR SHORTCUT</div>
+      <image-slot id="deck-bank-after" shape="rounded" radius="10" fit="contain" placeholder="Bank selection. Redesigned bottom sheet" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px;">
+      <div style="border:1px solid rgba(244,246,245,.14);border-radius:14px;padding:24px;">
+        <div style="font-size:28px;font-weight:500;margin-bottom:10px;">Germany</div>
+        <div style="font-size:24px;line-height:1.4;color:#AAB3AF;">Sparkasse and Volksbank sit above thousands of near-identical sub-branches. Grouping turned that into two easy choices.</div>
+      </div>
+      <div style="border:1px solid rgba(244,246,245,.14);border-radius:14px;padding:24px;">
+        <div style="font-size:28px;font-weight:500;margin-bottom:10px;">Naming</div>
+        <div style="font-size:24px;line-height:1.4;color:#AAB3AF;">Registered institution names replaced with the name on the card and in the app.</div>
+      </div>
+      <div style="border:1px solid #6FCB92;background:rgba(111, 203, 146,.09);border-radius:14px;padding:24px;">
+        <div style="font-size:28px;font-weight:500;margin-bottom:10px;">Search index gaps</div>
+        <div style="font-size:24px;line-height:1.4;color:#AAB3AF;">Aliases and old brand names we weren't holding. Not a UI finding: it went to engineering as a search change.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-label="08 Layout for scale" data-screen-label="08" data-speaker-notes="Bank selection has to work in two conditions that pull in opposite directions. A customer connecting to a handful of institutions needs something compact. A customer facing a branch-heavy market needs to find one entry among hundreds. A layout optimised for either one fails the other. We prototyped three variants and tested them against both scenarios: an accordion, a dedicated results page, and a hybrid. The hybrid won: accordion behaviour for small result sets, a dedicated page once the list grows, and a filter that surfaces branches within a parent institution. One component solving both conditions, rather than branching into two designs the customer has to choose between. But the more useful finding was the one we weren't testing for. Every variant, including the one participants liked least, beat the flow already in production. That reframed the decision entirely. The question stopped being which of the three to ship, and became how quickly we could ship any of them. The direction was validated independently of the layout details. A stronger result than picking a winner, and it changed what the team did the following week." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:80px 96px;display:flex;flex-direction:column;gap:40px;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>08 · </span></sc-if>ACT 1: HOSTED PAGES</div>
+    <h2 style="font-size:64px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">Layout for scale, and the finding we weren't testing for</h2>
+    <p style="font-size:30px;color:#AAB3AF;margin:18px 0 0 0;max-width:1500px;">A handful of institutions needs something compact. A branch-heavy market needs one entry among hundreds. A layout optimised for either fails the other.</p>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;min-height:0;">
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;">
+      <div style="font-size:28px;font-weight:500;">Accordion</div>
+      <image-slot id="deck-variant-accordion" shape="rounded" radius="10" fit="contain" placeholder="Variant A. Accordion" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;">
+      <div style="font-size:28px;font-weight:500;">Dedicated results page</div>
+      <image-slot id="deck-variant-results" shape="rounded" radius="10" fit="contain" placeholder="Variant B. Dedicated results page" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+    <div style="background:rgba(111, 203, 146,.08);border:1px solid #6FCB92;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;">
+      <div style="display:flex;align-items:baseline;gap:14px;"><div style="font-size:28px;font-weight:500;">Hybrid</div><div style="font-family:'Geist Mono',monospace;font-size:24px;color:#6FCB92;">WINNER</div></div>
+      <image-slot id="deck-variant-hybrid" shape="rounded" radius="10" fit="contain" placeholder="Variant C. Hybrid (shipped)" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+  </div>
+  <div style="border-left:2px solid #6FCB92;padding-left:32px;">
+    <p style="font-size:34px;line-height:1.35;margin:0;max-width:1500px;">Every variant: including the one participants liked least. Beat the flow already in production. The question stopped being which to ship and became how fast we could ship any of them.</p>
+  </div>
+</section>
+
+<section data-label="09 Language" data-screen-label="09" data-speaker-notes="A small finding, but it's the clearest example of why researching the end user mattered rather than just the customer. Our original approach had customers pass country and language via the API at integration time. Research found that language couldn't be inferred from country. The person setting up account access sometimes lived in, or spoke the language of, a different country than the actual accountholder. And the API approach still assumed our customer could predict their end user's language in advance, which they often couldn't. We moved to an in-flow language selector and let the actual user choose. What I'd point out about that decision is the direction of it. The fix was to take a decision away from our customer, not to give them more control over it. Configurability isn't automatically the answer. Sometimes the customer is the wrong person to be asking." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:80px 96px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:72px;align-items:center;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>09 · </span></sc-if>ACT 1: HOSTED PAGES</div>
+    <h2 style="font-size:64px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0 0 32px 0;">Language can't be inferred from country</h2>
+    <p style="font-size:32px;line-height:1.4;color:#AAB3AF;margin:0 0 40px 0;">Country and language used to be passed by the customer at integration time. The accountholder often wasn't the person setting access up. And the customer couldn't predict their language anyway. We moved it in-flow.</p>
+    <div style="border-left:2px solid #6FCB92;padding-left:32px;">
+      <p style="font-size:36px;line-height:1.35;margin:0;">The fix was to take a decision away from our customer, not to give them more control over it. Configurability isn't automatically the answer.</p>
+    </div>
+  </div>
+  <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:24px;height:100%;display:flex;flex-direction:column;gap:14px;">
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#7d8683;">IN-FLOW LANGUAGE SELECTOR</div>
+    <image-slot id="deck-language-selector" shape="rounded" radius="10" fit="contain" placeholder="In-flow language selector" style="width:100%;flex:1;min-height:0"></image-slot>
+  </div>
+</section>
+
+<section data-label="10 The QR handoff" data-screen-label="10" data-speaker-notes="The QR screen handles what we call the decoupled flow. The user starts on desktop, scans the code with their phone, and completes authentication in their bank's mobile app. The journey begins in one place and finishes in another. That makes it one of the two points in the flow carrying the most drop-off risk, because handoffs are where people leave. The user has to pick up a second device, do something in an app we don't control, and return to a browser tab they may have already lost. It's also the step where our screen can give the least help, because for most of it the user isn't looking at our screen at all. We tested copy and layout variants against live traffic. The version that won did two things: it gave the user more guidance through the step, and used a clearer layout to carry it. Neither is a redesign. Both came out of running variants against real users rather than arguing about it internally. It reduced both drop-off and user error on that step. I want to be straight about the evidence there. I don't have a validated figure for the size of that improvement, and I'd rather tell you that than give you a number I can't stand behind. It was one of hundreds of variants the programme worked through between 2023 and 2026. Because when the screens are this constrained and the compliance requirements this fixed, there is no single redesign available. Only a long run of small, evidenced changes." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:80px 96px;display:flex;flex-direction:column;gap:40px;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>10 · </span></sc-if>ACT 1: HOSTED PAGES</div>
+    <h2 style="font-size:64px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">The QR handoff: where design has least leverage</h2>
+    <p style="font-size:30px;color:#AAB3AF;margin:18px 0 0 0;max-width:1500px;">Desktop to phone to a bank app we don't control, and back to a tab the user may have lost. Handoffs are where people leave. And it's the step where our screen can help least.</p>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;min-height:0;">
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#7d8683;">BEFORE</div>
+      <image-slot id="deck-qr-before" shape="rounded" radius="10" fit="contain" placeholder="QR screen. Before" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+    <div style="background:rgba(111, 203, 146,.07);border:1px solid rgba(111, 203, 146,.45);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#6FCB92;">AFTER: MORE GUIDANCE, CLEARER LAYOUT</div>
+      <image-slot id="deck-qr-after" shape="rounded" radius="10" fit="contain" placeholder="QR screen. Winning variant" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+  </div>
+  <sc-if value="{{ showEvidenceCallouts }}" hint-placeholder-val="{{ true }}">
+    <div style="border:1px solid rgba(111, 203, 146,.5);border-radius:14px;padding:28px 32px;background:rgba(111, 203, 146,.06);">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.12em;color:#6FCB92;margin-bottom:12px;">ON THE EVIDENCE</div>
+      <p style="font-size:29px;line-height:1.4;margin:0;">It reduced drop-off and user error. I don't have a validated figure for the size of it, and I'd rather say that than give you a number I can't stand behind. One of hundreds of variants between 2023 and 2026.</p>
+    </div>
+  </sc-if>
+</section>
+
+<section data-label="11 Accessibility" data-screen-label="11" data-speaker-notes="Two accessibility studies, doing different jobs. The first was a commissioned audit, and it found two things we'd got wrong. Colour contrast failures in multiple places. And screen readers reading raw SVG markup aloud, because alternative text hadn't been implemented properly. Which in practice meant a screen reader user could not navigate the flow at all. We postponed a release to fix both, rather than shipping and correcting afterwards. I wrote the findings up as a document for the frontend team to work from. The product now meets WCAG AA. I bring that one up because we care about accessibility is easy to say, and the only real evidence for it is what you were willing to give up. In this case it was a date. The second study was separate: an unmoderated study of 21 testers in Germany, including participants with disabilities, testing the new flow against the live demo. 62% preferred the new flow overall, and that rose to 78% among testers with disabilities. That last number is the one I care about most. The users with the most at stake preferred it by the widest margin. IF CHALLENGED on a sample of 21: small, and I'd treat the 62% as directional rather than precise. What it does establish is that the new flow wasn't worse for the group most likely to be hurt by a change, which was the question we commissioned it to answer." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:80px 96px;display:flex;flex-direction:column;gap:40px;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>11 · </span></sc-if>ACT 1: HOSTED PAGES</div>
+    <h2 style="font-size:64px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">The study that cost us a release date</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;min-height:0;">
+    <div style="border:1px solid rgba(244,246,245,.14);border-radius:16px;padding:36px;display:flex;flex-direction:column;gap:26px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.12em;color:#7d8683;">STUDY ONE: COMMISSIONED AUDIT</div>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="border-left:2px solid #6FCB92;padding-left:24px;">
+          <div style="font-size:32px;font-weight:500;margin-bottom:8px;">Colour contrast failures</div>
+          <div style="font-size:25px;color:#AAB3AF;line-height:1.4;">In multiple places across the flow.</div>
+        </div>
+        <div style="border-left:2px solid #6FCB92;padding-left:24px;">
+          <div style="font-size:32px;font-weight:500;margin-bottom:8px;">Screen readers announcing raw SVG</div>
+          <div style="font-size:25px;color:#AAB3AF;line-height:1.4;">Alt text was never implemented properly. In practice a screen reader user could not navigate the flow at all.</div>
+        </div>
+      </div>
+      <div style="margin-top:auto;font-size:30px;line-height:1.4;">We postponed a release to fix both. <span style="color:#6FCB92;">The product now meets WCAG AA.</span></div>
+      <div style="font-size:27px;line-height:1.4;color:#AAB3AF;font-style:italic;">Caring about accessibility is easy to say. The evidence is what you were willing to give up. Here, a date.</div>
+    </div>
+    <div style="border:1px solid rgba(111, 203, 146,.45);background:rgba(111, 203, 146,.06);border-radius:16px;padding:36px;display:flex;flex-direction:column;gap:28px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.12em;color:#6FCB92;">STUDY TWO: PREFERENCE, 21 TESTERS, GERMANY</div>
+      <div style="display:flex;gap:56px;">
+        <div><div style="font-size:104px;font-weight:500;letter-spacing:-0.04em;line-height:1;">62%</div><div style="font-size:26px;color:#AAB3AF;margin-top:12px;max-width:280px;">preferred the new flow overall</div></div>
+        <div><div style="font-size:104px;font-weight:500;letter-spacing:-0.04em;line-height:1;color:#6FCB92;">78%</div><div style="font-size:26px;color:#AAB3AF;margin-top:12px;max-width:300px;">among testers with disabilities</div></div>
+      </div>
+      <div style="font-size:30px;line-height:1.4;">Unmoderated, new flow against the live demo. The users with the most at stake preferred it by the widest margin.</div>
+      <sc-if value="{{ showEvidenceCallouts }}" hint-placeholder-val="{{ true }}">
+        <div style="margin-top:auto;border-top:1px solid rgba(244,246,245,.14);padding-top:22px;font-size:26px;line-height:1.4;color:#AAB3AF;">21 is small: treat 62% as directional. What it establishes is that the new flow wasn't worse for the group most likely to be hurt by a change.</div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<section data-label="12 What changed" data-screen-label="12" data-speaker-notes="Let me separate what I'll claim from what I won't. Customer integration effort went from around six months, sometimes over a year for complex cases, to two weeks. Hosted Pages is used by 200 companies, including Google, Adyen, Intuit, Ant Financial and Revolut. The product now meets WCAG AA, and the accessibility study showed a clear preference for the new flow. Strongest among the users who needed it most. The evidence base behind all of that is hundreds of end-user usability sessions between 2023 and 2026, plus a continuous interview cadence running since 2020. On conversion. End to end, Hosted Pages went from around 20% at the 2023 beta to roughly 65 to 75% today, varying by use case and market. I'm not going to present that as my result. It moved over three years across several angles at once, and a meaningful share of end-to-end conversion in open banking is infrastructure. Bank API reliability, redirect success, and coverage, which was expanding throughout that period. What I can tell you is where design was one of the levers, and bank discoverability is the clearest case. Three things there were ours: the naming convention change, the alias gaps we found by watching people type, and the grouping and shortcut work on the selection screen. Those were aimed at a step we could measure, and they moved it. What I can't give you is a clean percentage for design's share of that 65 to 75%. I'd distrust anyone who could." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:80px 96px;display:flex;flex-direction:column;gap:44px;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>12 · </span></sc-if>ACT 1: WHAT CHANGED</div>
+    <h2 style="font-size:68px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">What changed</h2>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;min-height:0;">
+    <div>
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.12em;color:#6FCB92;padding-bottom:20px;border-bottom:2px solid #6FCB92;">WHAT I'LL CLAIM</div>
+      <div style="display:flex;flex-direction:column;gap:26px;margin-top:28px;">
+        <div><div style="font-size:44px;font-weight:500;letter-spacing:-0.02em;">6 months → 2 weeks</div><div style="font-size:26px;color:#AAB3AF;margin-top:8px;">customer integration effort, sometimes 12 months+ before</div></div>
+        <div><div style="font-size:44px;font-weight:500;letter-spacing:-0.02em;">200 companies</div><div style="font-size:26px;color:#AAB3AF;margin-top:8px;">including Google, Adyen, Intuit, Ant Financial, Revolut</div></div>
+        <div><div style="font-size:44px;font-weight:500;letter-spacing:-0.02em;">WCAG AA</div><div style="font-size:26px;color:#AAB3AF;margin-top:8px;">plus a clear preference for the new flow, strongest among users who needed it most</div></div>
+        <div><div style="font-size:44px;font-weight:500;letter-spacing:-0.02em;">Hundreds of sessions</div><div style="font-size:26px;color:#AAB3AF;margin-top:8px;">end users 2023 – 2026, continuous customer interviews since 2020</div></div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.12em;color:#7d8683;padding-bottom:20px;border-bottom:2px solid rgba(244,246,245,.2);">WHAT I WON'T</div>
+      <div style="display:flex;flex-direction:column;gap:26px;margin-top:28px;">
+        <div><div style="font-size:44px;font-weight:500;letter-spacing:-0.02em;color:#AAB3AF;">20% → 65: 75%</div><div style="font-size:26px;color:#AAB3AF;margin-top:8px;">end-to-end conversion, 2023 beta to today, varying by use case and market. And not my result</div></div>
+        <div style="font-size:29px;line-height:1.45;color:#AAB3AF;">It moved over three years across several angles at once. A meaningful share of end-to-end conversion in open banking is infrastructure: bank API reliability, redirect success, and coverage, which was expanding the whole time.</div>
+        <div style="font-size:29px;line-height:1.45;color:#F4F6F5;border-left:2px solid #6FCB92;padding-left:26px;">Where design was one of the levers is bank discoverability: display naming, the alias gaps we found by watching people type, and the grouping and shortcut work. That step we could measure, and it moved.</div>
+        <div style="font-size:29px;line-height:1.45;color:#F4F6F5;">What I can't give you is a clean percentage for design's share. I'd distrust anyone who could.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-label="13 Reflection" data-screen-label="13" data-speaker-notes="Hosted Pages was originally built for customers using Yapily's own licence, so the flow was fairly rigid by design. At the time that felt like the right trade-off. It kept the compliance surface small and got us to market fast. It was only once direct customers started onboarding and asking for more flexibility in their own consent experience that the limitation became clear. If I were starting the product again, I'd build more flexibility into the licensing model from day one. Not because the original call was wrong given what we knew then, but because I'd now design for that need earlier rather than retrofitting it later. That's the honest version. The configurator we shipped is the retrofit, and it works. But it cost more than it would have if the flexibility had been there from the start." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;gap:52px;">
+  <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>13 · </span></sc-if>ACT 1: REFLECTION</div>
+  <p style="font-size:64px;font-weight:400;line-height:1.2;letter-spacing:-0.025em;margin:0;max-width:1500px;text-wrap:pretty;">If I were starting Hosted Pages again, I'd build flexibility into the licensing model from day one.</p>
+  <p style="font-size:32px;line-height:1.45;color:#AAB3AF;margin:0;max-width:1300px;">The original call wasn't wrong given what we knew. A rigid flow kept the compliance surface small and got us to market fast. The configurator is the retrofit. It works, and it cost more than it would have.</p>
+</section>
+
+<section data-label="14 What the Console is" data-screen-label="14" data-speaker-notes="Second story, much shorter, and a different kind of problem. The Console is where Yapily customers sign up, manage applications, and configure their integration with the platform. Becoming a customer used to take six months to a year. This is the work to make most of that self-served. I'm telling you this one because most of the design work wasn't design." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:80px 96px;display:flex;flex-direction:column;gap:40px;">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:48px;">
+    <div>
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>14 · </span></sc-if>ACT 2: THE CONSOLE</div>
+      <h2 style="font-size:68px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">What the Console is</h2>
+      <p style="font-size:30px;color:#AAB3AF;margin:18px 0 0 0;max-width:1200px;">Where customers sign up, manage applications and configure their integration. Becoming a customer used to take six months to a year.</p>
+    </div>
+    <div style="font-size:32px;line-height:1.35;color:#F4F6F5;border-left:2px solid #6FCB92;padding-left:28px;max-width:520px;">I'm telling you this one because most of the design work wasn't design.</div>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:28px;min-height:0;">
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#7d8683;">THE CONSOLE AS IT WAS</div>
+      <image-slot id="deck-console-before" shape="rounded" radius="10" fit="contain" placeholder="Console. Applications list, as it was" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:14px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#7d8683;">APPLICATION CONFIGURATION</div>
+      <image-slot id="deck-console-before-2" shape="rounded" radius="10" fit="contain" placeholder="Console. Application detail, as it was" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+  </div>
+</section>
+
+<section data-label="15 How it got that way" data-screen-label="15" data-speaker-notes="The Console began as a very simple tool with one job: let a customer create an application and get access to open banking connectivity. In 2020 Yapily had five customers, Intuit among them. For a company that size, that was the right scope. What happened next wasn't a design failure. The company went through several team reshapes and technology migrations, and each time the Console was what got deprioritised. It was nobody's headline product and it kept more or less working, so it kept being left alone while everything around it changed. New products, new customer types, new scale. So a tool built for five customers was still doing broadly the same job when there were two hundred. And every gap between what it did and what customers needed got absorbed by a person. A CSM exporting a report by hand. A support engineer registering a sandbox bank. A PM enabling a product flag. None of that looked like a design problem. It looked like we needed more people. By 2024, when I took it on, the Console had stopped being a weak part of the product and become the bottleneck the rest of the company was routing around." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:88px 96px;display:flex;flex-direction:column;gap:48px;justify-content:center;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>15 · </span></sc-if>ACT 2: THE CONSOLE</div>
+    <h2 style="font-size:68px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">How it got that way</h2>
+  </div>
+  <div style="display:flex;align-items:center;gap:48px;">
+    <div><div style="font-size:132px;font-weight:500;letter-spacing:-0.04em;line-height:1;">5</div><div style="font-size:28px;color:#AAB3AF;margin-top:10px;">customers, 2020</div></div>
+    <div style="flex:1;position:relative;height:2px;background:linear-gradient(90deg,rgba(244,246,245,.2),#6FCB92);"></div>
+    <div><div style="font-size:132px;font-weight:500;letter-spacing:-0.04em;line-height:1;color:#6FCB92;">200</div><div style="font-size:28px;color:#AAB3AF;margin-top:10px;">customers, 2024</div></div>
+    <div style="border:1px dashed rgba(244,246,245,.24);border-radius:14px;padding:28px 34px;font-size:32px;line-height:1.3;">The same tool, doing broadly the same job.</div>
+  </div>
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;">
+    <div>
+      <p style="font-size:30px;line-height:1.45;color:#AAB3AF;margin:0;">Not a design failure. Several team reshapes and technology migrations, and each time the Console was what got deprioritised. Nobody's headline product, and it kept more or less working.</p>
+    </div>
+    <div style="border-left:2px solid #6FCB92;padding-left:32px;">
+      <p style="font-size:30px;line-height:1.45;margin:0 0 18px 0;">Every gap between what it did and what customers needed got absorbed by a person.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:27px;color:#AAB3AF;">
+        <div>A CSM exporting a report by hand.</div>
+        <div>A support engineer registering a sandbox bank.</div>
+        <div>A PM enabling a product flag.</div>
+      </div>
+      <p style="font-size:30px;line-height:1.45;margin:22px 0 0 0;">None of it looked like a design problem. It looked like we needed more people.</p>
+    </div>
+  </div>
+</section>
+
+<section data-label="16 The first task wasn't design" data-screen-label="16" data-speaker-notes="The Console needs work had been said before, by people more senior than me, and it hadn't moved anything. So the first task wasn't design. It was making the case that a deprioritised internal tool was one of the more expensive things in the business. And making it with evidence rather than opinion. I ran three things, and each did a different job. Customer interviews, to establish what people were actually blocked on rather than what we assumed they were. A workshop with VPs, PMs, engineering, support, design and customer success. To get to one shared account of the problem instead of five departmental versions of it. And a two-day hackathon with engineering, PMs, design and the implementation team, where we role-played as an outside consultancy using only what a real customer can access. Because it's easy to disagree with a research finding, and much harder to disagree with two days your own team just spent failing to onboard." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:88px 96px;display:flex;flex-direction:column;gap:52px;justify-content:center;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>16 · </span></sc-if>ACT 2: THE CONSOLE</div>
+    <h2 style="font-size:68px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">The first task wasn't design</h2>
+    <p style="font-size:30px;color:#AAB3AF;margin:18px 0 0 0;max-width:1500px;">The Console needs work had been said before, by people more senior than me, and it hadn't moved anything. So the job was making the case with evidence.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;">
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:16px;padding:36px;display:flex;flex-direction:column;gap:16px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#6FCB92;">INSTRUMENT ONE</div>
+      <div style="font-size:38px;font-weight:500;letter-spacing:-0.02em;">Customer interviews</div>
+      <div style="font-size:27px;line-height:1.4;color:#AAB3AF;">To establish what people were actually blocked on, rather than what we assumed.</div>
+    </div>
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:16px;padding:36px;display:flex;flex-direction:column;gap:16px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#6FCB92;">INSTRUMENT TWO</div>
+      <div style="font-size:38px;font-weight:500;letter-spacing:-0.02em;">A cross-function workshop</div>
+      <div style="font-size:27px;line-height:1.4;color:#AAB3AF;">VPs, PMs, engineering, support, design, customer success. One shared account of the problem instead of five departmental ones.</div>
+    </div>
+    <div style="background:rgba(111, 203, 146,.08);border:1px solid #6FCB92;border-radius:16px;padding:36px;display:flex;flex-direction:column;gap:16px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#6FCB92;">INSTRUMENT THREE</div>
+      <div style="font-size:38px;font-weight:500;letter-spacing:-0.02em;">A two-day hackathon</div>
+      <div style="font-size:27px;line-height:1.4;color:#AAB3AF;">Engineering, PMs, design and implementation, role-playing an outside consultancy using only what a real customer can access.</div>
+    </div>
+  </div>
+  <p style="font-size:34px;line-height:1.35;margin:0;max-width:1500px;border-left:2px solid #6FCB92;padding-left:32px;">It's easy to disagree with a research finding. It's much harder to disagree with two days your own team just spent failing to onboard.</p>
+</section>
+
+<section data-label="17 What two days found" data-screen-label="17" data-speaker-notes="In two days, working only with what a customer gets: A 403 error, because Hosted Pages wasn't enabled by default. Fixing it needed a PM, and that was a two-day wait. Inside a two-day hackathon. Sandbox banks that had to be registered manually, and roughly a third of the pre-configured ones didn't work. Three IDs returned by the API, and no way to tell which one was the Application User ID. And an undocumented CORS issue that forced customers to build their own backend proxy. None of this was new information to the customers experiencing it. What was new was that our own engineers and PMs had now experienced it." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:88px 96px;display:flex;flex-direction:column;gap:48px;justify-content:center;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>17 · </span></sc-if>ACT 2: THE CONSOLE</div>
+    <h2 style="font-size:68px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">What two days as an outsider found</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;">
+    <div style="border:1px solid rgba(244,246,245,.14);border-radius:14px;padding:32px;display:flex;gap:26px;align-items:flex-start;">
+      <div style="font-family:'Geist Mono',monospace;font-size:32px;color:#6FCB92;">403</div>
+      <div style="font-size:29px;line-height:1.4;">Hosted Pages wasn't enabled by default. Fixing it needed a PM: a two-day wait, inside a two-day hackathon.</div>
+    </div>
+    <div style="border:1px solid rgba(244,246,245,.14);border-radius:14px;padding:32px;display:flex;gap:26px;align-items:flex-start;">
+      <div style="font-family:'Geist Mono',monospace;font-size:32px;color:#6FCB92;">⅓</div>
+      <div style="font-size:29px;line-height:1.4;">Sandbox banks had to be registered manually, and roughly a third of the pre-configured ones didn't work.</div>
+    </div>
+    <div style="border:1px solid rgba(244,246,245,.14);border-radius:14px;padding:32px;display:flex;gap:26px;align-items:flex-start;">
+      <div style="font-family:'Geist Mono',monospace;font-size:32px;color:#6FCB92;">3 IDs</div>
+      <div style="font-size:29px;line-height:1.4;">Returned by the API, with no way to tell which one was the Application User ID.</div>
+    </div>
+    <div style="border:1px solid rgba(244,246,245,.14);border-radius:14px;padding:32px;display:flex;gap:26px;align-items:flex-start;">
+      <div style="font-family:'Geist Mono',monospace;font-size:32px;color:#6FCB92;">CORS</div>
+      <div style="font-size:29px;line-height:1.4;">An undocumented issue that forced customers to build their own backend proxy.</div>
+    </div>
+  </div>
+  <p style="font-size:34px;line-height:1.35;margin:0;max-width:1500px;border-left:2px solid #6FCB92;padding-left:32px;">None of this was new to the customers experiencing it. What was new was that our own engineers and PMs had now experienced it.</p>
+</section>
+
+<section data-label="18 The stakeholder who said no" data-screen-label="18" data-speaker-notes="The main resistance came from our VP of Platform, and her objection was a good one. Our priority was launching integrations in more regions. That's the growth engine, it's what customers ask for in sales conversations, and Console work would take capacity away from it. She wasn't defending the status quo. She was defending a concrete bet against a vaguer one. If I'd been in her position with the case as it stood, I'd probably have said the same. What changed it was the workshop. Not because I argued better, but because once sales, support, customer success and engineering were all in one room describing the same journey, the cost stopped being a design opinion and became a visible amount of several teams' time. She was convinced it needed tackling, and the Console was prioritised. The thing I'd draw out of that: the reason earlier attempts had failed wasn't that the problem was unclear. It was that the case had only ever been made by design, to product. It needed to be made by five functions at once, and my job was to build the room rather than to win the argument." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:88px 96px;display:flex;flex-direction:column;gap:48px;justify-content:center;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>18 · </span></sc-if>ACT 2: THE CONSOLE</div>
+    <h2 style="font-size:64px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">The stakeholder who said no, and why she was right to</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) 60px minmax(0,1fr);gap:24px;align-items:center;">
+    <div style="border:1px solid rgba(244,246,245,.2);border-radius:16px;padding:38px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.12em;color:#7d8683;margin-bottom:16px;">THE CONCRETE BET</div>
+      <div style="font-size:40px;font-weight:500;letter-spacing:-0.02em;margin-bottom:14px;">Regional integration launches</div>
+      <div style="font-size:27px;line-height:1.4;color:#AAB3AF;">The growth engine. What customers ask for in sales conversations.</div>
+    </div>
+    <div style="text-align:center;font-family:'Geist Mono',monospace;font-size:28px;color:#6FCB92;">VS</div>
+    <div style="border:1px solid rgba(244,246,245,.2);border-radius:16px;padding:38px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.12em;color:#7d8683;margin-bottom:16px;">THE VAGUER ONE</div>
+      <div style="font-size:40px;font-weight:500;letter-spacing:-0.02em;margin-bottom:14px;">Console work</div>
+      <div style="font-size:27px;line-height:1.4;color:#AAB3AF;">Capacity away from growth, for a cost nobody had yet made visible.</div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;">
+    <p style="font-size:30px;line-height:1.45;color:#AAB3AF;margin:0;">She wasn't defending the status quo. With the case as it stood, I'd probably have said the same. What changed it was the workshop. Once five functions described the same journey, the cost stopped being a design opinion and became a visible amount of several teams' time.</p>
+    <p style="font-size:34px;line-height:1.35;margin:0;border-left:2px solid #6FCB92;padding-left:32px;">Earlier attempts failed not because the problem was unclear, but because the case had only been made by design, to product. My job was to build the room, not to win the argument.</p>
+  </div>
+</section>
+
+<section data-label="19 Mapping it" data-screen-label="19" data-speaker-notes="Then I mapped the whole journey end to end. Every stage from anonymous visitor through to renewal and expansion, every team that touched it, every tool it ran on, and what mattered to the person at each stage. Split three ways, because a buyer evaluating providers, a signed-but-not-live customer, and a customer in production don't want the same things. It was deliberately not a design artifact. It covered sales, customer success, technical services, support and operations, because the experience customers were actually having was assembled from all of them, and no single team could see the whole of it. Three things came out of it. The manual work was structural, not incidental. Nearly every stage past the contact form was manual, for our staff and for customers alike. The delay wasn't one broken step. It was that the whole path depended on people being available. Users and buyers were invisible to us. Before someone became a customer we couldn't identify them across the website, docs, dashboard or support, so we couldn't tailor anything. People evaluating us hit limits they didn't know existed. Two customer types were served by one path. Direct customers and agents have materially different needs. One agent's note in the research was simply that they didn't want to see our logo in their experience." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:76px 96px;display:flex;flex-direction:column;gap:36px;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>19 · </span></sc-if>ACT 2: THE CONSOLE</div>
+    <h2 style="font-size:64px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">Mapping it before changing it</h2>
+    <p style="font-size:29px;color:#AAB3AF;margin:16px 0 0 0;max-width:1600px;">Anonymous visitor through to renewal. Every team, every tool, and what mattered to the person at each stage. Deliberately not a design artifact, because no single team could see the whole of it.</p>
+  </div>
+  <div style="flex:1;background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;min-height:0;">
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#7d8683;">JOURNEY MAP: BEFORE, COMMERCIAL DETAIL REMOVED</div>
+    <image-slot id="deck-journey-map-before" shape="rounded" radius="10" fit="contain" placeholder="Journey map, before. Manual steps, automated steps, dead ends" style="width:100%;flex:1;min-height:0"></image-slot>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;">
+    <div style="border-top:2px solid #6FCB92;padding-top:20px;">
+      <div style="font-size:30px;font-weight:500;margin-bottom:10px;">Manual work was structural</div>
+      <div style="font-size:25px;line-height:1.4;color:#AAB3AF;">Nearly every stage past the contact form. The delay was the path depending on people being available.</div>
+    </div>
+    <div style="border-top:2px solid #6FCB92;padding-top:20px;">
+      <div style="font-size:30px;font-weight:500;margin-bottom:10px;">Users were invisible to us</div>
+      <div style="font-size:25px;line-height:1.4;color:#AAB3AF;">We couldn't identify people across website, docs, dashboard and support. So people evaluating us hit limits they didn't know existed.</div>
+    </div>
+    <div style="border-top:2px solid #6FCB92;padding-top:20px;">
+      <div style="font-size:30px;font-weight:500;margin-bottom:10px;">Two customer types, one path</div>
+      <div style="font-size:25px;line-height:1.4;color:#AAB3AF;">Direct customers and agents differ materially. One agent simply didn't want to see our logo in their experience.</div>
+    </div>
+  </div>
+</section>
+
+<section data-label="20 The bet" data-screen-label="20" data-speaker-notes="Split the path. Enterprise customers keep the assisted journey, because that's what they want and it's worth doing well. Everyone else: around 80% of the customer base, on customer success's figures. Gets a self-serve one: find the site, get access to the Console, onboard and implement using the product and the documentation, without waiting on anyone's calendar. Target is weeks to a few months, against six months to a year. Five principles underneath it. Identify early, because nothing can be tailored to a person you can't recognise. Remove scheduling as a dependency, because most of the delay was calendars, not complexity. Make limits visible, because people hitting an invisible ceiling assume the product can't do it. Serve teams, not individuals: engineers, PMs, designers and finance people need different things from the same account. And give customers their own data, because anything a CSM exports by hand is a queue with a person in it. If I had to pick the single highest-value change: compliance moved from a scheduled in-person session to a queue. That step was the most common reason a go-live slipped, and it slipped for scheduling reasons rather than substantive ones." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:80px 96px;display:flex;flex-direction:column;gap:40px;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>20 · </span></sc-if>ACT 2: THE CONSOLE</div>
+    <h2 style="font-size:68px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">The bet: split the path</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;">
+    <div style="border:1px solid rgba(244,246,245,.2);border-radius:16px;padding:32px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.12em;color:#7d8683;margin-bottom:14px;">ENTERPRISE: ASSISTED</div>
+      <div style="font-size:34px;font-weight:500;margin-bottom:10px;">Keep the guided journey</div>
+      <div style="font-size:26px;line-height:1.4;color:#AAB3AF;">It's what they want, and it's worth doing well.</div>
+    </div>
+    <div style="border:1px solid #6FCB92;background:rgba(111, 203, 146,.08);border-radius:16px;padding:32px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.12em;color:#6FCB92;margin-bottom:14px;">EVERYONE ELSE: ~80% OF THE BASE, ON CS'S FIGURES</div>
+      <div style="font-size:34px;font-weight:500;margin-bottom:10px;">Self-serve, no calendars</div>
+      <div style="font-size:26px;line-height:1.4;color:#AAB3AF;">Find the site, get into the Console, onboard and implement on the product and the docs. Weeks to a few months, against six months to a year.</div>
+    </div>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;min-height:0;">
+    <div style="border-top:2px solid rgba(244,246,245,.2);padding-top:18px;"><div style="font-size:27px;font-weight:500;margin-bottom:10px;">Identify early</div><div style="font-size:24px;line-height:1.4;color:#AAB3AF;">Nothing can be tailored to a person you can't recognise.</div></div>
+    <div style="border-top:2px solid rgba(244,246,245,.2);padding-top:18px;"><div style="font-size:27px;font-weight:500;margin-bottom:10px;">Remove scheduling</div><div style="font-size:24px;line-height:1.4;color:#AAB3AF;">Most of the delay was calendars, not complexity.</div></div>
+    <div style="border-top:2px solid rgba(244,246,245,.2);padding-top:18px;"><div style="font-size:27px;font-weight:500;margin-bottom:10px;">Make limits visible</div><div style="font-size:24px;line-height:1.4;color:#AAB3AF;">People hitting an invisible ceiling assume the product can't do it.</div></div>
+    <div style="border-top:2px solid rgba(244,246,245,.2);padding-top:18px;"><div style="font-size:27px;font-weight:500;margin-bottom:10px;">Serve teams</div><div style="font-size:24px;line-height:1.4;color:#AAB3AF;">Engineers, PMs, designers and finance need different things from one account.</div></div>
+    <div style="border-top:2px solid rgba(244,246,245,.2);padding-top:18px;"><div style="font-size:27px;font-weight:500;margin-bottom:10px;">Give customers their data</div><div style="font-size:24px;line-height:1.4;color:#AAB3AF;">Anything a CSM exports by hand is a queue with a person in it.</div></div>
+  </div>
+  <p style="font-size:32px;line-height:1.35;margin:0;max-width:1600px;border-left:2px solid #6FCB92;padding-left:32px;">Highest-value single change: compliance moved from a scheduled in-person session to a queue. It was the most common reason a go-live slipped. And it slipped for scheduling reasons, not substantive ones.</p>
+</section>
+
+<section data-label="21 Where it stands" data-screen-label="21" data-speaker-notes="Honest status. The Console is in beta, and it's too early for adoption metrics. I'd rather tell you that than dress up a number. One piece has shipped in full, and it's the one I'd point at. The Hosted Pages configurator gives customers granular self-serve control over every screen in the flow. Colours, copy, layout, states. Before it, a customer who wanted a theming change raised a support ticket, and an engineer implemented it. Every time. So each request consumed a support person and an engineer, for work that was never engineering work in the first place. Now it's zero-touch, and those requests stopped coming in. That's the shape of the whole Console argument in one feature. The cost wasn't a bad screen. The cost was people. On credit: the journey map and the information architecture are mine. The Console itself was built with product and engineering, and the self-serve initiatives were scoped jointly off the back of the mapping and the hackathon. One of my two designers worked on it as the executing designer." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:76px 96px;display:flex;flex-direction:column;gap:34px;">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:48px;">
+    <div>
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:20px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>21 · </span></sc-if>ACT 2: THE CONSOLE</div>
+      <h2 style="font-size:64px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">Where it stands, and what shipped</h2>
+    </div>
+    <div style="font-size:28px;line-height:1.4;color:#AAB3AF;max-width:620px;">The Console is in beta and it's too early for adoption metrics. I'd rather say that than dress up a number.</div>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;min-height:0;">
+    <div style="background:rgba(244,246,245,.04);border:1px solid rgba(244,246,245,.1);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#7d8683;">CONSOLE BETA</div>
+      <image-slot id="deck-console-beta" shape="rounded" radius="10" fit="contain" placeholder="Console beta. New dashboard" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+    <div style="background:rgba(111, 203, 146,.07);border:1px solid rgba(111, 203, 146,.45);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#6FCB92;">SHIPPED IN FULL: HOSTED PAGES CONFIGURATOR</div>
+      <image-slot id="deck-configurator" shape="rounded" radius="10" fit="contain" placeholder="Hosted Pages configurator. Colours, copy, layout, states" style="width:100%;flex:1;min-height:0"></image-slot>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:start;">
+    <p style="font-size:30px;line-height:1.4;color:#AAB3AF;margin:0;">Before it, a theming change was a support ticket and an engineer's time. Every time: for work that was never engineering work. Now it's zero-touch, and those requests stopped coming in.</p>
+    <p style="font-size:34px;line-height:1.35;margin:0;border-left:2px solid #6FCB92;padding-left:32px;">The cost wasn't a bad screen. The cost was people.</p>
+  </div>
+</section>
+
+<section data-label="22 Three design systems" data-screen-label="22" data-speaker-notes="One thing I've skipped that's relevant to how I work at this level. I built three design systems at Yapily rather than one, deliberately. Custard, the white-label foundation under Hosted Pages. Minimal by design, because when customers control the surface, the system's job is to expose as little as possible while still reading as their product. Mark, for the marketing site, restyled annually with more expressive work. And Yapily UI for the twenty internal tools staff use, dense by nature because it's analytics and data-heavy pages where information density is the point. Three Figma libraries on one shared token library, mirrored in code, documented in Storybook. A single system would have forced three very different surfaces into one set of compromises, and whichever surface was least like the others would have come off worst. Shared tokens were governed more tightly than components, because a token change lands on all three at once. Those needed approval from both the frontend lead and me, and in practice only happened during rebrand work. The governance is the part I'd point at, and one ordering decision in particular. The gate was evidence, not seniority. Anyone could propose a component, but it had to be tested for usability and accessibility before it was eligible for review, not after. That changed what review meetings were about. Teams debated evidence rather than taste. We also brought frontend in at proposal stage rather than at handoff, which surfaced implementation cost while the design was still cheap to change. And I handed each system to a designer on my team once it was established. That's how I'd want to work anywhere. Build it, prove it, give it away. What we never did: formalise versioning or deprecation. What I'd put in place now is semantic versioning, deprecation rather than deletion with the migration path named, and a changelog written for humans." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:52px 96px;display:flex;flex-direction:column;gap:26px;">
+  <div>
+    <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;margin-bottom:16px;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>22 · </span></sc-if>ACT 3: CLOSE</div>
+    <h2 style="font-size:64px;font-weight:500;letter-spacing:-0.03em;line-height:1.05;margin:0;">Three design systems, and the governance underneath</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;">
+    <div style="border:1px solid rgba(244,246,245,.14);border-radius:14px;padding:28px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#6FCB92;margin-bottom:12px;">CUSTARD</div>
+      <div style="font-size:30px;font-weight:500;margin-bottom:10px;">White-label foundation</div>
+      <div style="font-size:24px;line-height:1.4;color:#AAB3AF;">Under Hosted Pages. Minimal by design: customers own the surface.</div>
+    </div>
+    <div style="border:1px solid rgba(244,246,245,.14);border-radius:14px;padding:28px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#6FCB92;margin-bottom:12px;">MARK</div>
+      <div style="font-size:30px;font-weight:500;margin-bottom:10px;">Marketing</div>
+      <div style="font-size:24px;line-height:1.4;color:#AAB3AF;">Restyled annually, with room for more expressive work.</div>
+    </div>
+    <div style="border:1px solid rgba(244,246,245,.14);border-radius:14px;padding:28px;">
+      <div style="font-family:'Geist Mono',monospace;font-size:24px;color:#6FCB92;margin-bottom:12px;">YAPILY UI</div>
+      <div style="font-size:30px;font-weight:500;margin-bottom:10px;">Twenty internal tools</div>
+      <div style="font-size:24px;line-height:1.4;color:#AAB3AF;">Dense by nature: analytics pages where information density is the point.</div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:36px;flex:1;min-height:0;overflow:hidden;">
+    <div style="min-height:0;overflow:hidden;">
+      <img src="images/yapily-ui-typography-tokens.webp" alt="Yapily UI documentation. Typography tokens" style="width:100%;height:100%;object-fit:cover;object-position:top left;border-radius:12px;border:1px solid rgba(244,246,245,.12);">
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="border-left:2px solid #6FCB92;padding-left:26px;">
+        <div style="font-size:29px;font-weight:500;margin-bottom:6px;">The gate was evidence, not seniority</div>
+        <div style="font-size:24px;line-height:1.3;color:#AAB3AF;">Anyone could propose a component. But it had to be tested for usability and accessibility before review, not after. Teams debated evidence rather than taste.</div>
+      </div>
+      <div style="border-left:2px solid rgba(244,246,245,.2);padding-left:26px;">
+        <div style="font-size:29px;font-weight:500;margin-bottom:6px;">Tokens governed tighter than components</div>
+        <div style="font-size:24px;line-height:1.3;color:#AAB3AF;">A token change lands on all three at once. It needed both the frontend lead and me.</div>
+      </div>
+      <div style="border-left:2px solid rgba(244,246,245,.2);padding-left:26px;">
+        <div style="font-size:29px;font-weight:500;margin-bottom:6px;">What we never did</div>
+        <div style="font-size:24px;line-height:1.3;color:#AAB3AF;">Versioning and deprecation. Now: semantic versioning, a named migration path, a human changelog.</div>
+      </div>
+      <div style="font-size:26px;line-height:1.3;color:#F4F6F5;font-style:italic;">Handed to a designer on my team once established. Build it, prove it, give it away.</div>
+    </div>
+  </div>
+</section>
+
+<section data-label="23 The through-line" data-screen-label="23" data-speaker-notes="If there's one thing I'd want you to take from both of those stories, it's this. In both cases the work I'm proudest of wasn't the design. On Hosted Pages it was building the instrumentation and the experimentation pipeline, because without them there was no way to improve a product whose shape I didn't control. On the Console it was getting five functions into one room, because without that the work wouldn't have been funded at all. I build the evidence before I argue for the design. It's slower to start, and it's the reason I can tell you which of my claims to trust and which not to." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:120px 140px;display:flex;flex-direction:column;justify-content:center;gap:56px;">
+  <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>23 · </span></sc-if>ACT 3: THE THROUGH-LINE</div>
+  <p style="font-size:88px;font-weight:500;line-height:1.1;letter-spacing:-0.035em;margin:0;max-width:1500px;text-wrap:pretty;">I build the evidence before I argue for the design.</p>
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:52px;max-width:1500px;">
+    <p style="font-size:30px;line-height:1.45;color:#AAB3AF;margin:0;">On Hosted Pages the work I'm proudest of was the instrumentation and the experimentation pipeline. Without them there was no way to improve a product whose shape I didn't control.</p>
+    <p style="font-size:30px;line-height:1.45;color:#AAB3AF;margin:0;">On the Console it was getting five functions into one room. Without that the work wouldn't have been funded at all. It's slower to start, and it's why I can tell you which of my claims to trust.</p>
+  </div>
+</section>
+
+<section data-label="24 What I'm looking for" data-screen-label="24" data-speaker-notes="One last thing, on why I'm in the room. When I joined Yapily there were five customers. The product I've owned since launch is now used by two hundred, including Google, Adyen and Intuit. Taking something from founding-designer scale to that is the work I'm proudest of, and it's also the work that's finished. Six years in, I've looked at open banking from every angle I can find. Consent, developer experience, onboarding, regulation, the systems underneath all of it. I know this domain now. What I want next is a hard problem in a platform or regulated space where the constraints are new to me, and a team I can learn something from. Being at the edge of what I understand is the thing that makes me want to get to work. Happy to take questions. DELIVERY NOTE: completion and appetite, not fatigue. Do not say I lost excitement." style="background:#0B0D0D;color:#F4F6F5;font-family:'Geist',sans-serif;padding:112px 140px;display:flex;flex-direction:column;justify-content:space-between;">
+  <div style="font-family:'Geist Mono',monospace;font-size:24px;letter-spacing:.16em;color:#6FCB92;"><sc-if value="{{ showSlideNumbers }}" hint-placeholder-val="{{ true }}"><span>24 · </span></sc-if>ACT 3: CLOSE</div>
+  <div>
+    <h2 style="font-size:80px;font-weight:500;letter-spacing:-0.035em;line-height:1.08;margin:0 0 36px 0;max-width:1400px;">What I'm looking for next</h2>
+    <p style="font-size:34px;line-height:1.4;color:#AAB3AF;margin:0;max-width:1400px;text-wrap:pretty;">A hard problem in a platform or regulated space where the constraints are new to me, and a team I can learn something from. Six years in, I know open banking from every angle I can find. And being at the edge of what I understand is the thing that makes me want to get to work.</p>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;">
+    <div style="display:flex;gap:32px;font-size:26px;color:#AAB3AF;flex-wrap:wrap;">
+      <a href="mailto:aleuxuk@gmail.com">aleuxuk@gmail.com</a>
+      <a href="https://www.linkedin.com/in/velazquezalejandro/">linkedin.com/in/velazquezalejandro</a>
+      <a href="https://pucupy.github.io/portfolio/cv/cv.pdf">CV (PDF)</a>
+    </div>
+    <div style="font-size:44px;font-weight:500;letter-spacing:-0.02em;">Happy to take questions.</div>
+  </div>
+</section>
+
+</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showSlideNumbers&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Presentation&quot;},&quot;showEvidenceCallouts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Presentation&quot;}}">class Component extends DCLogic {
+  renderVals() {
+    return {
+      showSlideNumbers: this.props.showSlideNumbers ?? true,
+      showEvidenceCallouts: this.props.showEvidenceCallouts ?? true,
+    };
+  }
+}</script>
+</body>
+</html>

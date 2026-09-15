@@ -1,0 +1,47 @@
+<svg font-family="Geist, -apple-system, BlinkMacSystemFont, sans-serif" xmlns="http://www.w3.org/2000/svg" width="680" height="320" viewBox="0 0 680 320" role="img">
+<title>Three design systems on a shared token layer</title>
+<desc>A shared token layer held as Figma variables and mirrored in code feeds three separate design systems: hosted white-label pages, the website, and internal tools. Changes to shared tokens required approval from both the frontend lead and the design lead. Each system owns its own atoms, molecules and templates.</desc>
+
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="#8A8880" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</marker>
+</defs>
+
+<g>
+<rect x="40" y="40" width="600" height="76" rx="8" stroke-width="0.5" fill="none" stroke="rgba(244,246,245,.2)"></rect>
+<text font-size="14" font-weight="500" fill="#F4F6F5" x="340" y="64" text-anchor="middle" dominant-baseline="central">Shared token layer</text>
+<text font-size="12.5" fill="#AAB3AF" x="340" y="86" text-anchor="middle" dominant-baseline="central">Figma variables, mirrored in code</text>
+<text font-size="12.5" fill="#AAB3AF" x="340" y="104" text-anchor="middle" dominant-baseline="central">Changes gated by both leads</text>
+</g>
+
+<line x1="125" y1="122" x2="125" y2="149" fill="none" stroke="rgba(244,246,245,.3)" stroke-width="1.25" marker-end="url(#arrow)"></line>
+<line x1="340" y1="122" x2="340" y2="149" fill="none" stroke="rgba(244,246,245,.3)" stroke-width="1.25" marker-end="url(#arrow)"></line>
+<line x1="555" y1="122" x2="555" y2="149" fill="none" stroke="rgba(244,246,245,.3)" stroke-width="1.25" marker-end="url(#arrow)"></line>
+
+<g>
+<rect x="40" y="155" width="170" height="110" rx="8" stroke-width="0.5" fill="rgba(201,168,106,.10)" stroke="rgba(201,168,106,.5)"></rect>
+<text font-size="14" font-weight="500" fill="#F4F6F5" x="125" y="179" text-anchor="middle" dominant-baseline="central">Hosted pages</text>
+<text font-size="12.5" fill="#AAB3AF" x="125" y="205" text-anchor="middle" dominant-baseline="central">White-label, minimal</text>
+<text font-size="12.5" fill="#AAB3AF" x="125" y="225" text-anchor="middle" dominant-baseline="central">Logo, font, colours</text>
+<text font-size="12.5" fill="#AAB3AF" x="125" y="245" text-anchor="middle" dominant-baseline="central">Light/dark/system</text>
+</g>
+
+<g>
+<rect x="255" y="155" width="170" height="110" rx="8" stroke-width="0.5" fill="rgba(201,168,106,.10)" stroke="rgba(201,168,106,.5)"></rect>
+<text font-size="14" font-weight="500" fill="#F4F6F5" x="340" y="179" text-anchor="middle" dominant-baseline="central">Website</text>
+<text font-size="12.5" fill="#AAB3AF" x="340" y="205" text-anchor="middle" dominant-baseline="central">Playful, expressive</text>
+<text font-size="12.5" fill="#AAB3AF" x="340" y="225" text-anchor="middle" dominant-baseline="central">Annual restyle</text>
+<text font-size="12.5" fill="#AAB3AF" x="340" y="245" text-anchor="middle" dominant-baseline="central">Light only</text>
+</g>
+
+<g>
+<rect x="470" y="155" width="170" height="110" rx="8" stroke-width="0.5" fill="rgba(201,168,106,.10)" stroke="rgba(201,168,106,.5)"></rect>
+<text font-size="14" font-weight="500" fill="#F4F6F5" x="555" y="179" text-anchor="middle" dominant-baseline="central">Tools</text>
+<text font-size="12.5" fill="#AAB3AF" x="555" y="205" text-anchor="middle" dominant-baseline="central">Dense, data-heavy</text>
+<text font-size="12.5" fill="#AAB3AF" x="555" y="225" text-anchor="middle" dominant-baseline="central">Analytics surfaces</text>
+<text font-size="12.5" fill="#AAB3AF" x="555" y="245" text-anchor="middle" dominant-baseline="central">Dark mode</text>
+</g>
+
+<text font-size="12.5" fill="#7d8683" x="340" y="293" text-anchor="middle">Separate Figma libraries — each owns its atoms, molecules and templates</text>
+</svg>

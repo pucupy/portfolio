@@ -1,0 +1,35 @@
+{
+ "index": {
+  "w01-img": {
+   "file": "images/w01-img.webp"
+  },
+  "w02-img": {
+   "file": "images/w02-img.webp"
+  }
+ },
+ "hosted-pages": {
+  "hp-bank-before": {
+   "file": "images/hp-bank-before.webp"
+  },
+  "hp-var-a": {
+   "file": "images/hp-var-a.webp"
+  },
+  "hp-var-b": {
+   "file": "images/hp-var-b.webp"
+  },
+  "hp-embedded-before": {
+   "file": "images/hp-embedded-before.webp"
+  }
+ },
+ "console": {
+  "console-dashboard-before-2021": {
+   "file": "images/console-dashboard-before-2021.webp"
+  },
+  "console-dashboard-after-2021": {
+   "file": "images/console-dashboard-after-2021.webp"
+  },
+  "console-certificates-scale": {
+   "file": "images/console-certificates-scale.webp"
+  }
+ }
+}

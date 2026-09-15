@@ -1,0 +1,92 @@
+body {
+  margin: 0 auto;
+  padding: 40px;
+  max-width:1024px;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  grid-row-gap: 5%;
+  justify-content: center;
+  align-items: center;
+  font-family: arial;
+}
+
+
+img {
+width: 100%;
+  height: auto;
+}
+
+
+/* animation logo fade in*/
+@keyframes magic {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+#isologo{
+  animation-name: magic;
+  animation-iteration-count: 1;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+/* animation heart*/
+
+.heart {
+  padding:40px;
+}
+
+.heart:hover {
+  transition: stroke 0.5s ease;
+  animation: beat 0.4s ease-out infinite;
+}
+
+
+@keyframes beat {
+  0
+    {transform: scale(1);}
+  50%
+      {transform: scale(1.1);}
+  100%
+    {transform: scale(1);}
+
+}
+
+/* animation draw*/
+
+
+#logo2 {
+  stroke-dasharray: 497;
+  stroke-dashoffset: 497;
+  animation: draw 1400ms ease-in infinite forwards;
+
+}
+
+
+
+@keyframes draw {
+  from
+    {stroke-dashoffset: 1000}
+  to
+    {stroke-dashoffset: 0}
+
+}
+
+/* animation move*/
+
+
+#logo3 {
+  animation: move 3s ease infinite forwards;
+}
+
+@keyframes move {
+  0%
+    {transform:translate(0);opacity: 0}
+  50%
+      {transform:translate(300px);opacity: 100%}
+
+  }
+  100%
+    {transform:translate(0);opacity:0}
+
+}

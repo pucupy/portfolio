@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "index",
+    "nav": "Home",
+    "title": "Alejandro Velázquez — Lead product designer, open banking",
+    "description": "Product design lead at Yapily. Hosted Pages, the customer Console, three design systems and a six-year UX research practice in regulated open banking."
+  },
+  {
+    "slug": "about",
+    "nav": "About",
+    "title": "About — Alejandro Velázquez",
+    "description": "Twenty years in product design, six of them building the design function at Yapily. How I work, who I have worked with, and what I am looking for next."
+  },
+  {
+    "slug": "hosted-pages",
+    "nav": "Hosted Pages",
+    "title": "Yapily Hosted Pages — case study",
+    "description": "The white-label bank-connection and consent flow used by 200 companies. Three years of research, over forty variants, and the findings that turned out not to be screen problems."
+  },
+  {
+    "slug": "console",
+    "nav": "The Console",
+    "title": "The Yapily Console — case study",
+    "description": "Six years of a tool built for one customer type, deprioritised, then rebuilt so customers can onboard, configure and pay without a conversation."
+  },
+  {
+    "slug": "design-systems",
+    "nav": "Design systems",
+    "title": "Yapily UI, Custard and Mark — case study",
+    "description": "Three design systems for three different consumers: internal tools, a white-label configurator, and the marketing site — plus the governance behind them."
+  },
+  {
+    "slug": "headbox",
+    "nav": "HeadBox",
+    "title": "HeadBox — inverting a marketplace",
+    "description": "An event-space marketplace converting at 10%. The expertise was on the wrong side of the transaction — inverting it changed the revenue model and produced £150,288 ARR in three months."
+  },
+  {
+    "slug": "research-practice",
+    "nav": "Research practice",
+    "title": "Research practice — Alejandro Velázquez",
+    "description": "Building and running a UX research practice with no researcher: two hundred customer conversations, hundreds of usability sessions and an experimentation pipeline."
+  },
+  {
+    "slug": "creative-archive",
+    "nav": "Creative archive",
+    "title": "Creative archive — Alejandro Velázquez",
+    "description": "Illustration, comics, printmaking and character work — the visual practice underneath twenty years of product design."
+  }
+]

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #FFFFFF; -webkit-font-smoothing: antialiased; }
+  a { color: #003839; text-underline-offset: 3px; }
+  a:hover { color: #014E4F; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</helmet>
+<div style="font-family: Inter, sans-serif; color: #171717">
+
+  <div style="background: #003839; color: #FFFFFF">
+
+    <div style="border-bottom: 1px solid rgba(255,255,255,.12)">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 10px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+        <svg viewBox="0 0 151 34" role="img" aria-label="Yapily" fill="none" style="height: 17px; width: auto; flex: none; color: #FFFFFF"><path d="M107.968 0.500977H101.764V33.4988H116.413L119.977 28.127H107.968V0.500977Z" fill="currentColor"></path><path d="M93.1637 0.500977H86.9424V33.4988H93.1637V0.500977Z" fill="currentColor"></path><path d="M16.9181 33.5H23.6975L28.1055 26.8686H41.7533V33.4989H47.9572L47.9658 0.5H38.8486L16.917 33.5H16.9181ZM31.6714 21.5043L41.7543 6.33542V21.5043H31.6714Z" fill="currentColor"></path><path d="M77.0412 3.47956C74.5657 1.30029 71.7152 0.5 67.4459 0.5H56.5576V33.4978H62.7789V5.88795H67.7786C69.8976 5.88795 71.5125 6.36447 72.7383 7.58426C73.756 8.59645 74.3597 10.0432 74.3597 11.8395C74.3597 13.6359 73.7148 15.1784 72.6353 16.1949C71.4063 17.3523 69.8434 17.7911 67.7786 17.7911H62.7789L67.8773 23.0371C71.8431 23.0371 74.6405 22.1906 77.0292 20.1017C79.3346 18.0869 80.5994 15.1526 80.5994 11.7696C80.5994 8.3867 79.3302 5.49319 77.0422 3.47956H77.0412Z" fill="currentColor"></path><path d="M121.486 0.5L132.455 16.9995L121.486 33.5H128.421L139.388 16.9995L128.421 0.5H121.486Z" fill="currentColor"></path><path d="M143.423 0.5L135.922 11.7836H142.854L150.357 0.5H143.423Z" fill="currentColor"></path><path d="M6.93443 0.5H0L10.9685 16.9995L0 33.5H6.93443L17.9018 16.9995L6.93443 0.5Z" fill="currentColor"></path><path d="M28.8702 0.5H21.9368L14.4355 11.7836H21.3678L28.8702 0.5Z" fill="currentColor"></path></svg>
+        <span style="font-size: 13.5px; color: #B9D3CF; text-align: center">Sales enablement · interactive demo library for the Yapily team</span>
+        <a href="Demo Hub.dc.html" style="font-size: 13.5px; font-weight: 500; color: #63DFB3; text-decoration: underline; white-space: nowrap">See all demos</a>
+      </div>
+    </div>
+
+
+    <div style="max-width: 1280px; margin: 0 auto; padding: 56px 40px 72px; display: grid; grid-template-columns: minmax(320px, 1fr) 415px; gap: 48px; align-items: center">
+
+      <div style="display: flex; flex-direction: column; gap: 28px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #63DFB3">Single payment · app-to-app</span>
+        <h1 style="margin: 0; font-size: 44px; line-height: 48px; font-weight: 600; letter-spacing: -.03em; color: #FFFFFF; max-width: 22ch; text-wrap: pretty">The bank's own app does the authentication</h1>
+        <p style="margin: 0; font-size: 18px; line-height: 30px; color: #B9D3CF; max-width: 52ch; text-wrap: pretty">On mobile there is no QR code and no password typed into a browser. Your customer is handed straight into their banking app, approves with a face, and comes back paid.</p>
+
+        <div style="height: 1px; background: rgba(255,255,255,.14)"></div>
+
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #63DFB3">{{ stepCounter }}</span>
+          <h2 style="margin: 0; min-height: 28px; font-size: 22px; line-height: 28px; font-weight: 600; letter-spacing: -.02em; color: #FFFFFF; text-wrap: pretty">{{ narrTitle }}</h2>
+          <p style="margin: 0; min-height: 78px; font-size: 16px; line-height: 26px; color: #B9D3CF; max-width: 54ch; text-wrap: pretty">{{ narrBody }}</p>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 2px; margin: -14px 0">
+        <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="8">
+          <button onClick="{{ dot.go }}" aria-label="{{ dot.aria }}" style="width: 44px; height: 44px; padding: 0; border: 0; background: transparent; cursor: pointer; display: inline-flex; align-items: center; justify-content: center">
+            <span style="width: {{ dot.size }}; height: {{ dot.size }}; border-radius: 999px; background: {{ dot.color }}"></span>
+          </button>
+        </sc-for>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+          <button onClick="{{ back }}" aria-label="Previous step" style="width: 44px; height: 44px; border-radius: 8px; border: 1px solid rgba(255,255,255,.35); background: transparent; color: #FFFFFF; font-size: 17px; cursor: pointer; font-family: Inter, sans-serif; transition: background 150ms cubic-bezier(.4,0,.2,1)" style-hover="background: rgba(255,255,255,.1)">←</button>
+          <button onClick="{{ toggleAuto }}" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,.35); background: transparent; color: #FFFFFF; font-size: 15px; font-weight: 500; cursor: pointer; font-family: Inter, sans-serif; white-space: nowrap; transition: background 150ms cubic-bezier(.4,0,.2,1)" style-hover="background: rgba(255,255,255,.1)">{{ autoLabel }}</button>
+          <button onClick="{{ next }}" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 0; background: #63DFB3; color: #003839; font-size: 15px; font-weight: 600; cursor: pointer; font-family: Inter, sans-serif; white-space: nowrap; transition: background 150ms cubic-bezier(.4,0,.2,1)" style-hover="background: #8BE9C7">Next step →</button>
+          <span style="font-size: 14px; color: #8FB2AD">or tap inside the phone</span>
+        </div>
+      </div>
+
+      <div style="justify-self: center; width: 415px; height: 874px; background: #0B0B0C; border: 9px solid #2A2E2D; border-radius: 58px; padding: 2px; box-shadow: 0 40px 80px rgba(0,0,0,.45); flex: none">
+        <div style="position: relative; width: 100%; height: 100%; background: #FFFFFF; border-radius: 47px; overflow: hidden; display: flex; flex-direction: column">
+          <div style="position: absolute; top: 11px; left: 50%; transform: translateX(-50%); width: 125px; height: 37px; background: #0B0B0C; border-radius: 999px; z-index: 40"></div>
+
+          <sc-if value="{{ isCheckout }}" hint-placeholder-val="{{ true }}">
+            <div style="flex: 1; display: flex; flex-direction: column; background: #FFFFFF">
+              <div style="flex: none; display: flex; align-items: center; justify-content: space-between; padding: 54px 22px 14px">
+                <img src="{{ demoLogo }}" alt="" style="height: 18px; width: auto; max-width: 90px; margin-right: 8px; vertical-align: -3px; display: {{ logoDisplay }}" /><span style="font-size: 19px; font-weight: 700; letter-spacing: -.02em; color: {{ brand }}">{{ merchant }}</span>
+                <span style="display: flex; flex-direction: column; gap: 4px; width: 22px">
+                  <span style="height: 2.5px; border-radius: 2px; background: {{ brand }}"></span>
+                  <span style="height: 2.5px; border-radius: 2px; background: {{ brand }}"></span>
+                  <span style="height: 2.5px; border-radius: 2px; background: {{ brand }}"></span>
+                </span>
+              </div>
+              <div style="flex: 1; overflow: auto; padding: 8px 22px 22px; display: flex; flex-direction: column; gap: 16px">
+                <h2 style="margin: 0; font-size: 19px; font-weight: 700; letter-spacing: -.02em; color: #111827">Your order</h2>
+                <div style="border: 1px solid #E5E7EB; border-radius: 12px; overflow: hidden">
+                  <div style="padding: 14px 16px; display: flex; justify-content: space-between; font-size: 14.5px; color: #374151; border-bottom: 1px solid #EEF0F3"><span>2 × Katsu curry</span><span style="font-weight: 600; color: #111827">£21.90</span></div>
+                  <div style="padding: 14px 16px; display: flex; justify-content: space-between; font-size: 14.5px; color: #374151; border-bottom: 1px solid #EEF0F3"><span>Delivery</span><span style="font-weight: 600; color: #111827">£2.49</span></div>
+                  <div style="padding: 14px 16px; display: flex; justify-content: space-between; font-size: 14.5px; background: #F7F8FA"><span style="font-weight: 600; color: #111827">Total</span><span style="font-size: 20px; font-weight: 700; letter-spacing: -.02em; color: #111827">£24.39</span></div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px">
+                  <button onClick="{{ next }}" style="height: 52px; border: 0; border-radius: 10px; color: #FFFFFF; font-size: 16px; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer; background: {{ brand }}">Pay by bank</button>
+                  <div style="height: 52px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 600; border: 1px solid #D1D5DB; color: #374151">Pay by card</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; justify-content: center; margin-top: auto">
+                  <span style="font-size: 12.5px; color: #6B7280">Pay by bank is free and instant</span>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isBanks }}">
+            <div style="flex: 1; display: flex; flex-direction: column; background: #FFFFFF; overflow: hidden">
+              <div style="flex: none; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #E9EBEF; padding: 54px 18px 14px">
+                <span style="width: 24px"></span>
+                <img src="{{ demoLogo }}" alt="" style="height: 18px; width: auto; max-width: 90px; margin-right: 8px; vertical-align: -3px; display: {{ logoDisplay }}" /><span style="font-size: 17px; font-weight: 700; letter-spacing: -.01em; color: {{ brand }}">{{ merchant }}</span>
+                <span style="width: 24px; text-align: right; font-size: 17px; color: #111827">✕</span>
+              </div>
+              <div style="flex: 1; overflow: auto; padding: 16px 18px 12px; display: flex; flex-direction: column; gap: 14px">
+                <h2 style="margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -.01em; color: #111827">Choose your bank:</h2>
+                <div style="height: 44px; border: 1px solid #E5E7EB; border-radius: 12px; display: flex; align-items: center; gap: 10px; padding: 0 14px; color: #6B7280; font-size: 14px">
+                  <span aria-hidden="true">⌕</span><span>Search all 69 banks</span>
+                </div>
+                <span style="font-size: 12.5px; color: #6B7280">Most popular banks</span>
+                <div style="display: flex; flex-direction: column; gap: 8px">
+                <sc-for list="{{ bankList }}" as="bank" hint-placeholder-count="5">
+                  <button onClick="{{ bank.go }}" style="display: grid; grid-template-columns: 40px 1fr; align-items: center; gap: 12px; height: 60px; padding: 0 12px; border: 0; border-radius: 12px; background: #F7F8FA; cursor: pointer; text-align: left; font-family: Inter, sans-serif" style-hover="background: #EFF1F5">
+                    <span role="img" aria-label="Bank logo" style="flex: none; width: 40px; height: 40px; border-radius: 8px; background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #E9EBEF; background-image: {{ bank.bg }}"></span>
+                    <span style="font-size: 15px; font-weight: 500; color: #111827">{{ bank.name }}</span>
+                  </button>
+                </sc-for>
+                </div>
+              </div>
+              <div style="flex: none; display: flex; align-items: center; gap: 10px; padding: 10px 14px 18px; background: #F5F5F7; border-top: 1px solid #E5E7EB">
+                <span style="width: 40px; height: 40px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; justify-content: center; font-size: 15px; color: #374151">‹</span>
+                <span style="flex: 1; height: 40px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 13.5px; color: #374151">payments.yapily.co…</span>
+                <span style="width: 40px; height: 40px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; justify-content: center; font-size: 15px; color: #374151">···</span>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isReview }}">
+            <div style="flex: 1; display: flex; flex-direction: column; background: #FFFFFF; overflow: hidden">
+              <div style="flex: none; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #E9EBEF; padding: 54px 18px 14px">
+                <span style="width: 24px"></span>
+                <img src="{{ demoLogo }}" alt="" style="height: 18px; width: auto; max-width: 90px; margin-right: 8px; vertical-align: -3px; display: {{ logoDisplay }}" /><span style="font-size: 17px; font-weight: 700; letter-spacing: -.01em; color: {{ brand }}">{{ merchant }}</span>
+                <span style="width: 24px; text-align: right; font-size: 17px; color: #111827">✕</span>
+              </div>
+              <div style="flex: 1; overflow: auto; padding: 18px; display: flex; flex-direction: column; gap: 16px">
+                <h2 style="margin: 0; font-size: 19px; font-weight: 700; letter-spacing: -.02em; color: #111827">Review your payment</h2>
+                <div style="background: #F7F8FA; border: 1px solid #EEF0F3; border-radius: 12px; overflow: hidden">
+                  <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; border-bottom: 1px solid #E5E7EB">
+                    <span style="font-size: 12.5px; color: #6B7280">Amount</span>
+                    <span style="font-size: 26px; font-weight: 700; letter-spacing: -.02em; color: #111827">£24.39</span>
+                  </div>
+                  <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; border-bottom: 1px solid #E5E7EB">
+                    <span style="font-size: 12.5px; color: #6B7280">Payee</span>
+                    <span style="font-size: 14.5px; font-weight: 600; color: #111827">{{ merchant }} Ltd</span>
+                  </div>
+                  <div style="padding: 14px 16px; display: flex; align-items: center; gap: 12px">
+                    <span role="img" aria-label="Bank logo" style="flex: none; width: 36px; height: 36px; border-radius: 8px; background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #E9EBEF; background-image: {{ bankBg }}"></span>
+                    <span style="display: flex; flex-direction: column">
+                      <span style="font-size: 12.5px; color: #6B7280">Paying from</span>
+                      <span style="font-size: 14.5px; font-weight: 600; color: #111827">{{ bankName }}</span>
+                    </span>
+                  </div>
+                </div>
+                <p style="margin: 0; font-size: 12.5px; line-height: 1.65; color: #4B5563; text-wrap: pretty">Yapily Connect Ltd is authorised by the Financial Conduct Authority to initiate this payment on your instruction. It cannot move money without your approval at your bank.</p>
+                <button onClick="{{ next }}" style="height: 52px; border: 0; border-radius: 10px; background: {{ brand }}; color: #FFFFFF; font-size: 16px; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer">Continue to {{ bankName }}</button>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 12.5px; color: #6B7280">
+                  <span aria-hidden="true">🔒</span><span>Transfer made with Yapily Connect</span>
+                </div>
+              </div>
+              <div style="flex: none; display: flex; align-items: center; gap: 10px; padding: 10px 14px 18px; background: #F5F5F7; border-top: 1px solid #E5E7EB">
+                <span style="width: 40px; height: 40px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; justify-content: center; font-size: 15px; color: #374151">‹</span>
+                <span style="flex: 1; height: 40px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 13.5px; color: #374151">payments.yapily.co…</span>
+                <span style="width: 40px; height: 40px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; justify-content: center; font-size: 15px; color: #374151">···</span>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isHandoff }}">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; background: #FFFFFF; padding: 40px 28px">
+              <div style="display: flex; align-items: center; gap: 14px">
+                <span style="width: 46px; height: 46px; border-radius: 10px; background: #F7F8FA; border: 1px solid #E5E7EB; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #6B7280">Web</span>
+                <span style="font-size: 18px; color: #9CA3AF">→</span>
+                <span role="img" aria-label="Bank logo" style="width: 46px; height: 46px; border-radius: 10px; background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #E9EBEF; background-image: {{ bankBg }}"></span>
+              </div>
+              <span style="width: 34px; height: 34px; border: 3px solid #E5E7EB; border-top-color: {{ brand }}; border-radius: 999px; animation: spin 900ms linear infinite"></span>
+              <span style="font-size: 17px; font-weight: 600; letter-spacing: -.01em; color: #111827; text-align: center">Opening your {{ bankName }} app…</span>
+              <span style="font-size: 13px; line-height: 1.6; color: #6B7280; text-align: center; max-width: 34ch; text-wrap: pretty">No card details, no passwords typed into a browser.</span>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isFaceId }}">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; background: #4B2E83; padding: 54px 28px 40px">
+              <span role="img" aria-label="Bank logo" style="width: 76px; height: 76px; border-radius: 18px; background-size: cover; background-position: center; background-repeat: no-repeat; background-color: rgba(255,255,255,.12); background-image: {{ bankBg }}; margin-top: 20px"></span>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px">
+                <button onClick="{{ next }}" style="width: 150px; height: 150px; border: 2px solid rgba(255,255,255,.55); border-radius: 14px; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: Inter, sans-serif; font-size: 16px; font-weight: 600; color: #FFFFFF" style-hover="background: rgba(255,255,255,.08)">Face ID</button>
+                <span style="font-size: 20px; font-weight: 500; letter-spacing: -.01em; color: #FFFFFF">Log in with Face ID</span>
+              </div>
+              <span style="font-size: 13px; color: rgba(255,255,255,.7)">{{ bankName }} app</span>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isApprove }}">
+            <div style="flex: 1; display: flex; flex-direction: column; overflow: hidden; background: #F3F1F7">
+              <div style="flex: none; display: flex; align-items: center; gap: 10px; padding: 54px 18px 14px; background: #FFFFFF">
+                <span role="img" aria-label="Bank logo" style="flex: none; width: 26px; height: 26px; border-radius: 6px; background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #E9EBEF; background-image: {{ bankBg }}"></span>
+                <span style="font-size: 17px; font-weight: 700; letter-spacing: -.01em; color: #111827">{{ bankName }}</span>
+              </div>
+              <div style="flex: none; background: #4B2E83; padding: 13px 18px; display: flex; align-items: center; justify-content: space-between">
+                <span style="font-size: 15px; font-weight: 700; color: #FFFFFF">Approve payment</span>
+                <span style="font-size: 14px" aria-hidden="true">🔒</span>
+              </div>
+              <div style="flex: 1; overflow: auto; padding: 18px; display: flex; flex-direction: column; gap: 14px">
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+                  <span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #6B7280">Amount</span>
+                  <span style="font-size: 32px; font-weight: 700; letter-spacing: -.03em; color: #111827">£24.39</span>
+                </div>
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+                  <span style="display: flex; justify-content: space-between; font-size: 13.5px; color: #6B7280"><span>Payee</span><strong style="color: #111827">{{ merchant }} Ltd</strong></span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13.5px; color: #6B7280"><span>From</span><strong style="color: #111827">Current account ·· 8472</strong></span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13.5px; color: #6B7280"><span>Reference</span><strong style="color: #111827">DEL-91042</strong></span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13.5px; color: #6B7280"><span>Arrives</span><strong style="color: #111827">In seconds</strong></span>
+                </div>
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 16px; display: flex; gap: 10px; align-items: flex-start">
+                  <span style="font-size: 14px" aria-hidden="true">🔒</span>
+                  <span style="font-size: 12.5px; line-height: 1.6; color: #4B5563; text-wrap: pretty">Requested by Yapily Connect Ltd on behalf of {{ merchant }} Ltd. One payment only — nothing recurring is set up.</span>
+                </div>
+                <div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px">
+                  <button onClick="{{ next }}" style="height: 50px; border: 0; border-radius: 999px; background: #4B2E83; color: #FFFFFF; font-size: 15px; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer" style-hover="background: #3C2469">Confirm payment</button>
+                  <div style="height: 50px; border-radius: 999px; border: 1px solid #C9C4D6; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; color: #4B2E83">Cancel</div>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isCallback }}">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; background: #FFFFFF; padding: 40px 28px">
+              <span style="width: 34px; height: 34px; border: 3px solid #E5E7EB; border-top-color: {{ brand }}; border-radius: 999px; animation: spin 900ms linear infinite"></span>
+              <span style="font-size: 22px; font-weight: 700; letter-spacing: -.02em; color: #111827">Almost there!</span>
+              <span style="font-size: 13.5px; line-height: 1.65; color: #4B5563; text-align: center; max-width: 34ch; text-wrap: pretty">We're taking you back to {{ merchant }} to confirm your order. Please don't close this window.</span>
+              <div style="display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: #6B7280">
+                <span aria-hidden="true">🔒</span><span>Secure page by Yapily</span>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isDone }}">
+            <div style="flex: 1; display: flex; flex-direction: column; background: #FFFFFF">
+              <div style="flex: none; display: flex; align-items: center; justify-content: space-between; padding: 54px 22px 14px">
+                <img src="{{ demoLogo }}" alt="" style="height: 18px; width: auto; max-width: 90px; margin-right: 8px; vertical-align: -3px; display: {{ logoDisplay }}" /><span style="font-size: 19px; font-weight: 700; letter-spacing: -.02em; color: {{ brand }}">{{ merchant }}</span>
+                <span style="display: flex; flex-direction: column; gap: 4px; width: 22px">
+                  <span style="height: 2.5px; border-radius: 2px; background: {{ brand }}"></span>
+                  <span style="height: 2.5px; border-radius: 2px; background: {{ brand }}"></span>
+                  <span style="height: 2.5px; border-radius: 2px; background: {{ brand }}"></span>
+                </span>
+              </div>
+              <div style="flex: 1; overflow: auto; padding: 8px 22px 22px; display: flex; flex-direction: column; gap: 16px">
+                <div style="border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 6px; color: #FFFFFF; background: {{ brand }}">
+                  <span style="font-size: 15px; font-weight: 600">Order confirmed</span>
+                  <span style="font-size: 13px; opacity: .85">£24.39 paid from {{ bankName }}</span>
+                </div>
+                <div style="border: 1px solid #E5E7EB; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+                  <span style="display: flex; justify-content: space-between; font-size: 13.5px; color: #6B7280"><span>Taps to pay</span><strong style="color: #111827">4</strong></span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13.5px; color: #6B7280"><span>Card details entered</span><strong style="color: #111827">None</strong></span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13.5px; color: #6B7280"><span>Settlement</span><strong style="color: #111827">Instant, into your account</strong></span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13.5px; color: #6B7280"><span>Chargeback risk</span><strong style="color: #111827">None</strong></span>
+                </div>
+                <p style="margin: 0; font-size: 13px; line-height: 1.65; color: #4B5563; text-wrap: pretty">Delivery in 25–35 minutes. Your driver will be assigned shortly.</p>
+                <button onClick="{{ restart }}" style="margin-top: auto; height: 50px; border: 1px solid #D1D5DB; border-radius: 10px; background: #FFFFFF; color: #111827; font-size: 15px; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer" style-hover="background: #F5F5F5">See demo again</button>
+              </div>
+            </div>
+          </sc-if>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="background: #FFFFFF; border-bottom: 1px solid #EFEFEF">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 48px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 30px; font-weight: 600; letter-spacing: -.03em; color: #003839">4</span>
+        <span style="font-size: 14px; line-height: 22px; color: #525252">Taps from checkout to paid, on the customer's own device</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 30px; font-weight: 600; letter-spacing: -.03em; color: #003839">0</span>
+        <span style="font-size: 14px; line-height: 22px; color: #525252">Card numbers, passwords or PINs handled by the merchant</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 30px; font-weight: 600; letter-spacing: -.03em; color: #003839">Seconds</span>
+        <span style="font-size: 14px; line-height: 22px; color: #525252">Settlement straight into the merchant's account via Faster Payments</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 30px; font-weight: 600; letter-spacing: -.03em; color: #003839">No QR</span>
+        <span style="font-size: 14px; line-height: 22px; color: #525252">App-to-app replaces the QR handoff needed on desktop</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: #F0FAF9">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 24px">
+      <div role="status" style="flex: 1; min-width: 320px; background: #FEFCE8; border: 1px solid #F5E9A8; border-left: 3px solid #D08700; border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+        <span style="font-size: 14px; font-weight: 600; color: #973C00">Before you share this</span>
+        <span style="font-size: 14px; line-height: 22px; color: #973C00; max-width: 62ch; text-wrap: pretty">The Yapily Connect Ltd wording on the review and approval screens is compliance-approved — leave it as written. Swap the merchant name and brand colour via Tweaks; use approved bank logos only.</span>
+      </div>
+      <a href="Demo Hub.dc.html" style="height: 52px; padding: 0 24px; border-radius: 8px; background: #003839; color: #FFFFFF; font-size: 15px; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; white-space: nowrap" style-hover="background: #014E4F">← Back to demo hub</a>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;merchantName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Delivery App&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Branding&quot;},&quot;brandColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0E7C6B&quot;,&quot;options&quot;:[&quot;#0E7C6B&quot;,&quot;#241C6B&quot;,&quot;#B3231F&quot;,&quot;#1E5AA8&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Branding&quot;}}">
+const BANKS = [
+  { name: "Lloyds", logo: "assets/logos/lloyds.png" },
+  { name: "Monzo", logo: "assets/logos/monzo.png" },
+  { name: "Revolut", logo: "assets/logos/revolut.png" },
+  { name: "Halifax Personal", logo: "assets/logos/halifax.png" },
+  { name: "Barclays", logo: "assets/logos/barclays.png" }
+];
+
+const STEPS = [
+  { screen: "checkout", title: "Checkout, in the merchant's own app", body: "Pay by bank sits alongside the card option. No redirect has happened yet — this is still the merchant's UI, their brand, their copy." },
+  { screen: "banks", title: "Bank selection in the mobile browser", body: "Hosted by Yapily, wearing the merchant's brand. Search covers every connected bank; the popular list is ordered by what this merchant's customers actually use." },
+  { screen: "review", title: "Amount, payee and account before the bank", body: "The customer sees exactly what they are about to approve, plus who is initiating it. Nothing is hidden behind the handoff." },
+  { screen: "handoff", title: "App-to-app: the bank's app opens directly", body: "This is the mobile difference. No QR code to scan, no second device, no credentials typed into a browser — the OS opens the bank app the customer already trusts." },
+  { screen: "faceid", title: "Authentication is the bank's, with biometrics", body: "Face ID inside the bank's app satisfies SCA. The merchant and Yapily never see a password, PIN or card number." },
+  { screen: "approve", title: "The bank restates the payment and takes consent", body: "Amount, payee, source account, reference. The screen is the bank's, so the guarantees are the bank's — and it says one payment only." },
+  { screen: "callback", title: "The return trip is a designed screen", body: "Most integrations show a blank redirect here. A branded 'Almost there!' screen is what keeps customers from closing the tab mid-payment." },
+  { screen: "done", title: "Confirmed, with the commercial case on screen", body: "Four taps, no card details, instant settlement, no chargeback risk. Leave this screen up while you handle the pricing question." }
+];
+
+const URLB = (function () {
+  try { const q = new URLSearchParams(location.search); return { c: q.get("c"), col: q.get("col"), logo: q.get("logo") }; } catch (e) { return {}; }
+})();
+
+class Component extends DCLogic {
+  state = { step: 0, auto: false, bank: 0 };
+
+  componentDidMount() { this.sync(); }
+  componentDidUpdate() { this.sync(); }
+  componentWillUnmount() { clearTimeout(this.t); }
+
+  sync() {
+    clearTimeout(this.t);
+    if (!this.state.auto) return;
+    if (this.state.step >= STEPS.length - 1) { this.setState({ auto: false }); return; }
+    this.t = setTimeout(() => this.setState(s => ({ step: s.step + 1 })), 2600);
+  }
+
+  go = i => this.setState({ step: i, auto: false });
+
+  renderVals() {
+    const i = Math.min(this.state.step, STEPS.length - 1);
+    const cur = STEPS[i];
+    const bank = BANKS[this.state.bank] || BANKS[0];
+
+    return {
+      demoLogo: URLB.logo || "",
+      logoDisplay: URLB.logo ? "inline-block" : "none",
+      brand: (URLB.col || this.props.brandColor || "#0E7C6B"),
+      merchant: (URLB.c || this.props.merchantName || "Delivery App"),
+      bankName: bank.name,
+      bankBg: "url(" + bank.logo + ")",
+      bankList: BANKS.map((b, n) => ({
+        name: b.name,
+        bg: "url(" + b.logo + ")",
+        go: () => this.setState(s => ({ bank: n, step: s.step + 1, auto: false }))
+      })),
+      isCheckout: cur.screen === "checkout",
+      isBanks: cur.screen === "banks",
+      isReview: cur.screen === "review",
+      isHandoff: cur.screen === "handoff",
+      isFaceId: cur.screen === "faceid",
+      isApprove: cur.screen === "approve",
+      isCallback: cur.screen === "callback",
+      isDone: cur.screen === "done",
+      stepCounter: "Step " + (i + 1) + " of " + STEPS.length,
+      narrTitle: cur.title,
+      narrBody: cur.body,
+      autoLabel: this.state.auto ? "Pause" : "Auto-play",
+      dots: STEPS.map((s, n) => ({
+        aria: "Go to step " + (n + 1),
+        size: n === i ? "10px" : "7px",
+        color: n === i ? "#63DFB3" : n < i ? "rgba(255,255,255,.55)" : "rgba(255,255,255,.22)",
+        go: () => this.go(n)
+      })),
+      next: () => this.setState(s => ({ step: Math.min(s.step + 1, STEPS.length - 1), auto: false })),
+      back: () => this.setState(s => ({ step: Math.max(s.step - 1, 0), auto: false })),
+      restart: () => this.setState({ step: 0, auto: false }),
+      toggleAuto: () => this.setState(s => ({ auto: !s.auto, step: s.auto ? s.step : (s.step >= STEPS.length - 1 ? 0 : s.step) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

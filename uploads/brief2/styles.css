@@ -1,0 +1,2039 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+
+
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.more li {
+	padding-bottom: 20px;
+}
+
+
+/*comps*/
+
+* {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+.mainnav a {
+	font-family: "Montserrat";
+	display: inline-block;
+	padding: 10px;
+	margin-left: 20px;
+	font-size:14px;
+	text-decoration: none;
+
+}
+
+
+
+
+
+.budget {
+	margin-top: 40px;
+}
+
+.forward
+{
+display: inline-block;
+	margin-top: 10px;
+
+}
+
+a.option {
+	border:1px solid #2A9FD8;
+	border-radius: 5px;
+	display: inline-block;
+	padding: 10px;
+	text-align:center;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	cursor: pointer;
+}
+
+a.option2 {
+	border:1px solid #2A9FD8;
+	color:#fff;
+	background-color: #2A9FD8;
+	border-radius: 5px;
+	display: inline-block;
+	padding: 10px;
+	text-align:center;
+	cursor: pointer;
+}
+
+.spacepics {
+
+		display: inline-grid;
+
+		grid-gap: 20px;
+		grid-row-gap: 20px;
+		width: 100%;
+		align-content: center;
+		padding:20px 0;
+
+
+}
+
+.spacepics img {
+	border-radius: 10px;
+
+}
+
+a.option:hover {
+	border:1px solid #2A9FD8;
+	color:#fff;
+	background-color: #2A9FD8;
+}
+
+a.option2:hover {
+	border:1px solid #2A9FD8;
+	color:#fff;
+	background-color: #2A9FD8;
+}
+
+a.option:active {
+
+	color:#fff;
+
+}
+
+a.option2:active{
+
+	color:#fff;
+
+}
+
+
+
+
+
+a.host {
+	border:1px solid #2A9FD8;
+	border-radius: 5px;
+}
+
+
+
+a.host:hover {
+	border:1px solid #2A9FD8;
+	color:#fff;
+	background-color: #2A9FD8;
+}
+
+
+
+a {
+	color:#2A9FD8;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+a:hover {
+color:#50b9e6;
+
+}
+
+header a, header a:hover, .mobile a, .mobile a:hover {
+	border:none;
+}
+
+
+
+button a {
+	display: block;
+	padding: 10px;
+}
+
+
+
+
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 40px;
+  cursor: pointer;
+  font-size: 20px;
+	font-weight:400;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+	color:#2f2f2f;
+}
+
+
+.container p, .container4 p{
+margin-top: 10px;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+		border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2A9FD8;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+
+/*styles*/
+
+/* Customize the label (the container) */
+.container2 {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+	color:#2A9FD8;
+	font-weight:700;
+		border-radius: 50%;
+}
+
+/* Hide the browser's default checkbox */
+.container2 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark2 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+	border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container2:hover input ~ .checkmark2 {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container2 input:checked ~ .checkmark2 {
+  background-color: #2A9FD8;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark2:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container2 input:checked ~ .checkmark2:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container2 .checkmark2:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+
+.mainnav a.active {
+	color: #fff;
+}
+
+
+
+q {
+	font-size: 32px;
+	font-weight: 800;
+	padding:40px 0 40px 0;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	display: block;
+}
+
+q::before {
+	color:#17abd8
+	content: ' “ ';
+
+}
+
+.disabled {opacity: 0.3}
+
+q::after {
+	color:#17abd8
+	content: ' ” ';
+
+}
+
+body {
+	background-color: #fff;
+		color: #2f2f2f;
+	font-family: 'Montserrat', helvetica, arial, sans-serif;
+	font-size: 18px;
+	margin: auto;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	min-height: 100vh;
+	overflow: scroll;
+}
+
+button[type="submit"] {
+	padding: 10px;
+	display: block;
+}
+
+.special {
+	font-weight: 700;
+}
+
+button,
+input[type="submit"],a.likebutton {
+	font-family: 'Montserrat', helvetica, arial, sans-serif;
+	border-radius: 5px;
+	border: none;
+	margin: 20px 0 20px 0;
+	outline: none;
+	text-align: center;
+	width: 100%;
+	max-width: 200px;
+	font-size: 16px;
+	display: block;
+}
+
+a.likebutton2 {
+	font-family: 'Montserrat', helvetica, arial, sans-serif;
+	border-radius: 5px;
+	border: none;
+	margin: 20px 0 20px 0;
+	outline: none;
+	text-align: center;
+	width: 100%;
+	font-size: 16px;
+	display: block;
+}
+
+button.primary,
+input[type="submit"],a.likebutton,a.likebutton2 {
+	background-color:#2A9FD8;
+	color: #fff;
+}
+
+input[type="time"],input[type="date"]{
+	max-width: 300px;
+}
+
+
+input[type="range"]{
+margin:0;
+}
+
+
+button.primary a, a.likebutton {
+	color: #fff;
+}
+
+.radioitem {
+	margin-bottom: 20px;
+}
+
+.date {
+	margin-bottom: 40px;
+}
+
+.timings {
+		margin-top: 80px;
+}
+
+.logo {width:200px;}
+
+
+input[type=checkbox],input[type=radio]{
+
+	display: inline-block;
+	width: 20px;
+	margin:0;
+
+}
+
+button.primary:hover,
+input[type="submit"]:hover,a.likebutton:hover,a.likebutton2:hover {
+	background-color:#50b9e6;
+	color: #fff;
+	cursor: pointer;
+}
+
+
+
+button:active,
+input[type="submit"]:active,a.likebutton:active,a.option:active,a.likebutton2:active {
+	transform: scale(0.9);
+	transition: transform 0.1s;
+	transition-timing-function: ease-in-out;
+}
+
+
+a.likebutton, a.likebutton2 {
+	display:block;
+	padding: 10px;
+}
+
+
+a.likebutton.disabled:hover,
+a.likebutton.disabled:active{
+	transform: scale(1);
+	box-shadow: 0;
+}
+
+a.likebutton.disabled {
+	opacity: 0.4;
+}
+
+.tasks li:before {
+	content: ' ✔ ';
+}
+
+#process li, #goals li,#principles li{
+	margin-bottom: 40px;
+		list-style-type: none;
+}
+
+.map {
+	margin-top: 40px;
+}
+
+.tasks li {
+	margin-bottom: 20px;
+}
+
+footer p {
+	margin: 0;
+	color: #2f2f2f;
+	font-weight: 400;
+}
+
+.legal {font-size: 12px;}
+
+.card {
+	margin-bottom: 64px;
+	margin-top: 32px;
+}
+
+.card:first-child {
+margin-top: 104px;
+
+}
+
+.centered {
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 20px;
+}
+
+.iframe {
+	padding-bottom:20px;
+}
+
+.how {
+	margin-bottom: 40px;
+}
+
+.how li {
+	list-style: none;
+	margin-bottom: 20px;
+}
+
+.editTime {
+	margin-bottom: 40px;
+	display: block;
+}
+
+.steps {
+	background-color: #2A9FD8;
+	display: inline-block;
+	padding:10px;
+	height:40px;
+	width:40px;
+	border-radius: 40px;
+	margin-right:10px;
+	color:#fff;
+	text-align: center;
+}
+
+.marketing {
+	margin-top: 40px;
+}
+
+small {
+	font-size: 14px;
+	margin-bottom:20px;
+	display: block;
+}
+
+.head {
+	background-color: #FFFFFF;
+	padding: 20px;
+	border-radius: 5px;
+	font-size: 14px;
+}
+
+
+
+.head button {
+	font-size: 14px;
+	width: 100px;
+}
+
+em {
+	font-weight: 700;
+}
+
+figure {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+footer h4 {
+	margin-bottom: 10px;
+}
+
+.links1 {
+	margin-bottom: 20px;
+}
+
+
+
+footer nav li {
+	display: block;
+}
+
+footer a {
+	font-size: 14px;
+	padding: 5px 0;
+	display: block;
+	color: #2f2f2f;
+	opacity: 0.6;
+	font-weight: 400;
+}
+
+footer a:hover {
+
+	color: #2A9FD8;
+	opacity: 1;
+
+}
+
+.format {
+	border: 1px solid #f1eae1;
+	padding:20px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align: center;
+
+}
+
+.format:hover {
+		border: 1px solid #2A9FD8;
+}
+
+.format p {
+margin: 0;
+}
+
+
+#value {
+	font-size: 32px;
+	font-weight: 700;
+}
+
+
+@keyframes arrows {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+
+header {
+	color: #fff;
+	width: 100%;
+	border-bottom: 1px solid #f1eae1;
+	position: fixed;
+	z-index: 2000;
+	background-color: #fff;
+	box-shadow: rgb(219, 219, 219) 0px 4px 2px -2px
+
+}
+
+.header {
+	display: flex;
+	align-items: center;
+}
+
+footer {
+	bottom: 0;
+	width: 100%;
+	border-top: 1px solid #f1eae1;
+	padding: 20px 0 20px 0;
+
+
+}
+
+
+footer nav {
+	display: inline-grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 4%;
+	width: 100%;
+}
+
+img {
+
+	width:100%;
+}
+
+
+
+em.price {
+	position:absolute;
+	right:20px;
+	background:rgba(47,47,47,0.6);
+	padding:10px;
+	border-radius: 0 0 10px 10px;
+}
+
+.amount {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+
+
+.venues,.venues2 {
+margin-bottom: 20px;
+position: relative;
+z-index: 100;
+color:#fff;
+font-size: 12px;
+}
+
+.venues img {
+	width:275px;
+	margin-bottom: 8px;
+	border-radius: 10px;
+}
+
+
+.venues2 img {
+	width:320px;
+	margin-bottom: 8px;
+	border-radius: 10px;
+}
+/*.venues:hover {
+	transform:scale(0.96);
+	transition: transform 0.2s;
+}*/
+
+.venuesOptions {
+margin-bottom: 40px;
+position: relative;
+z-index: 100;
+color:#fff;
+max-width:479px;
+
+}
+
+.venuesOptions  img {
+	margin-bottom: 8px;
+	border-radius: 10px;
+
+
+
+}
+
+.quote {
+	padding:40px;
+	border-left:1px solid #ccc;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+
+}
+
+/* Customize the label (the container) */
+.container3 {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 40px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container3 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container3:hover input ~ .checkmark3 {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container3 input:checked ~ .checkmark3 {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark3:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container3 input:checked ~ .checkmark3:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container3 .checkmark3:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+
+h1 {
+	font-size: 40px;
+	margin-bottom: 40px;
+
+}
+
+h2 {
+	font-size: 32px;
+	margin-bottom: 40px;
+
+}
+
+h3 {
+	font-size: 24px;
+	margin-bottom: 20px;
+
+}
+
+h4 {
+	font-size: 20px;
+	margin-bottom: 20px;
+
+}
+
+h5 {
+	font-size: 14px;
+	margin-bottom: 0;
+
+}
+
+h1,
+h2,
+h3,
+h4,h5 {
+		color: #2f2f2f;
+  font-family: 'Montserrat', serif;
+		font-weight: 700;
+}
+
+.special {
+
+}
+
+label {
+	margin-bottom: 10px;
+	display: inline-block;
+	font-size: 14px;
+
+}
+.greatfor {
+	margin-bottom: 40px;
+}
+
+.greatfor svg {
+ max-height: 30px;
+}
+
+
+.greatfor span {
+	display: inline-block;
+	margin-right: 40px;
+	margin-bottom: 20px;
+}
+
+.listing {
+	margin-bottom: 40px;
+}
+
+.gridwrapper1c {
+	display: inline-grid;
+	grid-template-columns: 70% 28%;
+	grid-gap: 20px;
+	grid-row-gap: 20px;
+	width: 100%;
+	margin: 20px 0;
+	align-content: center;
+	padding:20px 0;
+
+}
+
+li {
+	list-style-type:  circle ;
+	margin: 10px;
+}
+input,
+textarea,
+select {
+	font-family: "Montserrat", helvetica, arial, sans-serif;
+	background-color: #FFFFFF;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	display: block;
+	font-size: 18px;
+	margin-bottom: 40px;
+	padding: 20px;
+	outline: none;
+	width: 100%;
+	max-width: 500px;
+}
+
+input,
+textarea,
+select {
+	font-family: "Montserrat", helvetica, arial, sans-serif;
+	background-color: #FFFFFF;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	display: block;
+	font-size: 18px;
+	margin-bottom: 40px;
+	padding: 20px;
+	outline: none;
+	width: 100%;
+	max-width: 500px;
+}
+
+.summary input[type="number"] {
+	margin-bottom: 10px;
+
+}
+
+input[type=checkbox]{
+
+	display: inline-block;
+	width: 20px;
+
+}
+
+input:hover,
+textarea:hover,
+select {
+	background-color: #FFF;
+	border: 1px solid #ccc;
+}
+
+.mainnav {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	align-items: center;
+}
+
+.wrapper {
+	min-height: 100vh;
+	overflow: hidden;
+	display: block;
+	position: relative;
+}
+
+
+/*only for UI*/
+
+.wrapperui {
+	padding: 80px;
+}
+
+p {
+	margin: 0 0 20px 0;
+
+}
+
+.case2 {
+	background-color: #fff;
+	border-radius: 10px;
+
+}
+
+
+
+::placeholder {
+	color: rgba(0, 41, 54, 0.4);
+}
+
+svg {
+	max-width: 100%;
+}
+
+.concept {
+
+	background-color: #2f2f2f;
+	padding: 4px;
+	border-radius: 2px;
+	font-size: 10px;
+	width: 60px;
+	margin-bottom: 20px;
+	color:#fff;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 800;
+
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0px;
+
+}
+
+#hot1 {
+	stroke-dasharray: 2000;
+	animation: hot1 3s linear infinite;
+}
+
+@keyframes hot1 {
+	to {
+		stroke-dashoffset: 2000;
+	}
+}
+
+
+.case {
+	background-color: #fff;
+	padding:0 40px;
+	border-radius: 10px;
+
+}
+
+
+.corporate {
+	background-color: #2f2f2f;
+	border-radius: 10px;
+}
+
+
+
+.case #red-arrows,.case #blue-arrows,.case #black-arrows{
+	animation: arrows 2s ease 1 ;
+animation-play-state: running;
+
+}
+
+
+
+
+/*Experimental*/
+
+.gridwrapper1 {
+	display: inline-grid;
+	grid-template-columns: 48% 48%;
+	grid-gap: 20px;
+	grid-row-gap: 20px;
+	width: 100%;
+	margin: 20px 0;
+	align-content: center;
+	padding:20px 0;
+
+}
+
+.gridwrapper1b {
+	display: inline-grid;
+	grid-template-columns: 20% 78%;
+	grid-gap: 80px;
+	grid-row-gap: 20px;
+	width: 100%;
+	margin: 20px 0;
+	align-content: center;
+	padding:20px 0;
+
+}
+
+.gridwrapper2 {
+	width: 100%;
+		margin: 20px 0;
+			padding:20px 0;
+}
+
+.gridwrapper3 {
+	display: inline-grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 20px;
+	grid-row-gap: 20px;
+	width: 100%;
+	align-content: center;
+		margin: 20px 0;
+			padding:20px 0;
+
+}
+
+.yourEvent {
+	border-right:1px solid #ccc;
+	padding:40px;
+	font-size: 14px;
+	border-radius: 5px;
+}
+
+
+
+
+.description {
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+
+
+
+
+.description p {
+	margin-bottom: 0;
+	color:#2f2f2f;
+}
+
+
+.cities {
+	font-size: 24px;
+	color: #fff;
+	font-weight: 700;
+ box-shadow:inset 80px 80px 80px rgba(0,0,0,0.4);
+ text-align: center;
+ padding: 80px;
+ text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+ border-radius: 10px;
+  transition: box-shadow 0.2s ease 0.2s;
+}
+.cities:hover {
+
+ box-shadow:inset 40px 40px 80px rgba(0,0,0,0.4);
+
+
+
+}
+
+
+
+
+.london {
+		background: url(img/london.jpg);
+			background-size:cover;
+}
+
+.dublin {
+		background: url(img/dublin.jpg);
+			background-size:cover;
+}
+
+.amsterdam {
+		background: url(img/amsterdam.jpg);
+			background-size:cover;
+}
+
+
+.gridwrapper4 {
+	display: inline-grid;
+	grid-template-columns: auto auto auto auto;
+	grid-gap: 20px;
+	grid-row-gap: 20px;
+		width: 100%;
+	align-content: center;
+		padding:20px 0;
+
+
+
+}
+
+.gridwrapper6 {
+	display: inline-grid;
+	grid-template-columns: auto auto auto auto auto auto;
+	grid-gap: 20px;
+	grid-row-gap: 20px;
+		width: 100%;
+	align-content: center;
+		margin: 20px 0;
+			padding:20px 0;
+
+}
+
+
+
+/*Experimental*/
+
+.grid {
+	margin-bottom: 20px;
+}
+
+
+
+/*animation*/
+
+#greenlight {
+	opacity: 1;
+	animation-name: greenlight;
+	animation-duration: 2s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+}
+
+@keyframes greenlight {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+#lefte {
+	animation-name: eyel;
+	animation-iteration-count: infinite;
+	animation-duration: 5s;
+	animation-timing-function: ease;
+}
+
+@keyframes eyel {
+	0% {
+		transform: translate(0, 0)
+	}
+	25% {
+		transform: translate(0, 0)
+	}
+	26% {
+		transform: translate(0, -10px)
+	}
+	50% {
+		transform: translate(0, -10px)
+	}
+	75% {
+		transform: translate(0, -10px)
+	}
+	100% {
+		transform: translate(0, 0)
+	}
+}
+
+.slidecontainer {
+	margin-top: 40px;
+}
+
+
+#righte {
+	animation-name: eyer;
+	animation-iteration-count: infinite;
+	animation-duration: 5s;
+	animation-timing-function: ease;
+}
+
+
+@keyframes eyer {
+	0% {
+		transform: translate(0, 0)
+	}
+	25% {
+		transform: translate(0, 0)
+	}
+	26% {
+		transform: translate(0, 5px)
+	}
+	50% {
+		transform: translate(0, 5px)
+	}
+	75% {
+		transform: translate(0, 5px)
+	}
+	100% {
+		transform: translate(0, 0)
+	}
+}
+
+#head {
+	animation-name: face;
+	animation-iteration-count: infinite;
+	animation-duration: 5s;
+	animation-timing-function: ease;
+}
+
+@keyframes face {
+	0% {
+		transform: translate(200px, 200px)
+	}
+	25% {
+		transform: translate(150px, 50px)
+	}
+	26% {
+		transform: translate(150px, 50px)
+	}
+	50% {
+		transform: translate(150px, 50px)
+	}
+	75% {
+		transform: translate(150px, 50px)
+	}
+	100% {
+		transform: translate(200px, 200px)
+	}
+}
+
+.summary {
+	margin-bottom: 40px;
+}
+
+#world {
+	animation-name: spinworld;
+	animation-iteration-count: infinite;
+	animation-duration: 60s;
+	transform: rotate(0deg);
+	transform-origin: 225px 225px;
+	animation-timing-function: linear;
+}
+
+@keyframes spinworld {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+#rocket2 {
+	animation-name: rocketfly2;
+	animation-iteration-count: infinite;
+	animation-duration: 0.1s;
+	animation-timing-function: ease;
+}
+
+@keyframes rocketfly2 {
+	0% {
+		transform: translate(225px, 197px) rotate(-360deg) translate(-223px, -196px) translate(59px, 92px);
+	}
+	100% {
+		transform: translate(224px, 196px) rotate(-360deg) translate(-222px, -195px) translate(58px, 91px);
+	}
+}
+
+@keyframes stars {
+	0% {
+		transform: translateX(0px) translateY(0);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(-500px) translateY(300px);
+		opacity: 0.7;
+	}
+}
+
+@keyframes moon {
+	0% {
+		transform: translateX(400px) translateY(100px);
+		opacity: 0.5;
+	}
+	50% {
+		transform: translateX(100px) translateY(200px);
+		opacity: 1;
+	}
+	100% {
+		transform: translateX(-50px) translateY(300px);
+		opacity: 0;
+	}
+}
+
+#moon {
+	animation-name: moon;
+	opacity: 0;
+	animation-iteration-count: infinite;
+	animation-duration: 10s;
+	animation-timing-function: linear;
+}
+
+#stars {
+	animation-name: stars;
+	animation-iteration-count: infinite;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+}
+
+#flame {
+	animation-name: flame;
+	animation-iteration-count: infinite;
+	animation-duration: 0.1s;
+	animation-timing-function: ease;
+}
+
+@keyframes flame {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes clouds {
+	0% {
+		transform: translateX(0);
+		opacity: 0
+	}
+	50% {
+		transform: translateX(85px);
+		opacity: 1
+	}
+	100% {
+		transform: translateX(150px);
+		opacity: 0
+	}
+}
+
+@keyframes clouds2 {
+	0% {
+		transform: translateX(0);
+		opacity: 0
+	}
+	50% {
+		transform: translateX(100px);
+		opacity: 1
+	}
+	100% {
+		transform: translateX(250px);
+		opacity: 0
+	}
+}
+
+#cloud2 {
+	animation-name: clouds2;
+	animation-iteration-count: infinite;
+	animation-duration: 25s;
+	animation-timing-function: linear;
+}
+
+#cloud {
+	animation-name: clouds;
+	animation-iteration-count: infinite;
+	animation-duration: 20s;
+	animation-timing-function: linear;
+}
+
+@keyframes lights {
+	0% {
+		fill: #17D6D8;
+	}
+	50% {
+		fill: white;
+	}
+	100% {
+		fill: #17D6D8;
+	}
+}
+
+#verde {
+	animation-name: lights;
+	animation-iteration-count: infinite;
+	animation-duration: 5s;
+	animation-timing-function: ease;
+}
+
+@keyframes cursor {
+	0% {
+		opacity: 0
+	}
+	100% {
+		opacity: 1
+	}
+}
+
+#dash {
+	animation-name: cursor;
+	animation-iteration-count: infinite;
+	animation-duration: 0.7s;
+	animation-timing-function: linear;
+}
+
+@keyframes drink {
+	0% {
+		stroke-dashoffset: 20;
+	}
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+
+#hot1 {
+	opacity: 0.8;
+	stroke-dasharray: 10;
+	stroke-dashoffset: 20;
+	animation-name: drink;
+	animation-iteration-count: infinite;
+	animation-duration: 0.8s;
+	animation-timing-function: linear;
+}
+
+@keyframes baloon {
+	0% {
+		transform: rotate(-14deg) translate(190px, 40px);
+	}
+	50% {
+		transform: rotate(0deg) translate(190px, 40px);
+	}
+	100% {
+		transform: rotate(-14deg) translate(190px, 40px);
+	}
+}
+
+#baloon {
+	transform: translate(190px, 40px) rotate(0deg);
+	transform-origin: 220px 220px;
+	animation-name: baloon;
+	animation-iteration-count: infinite;
+	animation-duration: 3s;
+	animation-timing-function: linear;
+}
+
+
+
+@keyframes float {
+	0% {
+		transform: translate(10px, 10px);
+		opacity: 0;
+	}
+	50% {
+		transform: translate(10px, -100px);
+		opacity: 0.5;
+	}
+	100% {
+		transform: translate(10px, -200px);
+		opacity: 0;
+	}
+}
+
+@keyframes float6 {
+	0% {
+		transform: translate(-70px, 10px);
+		opacity: 0;
+	}
+	50% {
+		transform: translate(-70px, -60px);
+		opacity: 0.5;
+	}
+	100% {
+		transform: translate(-70px, -110px);
+		opacity: 0;
+	}
+}
+
+#clouda {
+	transform: translate(0, 0);
+	transform-origin: 220px 220px;
+	animation-name: float;
+	animation-iteration-count: infinite;
+	animation-duration: 12s;
+	animation-timing-function: linear;
+}
+
+#cloud6 {
+	opacity: 0;
+	transform: translate(100px, 30px) rotate(0deg);
+	animation-name: float6;
+	animation-iteration-count: infinite;
+	animation-duration: 14s;
+	animation-timing-function: linear;
+}
+
+@keyframes flyb {
+	0% {
+		transform: translate(100px, 329px) rotate(2deg);
+		opacity: 0
+	}
+	50% {
+		transform: translate(110px, 229px) rotate(20deg);
+		opacity: 1
+	}
+	100% {
+		transform: translate(100px, 129px) rotate(-10deg);
+		opacity: 0
+	}
+}
+
+#kidbal {
+	opacity: 0;
+	animation-name: flyb;
+	animation-iteration-count: infinite;
+	animation-duration: 12s;
+	animation-delay: 10s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+@keyframes hole {
+	0% {
+		opacity: 0;
+		) fill: rgba(0, 41, 54, 1);
+	}
+	5% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		fill: rgba(0, 41, 54, 1);
+	}
+}
+
+#hole {
+	opacity: 0;
+	animation-name: hole;
+	animation-duration: 10s;
+	animation-timing-function: ease;
+	animation-iteration-count: infinite;
+}
+
+@keyframes takeoff {
+	0% {
+		transform: translate(6px, 600px) rotate(-90deg);
+		opacity: 0;
+	}
+	15% {
+		transform: translate(6px, 350px) rotate(-90deg);
+		opacity: 0;
+	}
+	30% {
+		transform: translate(6px, 180px) rotate(-90deg);
+		opacity: 1;
+	}
+	80% {
+		transform: translate(6px, 100px) rotate(-30deg);
+		opacity: 1;
+	}
+	90% {
+		transform: translate(0px, 140px) rotate(-30deg);
+		opacity: 1;
+	}
+	100% {
+		transform: translate(3000px, -3000px) rotate(60deg);
+		opacity: 0;
+	}
+}
+
+#rocket3 {
+	opacity: 0;
+	transform: translate(6px, 450px) rotate(-90deg);
+	animation-name: takeoff;
+	animation-duration: 3s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+}
+
+@keyframes door {
+	0% {
+		stroke-width: 0
+	}
+	50% {
+		stroke-width: 8px
+	}
+	100% {
+		stroke-width: 0
+	}
+}
+
+#door {
+	stroke-linecap: round;
+	stroke-width: 0;
+	animation-name: door;
+	animation-duration: 3s;
+	animation-timing-function: ease;
+	animation-iteration-count: infinite;
+}
+
+#cohete {
+	transform-origin: 70px 100px;
+	animation-name: vibrate;
+	animation-duration: 0.1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes vibrate {
+	0% {
+		transform: translatex(2px) rotate(90deg);
+	}
+	100% {
+		transform: translatex(0px) rotate(90deg);
+	}
+}
+
+@keyframes flame2 {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+#flame2 {
+	opacity: 0;
+	transform-origin: 0 0;
+	animation-name: flame2;
+	animation-duration: 0.1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease;
+}
+
+.menu {
+	display: none;
+}
+
+
+
+@media only screen and (max-width: 760px) {
+	body {
+		font-size: 16px;
+	}
+	h1 {
+		font-size: 32px;
+	}
+	h2 {
+		font-size: 24px;
+	}
+	h3 {
+		font-size: 20px;
+	}
+	h4 {
+		font-size: 16px;
+	}
+	p {
+		margin: 0 0 20px 0;
+	}
+
+
+	.case {
+		margin-bottom: 10px;
+		padding:10px;
+
+	}
+
+
+
+	a.option {
+
+		border:1px solid #2A9FD8;
+		border-radius: 5px;
+		display: inline-block;
+		padding: 10px;
+		text-align: center;
+		cursor: pointer;
+		margin-bottom: 40px;
+		margin-right: 40px;
+	}
+
+
+
+	a.option2 {
+		border:1px solid #2A9FD8;
+		border-radius: 5px;
+		display: inline-block;
+		padding: 10px;
+		text-align: center;
+		cursor: pointer;
+		margin-bottom: 40px;
+		margin-right: 40px;
+	}
+
+
+	.venues img {
+		margin-bottom: 8px;
+		border-radius: 10px;
+		width:100%;
+
+	}
+
+
+	.hamburger {
+		width: 44px;
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		background: #fff;
+
+	}
+	button.hamburger {
+		color:#2A9FD8;
+		padding: 10px;
+		font-size: 16px;
+		min-width: 44px;
+		margin: 0;
+		border: 1px solid #2A9FD8;
+		box-shadow: none;
+
+	}
+
+
+	.quote {
+		padding:40px;
+		border-left:none;
+		justify-content: center;
+		align-items: center;
+		margin-top: 20px;
+
+	}
+
+
+	.mainnav {
+		display: none;
+	}
+	label {
+		margin-bottom: 10px;
+		display: inline-block;
+		font-size: 14px;
+	}
+	#mobile-menu {
+		display: none;
+	}
+	#mobile-menu {
+		background-color: #fff;
+		padding: 80px 20px 20px 20px;
+		width: 100%;
+		border-radius: 0 0 5px 5px;
+		z-index: 3000;
+		animation-name: slide;
+		animation-duration: 0.3s;
+		animation-timing-function: ease;
+		position: absolute;
+		opacity: 0.98;
+		box-shadow: 4px 4px 4px rgba(47,47,47,0.2);
+	}
+
+
+
+.corporate {
+	display: none;
+}
+
+	@keyframes slide {
+		from {
+			right: 3000px;
+			opacity: 0.1
+		}
+		to {
+			left: 0;
+			opacity: 0.9;
+		}
+	}
+h3 {
+	text-align: left;
+}
+
+.gridwrapper1,
+.gridwrapper3,.gridwrapper4,.gridwrapper6,.gridwrapper1c,.spacepics,.gridwrapper1b {
+	display: block;
+	padding: 20px 0 20px 0;
+	width: 100%;
+	align-content: center;
+	justify-content: center;
+
+}
+.spacepics img {
+margin-bottom: 20px;}
+
+
+	.format {margin-bottom: 20px;}
+
+	.menu {
+		display: block;
+		right: 20px;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+
+	}
+	.mobile a {
+		display: block;
+		padding: 20px;
+		margin-bottom: 10px;
+		color:#2A9FD8;
+
+
+	}
+	.mobile a.host {
+		border:1px solid #2A9FD8;
+		border-radius: 5px;
+	}
+
+	.mobile a.host:hover {
+		border:1px solid #2A9FD8;
+		color: #fff;
+		transition: color 0.2s;
+
+	}
+
+
+
+.yourEvent {display: none;}
+
+.venues2 {margin-bottom:80px;}
+
+	button {
+		margin-bottom: 20px;
+		font-size: 16px;
+	}
+	.card {
+		overflow: hidden;
+	}
+
+	.card:first-child {
+	margin-top: 104px;
+
+	}
+
+	.mainnav {
+		justify-content: center;
+	}
+	input,
+	select,
+	textarea {
+		padding: 15px;
+		font-size: 16px;
+	}
+	.centered {
+		padding: 20px;
+	}
+	.features {
+		text-align: center;
+	}
+	ul.features li {
+		padding: 10px;
+		display: block;
+		width: 100%;
+	}
+	p {
+		padding: 0 0 10px 0;
+	}
+}

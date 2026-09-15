@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/@ds-contracts/schema/ds-contracts.config.schema.json",
+  "name": "Mark",
+  "contracts": "mark/contracts",
+  "tokens": [
+    "mark/tokens/primitives.tokens.json",
+    "mark/tokens/semantic.tokens.json"
+  ],
+  "generate": {
+    "target": "react",
+    "out": "src/generated/mark",
+    "stories": true
+  }
+}

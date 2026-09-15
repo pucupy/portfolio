@@ -1,0 +1,271 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1b2304+0,000000+50,000000+100 */
+	background: #202020; /* Old browsers */
+}
+
+body {
+	color: #000;
+	font-family: 'Montserrat', helvetica, arial, sans-serif;
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	padding: 80px;
+
+}
+
+
+/* styles*/
+
+.supergrid {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+button{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #000;
+	padding: 10px;
+	border-radius: 20px;
+	font-family: arial,helvetica,sans-serif;
+	font-size: 16px;
+	color:#fff;
+	border: none;
+	margin-top: 80px;
+	animation-duration: 0.4s;
+	animation-name: button;
+	animation-delay: 3s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+
+@keyframes button {
+	0 {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+
+@keyframes coloryes {
+	0 {filter: grayscale(100%);}
+		100% {filter: grayscale(0);}
+}
+
+#hexalion {
+  animation-duration: 3s;
+	animation-name: coloryes;
+	animation-delay: 1s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	filter: grayscale(100%);
+}
+
+
+@keyframes hexi {
+	0 {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+#logo {
+  animation-duration: 3s;
+	animation-name: hexi;
+	animation-delay: 1s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+
+
+
+@keyframes hexi {
+	0 {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+#logo {
+  animation-duration: 3s;
+	animation-name: hexi;
+	animation-delay: 1s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+
+
+
+#lmouth,#rmouth{
+  animation-duration: 4s;
+	animation-delay: 1s;
+	animation-name: rotatemouth;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes rotatemouth {
+	0 {transform:scaley(1);}
+	50% {transform:scaley(0.9);}
+	100% {transform:scaley(0.9);}
+
+}
+
+#leye,#reye{
+  animation-duration: 2s;
+	animation-name: rotateyes;
+		animation-delay: 1s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes rotateyes {
+	0 {transform:rotatex(0);}
+	50% {transform:rotatex(24deg);}
+	100% {transform:rotatex(24deg)}
+
+}
+
+@keyframes hairmove {
+	0 {opacity: 1;}
+	50% {opacity: 0.8;}
+	100% {opacity: 0.8;}
+
+}
+
+#hair{
+  animation-duration: 4s;
+	animation-name: hairmove;
+	animation-delay: 1s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}

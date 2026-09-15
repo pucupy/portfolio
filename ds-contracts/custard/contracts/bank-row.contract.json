@@ -1,0 +1,202 @@
+{
+  "$schema": "./contract.schema.json",
+  "id": "cst.bank-row",
+  "name": "BankRow",
+  "version": "1.0.0",
+  "status": "draft",
+  "description": "Recents state the reason they are there — 'Used 2 hours ago' rather than an unexplained reordering. A parent institution with hundreds of branches becomes a drill-in rather than hundreds of rows. The whole row is the target.",
+  "semantics": {
+    "element": "button"
+  },
+  "props": [
+    {
+      "name": "name",
+      "type": "text",
+      "default": "Commerzbank",
+      "required": true,
+      "description": "Institution name.",
+      "bindings": {
+        "figma": {
+          "kind": "TEXT",
+          "property": "Name"
+        },
+        "code": {
+          "prop": "name"
+        }
+      }
+    },
+    {
+      "name": "reason",
+      "type": "text",
+      "default": "Used 2 hours ago",
+      "description": "Why this row is where it is. Never omitted on a recent.",
+      "bindings": {
+        "figma": {
+          "kind": "TEXT",
+          "property": "Reason"
+        },
+        "code": {
+          "prop": "reason"
+        }
+      }
+    },
+    {
+      "name": "kind",
+      "description": "A leaf row selects an institution; a group drills into its branches.",
+      "type": {
+        "enum": [
+          "institution",
+          "group"
+        ]
+      },
+      "default": "institution",
+      "bindings": {
+        "figma": {
+          "kind": "VARIANT",
+          "property": "Kind",
+          "values": {
+            "institution": "Institution",
+            "group": "Group"
+          }
+        },
+        "code": {
+          "prop": "kind"
+        }
+      }
+    },
+    {
+      "name": "density",
+      "description": "64 desktop, 60 tablet, 56 mobile.",
+      "type": {
+        "enum": [
+          "lg",
+          "md",
+          "sm"
+        ]
+      },
+      "default": "lg",
+      "bindings": {
+        "figma": {
+          "kind": "VARIANT",
+          "property": "Density",
+          "values": {
+            "lg": "Desktop",
+            "md": "Tablet",
+            "sm": "Mobile"
+          }
+        },
+        "code": {
+          "prop": "density"
+        }
+      }
+    },
+    {
+      "name": "selected",
+      "type": "boolean",
+      "default": false,
+      "description": "Selected row takes the brand tint.",
+      "bindings": {
+        "figma": {
+          "kind": "BOOLEAN",
+          "property": "Selected"
+        },
+        "code": {
+          "prop": "selected"
+        }
+      }
+    }
+  ],
+  "states": [
+    "hover",
+    "focus-visible"
+  ],
+  "figmaStatePreviews": true,
+  "anatomy": {
+    "root": {
+      "layout": {
+        "display": "flex",
+        "direction": "row",
+        "align": "center",
+        "justify": "between"
+      },
+      "tokens": {
+        "min-height": "{size.row.{density}}",
+        "padding-inline": "{space.inset-x.md}",
+        "gap": "{space.gap.row}",
+        "background-color": "{color.surface.modal}",
+        "font-size": "{font.body.size}"
+      },
+      "states": {
+        "hover": {
+          "background-color": "{color.surface.canvas}"
+        },
+        "focus-visible": {
+          "outline-color": "{color.border.focus}"
+        }
+      },
+      "parts": {
+        "logoTile": {
+          "description": "40px tile, radius 10 — the mark is never stretched to fill it.",
+          "tokens": {
+            "width": "{size.logo-tile}",
+            "height": "{size.logo-tile}",
+            "border-radius": "{radius.logo-tile}"
+          },
+          "slot": {
+            "name": "logo",
+            "acceptsMode": "open"
+          }
+        },
+        "text": {
+          "layout": {
+            "direction": "column",
+            "align": "start"
+          },
+          "parts": {
+            "name": {
+              "element": "span",
+              "content": {
+                "prop": "name"
+              },
+              "tokens": {
+                "color": "{color.surface.foreground}",
+                "font-weight": "{font.control.weight}"
+              }
+            },
+            "reason": {
+              "element": "span",
+              "content": {
+                "prop": "reason"
+              },
+              "tokens": {
+                "font-size": "{font.legal.size}"
+              }
+            }
+          }
+        },
+        "chevron": {
+          "description": "Drill-in affordance, on group rows only.",
+          "visibleWhen": {
+            "prop": "kind",
+            "equals": "group"
+          },
+          "icon": {
+            "asset": "chevron-right",
+            "size": 16
+          }
+        }
+      }
+    }
+  },
+  "a11y": {
+    "focusVisible": true,
+    "minHitArea": 44,
+    "contrast": "AA"
+  },
+  "anchors": {
+    "code": {
+      "importPath": "src/journey/BankRow",
+      "export": "BankRow"
+    }
+  }
+}

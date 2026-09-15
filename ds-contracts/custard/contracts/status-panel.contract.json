@@ -1,0 +1,174 @@
+{
+  "$schema": "./contract.schema.json",
+  "id": "cst.status-panel",
+  "name": "StatusPanel",
+  "version": "1.0.0",
+  "status": "draft",
+  "description": "Success, waiting and failure share one layout, so a customer theming the journey gets all three rather than one. Success repeats the amount and the account so the user has a record; failure names what did not happen, states that nothing was shared, and offers the next move without blaming anyone.",
+  "semantics": {
+    "element": "section",
+    "role": "status"
+  },
+  "props": [
+    {
+      "name": "status",
+      "type": {
+        "enum": [
+          "success",
+          "waiting",
+          "failure"
+        ]
+      },
+      "default": "success",
+      "description": "Tints the icon. The layout does not change.",
+      "bindings": {
+        "figma": {
+          "kind": "VARIANT",
+          "property": "Status",
+          "values": {
+            "success": "Success",
+            "waiting": "Waiting",
+            "failure": "Failure"
+          }
+        },
+        "code": {
+          "prop": "status"
+        }
+      }
+    },
+    {
+      "name": "heading",
+      "type": "text",
+      "default": "Payment initiated",
+      "required": true,
+      "bindings": {
+        "figma": {
+          "kind": "TEXT",
+          "property": "Heading"
+        },
+        "code": {
+          "prop": "heading"
+        }
+      }
+    },
+    {
+      "name": "detail",
+      "type": "text",
+      "default": "Your €2.00 payment instruction to World Wildlife Fund has been sent to Volksbank.",
+      "required": true,
+      "bindings": {
+        "figma": {
+          "kind": "TEXT",
+          "property": "Detail"
+        },
+        "code": {
+          "prop": "detail"
+        }
+      }
+    },
+    {
+      "name": "returnNotice",
+      "type": "text",
+      "default": "Returning you to World Wildlife Fund in 3 seconds…",
+      "description": "Auto-return line. Always paired with a manual override in the footer slot.",
+      "bindings": {
+        "figma": {
+          "kind": "TEXT",
+          "property": "ReturnNotice"
+        },
+        "code": {
+          "prop": "returnNotice"
+        }
+      }
+    }
+  ],
+  "states": [],
+  "anatomy": {
+    "root": {
+      "layout": {
+        "display": "flex",
+        "direction": "column",
+        "align": "center"
+      },
+      "tokens": {
+        "gap": "{space.gap.stack}",
+        "max-width": "{size.content-column}",
+        "background-color": "{color.surface.modal}"
+      },
+      "parts": {
+        "icon": {
+          "description": "64px, tinted by status.",
+          "tokens": {
+            "width": "{size.status-icon}",
+            "height": "{size.status-icon}",
+            "color": "{color.status.{status}}"
+          },
+          "icon": {
+            "asset": "{status}",
+            "size": 64
+          }
+        },
+        "heading": {
+          "element": "h1",
+          "content": {
+            "prop": "heading"
+          },
+          "tokens": {
+            "font-size": "{font.heading.size}",
+            "font-weight": "{font.heading.weight}",
+            "color": "{color.surface.foreground}"
+          }
+        },
+        "detail": {
+          "element": "p",
+          "content": {
+            "prop": "detail"
+          },
+          "tokens": {
+            "font-size": "{font.body.size}"
+          }
+        },
+        "record": {
+          "description": "Amount, payee and account repeated as a record the user can read back.",
+          "optional": true,
+          "tokens": {
+            "background-color": "{color.surface.summary}",
+            "border-radius": "{radius.summary}",
+            "padding-inline": "{space.inset-x.lg}",
+            "padding-block": "{space.inset-y.md}"
+          },
+          "slot": {
+            "name": "record",
+            "acceptsMode": "open"
+          }
+        },
+        "returnNotice": {
+          "element": "p",
+          "content": {
+            "prop": "returnNotice"
+          },
+          "tokens": {
+            "font-size": "{font.legal.size}"
+          }
+        },
+        "footer": {
+          "slot": {
+            "name": "footer",
+            "accepts": [
+              "cst.button-footer"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "a11y": {
+    "contrast": "AA"
+  },
+  "anchors": {
+    "code": {
+      "importPath": "src/journey/StatusPanel",
+      "export": "StatusPanel"
+    }
+  }
+}

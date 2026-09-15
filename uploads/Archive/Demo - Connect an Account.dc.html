@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #FFFFFF; -webkit-font-smoothing: antialiased; }
+  a { color: #003839; text-underline-offset: 3px; }
+  a:hover { color: #014E4F; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</helmet>
+<div style="font-family: Inter, sans-serif; color: #171717">
+
+  <div style="background: #003839; color: #FFFFFF">
+
+    <div style="border-bottom: 1px solid rgba(255,255,255,.12)">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 10px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+        <svg viewBox="0 0 151 34" role="img" aria-label="Yapily" fill="none" style="height: 17px; width: auto; flex: none; color: #FFFFFF"><path d="M107.968 0.500977H101.764V33.4988H116.413L119.977 28.127H107.968V0.500977Z" fill="currentColor"></path><path d="M93.1637 0.500977H86.9424V33.4988H93.1637V0.500977Z" fill="currentColor"></path><path d="M16.9181 33.5H23.6975L28.1055 26.8686H41.7533V33.4989H47.9572L47.9658 0.5H38.8486L16.917 33.5H16.9181ZM31.6714 21.5043L41.7543 6.33542V21.5043H31.6714Z" fill="currentColor"></path><path d="M77.0412 3.47956C74.5657 1.30029 71.7152 0.5 67.4459 0.5H56.5576V33.4978H62.7789V5.88795H67.7786C69.8976 5.88795 71.5125 6.36447 72.7383 7.58426C73.756 8.59645 74.3597 10.0432 74.3597 11.8395C74.3597 13.6359 73.7148 15.1784 72.6353 16.1949C71.4063 17.3523 69.8434 17.7911 67.7786 17.7911H62.7789L67.8773 23.0371C71.8431 23.0371 74.6405 22.1906 77.0292 20.1017C79.3346 18.0869 80.5994 15.1526 80.5994 11.7696C80.5994 8.3867 79.3302 5.49319 77.0422 3.47956H77.0412Z" fill="currentColor"></path><path d="M121.486 0.5L132.455 16.9995L121.486 33.5H128.421L139.388 16.9995L128.421 0.5H121.486Z" fill="currentColor"></path><path d="M143.423 0.5L135.922 11.7836H142.854L150.357 0.5H143.423Z" fill="currentColor"></path><path d="M6.93443 0.5H0L10.9685 16.9995L0 33.5H6.93443L17.9018 16.9995L6.93443 0.5Z" fill="currentColor"></path><path d="M28.8702 0.5H21.9368L14.4355 11.7836H21.3678L28.8702 0.5Z" fill="currentColor"></path></svg>
+        <span style="font-size: 13.5px; color: #B9D3CF; text-align: center">Sales enablement · interactive demo library for the Yapily team</span>
+        <a href="Demo Hub.dc.html" style="font-size: 13.5px; font-weight: 500; color: #63DFB3; text-decoration: underline; white-space: nowrap">See all demos</a>
+      </div>
+    </div>
+
+
+    <div style="max-width: 1280px; margin: 0 auto; padding: 56px 40px 72px; display: grid; grid-template-columns: minmax(320px, 1fr) 415px; gap: 48px; align-items: center">
+
+      <div style="display: flex; flex-direction: column; gap: 26px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #63DFB3">Data · account information</span>
+        <h1 style="margin: 0; font-size: 44px; line-height: 48px; font-weight: 600; letter-spacing: -.03em; color: #FFFFFF; max-width: 22ch; text-wrap: pretty">Read-only access, granted by the customer in under a minute</h1>
+        <p style="margin: 0; font-size: 18px; line-height: 30px; color: #B9D3CF; max-width: 52ch; text-wrap: pretty">Twelve months of verified transactions instead of uploaded PDFs. The consent screens here are the real Yapily Connect wording, scopes included.</p>
+
+        <div style="display: inline-flex; padding: 4px; border-radius: 10px; background: rgba(255,255,255,.1); align-self: flex-start">
+        <sc-for list="{{ flowTabs }}" as="tab" hint-placeholder-count="2">
+          <button onClick="{{ tab.go }}" style="height: 40px; padding: 0 18px; border: 0; border-radius: 8px; font-family: Inter, sans-serif; font-size: 14.5px; font-weight: 500; cursor: pointer; white-space: nowrap; background: {{ tab.bg }}; color: {{ tab.fg }}">{{ tab.label }}</button>
+        </sc-for>
+        </div>
+
+        <div style="height: 1px; background: rgba(255,255,255,.14)"></div>
+
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #63DFB3">{{ stepCounter }}</span>
+          <h2 style="margin: 0; min-height: 28px; font-size: 22px; line-height: 28px; font-weight: 600; letter-spacing: -.02em; color: #FFFFFF; text-wrap: pretty">{{ narrTitle }}</h2>
+          <p style="margin: 0; min-height: 78px; font-size: 16px; line-height: 26px; color: #B9D3CF; max-width: 54ch; text-wrap: pretty">{{ narrBody }}</p>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 2px; margin: -14px 0">
+        <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="8">
+          <button onClick="{{ dot.go }}" aria-label="{{ dot.aria }}" style="width: 44px; height: 44px; padding: 0; border: 0; background: transparent; cursor: pointer; display: inline-flex; align-items: center; justify-content: center">
+            <span style="width: {{ dot.size }}; height: {{ dot.size }}; border-radius: 999px; background: {{ dot.color }}"></span>
+          </button>
+        </sc-for>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+          <button onClick="{{ back }}" aria-label="Previous step" style="width: 44px; height: 44px; border-radius: 8px; border: 1px solid rgba(255,255,255,.35); background: transparent; color: #FFFFFF; font-size: 17px; cursor: pointer; font-family: Inter, sans-serif; transition: background 150ms cubic-bezier(.4,0,.2,1)" style-hover="background: rgba(255,255,255,.1)">←</button>
+          <button onClick="{{ toggleAuto }}" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,.35); background: transparent; color: #FFFFFF; font-size: 15px; font-weight: 500; cursor: pointer; font-family: Inter, sans-serif; white-space: nowrap; transition: background 150ms cubic-bezier(.4,0,.2,1)" style-hover="background: rgba(255,255,255,.1)">{{ autoLabel }}</button>
+          <button onClick="{{ next }}" style="height: 44px; padding: 0 20px; border-radius: 8px; border: 0; background: #63DFB3; color: #003839; font-size: 15px; font-weight: 600; cursor: pointer; font-family: Inter, sans-serif; white-space: nowrap; transition: background 150ms cubic-bezier(.4,0,.2,1)" style-hover="background: #8BE9C7">Next step →</button>
+          <span style="font-size: 14px; color: #8FB2AD">or tap inside the phone</span>
+        </div>
+      </div>
+
+      <div style="justify-self: center; width: 415px; height: 874px; background: #0B0B0C; border: 9px solid #2A2E2D; border-radius: 58px; padding: 2px; box-shadow: 0 40px 80px rgba(0,0,0,.45); flex: none">
+        <div style="position: relative; width: 100%; height: 100%; background: #FFFFFF; border-radius: 47px; overflow: hidden; display: flex; flex-direction: column">
+          <div style="position: absolute; top: 11px; left: 50%; transform: translateX(-50%); width: 125px; height: 37px; background: #0B0B0C; border-radius: 999px; z-index: 40"></div>
+
+          <sc-if value="{{ isStart }}" hint-placeholder-val="{{ true }}">
+            <div style="flex: 1; display: flex; flex-direction: column; background: #FFFFFF">
+              <div style="flex: none; display: flex; align-items: center; justify-content: space-between; padding: 54px 22px 14px">
+                <img src="{{ demoLogo }}" alt="" style="height: 18px; width: auto; max-width: 90px; margin-right: 8px; vertical-align: -3px; display: {{ logoDisplay }}" /><span style="font-size: 19px; font-weight: 700; letter-spacing: -.02em; color: {{ brand }}">{{ merchant }}</span>
+                <span style="font-size: 13px; color: #6B7280">Step 2 of 4</span>
+              </div>
+              <div style="flex: 1; overflow: auto; padding: 8px 22px 22px; display: flex; flex-direction: column; gap: 16px">
+                <h2 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -.02em; color: #111827; text-wrap: pretty">Verify your income</h2>
+                <p style="margin: 0; font-size: 14.5px; line-height: 1.65; color: #4B5563; text-wrap: pretty">Connect your main bank account and we'll check affordability in seconds. Read-only — we can't move your money.</p>
+                <div style="border: 1px solid #E5E7EB; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+                  <span style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.55; color: #374151"><span style="color: {{ brand }}; font-weight: 700">✓</span><span>Decision in minutes, not days</span></span>
+                  <span style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.55; color: #374151"><span style="color: {{ brand }}; font-weight: 700">✓</span><span>No statements to download or upload</span></span>
+                  <span style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.55; color: #374151"><span style="color: {{ brand }}; font-weight: 700">✓</span><span>Access ends automatically after 90 days</span></span>
+                </div>
+                <button onClick="{{ next }}" style="height: 52px; border: 0; border-radius: 10px; background: {{ brand }}; color: #FFFFFF; font-size: 16px; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer">Connect my bank</button>
+                <div style="height: 52px; border-radius: 10px; border: 1px solid #D1D5DB; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; color: #374151">Upload statements instead</div>
+                <span style="margin-top: auto; font-size: 12px; line-height: 1.6; color: #6B7280; text-align: center; text-wrap: pretty">Powered by Yapily Connect Ltd, authorised by the FCA</span>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isBanks }}">
+            <div style="flex: 1; display: flex; flex-direction: column; background: #FFFFFF; overflow: hidden">
+              <div style="flex: none; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #E9EBEF; padding: 54px 18px 14px">
+                <span style="width: 24px"></span>
+                <img src="{{ demoLogo }}" alt="" style="height: 18px; width: auto; max-width: 90px; margin-right: 8px; vertical-align: -3px; display: {{ logoDisplay }}" /><span style="font-size: 17px; font-weight: 700; letter-spacing: -.01em; color: {{ brand }}">{{ merchant }}</span>
+                <span style="width: 24px; text-align: right; font-size: 17px; color: #111827">✕</span>
+              </div>
+              <div style="flex: 1; overflow: auto; padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 14px">
+                <h2 style="margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -.01em; color: #111827">Choose your bank:</h2>
+                <div style="height: 44px; border: 1px solid #E5E7EB; border-radius: 12px; display: flex; align-items: center; gap: 10px; padding: 0 14px; color: #6B7280; font-size: 14px">
+                  <span aria-hidden="true">⌕</span><span>Search all 69 banks</span>
+                </div>
+                <span style="font-size: 12.5px; color: #6B7280">Most popular banks</span>
+                <div style="display: flex; flex-direction: column; gap: 8px">
+                <sc-for list="{{ bankList }}" as="bank" hint-placeholder-count="5">
+                  <button onClick="{{ bank.go }}" style="display: grid; grid-template-columns: 40px 1fr; align-items: center; gap: 12px; height: 60px; padding: 0 12px; border: 0; border-radius: 12px; background: #F7F8FA; cursor: pointer; text-align: left; font-family: Inter, sans-serif" style-hover="background: #EFF1F5">
+                    <span role="img" aria-label="Bank logo" style="flex: none; width: 40px; height: 40px; border-radius: 8px; background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #E9EBEF; background-image: {{ bank.bg }}"></span>
+                    <span style="font-size: 15px; font-weight: 500; color: #111827">{{ bank.name }}</span>
+                  </button>
+                </sc-for>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isConsent }}">
+            <div style="flex: 1; display: flex; flex-direction: column; background: #FFFFFF; overflow: hidden">
+              <div style="flex: none; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #E9EBEF; padding: 54px 18px 14px">
+                <span style="width: 24px"></span>
+                <img src="{{ demoLogo }}" alt="" style="height: 18px; width: auto; max-width: 90px; margin-right: 8px; vertical-align: -3px; display: {{ logoDisplay }}" /><span style="font-size: 17px; font-weight: 700; letter-spacing: -.01em; color: {{ brand }}">{{ merchant }}</span>
+                <span style="width: 24px; text-align: right; font-size: 17px; color: #111827">✕</span>
+              </div>
+              <div style="flex: 1; overflow: auto; padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 14px">
+                <h2 style="margin: 0; font-size: 19px; font-weight: 700; letter-spacing: -.02em; color: #111827">Permission</h2>
+                <div style="border: 1px solid #E5E7EB; border-radius: 12px; overflow: hidden">
+                  <div style="padding: 13px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: #F7F8FA; border-bottom: 1px solid #EEF0F3">
+                    <span style="font-size: 14px; font-weight: 600; color: #111827">Data Sharing</span><span style="font-size: 13px; color: #6B7280">▾</span>
+                  </div>
+                  <p style="margin: 0; padding: 13px 14px; font-size: 12.5px; line-height: 1.6; color: #4B5563; border-bottom: 1px solid #EEF0F3; text-wrap: pretty">Yapily Connect will retrieve your bank data based on your request and provide this information to {{ merchant }} Ltd.</p>
+                  <div style="padding: 13px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: #F7F8FA; border-bottom: 1px solid #EEF0F3">
+                    <span style="font-size: 14px; font-weight: 600; color: #111827">Secure Connection</span><span style="font-size: 13px; color: #6B7280">▾</span>
+                  </div>
+                  <p style="margin: 0; padding: 13px 14px; font-size: 12.5px; line-height: 1.6; color: #4B5563; border-bottom: 1px solid #EEF0F3; text-wrap: pretty">Data is securely retrieved in read-only format and only for the duration agreed with you. You have the right to withdraw your consent at any time.</p>
+                  <div style="padding: 13px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: #F7F8FA; border-bottom: 1px solid #EEF0F3">
+                    <span style="font-size: 14px; font-weight: 600; color: #111827">FCA Authorisation</span><span style="font-size: 13px; color: #6B7280">▾</span>
+                  </div>
+                  <div style="padding: 13px 14px; display: flex; flex-direction: column; gap: 8px">
+                    <p style="margin: 0; font-size: 12.5px; line-height: 1.6; color: #4B5563; text-wrap: pretty">In order to share your {{ bankName }} data with {{ merchant }} Ltd, you will now be securely redirected to your bank to confirm your consent for Yapily Connect to read the following information:</p>
+                    <div style="display: flex; flex-direction: column; gap: 6px; padding-left: 2px">
+                      <span style="font-size: 12.5px; color: #111827">· Identification details</span>
+                      <span style="font-size: 12.5px; color: #111827">· Account(s) details</span>
+                      <span style="font-size: 12.5px; color: #111827">· Balances</span>
+                      <span style="font-size: 12.5px; color: #111827">· Transaction Statements from the past 12 months</span>
+                      <span style="font-size: 12.5px; color: #111827">· Credit Card(s) Statements from the past 12 months</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 10px">
+                  <button onClick="{{ toggleT1 }}" style="display: flex; align-items: flex-start; gap: 10px; padding: 0; border: 0; background: transparent; cursor: pointer; text-align: left; font-family: Inter, sans-serif">
+                    <span style="flex: none; width: 20px; height: 20px; border-radius: 5px; border: 1.5px solid {{ t1Border }}; background: {{ t1Bg }}; color: #FFFFFF; font-size: 12px; display: flex; align-items: center; justify-content: center">{{ t1Mark }}</span>
+                    <span style="font-size: 12.5px; line-height: 1.5; color: #374151">I agree with <strong>terms and conditions</strong> of {{ merchant }}</span>
+                  </button>
+                  <button onClick="{{ toggleT2 }}" style="display: flex; align-items: flex-start; gap: 10px; padding: 0; border: 0; background: transparent; cursor: pointer; text-align: left; font-family: Inter, sans-serif">
+                    <span style="flex: none; width: 20px; height: 20px; border-radius: 5px; border: 1.5px solid {{ t2Border }}; background: {{ t2Bg }}; color: #FFFFFF; font-size: 12px; display: flex; align-items: center; justify-content: center">{{ t2Mark }}</span>
+                    <span style="font-size: 12.5px; line-height: 1.5; color: #374151">I agree with <strong>terms and conditions</strong> of Yapily Connect</span>
+                  </button>
+                </div>
+                <button onClick="{{ consentContinue }}" style="height: 52px; border: 0; border-radius: 10px; font-size: 16px; font-weight: 600; font-family: Inter, sans-serif; color: #FFFFFF; background: {{ continueBg }}; cursor: {{ continueCursor }}">Continue to {{ bankName }}</button>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isFaceId }}">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; background: #4B2E83; padding: 54px 28px 40px">
+              <span role="img" aria-label="Bank logo" style="width: 76px; height: 76px; border-radius: 18px; background-size: cover; background-position: center; background-repeat: no-repeat; background-color: rgba(255,255,255,.12); background-image: {{ bankBg }}; margin-top: 20px"></span>
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px">
+                <button onClick="{{ next }}" style="width: 150px; height: 150px; border: 2px solid rgba(255,255,255,.55); border-radius: 14px; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: Inter, sans-serif; font-size: 16px; font-weight: 600; color: #FFFFFF" style-hover="background: rgba(255,255,255,.08)">Face ID</button>
+                <span style="font-size: 20px; font-weight: 500; letter-spacing: -.01em; color: #FFFFFF">Log in with Face ID</span>
+              </div>
+              <span style="font-size: 13px; color: rgba(255,255,255,.7)">{{ bankName }} app</span>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isBankConsent }}">
+            <div style="flex: 1; display: flex; flex-direction: column; overflow: hidden; background: #F3F1F7">
+              <div style="flex: none; display: flex; align-items: center; gap: 10px; padding: 54px 18px 14px; background: #FFFFFF">
+                <span role="img" aria-label="Bank logo" style="flex: none; width: 26px; height: 26px; border-radius: 6px; background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #E9EBEF; background-image: {{ bankBg }}"></span>
+                <span style="font-size: 17px; font-weight: 700; letter-spacing: -.01em; color: #111827">{{ bankName }}</span>
+              </div>
+              <div style="flex: none; background: #4B2E83; padding: 13px 18px; display: flex; align-items: center; justify-content: space-between">
+                <span style="font-size: 15px; font-weight: 700; color: #FFFFFF">Share your data</span>
+                <span style="font-size: 14px" aria-hidden="true">🔒</span>
+              </div>
+              <div style="flex: 1; overflow: auto; padding: 18px; display: flex; flex-direction: column; gap: 14px">
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+                  <span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #6B7280">Requested by</span>
+                  <span style="font-size: 16px; font-weight: 700; letter-spacing: -.01em; color: #111827">Yapily Connect Ltd</span>
+                  <span style="font-size: 12.5px; line-height: 1.6; color: #6B7280; text-wrap: pretty">On behalf of {{ merchant }} Ltd · FCA no. 827001</span>
+                </div>
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+                  <span style="font-size: 13px; font-weight: 600; color: #111827">You are going to give access to:</span>
+                  <span style="font-size: 12.5px; color: #4B5563">Identification details</span>
+                  <span style="font-size: 12.5px; color: #4B5563">Account(s) details and balances</span>
+                  <span style="font-size: 12.5px; color: #4B5563">Transactions from the past 12 months</span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13px; color: #6B7280; border-top: 1px solid #EEF0F3; padding-top: 10px"><span>You share this data during</span><strong style="color: #111827">90 days</strong></span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13px; color: #6B7280"><span>Access type</span><strong style="color: #111827">Read only</strong></span>
+                </div>
+                <div style="background: #FFFFFF; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+                  <span style="font-size: 13px; font-weight: 600; color: #111827">Accounts to share</span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13px; color: #6B7280"><span>Current account ·· 8472</span><strong style="color: #111827">✓</strong></span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13px; color: #6B7280"><span>Savings ·· 1180</span><strong style="color: #111827">✓</strong></span>
+                </div>
+                <div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px">
+                  <button onClick="{{ next }}" style="height: 50px; border: 0; border-radius: 999px; background: #4B2E83; color: #FFFFFF; font-size: 15px; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer" style-hover="background: #3C2469">Allow access</button>
+                  <div style="height: 50px; border-radius: 999px; border: 1px solid #C9C4D6; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; color: #4B2E83">Cancel</div>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isFetching }}">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; background: #FFFFFF; padding: 40px 28px">
+              <img src="{{ demoLogo }}" alt="" style="height: 18px; width: auto; max-width: 90px; margin-right: 8px; vertical-align: -3px; display: {{ logoDisplay }}" /><span style="font-size: 19px; font-weight: 700; letter-spacing: -.02em; color: {{ brand }}">{{ merchant }}</span>
+              <span style="width: 34px; height: 34px; border: 3px solid #E5E7EB; border-top-color: {{ brand }}; border-radius: 999px; animation: spin 900ms linear infinite"></span>
+              <span style="font-size: 22px; font-weight: 700; letter-spacing: -.02em; color: #111827">Almost there!</span>
+              <span style="font-size: 13.5px; line-height: 1.65; color: #4B5563; text-align: center; max-width: 34ch; text-wrap: pretty">Please wait while we are fetching your account details.</span>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isSelect }}">
+            <div style="flex: 1; display: flex; flex-direction: column; background: #FFFFFF; overflow: hidden">
+              <div style="flex: none; padding: 54px 22px 14px">
+                <img src="{{ demoLogo }}" alt="" style="height: 18px; width: auto; max-width: 90px; margin-right: 8px; vertical-align: -3px; display: {{ logoDisplay }}" /><span style="font-size: 19px; font-weight: 700; letter-spacing: -.02em; color: {{ brand }}">{{ merchant }}</span>
+              </div>
+              <div style="flex: 1; overflow: auto; padding: 8px 22px 22px; display: flex; flex-direction: column; gap: 14px">
+                <h2 style="margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -.02em; color: #111827">Select an account</h2>
+                <p style="margin: 0; font-size: 13.5px; line-height: 1.6; color: #4B5563; text-wrap: pretty">Now that you've granted access, choose the account you'd like us to assess.</p>
+                <div style="display: flex; flex-direction: column; gap: 10px">
+                  <button onClick="{{ next }}" style="border: 1px solid #E5E7EB; border-radius: 12px; padding: 14px; background: #FFFFFF; cursor: pointer; text-align: left; font-family: Inter, sans-serif; display: grid; grid-template-columns: 1fr auto; gap: 6px; align-items: center" style-hover="border-color: #003839">
+                    <span style="font-size: 15px; font-weight: 600; color: #111827">Current account</span>
+                    <span style="font-size: 17px; font-weight: 700; letter-spacing: -.02em; color: #111827">£2,481.30</span>
+                    <span style="font-size: 12.5px; color: #6B7280">20-45-72 · ·· 8472</span>
+                    <span style="font-size: 13px; color: #6B7280">›</span>
+                  </button>
+                  <button onClick="{{ next }}" style="border: 1px solid #E5E7EB; border-radius: 12px; padding: 14px; background: #FFFFFF; cursor: pointer; text-align: left; font-family: Inter, sans-serif; display: grid; grid-template-columns: 1fr auto; gap: 6px; align-items: center" style-hover="border-color: #003839">
+                    <span style="font-size: 15px; font-weight: 600; color: #111827">Savings</span>
+                    <span style="font-size: 17px; font-weight: 700; letter-spacing: -.02em; color: #111827">£6,120.00</span>
+                    <span style="font-size: 12.5px; color: #6B7280">20-45-72 · ·· 1180</span>
+                    <span style="font-size: 13px; color: #6B7280">›</span>
+                  </button>
+                  <button onClick="{{ next }}" style="border: 1px solid #E5E7EB; border-radius: 12px; padding: 14px; background: #FFFFFF; cursor: pointer; text-align: left; font-family: Inter, sans-serif; display: grid; grid-template-columns: 1fr auto; gap: 6px; align-items: center" style-hover="border-color: #003839">
+                    <span style="font-size: 15px; font-weight: 600; color: #111827">Credit card</span>
+                    <span style="font-size: 17px; font-weight: 700; letter-spacing: -.02em; color: #B3231F">−£412.65</span>
+                    <span style="font-size: 12.5px; color: #6B7280">·· 4409</span>
+                    <span style="font-size: 13px; color: #6B7280">›</span>
+                  </button>
+                </div>
+                <span style="margin-top: auto; font-size: 12px; line-height: 1.6; color: #6B7280; text-wrap: pretty">Account names and balances come straight from the bank — no typing, no screenshots.</span>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isConnected }}">
+            <div style="flex: 1; display: flex; flex-direction: column; background: #FFFFFF; overflow: hidden">
+              <div style="flex: none; padding: 54px 22px 14px">
+                <img src="{{ demoLogo }}" alt="" style="height: 18px; width: auto; max-width: 90px; margin-right: 8px; vertical-align: -3px; display: {{ logoDisplay }}" /><span style="font-size: 19px; font-weight: 700; letter-spacing: -.02em; color: {{ brand }}">{{ merchant }}</span>
+              </div>
+              <div style="flex: 1; overflow: auto; padding: 8px 22px 22px; display: flex; flex-direction: column; gap: 16px">
+                <div style="border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 6px; color: #FFFFFF; background: {{ brand }}">
+                  <span style="font-size: 15px; font-weight: 600">Account connected</span>
+                  <span style="font-size: 13px; opacity: .85">{{ bankName }} · read-only for 90 days</span>
+                </div>
+                <div style="border: 1px solid #E5E7EB; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+                  <span style="display: flex; justify-content: space-between; font-size: 13.5px; color: #6B7280"><span>Transactions retrieved</span><strong style="color: #111827">437</strong></span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13.5px; color: #6B7280"><span>History available</span><strong style="color: #111827">12 months</strong></span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13.5px; color: #6B7280"><span>Verified income</span><strong style="color: #111827">£3,240 / month</strong></span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13.5px; color: #6B7280"><span>Time to decision</span><strong style="color: #111827">38 seconds</strong></span>
+                </div>
+                <p style="margin: 0; font-size: 13px; line-height: 1.65; color: #4B5563; text-wrap: pretty">Your application is approved in principle. You can withdraw access at any time in Settings.</p>
+                <button onClick="{{ restart }}" style="margin-top: auto; height: 50px; border: 1px solid #D1D5DB; border-radius: 10px; background: #FFFFFF; color: #111827; font-size: 15px; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer" style-hover="background: #F5F5F5">See demo again</button>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isRaw }}">
+            <div style="flex: 1; display: flex; flex-direction: column; background: #FFFFFF; overflow: hidden">
+              <div style="flex: none; padding: 54px 22px 12px; display: flex; flex-direction: column; gap: 4px">
+                <img src="{{ demoLogo }}" alt="" style="height: 18px; width: auto; max-width: 90px; margin-right: 8px; vertical-align: -3px; display: {{ logoDisplay }}" /><span style="font-size: 19px; font-weight: 700; letter-spacing: -.02em; color: {{ brand }}">{{ merchant }}</span>
+                <span style="font-size: 12.5px; color: #6B7280">Raw bank feed · 437 transactions</span>
+              </div>
+              <div style="flex: 1; overflow: auto; padding: 8px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+              <sc-for list="{{ rawRows }}" as="row" hint-placeholder-count="7">
+                <div style="border-bottom: 1px solid #F0F1F3; padding: 11px 0; display: grid; grid-template-columns: 1fr auto; gap: 4px">
+                  <span style="font-size: 13px; font-family: ui-monospace, monospace; color: #111827">{{ row.desc }}</span>
+                  <span style="font-size: 13.5px; font-weight: 600; color: {{ row.color }}">{{ row.amount }}</span>
+                  <span style="font-size: 11.5px; color: #9CA3AF">{{ row.date }}</span>
+                  <span style="font-size: 11.5px; color: #9CA3AF">Uncategorised</span>
+                </div>
+              </sc-for>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isEnriched }}">
+            <div style="flex: 1; display: flex; flex-direction: column; background: #FFFFFF; overflow: hidden">
+              <div style="flex: none; padding: 54px 22px 12px; display: flex; flex-direction: column; gap: 4px">
+                <img src="{{ demoLogo }}" alt="" style="height: 18px; width: auto; max-width: 90px; margin-right: 8px; vertical-align: -3px; display: {{ logoDisplay }}" /><span style="font-size: 19px; font-weight: 700; letter-spacing: -.02em; color: {{ brand }}">{{ merchant }}</span>
+                <span style="font-size: 12.5px; color: #6B7280">Enriched by Data Plus</span>
+              </div>
+              <div style="flex: 1; overflow: auto; padding: 8px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+              <sc-for list="{{ enrichedRows }}" as="row" hint-placeholder-count="7">
+                <div style="border: 1px solid #EEF0F3; border-radius: 10px; padding: 12px; display: grid; grid-template-columns: 1fr auto; gap: 6px">
+                  <span style="font-size: 14px; font-weight: 600; color: #111827">{{ row.merchant }}</span>
+                  <span style="font-size: 14px; font-weight: 600; color: {{ row.color }}">{{ row.amount }}</span>
+                  <span style="display: flex; align-items: center; gap: 6px">
+                    <span style="font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 200px; background: #F0FAF9; color: #003839">{{ row.category }}</span>
+                    <span style="font-size: 11.5px; color: #9CA3AF">{{ row.tag }}</span>
+                  </span>
+                  <span style="font-size: 11.5px; color: #9CA3AF">{{ row.date }}</span>
+                </div>
+              </sc-for>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isAffordability }}">
+            <div style="flex: 1; display: flex; flex-direction: column; background: #FFFFFF; overflow: hidden">
+              <div style="flex: none; padding: 54px 22px 12px">
+                <img src="{{ demoLogo }}" alt="" style="height: 18px; width: auto; max-width: 90px; margin-right: 8px; vertical-align: -3px; display: {{ logoDisplay }}" /><span style="font-size: 19px; font-weight: 700; letter-spacing: -.02em; color: {{ brand }}">{{ merchant }}</span>
+              </div>
+              <div style="flex: 1; overflow: auto; padding: 8px 22px 22px; display: flex; flex-direction: column; gap: 14px">
+                <h2 style="margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -.02em; color: #111827">Affordability summary</h2>
+                <div style="border: 1px solid #E5E7EB; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+                  <span style="display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; color: #6B7280"><span>Verified income</span><strong style="font-size: 18px; letter-spacing: -.02em; color: #111827">£3,240</strong></span>
+                  <span style="display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; color: #6B7280"><span>Committed spend</span><strong style="font-size: 18px; letter-spacing: -.02em; color: #111827">£1,905</strong></span>
+                  <span style="display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; color: #6B7280; border-top: 1px solid #EEF0F3; padding-top: 12px"><span>Disposable</span><strong style="font-size: 18px; letter-spacing: -.02em; color: #0E7C6B">£1,335</strong></span>
+                </div>
+                <div style="border: 1px solid #E5E7EB; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+                  <span style="font-size: 13px; font-weight: 600; color: #111827">Recurring commitments found</span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13px; color: #6B7280"><span>Rent</span><strong style="color: #111827">£1,150</strong></span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13px; color: #6B7280"><span>Utilities &amp; council tax</span><strong style="color: #111827">£310</strong></span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13px; color: #6B7280"><span>Subscriptions</span><strong style="color: #111827">£64</strong></span>
+                  <span style="display: flex; justify-content: space-between; font-size: 13px; color: #6B7280"><span>Existing credit</span><strong style="color: #111827">£381</strong></span>
+                </div>
+                <div role="status" style="border: 1px solid #C7E9DF; background: #F0FAF9; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 4px">
+                  <span style="font-size: 14px; font-weight: 600; color: #003839">No gambling or high-risk spend detected</span>
+                  <span style="font-size: 12.5px; line-height: 1.6; color: #17504E; text-wrap: pretty">Categorisation runs on 12 months of transactions, so the picture is behavioural, not a snapshot.</span>
+                </div>
+                <button onClick="{{ restart }}" style="margin-top: auto; height: 50px; border: 1px solid #D1D5DB; border-radius: 10px; background: #FFFFFF; color: #111827; font-size: 15px; font-weight: 600; font-family: Inter, sans-serif; cursor: pointer" style-hover="background: #F5F5F5">See demo again</button>
+              </div>
+            </div>
+          </sc-if>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="background: #FFFFFF; border-bottom: 1px solid #EFEFEF">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 48px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 30px; font-weight: 600; letter-spacing: -.03em; color: #003839">12 months</span>
+        <span style="font-size: 14px; line-height: 22px; color: #525252">Of transaction history, straight from the bank's API</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 30px; font-weight: 600; letter-spacing: -.03em; color: #003839">Read-only</span>
+        <span style="font-size: 14px; line-height: 22px; color: #525252">Access can never initiate a payment, and expires after 90 days</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 30px; font-weight: 600; letter-spacing: -.03em; color: #003839">38 sec</span>
+        <span style="font-size: 14px; line-height: 22px; color: #525252">From "verify your income" to a decision in principle</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 30px; font-weight: 600; letter-spacing: -.03em; color: #003839">0 PDFs</span>
+        <span style="font-size: 14px; line-height: 22px; color: #525252">No statements to download, upload, or manually review</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: #F0FAF9">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 24px">
+      <div role="status" style="flex: 1; min-width: 320px; background: #FEFCE8; border: 1px solid #F5E9A8; border-left: 3px solid #D08700; border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+        <span style="font-size: 14px; font-weight: 600; color: #973C00">Before you share this</span>
+        <span style="font-size: 14px; line-height: 22px; color: #973C00; max-width: 62ch; text-wrap: pretty">The Permission accordion copy and the five-item scope list are the live Yapily Connect wording — leave them exactly as written. The affordability figures are illustrative; don't present them as benchmark data.</span>
+      </div>
+      <a href="Demo Hub.dc.html" style="height: 52px; padding: 0 24px; border-radius: 8px; background: #003839; color: #FFFFFF; font-size: 15px; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; white-space: nowrap" style-hover="background: #014E4F">← Back to demo hub</a>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;merchantName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Northbank&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Branding&quot;},&quot;brandColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#241C6B&quot;,&quot;options&quot;:[&quot;#241C6B&quot;,&quot;#0E7C6B&quot;,&quot;#B3231F&quot;,&quot;#1E5AA8&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Branding&quot;}}">
+const BANKS = [
+  { name: "Lloyds", logo: "assets/logos/lloyds.png" },
+  { name: "Barclays", logo: "assets/logos/barclays.png" },
+  { name: "HSBC", logo: "assets/logos/hsbc.png" },
+  { name: "Monzo", logo: "assets/logos/monzo.png" },
+  { name: "Halifax Personal", logo: "assets/logos/halifax.png" }
+];
+
+const FLOWS = {
+  connect: {
+    label: "Connect an account",
+    steps: [
+      { screen: "start", title: "The ask, in the lender's own words", body: "Connecting a bank account has to beat uploading statements on effort and on trust. Note the read-only promise and the 90-day expiry stated before the customer commits." },
+      { screen: "banks", title: "Bank selection, hosted by Yapily", body: "Same component as the payment flows — one integration covers both data and payments. Search reaches every connected bank; the shortlist is ordered by this customer's real usage." },
+      { screen: "consent", title: "The Permission screen, expanded by default", body: "This is live Yapily Connect wording: Data Sharing, Secure Connection, FCA Authorisation, and the five scopes verbatim. Callsign's guidance was to show the detail rather than hide it behind a chevron." },
+      { screen: "faceid", title: "Authentication happens at the bank", body: "Credentials never touch the lender or Yapily. On mobile this is app-to-app with biometrics." },
+      { screen: "bankconsent", title: "The bank restates the scopes and the duration", body: "Ninety days, read-only, named accounts. The customer grants it at their own bank, which is what makes it defensible in a compliance review." },
+      { screen: "fetching", title: "The fetch takes seconds — show it", body: "Round's 'Almost there!' screen is why their flow feels real. Jumping straight to a populated dashboard is the tell that a demo is faked." },
+      { screen: "select", title: "Real accounts, real balances, no typing", body: "Names, sort codes and balances arrive from the bank. This is also the moment prospects realise onboarding forms can shrink." },
+      { screen: "connected", title: "Quantify the outcome", body: "437 transactions, 12 months, verified income, 38 seconds to a decision in principle. End on the numbers, not a tick." }
+    ]
+  },
+  enrich: {
+    label: "Enrich the data",
+    steps: [
+      { screen: "raw", title: "What the bank actually sends", body: "Raw descriptors, no merchant, no category. Every lender's data team has built something to clean this up — usually badly, always expensively." },
+      { screen: "enriched", title: "Data Plus does the categorisation", body: "Merchant identified, category assigned, recurring payments flagged. Same API call, enriched response." },
+      { screen: "affordability", title: "The decision, not the data", body: "Income verified, commitments found, disposable income calculated, risk signals surfaced. This is what the credit team buys." }
+    ]
+  }
+};
+
+const RAW = [
+  { desc: "CRD 4409 TFL TRAVEL CH TFL.GOV.UK/CP", amount: "−£18.40", date: "12 Apr", neg: true },
+  { desc: "DD SKY DIGITAL 4093820", amount: "−£31.00", date: "11 Apr", neg: true },
+  { desc: "FPI ACME LTD SALARY APR", amount: "+£3,240.00", date: "28 Mar", neg: false },
+  { desc: "CRD 4409 SAINSBURYS S/MKTS 0192", amount: "−£62.18", date: "27 Mar", neg: true },
+  { desc: "SO J HARPER RENT", amount: "−£1,150.00", date: "26 Mar", neg: true },
+  { desc: "CRD 4409 AMZNMKTPLACE*2B41K", amount: "−£24.99", date: "25 Mar", neg: true },
+  { desc: "DD BRITISH GAS 88201933", amount: "−£96.00", date: "24 Mar", neg: true }
+];
+
+const ENRICHED = [
+  { merchant: "Transport for London", category: "Transport", tag: "Recurring", amount: "−£18.40", date: "12 Apr", neg: true },
+  { merchant: "Sky", category: "Subscriptions", tag: "Recurring · monthly", amount: "−£31.00", date: "11 Apr", neg: true },
+  { merchant: "Acme Ltd", category: "Salary", tag: "Verified income", amount: "+£3,240.00", date: "28 Mar", neg: false },
+  { merchant: "Sainsbury's", category: "Groceries", tag: "Essential", amount: "−£62.18", date: "27 Mar", neg: true },
+  { merchant: "Rent — J Harper", category: "Housing", tag: "Committed · monthly", amount: "−£1,150.00", date: "26 Mar", neg: true },
+  { merchant: "Amazon", category: "Shopping", tag: "Discretionary", amount: "−£24.99", date: "25 Mar", neg: true },
+  { merchant: "British Gas", category: "Utilities", tag: "Committed · monthly", amount: "−£96.00", date: "24 Mar", neg: true }
+];
+
+const URLB = (function () {
+  try { const q = new URLSearchParams(location.search); return { c: q.get("c"), col: q.get("col"), logo: q.get("logo") }; } catch (e) { return {}; }
+})();
+
+class Component extends DCLogic {
+  state = { flow: "connect", step: 0, auto: false, bank: 0, t1: false, t2: false };
+
+  componentDidMount() { this.sync(); }
+  componentDidUpdate() { this.sync(); }
+  componentWillUnmount() { clearTimeout(this.t); }
+
+  steps() { return FLOWS[this.state.flow].steps; }
+
+  sync() {
+    clearTimeout(this.t);
+    if (!this.state.auto) return;
+    const last = this.steps().length - 1;
+    if (this.state.step >= last) { this.setState({ auto: false }); return; }
+    this.t = setTimeout(() => this.setState(s => {
+      const cur = FLOWS[s.flow].steps[s.step];
+      const ticks = cur && cur.screen === "consent" ? { t1: true, t2: true } : {};
+      return Object.assign({ step: s.step + 1 }, ticks);
+    }), 2800);
+  }
+
+  setFlow = key => this.setState({ flow: key, step: 0, auto: false, t1: false, t2: false });
+
+  renderVals() {
+    const steps = this.steps();
+    const i = Math.min(this.state.step, steps.length - 1);
+    const cur = steps[i];
+    const bank = BANKS[this.state.bank] || BANKS[0];
+    const gated = this.state.t1 && this.state.t2;
+    const nextStep = () => this.setState(s => ({ step: Math.min(s.step + 1, FLOWS[s.flow].steps.length - 1), auto: false }));
+
+    return {
+      demoLogo: URLB.logo || "",
+      logoDisplay: URLB.logo ? "inline-block" : "none",
+      brand: (URLB.col || this.props.brandColor || "#241C6B"),
+      merchant: (URLB.c || this.props.merchantName || "Northbank"),
+      bankName: bank.name,
+      bankBg: "url(" + bank.logo + ")",
+      bankList: BANKS.map((b, n) => ({
+        name: b.name,
+        bg: "url(" + b.logo + ")",
+        go: () => this.setState(s => ({ bank: n, step: s.step + 1, auto: false }))
+      })),
+      flowTabs: Object.keys(FLOWS).map(key => ({
+        label: FLOWS[key].label,
+        bg: this.state.flow === key ? "#FFFFFF" : "transparent",
+        fg: this.state.flow === key ? "#003839" : "#DCE9E7",
+        go: () => this.setFlow(key)
+      })),
+      isStart: cur.screen === "start",
+      isBanks: cur.screen === "banks",
+      isConsent: cur.screen === "consent",
+      isFaceId: cur.screen === "faceid",
+      isBankConsent: cur.screen === "bankconsent",
+      isFetching: cur.screen === "fetching",
+      isSelect: cur.screen === "select",
+      isConnected: cur.screen === "connected",
+      isRaw: cur.screen === "raw",
+      isEnriched: cur.screen === "enriched",
+      isAffordability: cur.screen === "affordability",
+      rawRows: RAW.map(r => ({ desc: r.desc, amount: r.amount, date: r.date, color: r.neg ? "#111827" : "#0E7C6B" })),
+      enrichedRows: ENRICHED.map(r => ({ merchant: r.merchant, category: r.category, tag: r.tag, amount: r.amount, date: r.date, color: r.neg ? "#111827" : "#0E7C6B" })),
+      t1Mark: this.state.t1 ? "✓" : "",
+      t2Mark: this.state.t2 ? "✓" : "",
+      t1Bg: this.state.t1 ? "#003839" : "#FFFFFF",
+      t2Bg: this.state.t2 ? "#003839" : "#FFFFFF",
+      t1Border: this.state.t1 ? "#003839" : "#B4B4B4",
+      t2Border: this.state.t2 ? "#003839" : "#B4B4B4",
+      continueBg: gated ? ((URLB.col || this.props.brandColor || "#241C6B")) : "#C6C9CE",
+      continueCursor: gated ? "pointer" : "not-allowed",
+      consentContinue: () => { if (gated) nextStep(); },
+      stepCounter: "Step " + (i + 1) + " of " + steps.length,
+      narrTitle: cur.title,
+      narrBody: cur.body,
+      autoLabel: this.state.auto ? "Pause" : "Auto-play",
+      dots: steps.map((s, n) => ({
+        aria: "Go to step " + (n + 1),
+        size: n === i ? "10px" : "7px",
+        color: n === i ? "#63DFB3" : n < i ? "rgba(255,255,255,.55)" : "rgba(255,255,255,.22)",
+        go: () => this.setState({ step: n, auto: false })
+      })),
+      next: nextStep,
+      back: () => this.setState(s => ({ step: Math.max(s.step - 1, 0), auto: false })),
+      restart: () => this.setState({ step: 0, auto: false, t1: false, t2: false }),
+      toggleT1: () => this.setState(s => ({ t1: !s.t1 })),
+      toggleT2: () => this.setState(s => ({ t2: !s.t2 })),
+      toggleAuto: () => this.setState(s => ({ auto: !s.auto, step: s.auto ? s.step : (s.step >= FLOWS[s.flow].steps.length - 1 ? 0 : s.step) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

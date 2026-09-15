@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196 40" role="img" aria-label="Lumen Cycles">
+<g fill="none" stroke="#123D2C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="27" r="9.6"></circle>
+<circle cx="45" cy="27" r="9.6"></circle>
+<path d="M12 27 L21 12 L34 12 L45 27"></path>
+<path d="M21 12 L27 27 L12 27"></path>
+<path d="M18 10 h7"></path>
+</g>
+<text x="64" y="29" font-family="Inter,&#39;Helvetica Neue&#39;,Arial,sans-serif" font-size="21" font-weight="700" letter-spacing="-0.6" fill="#123D2C">Lumen</text>
+</svg>

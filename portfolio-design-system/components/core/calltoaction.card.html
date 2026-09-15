@@ -1,0 +1,13 @@
+<!-- @dsCard group="Components" viewport="700x420" subtitle="The one card and the one button in the system — for demos and cross-links only" name="CallToAction" -->
+<link rel="stylesheet" href="../../styles.css">
+<div style="background:var(--ground);padding:28px;font-family:var(--font-sans);display:flex;flex-direction:column;gap:24px;">
+  <a href="#" style="display:block;text-decoration:none;border:1px solid var(--gold-border);border-radius:var(--radius-card);overflow:hidden;background:var(--gold-wash);">
+    <div style="height:150px;background:var(--rule-strong);border-bottom:1px solid var(--rule-image);"></div>
+    <div style="display:flex;flex-direction:column;gap:14px;padding:24px;">
+      <div style="font-size:var(--type-eyebrow-sm);font-weight:var(--weight-label);text-transform:uppercase;letter-spacing:var(--tracking-eyebrow);color:var(--gold);">Interactive demo</div>
+      <span style="display:inline-flex;align-self:flex-start;align-items:center;justify-content:center;gap:10px;min-height:var(--control-height);padding:0 var(--control-pad-x);background:var(--gold);border-radius:var(--radius-pill);color:var(--accent-contrast);font-size:var(--type-link);font-weight:600;box-sizing:border-box;">Open the interactive Console <span aria-hidden="true">&#8599;</span></span>
+      <p style="margin:0;font-size:var(--type-meta);line-height:var(--leading-body);color:var(--ink-3);text-wrap:pretty;">One sentence saying what is on the other side. The caption sits under the button, never above it.</p>
+    </div>
+  </a>
+  <p style="margin:0;font-size:var(--type-meta);line-height:var(--leading-note);color:var(--ink-3);text-wrap:pretty;">Rules: the whole card is the link, so there are no dead zones. The arrow is <code>aria-hidden</code> and inherits <code>--accent-contrast</code>, never the accent on itself. External destinations carry a visually hidden “(opens in a new tab)”. Inline prose references stay as ordinary underlined links — do not promote them to buttons.</p>
+</div>

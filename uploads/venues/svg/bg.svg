@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<svg width="1024px" height="112px" viewBox="0 0 1024 112" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>bg</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="bg" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0,0 L1024,0 L1024,87 C850.440838,103.870986 678.752515,112.306479 508.93503,112.306479 C339.117544,112.306479 169.472534,103.870986 0,87 L0,0 Z" id="Rectangle" fill="#002936"></path>
+    </g>
+</svg>

@@ -1,0 +1,119 @@
+{
+  "$schema": "./contract.schema.json",
+  "id": "mrk.button",
+  "name": "Button",
+  "version": "1.0.0",
+  "status": "draft",
+  "description": "One filled button per band. Filled is black on paper and black on accent; the outline variant is for the secondary path. No more than two per band.",
+  "semantics": {
+    "element": "a",
+    "role": "button"
+  },
+  "props": [
+    {
+      "name": "variant",
+      "type": {
+        "enum": [
+          "filled",
+          "outline"
+        ]
+      },
+      "default": "filled",
+      "bindings": {
+        "figma": {
+          "kind": "VARIANT",
+          "property": "Variant",
+          "values": {
+            "filled": "Filled",
+            "outline": "Outline"
+          }
+        },
+        "code": {
+          "prop": "variant"
+        }
+      }
+    },
+    {
+      "name": "children",
+      "type": "text",
+      "default": "Read the case study",
+      "bindings": {
+        "figma": {
+          "kind": "TEXT",
+          "property": "Label"
+        },
+        "code": {
+          "prop": "children"
+        }
+      }
+    },
+    {
+      "name": "href",
+      "type": "text",
+      "default": "#",
+      "required": true,
+      "bindings": {
+        "figma": {
+          "kind": "TEXT",
+          "property": "Href"
+        },
+        "code": {
+          "prop": "href"
+        }
+      }
+    }
+  ],
+  "states": [
+    "hover",
+    "focus-visible"
+  ],
+  "figmaStatePreviews": true,
+  "anatomy": {
+    "root": {
+      "layout": {
+        "display": "inline-flex",
+        "direction": "row",
+        "align": "center",
+        "justify": "center"
+      },
+      "attrs": {
+        "href": "{href}"
+      },
+      "tokens": {
+        "min-height": "{size.button}",
+        "padding-inline": "{space.inset-x.button}",
+        "border-radius": "{radius.button}",
+        "background-color": "{color.action.{variant}.background}",
+        "color": "{color.action.{variant}.foreground}",
+        "font-family": "{font.display.family}",
+        "font-size": "{font.button.size}",
+        "font-weight": "{font.button.weight}"
+      },
+      "states": {
+        "focus-visible": {
+          "outline-color": "{color.border.focus}",
+          "outline-width": "{border-width.200}"
+        }
+      },
+      "parts": {
+        "label": {
+          "element": "span",
+          "content": {
+            "prop": "children"
+          }
+        }
+      }
+    }
+  },
+  "a11y": {
+    "focusVisible": true,
+    "minHitArea": 44,
+    "contrast": "AA"
+  },
+  "anchors": {
+    "code": {
+      "importPath": "src/mark/Button",
+      "export": "Button"
+    }
+  }
+}

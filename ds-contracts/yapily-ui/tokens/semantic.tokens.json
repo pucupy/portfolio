@@ -1,0 +1,310 @@
+{
+  "$description": "Semantic layer inferred from how the primitives are used in yapilyui.css. The source stylesheet has no custom properties — these names are the contract's addition, the values are not.",
+  "color": {
+    "action": {
+      "primary": {
+        "background": {
+          "$type": "color",
+          "$value": "{color.black}"
+        },
+        "foreground": {
+          "$type": "color",
+          "$value": "{color.white}"
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.black}"
+        }
+      },
+      "secondary": {
+        "background": {
+          "$type": "color",
+          "$value": "{color.white}"
+        },
+        "foreground": {
+          "$type": "color",
+          "$value": "{color.black}"
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.grey.200}"
+        }
+      },
+      "destructive": {
+        "background": {
+          "$type": "color",
+          "$value": "{color.red.error}"
+        },
+        "foreground": {
+          "$type": "color",
+          "$value": "{color.white}"
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.red.error}"
+        }
+      },
+      "active": {
+        "background": {
+          "$type": "color",
+          "$value": "{color.blue.surface}"
+        },
+        "foreground": {
+          "$type": "color",
+          "$value": "{color.blue.link}"
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.blue.link}"
+        }
+      },
+      "destructive-active": {
+        "background": {
+          "$type": "color",
+          "$value": "{color.red.surface}"
+        },
+        "foreground": {
+          "$type": "color",
+          "$value": "{color.red.error}"
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.red.error}"
+        }
+      }
+    },
+    "surface": {
+      "page": {
+        "$type": "color",
+        "$value": "{color.grey.100}"
+      },
+      "raised": {
+        "$type": "color",
+        "$value": "{color.white}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{color.grey.50}"
+      },
+      "banner": {
+        "$type": "color",
+        "$value": "{color.yellow.surface}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{color.red.surface}"
+      }
+    },
+    "text": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.black}"
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{color.grey.600}"
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{color.black}",
+        "$description": "Links are black until hover, when they turn {color.blue.link} on a {color.blue.surface} fill."
+      },
+      "link-hover": {
+        "$type": "color",
+        "$value": "{color.blue.link}"
+      },
+      "positive": {
+        "$type": "color",
+        "$value": "{color.green.text}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{color.red.error}"
+      }
+    },
+    "border": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.grey.200}"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.black}",
+        "$description": "Hover and focus. The system signals interaction by darkening the border, never by shadow."
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.black}"
+      },
+      "active": {
+        "$type": "color",
+        "$value": "{color.blue.link}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{color.red.error}"
+      }
+    },
+    "accent": {
+      "$type": "color",
+      "$value": "{color.green.brand}"
+    }
+  },
+  "space": {
+    "inset": {
+      "control": {
+        "$type": "dimension",
+        "$value": "{space.small}",
+        "$description": "Buttons and inputs: 8px on all sides."
+      },
+      "compact": {
+        "$type": "dimension",
+        "$value": "{space.normal}",
+        "$description": "Banners, accordions, list rows, .card.example."
+      },
+      "card": {
+        "$type": "dimension",
+        "$value": "{space.big}",
+        "$description": "Cards, headers, panels."
+      },
+      "section": {
+        "$type": "dimension",
+        "$value": "{space.huge}"
+      }
+    },
+    "gap": {
+      "small": {
+        "$type": "dimension",
+        "$value": "{space.small}"
+      },
+      "row": {
+        "$type": "dimension",
+        "$value": "{space.normal}"
+      },
+      "block": {
+        "$type": "dimension",
+        "$value": "{space.big}"
+      }
+    }
+  },
+  "radius": {
+    "control": {
+      "$type": "dimension",
+      "$value": "{radius.default}"
+    },
+    "card": {
+      "$type": "dimension",
+      "$value": "{radius.default}"
+    },
+    "tag": {
+      "$type": "dimension",
+      "$value": "{radius.tag}"
+    },
+    "media": {
+      "$type": "dimension",
+      "$value": "{radius.default}"
+    }
+  },
+  "border": {
+    "width": {
+      "default": {
+        "$type": "dimension",
+        "$value": "{border-width.default}"
+      }
+    }
+  },
+  "font": {
+    "control": {
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.regular}"
+      },
+      "size": {
+        "$type": "dimension",
+        "$value": "{font.size.300}"
+      }
+    },
+    "body": {
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.regular}"
+      },
+      "size": {
+        "$type": "dimension",
+        "$value": "{font.size.300}"
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": "{font.line-height.body}"
+      }
+    },
+    "emphasis": {
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.semibold}"
+      }
+    },
+    "label": {
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.regular}"
+      },
+      "size": {
+        "$type": "dimension",
+        "$value": "{font.size.200}"
+      }
+    },
+    "heading": {
+      "1": {
+        "family": {
+          "$type": "fontFamily",
+          "$value": "{font.family.semibold}"
+        },
+        "size": {
+          "$type": "dimension",
+          "$value": "{font.size.600}"
+        }
+      },
+      "2": {
+        "family": {
+          "$type": "fontFamily",
+          "$value": "{font.family.semibold}"
+        },
+        "size": {
+          "$type": "dimension",
+          "$value": "{font.size.500}"
+        }
+      },
+      "3": {
+        "family": {
+          "$type": "fontFamily",
+          "$value": "{font.family.semibold}"
+        },
+        "size": {
+          "$type": "dimension",
+          "$value": "{font.size.400}"
+        }
+      },
+      "4": {
+        "family": {
+          "$type": "fontFamily",
+          "$value": "{font.family.semibold}"
+        },
+        "size": {
+          "$type": "dimension",
+          "$value": "{font.size.300}"
+        }
+      }
+    }
+  },
+  "motion": {
+    "transition": {
+      "$type": "duration",
+      "$value": "{motion.duration}"
+    },
+    "press": {
+      "$type": "duration",
+      "$value": "{motion.pulse}"
+    }
+  }
+}

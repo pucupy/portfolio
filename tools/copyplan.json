@@ -1,0 +1,238 @@
+[
+ {
+  "src": "archive/comic-strips.webp",
+  "dest": "static/images/comic-strips.webp"
+ },
+ {
+  "src": "archive/cuvva-app-coverage-screen.gif",
+  "dest": "static/images/cuvva-app-coverage-screen.gif"
+ },
+ {
+  "src": "archive/dog-logo-flat.gif",
+  "dest": "static/images/dog-logo-flat.gif"
+ },
+ {
+  "src": "archive/headbox-am-journey.webp",
+  "dest": "static/images/headbox-am-journey.webp"
+ },
+ {
+  "src": "archive/headbox-lead-feed-mockup-2023.webp",
+  "dest": "static/images/headbox-lead-feed-mockup-2023.webp"
+ },
+ {
+  "src": "archive/mark-church.webp",
+  "dest": "static/images/mark-church.webp"
+ },
+ {
+  "src": "archive/mark-darwin.webp",
+  "dest": "static/images/mark-darwin.webp"
+ },
+ {
+  "src": "archive/monzo-freeze-chill.webp",
+  "dest": "static/images/monzo-freeze-chill.webp"
+ },
+ {
+  "src": "archive/payfriendz-fiver.webp",
+  "dest": "static/images/payfriendz-fiver.webp"
+ },
+ {
+  "src": "archive/payfriendz-maintenance-screen.gif",
+  "dest": "static/images/payfriendz-maintenance-screen.gif"
+ },
+ {
+  "src": "archive/payfriendz-profile-badges.gif",
+  "dest": "static/images/payfriendz-profile-badges.gif"
+ },
+ {
+  "src": "archive/payfriendz-superfriendz-chat.gif",
+  "dest": "static/images/payfriendz-superfriendz-chat.gif"
+ },
+ {
+  "src": "archive/shirt-darwin.webp",
+  "dest": "static/images/shirt-darwin.webp"
+ },
+ {
+  "src": "archive/shirt-lovelace.webp",
+  "dest": "static/images/shirt-lovelace.webp"
+ },
+ {
+  "src": "archive/shirt-rosalind.webp",
+  "dest": "static/images/shirt-rosalind.webp"
+ },
+ {
+  "src": "archive/shirt-tesla.webp",
+  "dest": "static/images/shirt-tesla.webp"
+ },
+ {
+  "src": "archive/yapily-website-2020-2021-hero-crop.webp",
+  "dest": "static/images/yapily-website-2020-2021-hero-crop.webp"
+ },
+ {
+  "src": "archive/yapily-website-2023-2024-hero-crop.webp",
+  "dest": "static/images/yapily-website-2023-2024-hero-crop.webp"
+ },
+ {
+  "src": "archive/yapily-website-2025-2026-hero-crop.webp",
+  "dest": "static/images/yapily-website-2025-2026-hero-crop.webp"
+ },
+ {
+  "src": "diagrams/console-evolution-2020-dashboard.svg",
+  "dest": "static/images/console-evolution-2020-dashboard.svg"
+ },
+ {
+  "src": "diagrams/console-evolution-2022-2025-support-led.svg",
+  "dest": "static/images/console-evolution-2022-2025-support-led.svg"
+ },
+ {
+  "src": "diagrams/console-evolution-2022-two-licence-models.svg",
+  "dest": "static/images/console-evolution-2022-two-licence-models.svg"
+ },
+ {
+  "src": "diagrams/console-evolution-2026-organisation-container.svg",
+  "dest": "static/images/console-evolution-2026-organisation-container.svg"
+ },
+ {
+  "src": "images/apple-demo-preview.webp",
+  "dest": "static/images/apple-demo-preview.webp"
+ },
+ {
+  "src": "images/caremoni-payment-chain.svg",
+  "dest": "static/images/caremoni-payment-chain.svg"
+ },
+ {
+  "src": "images/console-demo-preview.webp",
+  "dest": "static/images/console-demo-preview.webp"
+ },
+ {
+  "src": "images/console-getting-in-preview.webp",
+  "dest": "static/images/console-getting-in-preview.webp"
+ },
+ {
+  "src": "images/console-move-to-production-preview.webp",
+  "dest": "static/images/console-move-to-production-preview.webp"
+ },
+ {
+  "src": "images/console-operating-admin-preview.webp",
+  "dest": "static/images/console-operating-admin-preview.webp"
+ },
+ {
+  "src": "images/console-operating-analytics-preview.webp",
+  "dest": "static/images/console-operating-analytics-preview.webp"
+ },
+ {
+  "src": "images/console-start-testing-preview.webp",
+  "dest": "static/images/console-start-testing-preview.webp"
+ },
+ {
+  "src": "images/console/console-2025-get-started-sales-form.webp",
+  "dest": "static/images/console-2025-get-started-sales-form.webp"
+ },
+ {
+  "src": "images/custard-journey-preview-2026.webp",
+  "dest": "static/images/custard-journey-preview-2026.webp"
+ },
+ {
+  "src": "images/custard/custard-01-bank-selection-branded-desktop.webp",
+  "dest": "static/images/custard-01-bank-selection-branded-desktop.webp"
+ },
+ {
+  "src": "images/custard/custard-embedded-login-lumen-desktop.webp",
+  "dest": "static/images/custard-embedded-login-lumen-desktop.webp"
+ },
+ {
+  "src": "images/custard/custard-qr-handoff-lumen-desktop.webp",
+  "dest": "static/images/custard-qr-handoff-lumen-desktop.webp"
+ },
+ {
+  "src": "images/custard/custard-review-payment-lumen-desktop.webp",
+  "dest": "static/images/custard-review-payment-lumen-desktop.webp"
+ },
+ {
+  "src": "images/demo-hub-preview.webp",
+  "dest": "static/images/demo-hub-preview.webp"
+ },
+ {
+  "src": "images/design-system-2020-preview.webp",
+  "dest": "static/images/design-system-2020-preview.webp"
+ },
+ {
+  "src": "images/favicon.svg",
+  "dest": "static/images/favicon.svg"
+ },
+ {
+  "src": "images/headbox/headbox-2019-homepage.webp",
+  "dest": "static/images/headbox-2019-homepage.webp"
+ },
+ {
+  "src": "images/headbox/headbox-2019-list-your-space.webp",
+  "dest": "static/images/headbox-2019-list-your-space.webp"
+ },
+ {
+  "src": "images/headbox/headbox-2019-stack-crm-outside-hours.webp",
+  "dest": "static/images/headbox-2019-stack-crm-outside-hours.webp"
+ },
+ {
+  "src": "images/headbox/headbox-2019-stack-crm.webp",
+  "dest": "static/images/headbox-2019-stack-crm.webp"
+ },
+ {
+  "src": "images/headbox/headbox-lead-feed-2023.webp",
+  "dest": "static/images/headbox-lead-feed-2023.webp"
+ },
+ {
+  "src": "images/headbox/headbox-wizard-budget-guidance.webp",
+  "dest": "static/images/headbox-wizard-budget-guidance.webp"
+ },
+ {
+  "src": "images/headbox/headbox-wizard-event-name-urgency.webp",
+  "dest": "static/images/headbox-wizard-event-name-urgency.webp"
+ },
+ {
+  "src": "images/headbox/headbox-wizard-event-type.webp",
+  "dest": "static/images/headbox-wizard-event-type.webp"
+ },
+ {
+  "src": "images/headbox/headbox-wizard-facilities-catering.webp",
+  "dest": "static/images/headbox-wizard-facilities-catering.webp"
+ },
+ {
+  "src": "images/headbox/headbox-wizard-guests-layout.webp",
+  "dest": "static/images/headbox-wizard-guests-layout.webp"
+ },
+ {
+  "src": "images/headbox/headbox-wizard-location-radius.webp",
+  "dest": "static/images/headbox-wizard-location-radius.webp"
+ },
+ {
+  "src": "images/headbox/headbox-wizard-personal-details-last.webp",
+  "dest": "static/images/headbox-wizard-personal-details-last.webp"
+ },
+ {
+  "src": "images/headbox/headbox-wizard-venue-styles.webp",
+  "dest": "static/images/headbox-wizard-venue-styles.webp"
+ },
+ {
+  "src": "images/hosted-pages-qr-handoff-before.webp",
+  "dest": "static/images/hosted-pages-qr-handoff-before.webp"
+ },
+ {
+  "src": "images/hp-bank-after-v2.webp",
+  "dest": "static/images/hp-bank-after-v2.webp"
+ },
+ {
+  "src": "images/hp-embedded-after-v4.webp",
+  "dest": "static/images/hp-embedded-after-v4.webp"
+ },
+ {
+  "src": "images/research-hackathon-room.webp",
+  "dest": "static/images/research-hackathon-room.webp"
+ },
+ {
+  "src": "images/yapily-design-system-reference.webp",
+  "dest": "static/images/yapily-design-system-reference.webp"
+ },
+ {
+  "src": "images/yapily-homepage-mark-preview.webp",
+  "dest": "static/images/yapily-homepage-mark-preview.webp"
+ }
+]

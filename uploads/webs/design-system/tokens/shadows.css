@@ -1,0 +1,7 @@
+:root {
+  --hb-shadow-header: 0 4px 2px -2px rgb(219, 219, 219);
+  --hb-shadow-bottombar: 0 -2px 8px rgba(0, 0, 0, 0.06);
+  --hb-shadow-chip-focus: 0 0 0 3px rgba(22, 113, 155, 0.35);
+  --hb-focus-outline: 3px solid var(--hb-focus-ring);
+  --hb-focus-offset: 2px;
+}

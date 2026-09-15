@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail" data-bg-color="#FBF7FF">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#FBF7FF"></rect>
+    <g fill="none" stroke="#6B21A8" stroke-width="8" stroke-dasharray="18 14">
+      <rect x="240" y="300" width="190" height="200" rx="16"></rect>
+      <rect x="505" y="300" width="190" height="200" rx="16"></rect>
+      <rect x="770" y="300" width="190" height="200" rx="16"></rect>
+    </g>
+    <g fill="#6B21A8">
+      <path d="M450 385l45 15-45 15z"></path>
+      <path d="M715 385l45 15-45 15z"></path>
+    </g>
+  </svg>
+</template>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  body { margin:0; background:#FBF7FF; -webkit-font-smoothing:antialiased; }
+  a { color:#6B21A8; }
+  a:hover { color:#4B1A73; }
+  .lane { display:flex; align-items:stretch; gap:0; flex-wrap:wrap; row-gap:22px; }
+  @media (max-width:900px){ .wfpad { padding-left:20px !important; padding-right:20px !important; } }
+</style>
+</helmet>
+
+<div style="font-family:'Inter',system-ui,sans-serif;color:#171717;min-height:100vh;display:flex;flex-direction:column;">
+
+  <div style="position:sticky;top:0;z-index:20;background:#FAF5FF;border-bottom:1px dashed #C9A9E9;padding:10px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+    <span style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+      <span style="font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#6B21A8;">Wireflow</span>
+      <span style="font-size:13px;line-height:1.5;color:#6B21A8;">Every journey and screen in the Console prototype. Not part of the product.</span>
+    </span>
+    <a href="Console Screens.dc.html" style="flex:none;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 16px;border:1px dashed #C9A9E9;border-radius:200px;background:#ffffff;color:#6B21A8;font-size:13.5px;font-weight:500;text-decoration:none;"><span aria-hidden="true" style="font-size:16px;line-height:1;"><svg viewBox="0 -960 960 960" style="width:1em;height:1em;fill:currentColor;display:block;" aria-hidden="true" focusable="false"><path d="M561-240 320-481l241-241 43 43-198 198 198 198-43 43Z"></path></svg></span>Back to the prototype</a>
+  </div>
+
+  <div class="wfpad" style="box-sizing:border-box;width:100%;max-width:1500px;margin:0 auto;padding:36px 40px 64px 40px;display:flex;flex-direction:column;gap:14px;">
+
+    <span style="font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#6B21A8;">Markup</span>
+    <h1 style="margin:0;font-size:30px;font-weight:600;letter-spacing:-0.03em;color:#4B1A73;">Console journeys</h1>
+    <p style="margin:0;max-width:78ch;font-size:16px;line-height:1.6;color:#525252;text-wrap:pretty;">Five journeys, drawn end to end. Each box is a screen in the prototype. Boxes marked <span style="font-weight:600;color:#973C00;">Leaves Yapily</span> are somewhere the customer goes elsewhere and comes back; teal boxes are decisions or gates. Branches hang below the step they leave from.</p>
+
+    <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:14px 0 4px 0;font-size:13px;color:#525252;">
+      <span style="display:inline-flex;align-items:center;gap:8px;"><span aria-hidden="true" style="width:26px;height:16px;border:1px dashed #A3A3A3;border-radius:3px;background:#fff;"></span>Console screen</span>
+      <span style="display:inline-flex;align-items:center;gap:8px;"><span aria-hidden="true" style="width:26px;height:16px;border:1.5px dashed #003839;border-radius:3px;background:#F0FAF9;"></span>Decision or gate</span>
+      <span style="display:inline-flex;align-items:center;gap:8px;"><span aria-hidden="true" style="width:26px;height:16px;border:1px dashed #973C00;border-radius:3px;background:#FEFCE8;"></span>Leaves Yapily, labelled on the node</span>
+      <span style="display:inline-flex;align-items:center;gap:8px;"><span aria-hidden="true" style="width:26px;height:16px;border:1px solid #C9A9E9;border-radius:3px;background:#FAF5FF;"></span>Branch or exit</span>
+    </div>
+
+    <sc-for list="{{ journeys }}" as="j" hint-placeholder-count="5">
+    <section style="margin-top:20px;background:#ffffff;border:1px dashed #C9A9E9;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:20px;">
+      <span style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;flex:none;width:28px;height:28px;border-radius:50%;background:#6B21A8;color:#ffffff;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;">{{ j.n }}</span>
+        <span style="font-size:20px;font-weight:600;letter-spacing:-0.02em;">{{ j.name }}</span>
+        <span style="font-size:14px;line-height:1.5;color:#525252;">{{ j.who }}</span>
+      </span>
+
+      <div class="lane">
+        <sc-for list="{{ j.steps }}" as="s" hint-placeholder-count="5">
+        <span style="display:flex;align-items:flex-start;">
+          <sc-if value="{{ s.hasArrow }}" hint-placeholder-val="{{ false }}">
+          <span aria-hidden="true" style="flex:none;width:34px;height:104px;display:flex;align-items:center;justify-content:center;color:#C9A9E9;font-size:20px;line-height:1;"><svg viewBox="0 -960 960 960" style="width:1em;height:1em;fill:currentColor;display:block;" aria-hidden="true" focusable="false"><path d="M530-481 332-679l43-43 241 241-241 241-43-43 198-198Z"></path></svg></span>
+          </sc-if>
+          <span style="display:flex;flex-direction:column;gap:10px;width:168px;">
+            <span style="box-sizing:border-box;height:104px;padding:9px;border:{{ s.border }};border-radius:9px;background:{{ s.bg }};box-shadow:2px 2px 0 rgba(107,33,168,.10);display:flex;flex-direction:column;gap:6px;">
+              <span aria-hidden="true" style="flex:none;height:9px;border-radius:2px;background:{{ s.ink }};opacity:.55;"></span>
+              <span aria-hidden="true" style="flex:1;display:flex;gap:6px;min-height:0;">
+                <sc-if value="{{ s.hasRail }}" hint-placeholder-val="{{ true }}">
+                <span style="flex:none;width:22px;border-radius:2px;background:{{ s.ink }};opacity:.16;"></span>
+                </sc-if>
+                <span style="flex:1;display:flex;flex-direction:column;gap:5px;min-width:0;">
+                  <sc-for list="{{ s.bars }}" as="b" hint-placeholder-count="4">
+                  <span style="flex:none;height:{{ b.h }};width:{{ b.w }};border-radius:2px;background:{{ s.ink }};opacity:{{ b.o }};"></span>
+                  </sc-for>
+                </span>
+              </span>
+            </span>
+            <span style="display:flex;flex-direction:column;gap:3px;">
+              <sc-if value="{{ s.isExt }}" hint-placeholder-val="{{ false }}">
+              <span style="display:inline-flex;align-self:flex-start;align-items:center;gap:5px;height:20px;padding:0 8px;border-radius:200px;background:#FEFCE8;color:#973C00;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;"><span aria-hidden="true" style="font-size:13px;line-height:1;"><svg viewBox="0 -960 960 960" style="width:1em;height:1em;fill:currentColor;display:block;" aria-hidden="true" focusable="false"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v60H200v560h560v-280h60v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"></path></svg></span>Leaves Yapily</span>
+              </sc-if>
+              <span style="font-size:13.5px;font-weight:600;line-height:1.35;">{{ s.name }}</span>
+              <span style="font-size:12.5px;line-height:1.45;color:#6a7282;text-wrap:pretty;">{{ s.note }}</span>
+            </span>
+
+            <sc-if value="{{ s.hasBranch }}" hint-placeholder-val="{{ false }}">
+            <span style="display:flex;flex-direction:column;gap:6px;padding-left:12px;border-left:2px dashed #C9A9E9;">
+              <sc-for list="{{ s.branches }}" as="br" hint-placeholder-count="1">
+              <span style="display:flex;flex-direction:column;gap:2px;padding:8px 10px;border:1px solid #C9A9E9;border-radius:8px;background:#FAF5FF;">
+                <span style="font-size:12.5px;font-weight:600;color:#4B1A73;">{{ br.name }}</span>
+                <span style="font-size:12px;line-height:1.45;color:#6B21A8;">{{ br.note }}</span>
+              </span>
+              </sc-for>
+            </span>
+            </sc-if>
+          </span>
+
+        </span>
+        </sc-for>
+      </div>
+
+      <span style="padding-top:16px;border-top:1px dashed #E4D3F5;font-size:13.5px;line-height:1.6;color:#6a7282;max-width:88ch;text-wrap:pretty;">{{ j.note }}</span>
+    </section>
+    </sc-for>
+
+    <p style="margin:24px 0 0 0;font-size:13.5px;line-height:1.6;color:#6a7282;">Open any of these in the prototype from the <a href="Console Screens.dc.html">prototype controls</a> bar: the viewpoint switcher picks the journey, the account-state row picks where in it you land.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1500,&quot;height&quot;:1000}}">
+class Component extends DCLogic {
+  renderVals() {
+    const K = {
+      screen: { border: "1px dashed #A3A3A3", bg: "#ffffff", ink: "#171717" },
+      gate:   { border: "1.5px dashed #003839", bg: "#F0FAF9", ink: "#003839" },
+      ext:    { border: "1px dashed #973C00", bg: "#FEFCE8", ink: "#973C00" },
+    };
+    const BARS = {
+      form:  [["9px","78%",".28"],["9px","92%",".14"],["9px","70%",".14"],["9px","46%",".38"]],
+      list:  [["7px","100%",".14"],["7px","100%",".14"],["7px","100%",".14"],["7px","64%",".14"]],
+      cards: [["16px","100%",".12"],["16px","100%",".12"],["7px","52%",".26"]],
+      stat:  [["20px","46%",".30"],["7px","100%",".12"],["7px","82%",".12"]],
+      wait:  [["7px","58%",".22"],["16px","100%",".10"],["7px","40%",".30"]],
+      chart: [["26px","100%",".12"],["7px","74%",".14"],["7px","50%",".14"]],
+    };
+    const mk = (name, note, opts) => {
+      const o = opts || {};
+      const k = K[o.kind || "screen"];
+      return {
+        name, note,
+        border: k.border, bg: k.bg, ink: k.ink,
+        hasRail: o.rail !== false,
+        bars: (BARS[o.bars || "list"]).map(b => ({ h: b[0], w: b[1], o: b[2] })),
+        hasBranch: !!(o.branches && o.branches.length),
+        branches: o.branches || [],
+        hasArrow: true,
+        isExt: (o.kind === "ext"),
+      };
+    };
+    const lane = steps => { steps[0].hasArrow = false; return steps; };
+
+    const journeys = [
+      {
+        n: 1,
+        name: "Sign up and first sandbox call",
+        who: "New developer, no account",
+        note: "The account arrives with one sandbox application already created, so the first API call does not wait on a form. Everything in this journey is free and needs no verification.",
+        steps: lane([
+          mk("Sign in", "Email, password, forgot link above the form", { kind: "screen", bars: "form", rail: false }),
+          mk("Create account", "Work email and password", { kind: "screen", bars: "form", rail: false }),
+          mk("Complete profile", "Name and role", { kind: "screen", bars: "form", rail: false }),
+          mk("Set up organisation", "Company name, one member", { kind: "screen", bars: "form", rail: false }),
+          mk("Sandbox home", "Empty state: what to do first", { kind: "screen", bars: "cards" }),
+          mk("Applications", "One sandbox app, creation limited", { kind: "screen", bars: "list", branches: [{ name: "Create Application blocked", note: "Free accounts get one sandbox app. Route to verification." }] }),
+          mk("Application detail", "Credentials, scopes, webhooks, KYB", { kind: "screen", bars: "list" }),
+          mk("First success", "Home shows the first consent", { kind: "screen", bars: "stat" }),
+        ]),
+      },
+      {
+        n: 2,
+        name: "Upgrade to production",
+        who: "Developer or founder ready to go live",
+        note: "Seven steps, and the review comes before verification so nothing is collected twice. KYB itself happens in Ondato: the customer leaves, and the step stays locked until Ondato returns a result. Sign and Done stay locked with it.",
+        steps: lane([
+          mk("Compliance tab", "Start verification, with what is needed", { kind: "screen", bars: "cards" }),
+          mk("Use case", "Products, markets, licence", { kind: "gate", bars: "form", rail: false, branches: [{ name: "Own TPP licence", note: "Routes to a solutions specialist." }] }),
+          mk("Your business", "Industry, size, volume", { kind: "gate", bars: "form", rail: false, branches: [{ name: "Volume over 100,000", note: "Scale plan. Talk to sales." }] }),
+          mk("Plan", "Recommended plan and per-transaction fees", { kind: "screen", bars: "cards", rail: false }),
+          mk("Review", "Everything picked so far, in one table", { kind: "screen", bars: "list", rail: false }),
+          mk("Ondato", "Documents and signatory identity", { kind: "ext", bars: "form", rail: false }),
+          mk("Waiting", "Returns on its own, email either way", { kind: "screen", bars: "wait", rail: false }),
+          mk("Sign agreement", "Locked until Ondato returns", { kind: "gate", bars: "form", rail: false }),
+          mk("Live console", "Credentials issued, registrations started", { kind: "screen", bars: "stat" }),
+        ]),
+      },
+      {
+        n: 3,
+        name: "Brand the hosted pages",
+        who: "Product or design owner",
+        note: "The editor previews the customer-facing bank selection and consent screens live, in both light and dark grounds, so branding is checked before anyone ships it.",
+        steps: lane([
+          mk("Applications", "Pick the application to brand", { kind: "screen", bars: "list" }),
+          mk("Hosted Pages tab", "Colours, logo, display name", { kind: "screen", bars: "form" }),
+          mk("Live preview", "Bank list and consent, both grounds", { kind: "screen", bars: "cards" }),
+          mk("Hosted pages", "What the customer actually sees", { kind: "ext", bars: "form", rail: false }),
+        ]),
+      },
+      {
+        n: 4,
+        name: "Diagnose a drop-off",
+        who: "Developer on support duty",
+        note: "The alert on home is the entry point, and every step narrows the question: which funnel step, then which bank, then which session. Bank incidents link out to the status page rather than being restated here.",
+        steps: lane([
+          mk("Home alert", "Conversion down against last week", { kind: "screen", bars: "stat" }),
+          mk("Conversion", "Funnel by step, with drop-off", { kind: "screen", bars: "chart" }),
+          mk("Bank performance", "Authorisation success per bank", { kind: "screen", bars: "list", branches: [{ name: "Degraded bank", note: "Links to the institution status page." }] }),
+          mk("Sessions", "Request ID, bank, duration, outcome", { kind: "screen", bars: "list" }),
+          mk("Support", "Ticket opens in the support portal", { kind: "ext", bars: "form", rail: false }),
+        ]),
+      },
+      {
+        n: 5,
+        name: "Run the organisation",
+        who: "Admin or finance",
+        note: "Team, billing and data sit under one Organisation page so an admin never has to guess which section owns a setting. Closure is deliberately the last item, with an acknowledgement before anything is submitted.",
+        steps: lane([
+          mk("Team", "Members, roles, pending invites", { kind: "screen", bars: "list", branches: [{ name: "Invite member", note: "Viewer, Developer, Admin, Billing." }] }),
+          mk("Billing", "Plan, payment method, invoices", { kind: "screen", bars: "list" }),
+          mk("Manage plan", "Starter, Growth, Scale", { kind: "gate", bars: "cards", branches: [{ name: "Scale", note: "Custom by volume. Talk to sales." }] }),
+          mk("Data and privacy", "Retention, exports, processing", { kind: "screen", bars: "list" }),
+          mk("Close account", "Acknowledgement, then a closing state", { kind: "gate", bars: "form" }),
+        ]),
+      },
+    ];
+
+    return { journeys };
+  }
+}
+</script>
+</body>
+</html>

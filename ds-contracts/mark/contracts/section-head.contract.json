@@ -1,0 +1,151 @@
+{
+  "$schema": "./contract.schema.json",
+  "id": "mrk.section-head",
+  "name": "SectionHead",
+  "version": "1.0.0",
+  "status": "draft",
+  "description": "Eyebrow, headline, lead, in that order, left-aligned. Centred headings are reserved for the hero and the closing band — so alignment is a prop with a deliberately narrow set, not a free choice.",
+  "semantics": {
+    "element": "header"
+  },
+  "props": [
+    {
+      "name": "eyebrow",
+      "type": "text",
+      "default": "Design systems",
+      "bindings": {
+        "figma": {
+          "kind": "TEXT",
+          "property": "Eyebrow"
+        },
+        "code": {
+          "prop": "eyebrow"
+        }
+      }
+    },
+    {
+      "name": "headline",
+      "type": "text",
+      "default": "One contract, two surfaces",
+      "required": true,
+      "bindings": {
+        "figma": {
+          "kind": "TEXT",
+          "property": "Headline"
+        },
+        "code": {
+          "prop": "headline"
+        }
+      }
+    },
+    {
+      "name": "lead",
+      "type": "text",
+      "default": "One lead paragraph, capped at 60 characters of measure.",
+      "bindings": {
+        "figma": {
+          "kind": "TEXT",
+          "property": "Lead"
+        },
+        "code": {
+          "prop": "lead"
+        }
+      }
+    },
+    {
+      "name": "align",
+      "type": {
+        "enum": [
+          "start",
+          "center"
+        ]
+      },
+      "default": "start",
+      "description": "Centred is for the hero and the closing band only.",
+      "bindings": {
+        "figma": {
+          "kind": "VARIANT",
+          "property": "Align",
+          "values": {
+            "start": "Left",
+            "center": "Centred"
+          }
+        },
+        "code": {
+          "prop": "align"
+        }
+      }
+    }
+  ],
+  "states": [],
+  "anatomy": {
+    "root": {
+      "layout": {
+        "display": "flex",
+        "direction": "column",
+        "align": "{align}"
+      },
+      "tokens": {
+        "font-family": "{font.display.family}",
+        "max-width": "{size.content-column}"
+      },
+      "parts": {
+        "eyebrow": {
+          "element": "p",
+          "content": {
+            "prop": "eyebrow"
+          },
+          "visibleWhen": {
+            "prop": "eyebrow"
+          },
+          "tokens": {
+            "font-size": "{font.eyebrow.size}",
+            "font-weight": "{font.eyebrow.weight}",
+            "letter-spacing": "{font.eyebrow.tracking}",
+            "text-transform": "uppercase",
+            "color": "{color.text.muted}",
+            "margin-block-end": "{space.gap.eyebrow}"
+          }
+        },
+        "headline": {
+          "element": "h2",
+          "content": {
+            "prop": "headline"
+          },
+          "tokens": {
+            "font-size": "{font.section-head.size}",
+            "font-weight": "{font.section-head.weight}",
+            "letter-spacing": "{font.section-head.tracking}",
+            "line-height": "{font.section-head.line-height}",
+            "color": "{color.text.primary}",
+            "margin-block-end": "{space.gap.lead}"
+          }
+        },
+        "lead": {
+          "element": "p",
+          "content": {
+            "prop": "lead"
+          },
+          "visibleWhen": {
+            "prop": "lead"
+          },
+          "tokens": {
+            "font-size": "{font.lead.size}",
+            "line-height": "{font.lead.line-height}",
+            "color": "{color.text.primary}",
+            "max-width": "60ch"
+          }
+        }
+      }
+    }
+  },
+  "a11y": {
+    "contrast": "AA"
+  },
+  "anchors": {
+    "code": {
+      "importPath": "src/mark/SectionHead",
+      "export": "SectionHead"
+    }
+  }
+}

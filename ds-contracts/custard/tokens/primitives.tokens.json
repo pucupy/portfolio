@@ -1,0 +1,182 @@
+{
+  "color": {
+    "ink": {
+      "$type": "color",
+      "$value": "#111827"
+    },
+    "white": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "canvas": {
+      "$type": "color",
+      "$value": "#F5F6F8"
+    },
+    "status": {
+      "success": {
+        "$type": "color",
+        "$value": "#09893C"
+      },
+      "waiting": {
+        "$type": "color",
+        "$value": "#D08700"
+      },
+      "failure": {
+        "$type": "color",
+        "$value": "#C10007"
+      }
+    }
+  },
+  "space": {
+    "100": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "200": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "300": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "400": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "600": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "800": {
+      "$type": "dimension",
+      "$value": "32px"
+    }
+  },
+  "radius": {
+    "200": {
+      "$type": "dimension",
+      "$value": "10px"
+    },
+    "300": {
+      "$type": "dimension",
+      "$value": "14px"
+    },
+    "400": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "500": {
+      "$type": "dimension",
+      "$value": "20px"
+    },
+    "600": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "none": {
+      "$type": "dimension",
+      "$value": "0px"
+    }
+  },
+  "size": {
+    "row-lg": {
+      "$type": "dimension",
+      "$value": "64px"
+    },
+    "row-md": {
+      "$type": "dimension",
+      "$value": "60px"
+    },
+    "row-sm": {
+      "$type": "dimension",
+      "$value": "56px"
+    },
+    "modal-lg": {
+      "$type": "dimension",
+      "$value": "960px"
+    },
+    "modal-md": {
+      "$type": "dimension",
+      "$value": "760px"
+    },
+    "content-column": {
+      "$type": "dimension",
+      "$value": "720px"
+    },
+    "header-lg": {
+      "$type": "dimension",
+      "$value": "72px"
+    },
+    "header-md": {
+      "$type": "dimension",
+      "$value": "68px"
+    },
+    "header-sm": {
+      "$type": "dimension",
+      "$value": "64px"
+    },
+    "button-lg": {
+      "$type": "dimension",
+      "$value": "56px"
+    },
+    "button-md": {
+      "$type": "dimension",
+      "$value": "52px"
+    },
+    "logo-tile": {
+      "$type": "dimension",
+      "$value": "40px"
+    },
+    "status-icon": {
+      "$type": "dimension",
+      "$value": "64px"
+    },
+    "target": {
+      "$type": "dimension",
+      "$value": "44px"
+    }
+  },
+  "font": {
+    "size": {
+      "200": {
+        "$type": "dimension",
+        "$value": "14px"
+      },
+      "300": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "400": {
+        "$type": "dimension",
+        "$value": "18px"
+      },
+      "amount": {
+        "$type": "dimension",
+        "$value": "34px"
+      },
+      "heading-sm": {
+        "$type": "dimension",
+        "$value": "32px"
+      },
+      "heading-lg": {
+        "$type": "dimension",
+        "$value": "40px"
+      }
+    },
+    "weight": {
+      "regular": {
+        "$type": "fontWeight",
+        "$value": 400
+      },
+      "medium": {
+        "$type": "fontWeight",
+        "$value": 500
+      },
+      "bold": {
+        "$type": "fontWeight",
+        "$value": 700
+      }
+    }
+  }
+}

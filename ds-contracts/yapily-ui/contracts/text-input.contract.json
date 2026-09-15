@@ -1,0 +1,215 @@
+{
+  "$schema": "./contract.schema.json",
+  "id": "yui.text-input",
+  "name": "Text input",
+  "version": "2.0.0",
+  "status": "extracted",
+  "source": {
+    "file": "yapilyui.css",
+    "repo": "yapily-brand/webroot",
+    "lines": "2143–2430, 1911–1935",
+    "note": "Values transcribed from the shipped stylesheet, not authored for this contract."
+  },
+  "description": "A grey field on a grey page, distinguished by a 1px border. Hover and focus resolve to the same black border — the field does not announce focus differently from hover. Errors are carried by border and helper text together.",
+  "semantics": {
+    "element": "input",
+    "role": "textbox"
+  },
+  "props": [
+    {
+      "name": "type",
+      "type": {
+        "enum": [
+          "text",
+          "email",
+          "number",
+          "date",
+          "time",
+          "file"
+        ]
+      },
+      "default": "text",
+      "description": "Date, time and file inputs take the same border treatment, including the error variant.",
+      "bindings": {
+        "figma": {
+          "kind": "VARIANT",
+          "property": "Type"
+        },
+        "code": {
+          "prop": "type"
+        }
+      }
+    },
+    {
+      "name": "label",
+      "type": "text",
+      "default": "Label",
+      "description": "Rendered as a block-level <label> with 8px vertical margin.",
+      "bindings": {
+        "figma": {
+          "kind": "TEXT",
+          "property": "Label"
+        },
+        "code": {
+          "prop": "label"
+        }
+      }
+    },
+    {
+      "name": "hint",
+      "type": "text",
+      "default": "",
+      "description": "A <small>, block-level, 8px margin. Turns {color.text.error} when the field is in error.",
+      "bindings": {
+        "figma": {
+          "kind": "TEXT",
+          "property": "Hint"
+        },
+        "code": {
+          "prop": "hint"
+        }
+      }
+    },
+    {
+      "name": "error",
+      "type": "boolean",
+      "default": false,
+      "description": "Applied as .error-form on an ancestor, so it styles the input, its checkmark and its hint in one move.",
+      "bindings": {
+        "figma": {
+          "kind": "BOOLEAN",
+          "property": "Error"
+        },
+        "code": {
+          "prop": "error",
+          "class": "error-form"
+        }
+      }
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Border goes transparent and text stays black — the field reads as static content rather than a dimmed control. Inside a table cell the fill also goes white.",
+      "bindings": {
+        "figma": {
+          "kind": "BOOLEAN",
+          "property": "Disabled"
+        },
+        "code": {
+          "prop": "disabled"
+        }
+      }
+    }
+  ],
+  "states": [
+    "hover",
+    "focus",
+    "error",
+    "disabled"
+  ],
+  "figmaStatePreviews": true,
+  "anatomy": {
+    "root": {
+      "layout": {
+        "display": "block"
+      },
+      "parts": {
+        "label": {
+          "element": "label",
+          "content": {
+            "prop": "label"
+          },
+          "tokens": {
+            "display": "block",
+            "margin-block": "{space.gap.small}",
+            "font-size": "{font.label.size}"
+          }
+        },
+        "field": {
+          "element": "input",
+          "tokens": {
+            "background-color": "{color.surface.page}",
+            "border": "{border.width.default} solid {color.border.default}",
+            "border-radius": "{radius.control}",
+            "padding": "{space.inset.control}",
+            "font-family": "{font.control.family}",
+            "font-size": "{font.control.size}"
+          },
+          "states": {
+            "hover": {
+              "border-color": "{color.border.strong}",
+              "transition-duration": "{motion.transition}"
+            },
+            "focus": {
+              "border-color": "{color.border.focus}"
+            },
+            "error": {
+              "border-color": "{color.border.error}"
+            },
+            "disabled": {
+              "border-color": "transparent",
+              "color": "{color.text.primary}"
+            }
+          }
+        },
+        "hint": {
+          "element": "small",
+          "content": {
+            "prop": "hint"
+          },
+          "tokens": {
+            "display": "block",
+            "margin-block": "{space.gap.small}"
+          },
+          "states": {
+            "error": {
+              "color": "{color.text.error}"
+            }
+          }
+        }
+      }
+    }
+  },
+  "variants": {
+    "select": {
+      "$note": "Same box, but a white fill and a 32px right pad for the chevron.",
+      "tokens": {
+        "background-color": "{color.surface.raised}",
+        "background-image": "url(img/arrow-down.svg)",
+        "background-position": "right",
+        "background-repeat": "no-repeat",
+        "padding-right": "{space.inset.card}",
+        "appearance": "none"
+      }
+    },
+    "checkout": {
+      "$note": "The hosted checkout overrides the system field: taller, rounder, white, and a different border and text colour.",
+      "tokens": {
+        "height": "56px",
+        "border-radius": "{radius.field}",
+        "background-color": "{color.surface.raised}",
+        "border-color": "#B6B8C6",
+        "color": "#0C1142",
+        "font-size": "14px",
+        "padding-inline": "{space.inset.compact}"
+      }
+    }
+  },
+  "a11y": {
+    "contrast": "AA",
+    "notes": "Hover and focus are visually identical (1px black border). Focus is not independently distinguishable for keyboard users — a known gap in the shipped stylesheet."
+  },
+  "anchors": {
+    "css": {
+      "file": "yapilyui.css",
+      "selectors": [
+        "input",
+        "select",
+        "textarea",
+        ".error-form",
+        ".checkout input"
+      ]
+    }
+  }
+}

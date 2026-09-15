@@ -1,0 +1,276 @@
+{
+  "$description": "Primitives extracted from the shipped Yapily UI stylesheet (yapilyui.css, 2020–2022). Values are verbatim from the source; no colours have been added or normalised.",
+  "$source": {
+    "file": "yapilyui.css",
+    "repo": "yapily-brand/webroot",
+    "period": "2020–2022"
+  },
+  "color": {
+    "black": {
+      "$type": "color",
+      "$value": "#000000",
+      "$description": "Brand black. Text, primary action fill, all focus borders."
+    },
+    "white": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "grey": {
+      "50": {
+        "$type": "color",
+        "$value": "#FAFBFF",
+        "$description": "Zebra stripe and accordion hover."
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#F6F7FA",
+        "$description": "Page background and default input fill."
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#D6E0E9",
+        "$description": "The only border colour in the system."
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#4D5866",
+        "$description": "Secondary text."
+      }
+    },
+    "blue": {
+      "link": {
+        "$type": "color",
+        "$value": "#003EB3",
+        "$description": "Link and active-state foreground."
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "#DEE7F7",
+        "$description": "Active / current / link-hover fill."
+      }
+    },
+    "green": {
+      "brand": {
+        "$type": "color",
+        "$value": "#62BC8A",
+        "$description": "Yapily green. Accent, icon fill, active tab underline."
+      },
+      "dark": {
+        "$type": "color",
+        "$value": "#388555"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "#3A8C5F",
+        "$description": "Positive text and tick marks."
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "#D2EBD3"
+      }
+    },
+    "yellow": {
+      "brand": {
+        "$type": "color",
+        "$value": "#F9C533",
+        "$description": "Alternative brand colour. Internal tags, loading bar."
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "#FEF1BF",
+        "$description": "Banner fill."
+      }
+    },
+    "coral": {
+      "$type": "color",
+      "$value": "#EF7763",
+      "$description": "Alternative brand red, decorative only."
+    },
+    "red": {
+      "error": {
+        "$type": "color",
+        "$value": "#B50500",
+        "$description": "Destructive fill, error border, error text."
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "#FFF6F6",
+        "$description": "Error background and destructive active fill."
+      }
+    }
+  },
+  "space": {
+    "tiny": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "small": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "normal": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "big": {
+      "$type": "dimension",
+      "$value": "32px"
+    },
+    "huge": {
+      "$type": "dimension",
+      "$value": "64px"
+    }
+  },
+  "radius": {
+    "tag": {
+      "$type": "dimension",
+      "$value": "2px"
+    },
+    "default": {
+      "$type": "dimension",
+      "$value": "4px",
+      "$description": "Applied to buttons, inputs, cards, images, video, links and panels alike."
+    },
+    "field": {
+      "$type": "dimension",
+      "$value": "8px",
+      "$description": "Checkout inputs only."
+    },
+    "circle": {
+      "$type": "dimension",
+      "$value": "50%"
+    }
+  },
+  "border-width": {
+    "default": {
+      "$type": "dimension",
+      "$value": "1px",
+      "$description": "The system has one border width."
+    }
+  },
+  "size": {
+    "icon": {
+      "tiny": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "small": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "normal": {
+        "$type": "dimension",
+        "$value": "32px"
+      },
+      "big": {
+        "$type": "dimension",
+        "$value": "64px"
+      }
+    },
+    "logo": {
+      "list": {
+        "$type": "dimension",
+        "$value": "40px",
+        "$description": "max-height in .listed-institution"
+      },
+      "app": {
+        "$type": "dimension",
+        "$value": "64px",
+        "$description": "max-height in .institution-apps"
+      },
+      "max-width": {
+        "$type": "dimension",
+        "$value": "256px"
+      }
+    }
+  },
+  "font": {
+    "family": {
+      "regular": {
+        "$type": "fontFamily",
+        "$value": "Roobert, Helvetica, arial, sans-serif",
+        "$description": "Roobert-Regular.woff2"
+      },
+      "medium": {
+        "$type": "fontFamily",
+        "$value": "Roobert-Medium, Helvetica, arial, sans-serif",
+        "$description": "Roobert-Medium.woff. Loaded as a separate family, not a weight."
+      },
+      "semibold": {
+        "$type": "fontFamily",
+        "$value": "Roobert-SemiBold, Helvetica, arial, sans-serif",
+        "$description": "Roobert-SemiBold.woff. Headings and emphasis switch family rather than weight — font-weight stays normal throughout."
+      }
+    },
+    "size": {
+      "100": {
+        "$type": "dimension",
+        "$value": "12px"
+      },
+      "200": {
+        "$type": "dimension",
+        "$value": "14px"
+      },
+      "300": {
+        "$type": "dimension",
+        "$value": "1em",
+        "$description": "16px. Body, buttons, inputs."
+      },
+      "400": {
+        "$type": "dimension",
+        "$value": "1.125rem",
+        "$description": "18px. h3."
+      },
+      "500": {
+        "$type": "dimension",
+        "$value": "1.5rem",
+        "$description": "24px. h2."
+      },
+      "600": {
+        "$type": "dimension",
+        "$value": "2.25rem",
+        "$description": "36px. h1."
+      }
+    },
+    "weight": {
+      "normal": {
+        "$type": "fontWeight",
+        "$value": 400,
+        "$description": "The only weight declared. Emphasis is carried by font-family."
+      }
+    },
+    "line-height": {
+      "body": {
+        "$type": "number",
+        "$value": 1.5
+      }
+    }
+  },
+  "motion": {
+    "duration": {
+      "$type": "duration",
+      "$value": "300ms",
+      "$description": "transition: all 0.3s ease — used identically on every interactive element."
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "$value": "ease"
+    },
+    "pulse": {
+      "$type": "duration",
+      "$value": "600ms",
+      "$description": "animation: pulse 0.6s ease on :active."
+    }
+  },
+  "opacity": {
+    "disabled": {
+      "$type": "number",
+      "$value": 0.9
+    },
+    "disabled-hover": {
+      "$type": "number",
+      "$value": 0.5,
+      "$description": "Deliberate: hovering a disabled control fades it further rather than doing nothing."
+    }
+  }
+}

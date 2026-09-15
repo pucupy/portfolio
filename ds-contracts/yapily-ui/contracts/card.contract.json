@@ -1,0 +1,89 @@
+{
+  "$schema": "./contract.schema.json",
+  "id": "yui.card",
+  "name": "Card",
+  "version": "1.0.0",
+  "status": "extracted",
+  "source": {
+    "file": "yapilyui.css",
+    "repo": "yapily-brand/webroot",
+    "lines": "1624–1645",
+    "note": "Values transcribed from the shipped stylesheet, not authored for this contract."
+  },
+  "description": "White, 32px of padding, 4px radius, one 1px border. There is no elevation anywhere in the system — depth is drawn with a line, not a shadow.",
+  "semantics": {
+    "element": "div"
+  },
+  "props": [
+    {
+      "name": "density",
+      "type": {
+        "enum": [
+          "default",
+          "example"
+        ]
+      },
+      "default": "default",
+      "description": "'example' drops padding to 16px; it is what documentation pages use to show a component inside a card without the card dominating.",
+      "bindings": {
+        "figma": {
+          "kind": "VARIANT",
+          "property": "Density"
+        },
+        "code": {
+          "prop": "density"
+        }
+      }
+    },
+    {
+      "name": "children",
+      "type": "slot",
+      "bindings": {
+        "figma": {
+          "kind": "INSTANCE_SWAP",
+          "property": "Content"
+        },
+        "code": {
+          "prop": "children"
+        }
+      }
+    }
+  ],
+  "states": [],
+  "anatomy": {
+    "root": {
+      "tokens": {
+        "background-color": "{color.surface.raised}",
+        "padding": "{space.inset.card}",
+        "border": "{border.width.default} solid {color.border.default}",
+        "border-radius": "{radius.card}"
+      },
+      "densityMap": {
+        "default": "{space.inset.card}",
+        "example": "{space.inset.compact}"
+      },
+      "parts": {
+        "content": {
+          "element": "slot",
+          "content": {
+            "prop": "children"
+          }
+        }
+      }
+    }
+  },
+  "a11y": {
+    "notes": "Non-interactive by default. .card.no-hover exists because some cards were made clickable and needed the hover suppressed."
+  },
+  "anchors": {
+    "css": {
+      "file": "yapilyui.css",
+      "selectors": [
+        ".card",
+        ".card.example",
+        ".no-card",
+        ".card.no-hover"
+      ]
+    }
+  }
+}
