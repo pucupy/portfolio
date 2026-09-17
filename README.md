@@ -8,7 +8,7 @@ Static site, self-contained HTML pages. No build step, no dependencies, no netwo
 2. Settings → Pages → deploy from that branch and directory.
 3. `index.html` is the entry point. `.nojekyll` is included so nothing is filtered by Jekyll.
 
-Add your CV at `cv/cv.pdf` — the nav and hero link to `https://pucupy.github.io/portfolio/cv/cv.pdf`.
+The CV is served at `cv/Alejandro-Velazquez-CV.pdf` — the nav and hero link to it.
 
 ## Pages
 
