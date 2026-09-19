@@ -68,11 +68,9 @@ header nav a{position:relative;transition:color .22s ease}
 header nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:#6FCB92;transform:scaleX(0);transform-origin:right;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
 header nav a:hover,header nav a:focus-visible{color:#EDEFEC}
 header nav a:hover::after,header nav a:focus-visible::after{transform:scaleX(1);transform-origin:left}
-header .brand img{transition:transform .3s cubic-bezier(.2,.7,.3,1),filter .3s ease}
-header .brand:hover img,header .brand:focus-visible img{transform:rotate(-6deg) scale(1.08);filter:drop-shadow(0 0 6px rgba(111,203,146,.45))}
 header .brand span{background-image:linear-gradient(#6FCB92,#6FCB92);background-repeat:no-repeat;background-position:0 100%;background-size:0 1px;transition:background-size .3s cubic-bezier(.2,.7,.3,1),color .22s ease}
 header .brand:hover span,header .brand:focus-visible span{background-size:100% 1px}
-@media (prefers-reduced-motion:reduce){a,button,a.btn,a.cta,a.cta svg,header nav a::after,header .brand img,header .brand span{transition:none}a.cta:hover,a.cta:hover svg,button:hover,a.btn:hover,header .brand:hover img{transform:none}}
+@media (prefers-reduced-motion:reduce){a,button,a.btn,a.cta,a.cta svg,header nav a::after,header .brand span{transition:none}a.cta:hover,a.cta:hover svg,button:hover,a.btn:hover{transform:none}}
 
 @keyframes steam{from{stroke-dashoffset:24}to{stroke-dashoffset:0}}
 #hot1,#hot2,#hot3{stroke-dasharray:14 10;stroke-opacity:.38;animation:steam 2.4s linear infinite}
@@ -93,7 +91,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
 <header style="position:sticky;top:0;z-index:50;background:rgba(15,18,17,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(237,239,236,.09);">
   <div class="wrap" style="max-width:1160px;margin:0 auto;padding:18px 56px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
-    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/nav-face-mark.png" width="192" height="192" alt="" style="display:block;height:34px;width:34px;flex:none;"><span>Alejandro Velazquez</span></a>
+    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/nav-logo.svg" width="34" height="34" alt="" style="display:block;height:34px;width:34px;flex:none;"><span>Alejandro Velazquez</span></a>
     <nav style="display:flex;align-items:center;gap:22px;font-size:15px;">
       <a href="index.html#work" style="color:#A2ACA5;text-decoration:none;">Work</a>
       <a href="about.html" aria-current="page" style="color:#EDEFEC;text-decoration:none;">About</a>

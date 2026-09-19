@@ -5,7 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0F1211">
 <link rel="preload" href="fonts/schibsted-grotesk.ttf" as="font" type="font/ttf" crossorigin>
-<style>@font-face{font-family:'Schibsted Grotesk';src:url('fonts/schibsted-grotesk.ttf') format('truetype-variations'),url('fonts/schibsted-grotesk.ttf') format('truetype');font-weight:400 700;font-style:normal;font-display:swap}</style>
+<style>@font-face{font-family:'Schibsted Grotesk';src:url('fonts/schibsted-grotesk.ttf') format('truetype-variations'),url('fonts/schibsted-grotesk.ttf') format('truetype');font-weight:400 700;font-style:normal;font-display:swap}
+a{text-decoration:none;background-image:linear-gradient(#6FCB92,#6FCB92);background-repeat:no-repeat;background-position:0 calc(100% - 1px);background-size:0 1px;transition:background-size .3s cubic-bezier(.2,.7,.3,1),color .22s ease}
+a:hover,a:focus-visible{color:#EDEFEC;background-size:100% 1px}
+main a:not(.btn):not(.cta),footer a:not(.btn):not(.cta){background-size:100% 1px;background-image:linear-gradient(rgba(111,203,146,.5),rgba(111,203,146,.5))}
+main a:not(.btn):not(.cta):hover,main a:not(.btn):not(.cta):focus-visible,footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible{background-image:linear-gradient(#6FCB92,#6FCB92)}
+header .brand,header nav a,a.btn,a.cta{background-image:none}
+a:focus-visible,button:focus-visible{outline:2px solid #6FCB92;outline-offset:3px}
+
+button,a.btn{transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
+button:hover,button:focus-visible,a.btn:hover,a.btn:focus-visible{transform:translateY(-1px);background-color:rgba(111,203,146,.1);box-shadow:0 0 0 1px rgba(111,203,146,.35)}
+button:active,a.btn:active{transform:translateY(0)}
+
+a.cta{transition:transform .22s cubic-bezier(.2,.7,.3,1),background-color .22s ease,box-shadow .22s ease}
+a.cta:hover,a.cta:focus-visible{transform:translateY(-1px);background-color:#8AD9A8;box-shadow:0 6px 18px rgba(111,203,146,.22)}
+a.cta:active{transform:translateY(0);box-shadow:none}
+a.cta svg{transition:transform .22s cubic-bezier(.2,.7,.3,1)}
+a.cta:hover svg,a.cta:focus-visible svg{transform:translateX(3px)}
+
+header nav a[aria-current="page"]{color:#EDEFEC}
+header nav a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+
+header nav a{position:relative;transition:color .22s ease}
+header nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:#6FCB92;transform:scaleX(0);transform-origin:right;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
+header nav a:hover,header nav a:focus-visible{color:#EDEFEC}
+header nav a:hover::after,header nav a:focus-visible::after{transform:scaleX(1);transform-origin:left}
+header .brand span{background-image:linear-gradient(#6FCB92,#6FCB92);background-repeat:no-repeat;background-position:0 100%;background-size:0 1px;transition:background-size .3s cubic-bezier(.2,.7,.3,1),color .22s ease}
+header .brand:hover span,header .brand:focus-visible span{background-size:100% 1px}
+@media (prefers-reduced-motion:reduce){a,button,a.btn,a.cta,a.cta svg,header nav a::after,header .brand span{transition:none}a.cta:hover,a.cta:hover svg,button:hover,a.btn:hover{transform:none}}
+</style>
 <title>Research practice: Alejandro Velazquez</title>
 <meta name="description" content="Case study: building a research practice inside a fintech team.">
 <meta property="og:title" content="Research practice, Alejandro Velazquez">
@@ -18,8 +46,7 @@
 <style>
   html { color-scheme: dark; }
   body { margin:0; background:#0F1211; color:#EDEFEC; font-family:'Schibsted Grotesk',-apple-system,BlinkMacSystemFont,sans-serif; -webkit-font-smoothing:antialiased; }
-  a { color:#EDEFEC; text-decoration:underline; text-decoration-color:rgba(111,203,146,.5); text-underline-offset:4px; text-decoration-thickness:1px; }
-  a:hover { text-decoration-color:#6FCB92; }
+  a { color:#EDEFEC; }
   a:focus-visible { outline:2px solid #6FCB92; outline-offset:3px; border-radius:2px; }
   ::selection { background:#6FCB92; color:#0F1211; }
   .skiplink:focus { left:0 !important; }
@@ -42,6 +69,34 @@
 #moon{opacity:0;animation:moon 10s linear infinite}
 #stars{animation:stars .5s linear infinite}
 @media (prefers-reduced-motion:reduce){#lefte,#righte,#fmLefte,#fmRighte,#head,#rocket2,#flame,#moon,#stars{animation:none}#moon{opacity:1}}
+
+a{text-decoration:none;background-image:linear-gradient(#6FCB92,#6FCB92);background-repeat:no-repeat;background-position:0 calc(100% - 1px);background-size:0 1px;transition:background-size .3s cubic-bezier(.2,.7,.3,1),color .22s ease}
+a:hover,a:focus-visible{color:#EDEFEC;background-size:100% 1px}
+main a:not(.btn):not(.cta),footer a:not(.btn):not(.cta){background-size:100% 1px;background-image:linear-gradient(rgba(111,203,146,.5),rgba(111,203,146,.5))}
+main a:not(.btn):not(.cta):hover,main a:not(.btn):not(.cta):focus-visible,footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible{background-image:linear-gradient(#6FCB92,#6FCB92)}
+header .brand,header nav a,a.btn,a.cta{background-image:none}
+a:focus-visible,button:focus-visible{outline:2px solid #6FCB92;outline-offset:3px}
+
+button,a.btn{transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
+button:hover,button:focus-visible,a.btn:hover,a.btn:focus-visible{transform:translateY(-1px);background-color:rgba(111,203,146,.1);box-shadow:0 0 0 1px rgba(111,203,146,.35)}
+button:active,a.btn:active{transform:translateY(0)}
+
+a.cta{transition:transform .22s cubic-bezier(.2,.7,.3,1),background-color .22s ease,box-shadow .22s ease}
+a.cta:hover,a.cta:focus-visible{transform:translateY(-1px);background-color:#8AD9A8;box-shadow:0 6px 18px rgba(111,203,146,.22)}
+a.cta:active{transform:translateY(0);box-shadow:none}
+a.cta svg{transition:transform .22s cubic-bezier(.2,.7,.3,1)}
+a.cta:hover svg,a.cta:focus-visible svg{transform:translateX(3px)}
+
+header nav a[aria-current="page"]{color:#EDEFEC}
+header nav a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+
+header nav a{position:relative;transition:color .22s ease}
+header nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:#6FCB92;transform:scaleX(0);transform-origin:right;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
+header nav a:hover,header nav a:focus-visible{color:#EDEFEC}
+header nav a:hover::after,header nav a:focus-visible::after{transform:scaleX(1);transform-origin:left}
+header .brand span{background-image:linear-gradient(#6FCB92,#6FCB92);background-repeat:no-repeat;background-position:0 100%;background-size:0 1px;transition:background-size .3s cubic-bezier(.2,.7,.3,1),color .22s ease}
+header .brand:hover span,header .brand:focus-visible span{background-size:100% 1px}
+@media (prefers-reduced-motion:reduce){a,button,a.btn,a.cta,a.cta svg,header nav a::after,header .brand span{transition:none}a.cta:hover,a.cta:hover svg,button:hover,a.btn:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -50,21 +105,8 @@
 
 
 <header style="position:sticky;top:0;z-index:50;background:rgba(15,18,17,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(237,239,236,.09);">
-  <div class="wrap" style="max-width:1160px;margin:0 auto;padding:18px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
-    <a href="index.html" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 146" role="img" aria-label="Alejandro Velazquez" style="display:block;width:auto;height:30px;flex:none">
-
-<g>
-                                            <path d="M106.761905,61.1022421 C107.438325,60.8883196 108.143812,60.7751196 108.869048,60.7751196 C113.911933,60.7751196 118,66.248385 118,73 C118,79.751615 113.911933,85.2248804 108.869048,85.2248804 C108.143812,85.2248804 107.438325,85.1116804 106.761905,84.8977579 L106.761905,104.7 C106.761905,127.50936 88.2712649,146 65.4619048,146 L51.8357143,146 C29.0263541,146 10.5357143,127.50936 10.5357143,104.7 L10.5357143,41.3 C10.5357143,18.4906398 29.0263541,4.19001149e-15 51.8357143,0 L65.4619048,0 C88.2712649,-4.19001149e-15 106.761905,18.4906398 106.761905,41.3 L106.761905,61.1022421 Z" id="Combined-Shape" fill="#6FCB92"></path>
-                                            <rect id="fmLefte" fill="#0F1211" x="2.80952381" y="41.215311" width="36.5238095" height="8.38277512" rx="1.4"></rect>
-                                            <rect id="fmRighte" fill="#0F1211" x="58.297619" y="41.215311" width="36.5238095" height="8.38277512" rx="1.4"></rect>
-                                            <rect id="Rectangle-46" fill="#EDEFEC" opacity="0.329352679" x="0" y="59.3779904" width="47.0595238" height="27.2440191" rx="7"></rect>
-                                            <rect id="Rectangle-47" fill="#0F1211" x="23.8809524" y="67.7607656" width="5.61904762" height="11.8755981" rx="2.8"></rect>
-                                            <rect id="Rectangle-48" fill="#0F1211" transform="translate(50.929976, 77.989290) rotate(-75.000000) translate(-50.929976, -77.989290) " x="33.3704525" y="68.558668" width="35.1190476" height="18.861244" rx="9.43062201"></rect>
-                                            <rect id="Rectangle-48" fill="#6FCB92" transform="translate(55.654021, 78.402022) rotate(-75.000000) translate(-55.654021, -78.402022) " x="38.0944967" y="68.9714001" width="35.1190476" height="18.861244" rx="9.43062201"></rect>
-                                            <rect id="Rectangle-46" fill="#EDEFEC" opacity="0.329352679" x="58" y="59" width="47.0595238" height="27.2440191" rx="7"></rect>
-                                            <rect id="Rectangle-47" fill="#0F1211" x="81" y="68" width="5.61904762" height="11.8755981" rx="2.8"></rect>
-                                            <path d="M50.2393595,110.143165 C50.2393595,117.322867 56.0596578,123.143165 63.2393595,123.143165 C70.4190613,123.143165 76.2393595,117.322867 76.2393595,110.143165" id="Oval-26" stroke="#0F1211" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" transform="translate(63.239360, 116.643165) rotate(-15.000000) translate(-63.239360, -116.643165) "></path>
-                                        </g></svg>Alejandro Velazquez</a>
+  <div class="wrap" style="max-width:1160px;margin:0 auto;padding:18px 56px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
+    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/nav-logo.svg" width="34" height="34" alt="" style="display:block;height:34px;width:34px;flex:none;"><span>Alejandro Velazquez</span></a>
     <nav style="display:flex;align-items:center;gap:22px;font-size:15px;">
       <a href="index.html#work" style="color:#A2ACA5;text-decoration:none;">Work</a>
       <a href="about.html" style="color:#A2ACA5;text-decoration:none;">About</a>
@@ -73,7 +115,7 @@
   </div>
 </header>
 
-<main id="main" class="wrap" style="max-width:1160px;margin:0 auto;padding:0 32px;">
+<main id="main" class="wrap" style="max-width:1160px;margin:0 auto;padding:0 56px;">
 
   <section style="max-width:700px;padding:110px 0 72px 0;">
     <div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:14px;letter-spacing:.1em;color:#6FCB92;margin-bottom:20px;">04: CASE STUDY</div>
