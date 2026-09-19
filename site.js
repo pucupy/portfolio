@@ -91,7 +91,7 @@
       }, { passive: true });
     }
     var blinkAt = performance.now() + 3000 + Math.random() * 3000, blink = 0;
-    var hover = false, hoverStart = 0;
+    var hover = false, hoverStart = 0, handGlow = 0;
     if (kind === 'hand') {
       cv.style.cursor = 'pointer';
       cv.addEventListener('pointerenter', function () { hover = true; hoverStart = 0; });
@@ -108,6 +108,7 @@
       }
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, cv.width, cv.height);
+      handGlow += ((hover ? 1 : 0) - handGlow) * 0.1;
       if (PAD) {
         ctx.translate(PAD * cw, chh);
         if (hover && !hoverStart) hoverStart = t;
@@ -122,9 +123,18 @@
       for (var m = 0; m < live.length; m++) {
         var ii = live[m], vv = lv[ii], qq = ii % COLS, rr = (ii - qq) / COLS;
         var a = alphaBase + (vv / 9) * alphaSpan;
-        ctx.fillStyle = (vv > 8 ? 'rgba(178,240,200,' : 'rgba(111,203,146,') + a.toFixed(2) + ')';
+        var dy = 0, rad = cw * (0.12 + (vv / 9) * 0.24), aa = a;
+        if (kind === 'hand') {
+          var nz = Math.sin(qq * 0.055 + rr * 0.10) * 0.55 + Math.sin(qq * 0.019 - rr * 0.16 + 1.3) * 0.32 + Math.sin((qq * 0.11 + rr * 0.037) + 2.6) * 0.20;
+          var nz2 = Math.sin(qq * 0.055 + (rr + 1) * 0.10) * 0.55 + Math.sin(qq * 0.019 - (rr + 1) * 0.16 + 1.3) * 0.32 + Math.sin((qq * 0.11 + (rr + 1) * 0.037) + 2.6) * 0.20;
+          var ridge = Math.pow(1 / (1 + Math.abs(nz2 - nz) * 0.9 * 2.6), 1.6);
+          dy = nz * chh * 0.1;
+          rad = cw * (0.07 + (vv / 9) * 0.1 + ridge * 0.14) * (1 + handGlow * 0.55);
+          aa = Math.min(1, Math.max(0.3, (0.2 + (vv / 9) * 0.62) * (0.62 + ridge * 0.48)) * (1 + handGlow * 0.6));
+        }
+        ctx.fillStyle = (vv > 8 ? 'rgba(178,240,200,' : 'rgba(111,203,146,') + aa.toFixed(2) + ')';
         ctx.beginPath();
-        ctx.arc(qq * cw + cw / 2, rr * chh + chh / 2, cw * (0.16 + (vv / 9) * 0.26), 0, 6.2832);
+        ctx.arc(qq * cw + cw / 2, rr * chh + chh / 2 + dy, rad, 0, 6.2832);
         ctx.fill();
       }
       if (kind === 'face') {
@@ -134,7 +144,7 @@
           if (blink) {
             ctx.shadowBlur = 0;
             ctx.fillStyle = 'rgba(111,203,146,0.8)';
-            for (var qd = -2; qd <= 2; qd++) { ctx.beginPath(); ctx.arc((e2.c + qd) * cw + cw / 2, e2.r * chh + chh / 2, cw * 0.22, 0, 6.2832); ctx.fill(); }
+            for (var qd = -2; qd <= 2; qd++) { ctx.beginPath(); ctx.arc((e2.c + qd) * cw + cw / 2, e2.r * chh + chh / 2, cw * 0.18, 0, 6.2832); ctx.fill(); }
             continue;
           }
           for (var q2 = -2; q2 <= 2; q2++) for (var r2 = -1; r2 <= 1; r2++) {
@@ -146,7 +156,7 @@
             ctx.shadowBlur = 5 * (1 - d2);
             ctx.fillStyle = 'rgba(224,255,235,' + a2.toFixed(2) + ')';
             ctx.beginPath();
-            ctx.arc(gq * cw + cw / 2, gr * chh + chh / 2, cw * (d2 < 0.5 ? 0.46 : 0.3), 0, 6.2832);
+            ctx.arc(gq * cw + cw / 2, gr * chh + chh / 2, cw * (d2 < 0.5 ? 0.42 : 0.27), 0, 6.2832);
             ctx.fill();
           }
         }
@@ -163,12 +173,17 @@
 
   function startField(cv) {
     var ctx = cv.getContext('2d');
-    var CELL = 11, AMP = 13;
     var host = cv.parentNode;
-    var w = 0, h = 0, dpr = 1, pts = [];
-    var height = function (i, j) {
-      return AMP * (Math.sin(i * 0.17 + j * 0.09) + 0.62 * Math.sin(i * 0.06 - j * 0.16) + 0.42 * Math.sin((i + j) * 0.045 + 1.7));
+    var CELL = 8, AMP = 52;
+    var noise = function (x, y) {
+      return Math.sin(x * 0.055 + y * 0.10) * 0.55
+        + Math.sin(x * 0.019 - y * 0.16 + 1.3) * 0.32
+        + Math.sin((x * 0.11 + y * 0.037) + 2.6) * 0.20
+        + Math.sin(x * 0.007 + y * 0.28 + 4.1) * 0.13;
     };
+
+    var w = 0, h = 0, dpr = 1, pts = [];
+
     var build = function () {
       var rect = cv.getBoundingClientRect();
       if (!rect.width || !rect.height) return false;
@@ -177,20 +192,16 @@
       cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       pts = [];
-      var cols = Math.max(2, Math.round(w / CELL)), rows = Math.max(2, Math.round((h - 2 * AMP) / CELL));
-      var stepX = w / (cols - 1), stepY = (h - 2 * AMP) / (rows - 1);
-      var focus = parseFloat(cv.getAttribute('data-focus') || '0.5');
+      var cols = Math.max(2, Math.round(w / CELL)), rows = Math.max(2, Math.round(h / CELL));
+      var stepX = w / (cols - 1), stepY = h / (rows - 1);
       for (var j = 0; j < rows; j++) for (var i = 0; i < cols; i++) {
-        var y0 = AMP + j * stepY, hgt = height(i, j);
-        var crest = (hgt + 2.1) / 4.2;
-        var dxn = Math.min(1, Math.abs((i * stepX) / w - focus) / 0.5);
-        var fx = 0.12 + 0.88 * Math.pow(dxn, 1.6);
-        var fy = Math.min(1, Math.min(y0, h - y0) / (h * 0.35));
-        pts.push({
-          x: i * stepX, y: y0 + hgt,
-          a: (0.025 + Math.max(0, crest) * 0.15) * fx * Math.max(0.25, fy),
-          r: 0.75 + Math.max(0, crest) * 0.65
-        });
+        var x = i * stepX, by = j * stepY;
+        var n = noise(i, j);
+        var y = by + n * AMP;
+        if (y < -AMP || y > h + AMP) continue;
+        var slope = Math.abs(noise(i, j + 1) - n) * AMP / stepY;
+        var ridge = Math.pow(1 / (1 + slope * 2.6), 1.6);
+        pts.push({ x: x, y: y, a: 0.035 + ridge * 0.36, r: 0.42 + ridge * 0.9, p: (i * 0.19 + j * 0.11) });
       }
       return true;
     };
@@ -200,11 +211,11 @@
       ctx.clearRect(0, 0, w, h);
       for (var n = 0; n < pts.length; n++) {
         var p = pts[n];
-        var beat = 0.68 + 0.5 * Math.sin(p.x * 0.011 + p.y * 0.006 - t * 0.0015);
+        var beat = 0.82 + 0.26 * Math.sin(p.p - t * 0.0012);
         var a = p.a * beat, r = p.r * (0.9 + 0.22 * beat);
         if (ptr.on > 0.01) {
           var d = Math.sqrt((p.x - ptr.x) * (p.x - ptr.x) + (p.y - ptr.y) * (p.y - ptr.y));
-          if (d < R) { var f = (1 - d / R) * (1 - d / R) * ptr.on; a = Math.min(0.62, a + f * 0.42); r = r + f * 0.8; }
+          if (d < R) { var f = (1 - d / R) * (1 - d / R) * ptr.on; a = Math.min(0.68, a + f * 0.46); var swell = 0.55 + 0.75 * (0.5 + 0.5 * Math.sin(p.x * 0.05 + p.y * 0.07)); r = r + f * swell; }
         }
         ctx.fillStyle = 'rgba(111,203,146,' + a.toFixed(3) + ')';
         ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, 6.2832); ctx.fill();
