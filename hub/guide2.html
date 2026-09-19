@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head><meta name="robots" content="noindex">
+      <title>Demo</title>
+      <link rel="stylesheet" type="text/css" href="yapilyui.css">
+      <link rel="shortcut icon" href="icons/icon-48x48.png">
+
+      <script src="js/highlight.pack.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="UTF-8">
+      <script async="" src="js/back.js"></script>
+   </head>
+   <body class="fixed-width grid-dashboard applications guide" >
+      <script>hljs.initHighlightingOnLoad();</script>
+      <header id="top" class="flex justify-space-between">
+         <div class="isologo">
+            <svg width="171" height="29" viewBox="0 0 171 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <g clip-path="url(#clip0)">
+                  <path d="M51.2952 13.9202L45.8099 4.47302H41.9043L49.3999 18.1423V24.5734H53.2484V17.9981L60.5692 4.47302H56.6926L51.2952 13.9202Z" />
+                  <path d="M74.1762 4.47278L65.3594 24.5732H69.352L71.1321 20.3247H80.952L82.7329 24.5732H86.868L78.1671 4.47278H74.1762ZM72.5104 17.0204L76.0706 8.57969L79.5736 17.0204H72.5104Z" />
+                  <path d="M109.336 6.28272C107.948 5.07666 105.991 4.47278 103.463 4.47278H95.2227V24.5732H99.0711V18.6572H103.463C105.991 18.6572 107.948 18.0226 109.336 16.7492C110.724 15.4757 111.417 13.6914 111.417 11.3944C111.417 9.1921 110.724 7.48878 109.336 6.28272ZM106.609 14.3225C105.832 14.9537 104.718 15.2702 103.262 15.2702H99.0711V7.83251H103.262C104.718 7.83251 105.832 8.13872 106.609 8.75113C107.384 9.3644 107.77 10.283 107.77 11.5087C107.771 12.7531 107.384 13.6905 106.609 14.3225Z" />
+                  <path d="M123.709 4.47278H119.861V24.5723H123.709V4.47278Z" />
+                  <path d="M138.352 4.47278H134.506V24.5732H147.024V21.0983H138.352V4.47278Z" />
+                  <path d="M166.359 4.47278L160.96 13.92L155.475 4.47278H151.571L159.066 18.142V24.5732H162.914V17.9987L170.236 4.47278H166.359Z" />
+                  <path d="M24.4686 0.0479561C21.8314 0.0837796 19.722 2.25025 19.757 4.88669L19.8005 8.07584C19.8073 8.64049 19.5907 9.18466 19.1975 9.58981L19.0397 9.75187C18.6456 10.1587 18.1049 10.3924 17.5385 10.3992L17.0881 10.4061C17.089 10.4061 17.089 10.4069 17.089 10.4086C16.3427 9.92928 15.4514 9.65463 14.4978 9.66657C13.6806 9.67766 12.9156 9.89772 12.2503 10.2756C12.1027 10.2687 11.9577 10.256 11.8084 10.2577L11.7573 10.2585C11.1935 10.2662 10.6484 10.0504 10.2441 9.65634C9.83644 9.26143 9.60444 8.72151 9.59591 8.15431L9.55156 4.76301C9.51574 2.12657 7.34927 0.0163973 4.71112 0.0513679C2.07383 0.0863385 -0.0363506 2.25366 -0.000527111 4.89096C0.0344435 7.52825 2.20177 9.63757 4.83821 9.6026L8.02736 9.55996C8.592 9.55228 9.13618 9.76893 9.54133 10.163L9.70424 10.3199C10.1102 10.7157 10.3431 11.2573 10.3508 11.8228L10.3576 12.2723C10.3593 12.2715 10.361 12.2706 10.3627 12.2697C10.0403 12.9171 9.86033 13.6472 9.86971 14.4209C9.8825 15.3455 10.1657 16.2035 10.6382 16.9251C10.6374 17.0138 10.628 17.1017 10.628 17.1921L10.6288 17.2424C10.6356 17.807 10.4199 18.3512 10.0258 18.7555C9.63174 19.1641 9.09097 19.3961 8.52462 19.4037L5.13418 19.4481C2.49603 19.4822 0.386708 21.6495 0.421679 24.2877C0.456649 26.9258 2.62483 29.0343 5.26127 28.9993C7.89941 28.9652 10.0087 26.797 9.97291 24.1589L9.93112 20.9706C9.92344 20.4068 10.1401 19.8618 10.5333 19.4566L10.6902 19.2954C11.086 18.8877 11.6259 18.6549 12.1931 18.648L12.6418 18.6421C12.6409 18.6387 12.6384 18.6344 12.6366 18.6301C13.2422 18.9039 13.9144 19.0566 14.6223 19.0464C17.2127 19.0122 19.2836 16.8833 19.2495 14.2938C19.2435 13.8255 19.1668 13.3735 19.0329 12.9487C19.0764 12.5913 19.1054 12.228 19.1011 11.8569V11.8057C19.0943 11.242 19.3101 10.6969 19.7033 10.2926C20.0973 9.88493 20.6381 9.65293 21.2053 9.6444L24.5966 9.60004C27.2339 9.56422 29.3441 7.39775 29.3091 4.7596C29.2733 2.12231 27.1059 0.0112796 24.4686 0.0479561Z" />
+               </g>
+               <defs>
+                  <clipPath id="clip0">
+                     <path d="M0 0H170.588V29H0V0Z" fill="white"/>
+                  </clipPath>
+               </defs>
+            </svg>
+            <!--<span class="staging normal">STAGING</span>-->
+         </div>
+         <div class="subnavMenu back-yapily">
+            <a href="index.html"><button class="secondary prototype">&larr; Demos & Guides</button></a>
+         </div>
+      </header>
+      <main>
+         <div>
+            <div class="subgrid2 card opacity">
+               <div class="flex justify-center">
+                  <div class=" iphone walldo">
+                     <div class="iphone-content flex ">
+                        <div class="flex align-center mobile-header justify-space-between">
+                           <button class="secondary " onclick="goBack()">
+                              <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M15.1414 4.09429L7.23573 12L15.1414 19.9057C15.33 20.0943 15.4243 20.3176 15.4243 20.5757C15.4243 20.8337 15.33 21.0571 15.1414 21.2457L12.67 23.7171C12.4814 23.9057 12.2581 24 12 24C11.7419 24 11.5186 23.9057 11.33 23.7171L0.282878 12.67C0.0942928 12.4814 0 12.2581 0 12C0 11.7419 0.0942928 11.5186 0.282878 11.33L11.33 0.282878C11.5186 0.0942928 11.7419 0 12 0C12.2581 0 12.4814 0.0942928 12.67 0.282878L15.1414 2.75434C15.33 2.94293 15.4243 3.16625 15.4243 3.42432C15.4243 3.68238 15.33 3.90571 15.1414 4.09429Z" fill="#0bc155"/>
+                              </svg>
+                           </button>
+                           <h2 class="no-margin align-self-center">Choose bank</h2>
+                           <div class="justify-right">
+                              <img src="img/profile.jpeg" class="user-profile">
+                           </div>
+                        </div>
+                        <div class="select-institutions mobile" id="monzo">
+                           <form>
+                              <div class="search">
+                                 <input type="text" placeholder="Search" id="input-search" class="width-100 margin-bottom-normal input-icon">
+                              </div>
+                           </form>
+                           <div class="institutions-container subgrid2 ">
+                              <div class="select-institution-container ">
+                                 <a  href="guide3.html">
+                                    <div class="listed-institution cta">
+                                       <div class="institution-apps-name-logo2">
+                                          <div class="institution-apps-name-logo2" >
+                                             <img src="img/monzo.png"  class=""><small>Monzo</small>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <!--end institution-->
+
+                              <!--end institution-->
+                              <div class="select-institution-container">
+                                 <a href="#monzo">
+                                    <div class="listed-institution">
+                                       <div class="institution-apps-name-logo2">
+                                          <img src="img/aib.png"  class=""><small>Allied Irish Bank</small>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <!--end institution-->
+                              <div class="select-institution-container">
+                           <a href="#monzo">
+                                    <div class="listed-institution ">
+                                       <div class="institution-apps-name-logo2">
+                                          <img src="img/boi.png"  class=""><small> Bank of Ireland (UK)</small>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <!--end institution-->
+                              <div class="select-institution-container">
+                               <a href="#monzo">
+                                    <div class="listed-institution ">
+                                       <div class="institution-apps-name-logo2">
+                                          <img src="img/barclays.png"  class=""><small> Barclays</small>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <!--end institution-->
+                              <div class="select-institution-container">
+                             <a href="#monzo">
+                                    <div class="listed-institution ">
+                                       <div class="institution-apps-name-logo2">
+                                          <img src="img/hsbc.png"  class=""><small> HSBC</small>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <!--end institution-->
+                              <div class="select-institution-container ">
+                                   <a href="#monzo">
+                                    <div class="listed-institution ">
+                                       <div class="institution-apps-name-logo2">
+                                          <img src="img/lloyds.png"  class=""><small>Lloyds</small>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <!--end institution-->
+                              <div class="select-institution-container ">
+                             <a href="#monzo">
+                                    <div class="listed-institution ">
+                                       <div class="institution-apps-name-logo2">
+                                          <img src="img/nationwide.png"  class=""><small>Nationwide Building Society</small>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <!--end institution-->
+                              <div class="select-institution-container ">
+                                   <a href="#monzo">
+                                    <div class="listed-institution ">
+                                       <div class="institution-apps-name-logo2">
+                                          <img src="img/rbs.png"  class=""><small>The Royal Bank of Scotland  </small>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <!--end institution-->
+                              <div class="select-institution-container ">
+                               <a href="#monzo">
+                                    <div class="listed-institution ">
+                                       <div class="institution-apps-name-logo2">
+                                          <img src="img/santander.png"  class=""><small>Santander UK </small>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <!--end institution-->
+                              <div class="select-institution-container ">
+                               <a href="#monzo">
+                                    <div class="listed-institution ">
+                                       <div class="institution-apps-name-logo2">
+                                          <img src="img/starling.png"  class=""><small>Starling</small>
+                                       </div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <!--end institution-->
+                           </div>
+                        </div>
+                        <!--end institutio container-->
+                     </div>
+                  </div>
+               </div>
+               <div class="flex center-flex">
+                  <div class="no-code margin-bottom-big flex center-flex ">
+                     <div>
+                       <div class="margin-bottom-big">
+                         <div class="pagination flex light-text justify-flex-end margin-bottom-big">
+
+                            <div class="pages"> <a href="guide1.html" class="prototype"><button class="secondary">&larr;</button></a><span class="current-number">2 of 7</span><a href="guide3.html" class="prototype"><button class="secondary">&rarr;</button></a>
+                            </div>
+                         </div>
+                        <span>📱In your app</span>
+                        <h1>Bank selection</h1>
+                        <div class="">
+                        <p>
+                          When Shirley selects the button to add a new account, the Walldo Pay app displays a view where she can select the bank that holds her account(s).
+                          This is a list she can scroll through or filter through with using the search bar.
+                          Shirley selects ‘Monzo’ as the bank she wishes to add.
+
+                        </p>
+                      </div>
+
+             <div >
+<div class="margin-bottom-big">
+                        <h2 >Behind the scenes</h2>
+                        <p>
+
+
+To display the list of institutions, you call the
+<em>GET /institutions</em> endpoint.
+                        </p>
+
+
+<p>
+
+
+
+This will return all the institutions you have added to your Yapily application.
+Each institution will also provide logo and icon resources to display the banks branding.
+</p>
+</div>
+<h3 class="no-margin">Response:</h3>
+                        <pre class="margin-bottom-big">
+         <code>
+           {
+   "meta":{
+      "tracingId":"cb99c4a489b1700ebe8985a82d85f33a",
+      "count":10
+   },
+   "data":[
+      {
+         "id":"monzo_ob",
+         "name":"Monzo",
+         "fullName":"Monzo",
+         "countries":[
+            {
+               "displayName":"United Kingdom",
+               "countryCode2":"UK"
+            }
+         ],
+         "environmentType":"LIVE",
+         "credentialsType":"OPEN_BANKING_UK_AUTO",
+         "media":[
+            {
+               "source":"https://images.yapily.com/image/332bb781-3cc2-4f3e-ae79-1aba09fac991?size=0",
+               "type":"logo"
+            },
+            {
+               "source":"https://images.yapily.com/image/f70dc041-c7a5-47d3-9c6b-846778eac01a?size=0",
+               "type":"icon"
+            }
+         ],
+         "features":[
+            "ACCOUNT_SCHEDULED_PAYMENTS",
+            "ACCOUNT_TRANSACTIONS",
+            "CREATE_DOMESTIC_PERIODIC_PAYMENT",
+            "EXISTING_PAYMENTS_DETAILS",
+            "ACCOUNTS",
+            "IDENTITY",
+            "INITIATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "EXISTING_PAYMENT_INITIATION_DETAILS",
+            "CREATE_SINGLE_PAYMENT_SORTCODE",
+            "CREATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "CREATE_DOMESTIC_SINGLE_PAYMENT",
+            "INITIATE_DOMESTIC_PERIODIC_PAYMENT",
+            "INITIATE_ACCOUNT_REQUEST",
+            "ACCOUNT_PERIODIC_PAYMENTS",
+            "ACCOUNT_DIRECT_DEBITS",
+            "ACCOUNT",
+            "ACCOUNT_TRANSACTIONS_WITH_MERCHANT",
+            "INITIATE_SINGLE_PAYMENT_SORTCODE",
+            "ACCOUNT_REQUEST_DETAILS",
+            "INITIATE_DOMESTIC_SINGLE_PAYMENT"
+         ],
+         "monitoring":{
+            "INITIATE_ACCOUNT_REQUEST":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:24:23.870Z",
+               "span":"P1DT13H33M17.276S"
+            },
+            "CREATE_SINGLE_PAYMENT_SORTCODE":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T08:56:47.499Z",
+               "span":"PT46M2.642S"
+            },
+            "ACCOUNT_SCHEDULED_PAYMENTS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:30:57.024Z",
+               "span":"PT8H41M39.54S"
+            },
+            "ACCOUNT_PERIODIC_PAYMENTS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:30:56.483Z",
+               "span":"PT8H41M39.931S"
+            },
+            "INITIATE_DOMESTIC_PERIODIC_PAYMENT":{
+               "status":"Expired",
+               "lastTested":"2020-07-20T12:35:15.919Z",
+               "span":"P1DT21H7M34.222S"
+            },
+            "ACCOUNT_DIRECT_DEBITS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:30:55.373Z",
+               "span":"PT8H41M40.336S"
+            },
+            "ACCOUNT":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:30:53.394Z",
+               "span":"PT8H41M41.679S"
+            },
+            "ACCOUNTS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:41:17.537Z",
+               "span":"PT8H41M42.191S"
+            },
+            "IDENTITY":{
+               "status":"Expired",
+               "lastTested":"2020-07-21T19:03:29.354Z",
+               "span":"PT14H39M20.787S"
+            },
+            "CREATE_DOMESTIC_PERIODIC_PAYMENT":{
+               "status":"Expired",
+               "lastTested":"2020-07-10T10:46:18.158Z",
+               "span":"P11DT22H56M31.983S"
+            },
+            "INITIATE_SINGLE_PAYMENT_SORTCODE":{
+               "status":"Up",
+               "lastTested":"2020-07-22T09:06:15.444Z",
+               "span":"PT4H9M3.956S"
+            },
+            "ACCOUNT_TRANSACTIONS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:30:54.047Z",
+               "span":"PT8H41M41.303S"
+            },
+            "EXISTING_PAYMENT_INITIATION_DETAILS":{
+               "status":"Expired",
+               "lastTested":"2020-07-20T17:13:02.673Z",
+               "span":"P1DT16H29M47.468S"
+            },
+            "EXISTING_PAYMENTS_DETAILS":{
+               "status":"Expired",
+               "lastTested":"2020-07-10T12:13:34.823Z",
+               "span":"P11DT21H29M15.318S"
+            }
+         }
+      },
+      {
+         "id":"aibgb",
+         "name":"Allied Irish Bank",
+         "fullName":"Allied Irish Bank",
+         "countries":[
+            {
+               "displayName":"United Kingdom",
+               "countryCode2":"UK"
+            }
+         ],
+         "environmentType":"LIVE",
+         "credentialsType":"OPEN_BANKING_UK_MANUAL",
+         "media":[
+            {
+               "source":"https://images.yapily.com/image/a6b19b0d-e648-431d-a653-7d85e9fa8f4d?size=0",
+               "type":"logo"
+            },
+            {
+               "source":"https://images.yapily.com/image/127fb30b-31ad-434c-91a7-6e5ab450e0d3?size=0",
+               "type":"icon"
+            }
+         ],
+         "features":[
+            "PERIODIC_PAYMENT_FREQUENCY_EXTENDED",
+            "ACCOUNT_TRANSACTIONS",
+            "CREATE_DOMESTIC_PERIODIC_PAYMENT",
+            "EXISTING_PAYMENTS_DETAILS",
+            "INITIATE_INTERNATIONAL_SINGLE_PAYMENT",
+            "CREATE_INTERNATIONAL_SINGLE_PAYMENT",
+            "ACCOUNTS",
+            "INITIATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "EXISTING_PAYMENT_INITIATION_DETAILS",
+            "CREATE_SINGLE_PAYMENT_SORTCODE",
+            "CREATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "CREATE_DOMESTIC_SINGLE_PAYMENT",
+            "INITIATE_DOMESTIC_PERIODIC_PAYMENT",
+            "INITIATE_ACCOUNT_REQUEST",
+            "ACCOUNT_PERIODIC_PAYMENTS",
+            "ACCOUNT_DIRECT_DEBITS",
+            "ACCOUNT",
+            "ACCOUNT_TRANSACTIONS_WITH_MERCHANT",
+            "INITIATE_SINGLE_PAYMENT_SORTCODE",
+            "ACCOUNT_REQUEST_DETAILS",
+            "INITIATE_DOMESTIC_SINGLE_PAYMENT"
+         ],
+         "monitoring":{
+            "ACCOUNT_TRANSACTIONS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:31:13.400Z",
+               "span":"PT8H42M54.303S"
+            },
+            "ACCOUNT_DIRECT_DEBITS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:31:16.616Z",
+               "span":"PT8H42M51.252S"
+            },
+            "ACCOUNTS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:31:11.572Z",
+               "span":"PT8H42M56.45S"
+            },
+            "INITIATE_DOMESTIC_PERIODIC_PAYMENT":{
+               "status":"Expired",
+               "lastTested":"2020-01-29T16:03:28.853Z",
+               "span":"P174DT17H40M54.377S"
+            },
+            "ACCOUNT_REQUEST_DETAILS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:30:35.165Z",
+               "span":"PT8H43M33.585S"
+            },
+            "ACCOUNT_PERIODIC_PAYMENTS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:31:17.481Z",
+               "span":"PT8H42M50.365S"
+            },
+            "INITIATE_ACCOUNT_REQUEST":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:30:34.042Z",
+               "span":"PT8H43M34.717S"
+            },
+            "ACCOUNT":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:31:14.492Z",
+               "span":"PT8H42M53.325S"
+            },
+            "INITIATE_SINGLE_PAYMENT_SORTCODE":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T01:01:05.101Z",
+               "span":"PT8H43M18.129S"
+            }
+         }
+      },
+      {
+         "id":"bankofireland_uk",
+         "name":"Bank of Ireland UK",
+         "fullName":"Bank of Ireland (UK) plc",
+         "countries":[
+            {
+               "displayName":"United Kingdom",
+               "countryCode2":"UK"
+            }
+         ],
+         "environmentType":"LIVE",
+         "credentialsType":"OPEN_BANKING_UK_AUTO",
+         "media":[
+            {
+               "source":"https://images.yapily.com/image/45e3b36d-a177-4323-b662-a58082fe407b?size=0",
+               "type":"icon"
+            },
+            {
+               "source":"https://images.yapily.com/image/f0fbffaf-7716-402a-a924-cebefe894306?size=0",
+               "type":"logo"
+            }
+         ],
+         "features":[
+            "ACCOUNT_SCHEDULED_PAYMENTS",
+            "ACCOUNT_TRANSACTIONS",
+            "EXISTING_PAYMENTS_DETAILS",
+            "ACCOUNTS",
+            "INITIATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "EXISTING_PAYMENT_INITIATION_DETAILS",
+            "CREATE_SINGLE_PAYMENT_SORTCODE",
+            "CREATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "CREATE_DOMESTIC_SINGLE_PAYMENT",
+            "INITIATE_ACCOUNT_REQUEST",
+            "ACCOUNT_PERIODIC_PAYMENTS",
+            "ACCOUNT_DIRECT_DEBITS",
+            "ACCOUNT",
+            "ACCOUNT_TRANSACTIONS_WITH_MERCHANT",
+            "INITIATE_SINGLE_PAYMENT_SORTCODE",
+            "ACCOUNT_REQUEST_DETAILS",
+            "INITIATE_DOMESTIC_SINGLE_PAYMENT"
+         ],
+         "monitoring":{
+            "INITIATE_ACCOUNT_REQUEST":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:31:08.646Z",
+               "span":"PT8H44M9.476S"
+            },
+            "ACCOUNT_SCHEDULED_PAYMENTS":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T08:03:23.738Z",
+               "span":"PT1H42M8.481S"
+            },
+            "ACCOUNT_PERIODIC_PAYMENTS":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T08:02:16.764Z",
+               "span":"PT1H43M15.455S"
+            },
+            "ACCOUNT_DIRECT_DEBITS":{
+               "status":"Expired",
+               "lastTested":"2019-10-29T11:06:10.093Z",
+               "span":"P266DT22H39M22.126S"
+            },
+            "INITIATE_SINGLE_PAYMENT_SORTCODE":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T01:01:14.191Z",
+               "span":"PT8H44M18.028S"
+            },
+            "ACCOUNT_TRANSACTIONS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T09:41:53.207Z",
+               "span":"PT14H44M0.442S"
+            },
+            "ACCOUNT_REQUEST_DETAILS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:31:09.207Z",
+               "span":"PT8H44M8.988S"
+            },
+            "ACCOUNT":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T08:02:10.513Z",
+               "span":"PT1H43M21.706S"
+            },
+            "INITIATE_DOMESTIC_SCHEDULED_PAYMENT":{
+               "status":"Expired",
+               "lastTested":"2020-02-06T11:22:38.072Z",
+               "span":"P166DT22H22M54.147S"
+            },
+            "ACCOUNTS":{
+               "status":"Down",
+               "lastTested":"2020-07-22T10:31:24.007Z",
+               "span":"PT44M1.123S"
+            }
+         }
+      },
+      {
+         "id":"barclays",
+         "name":"Barclays (Personal and Business)",
+         "fullName":"Barclays Bank PLC (Personal and Business)",
+         "countries":[
+            {
+               "displayName":"United Kingdom",
+               "countryCode2":"UK"
+            }
+         ],
+         "environmentType":"LIVE",
+         "credentialsType":"OPEN_BANKING_UK_MANUAL",
+         "media":[
+            {
+               "source":"https://images.yapily.com/image/c89a8774-9e57-4064-8db5-155add2814e2?size=0",
+               "type":"logo"
+            },
+            {
+               "source":"https://images.yapily.com/image/85005450-34d3-44ad-b574-df6120027e48?size=0",
+               "type":"icon"
+            }
+         ],
+         "features":[
+            "CREATE_INTERNATIONAL_SCHEDULED_PAYMENT",
+            "ACCOUNT_TRANSACTIONS",
+            "CREATE_DOMESTIC_PERIODIC_PAYMENT",
+            "CREATE_INTERNATIONAL_SINGLE_PAYMENT",
+            "ACCOUNTS",
+            "IDENTITY",
+            "CREATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "INITIATE_DOMESTIC_PERIODIC_PAYMENT",
+            "INITIATE_ACCOUNT_REQUEST",
+            "ACCOUNT_PERIODIC_PAYMENTS",
+            "ACCOUNT",
+            "CREATE_BULK_PAYMENT",
+            "INITIATE_SINGLE_PAYMENT_SORTCODE",
+            "ACCOUNT_REQUEST_DETAILS",
+            "INITIATE_DOMESTIC_SINGLE_PAYMENT",
+            "OPEN_DATA_PERSONAL_CURRENT_ACCOUNTS",
+            "INITIATE_INTERNATIONAL_SCHEDULED_PAYMENT",
+            "PERIODIC_PAYMENT_FREQUENCY_EXTENDED",
+            "ACCOUNT_SCHEDULED_PAYMENTS",
+            "EXISTING_PAYMENTS_DETAILS",
+            "INITIATE_INTERNATIONAL_SINGLE_PAYMENT",
+            "INITIATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "EXISTING_PAYMENT_INITIATION_DETAILS",
+            "CREATE_SINGLE_PAYMENT_SORTCODE",
+            "CREATE_DOMESTIC_SINGLE_PAYMENT",
+            "INITIATE_BULK_PAYMENT",
+            "ACCOUNT_DIRECT_DEBITS",
+            "ACCOUNT_TRANSACTIONS_WITH_MERCHANT"
+         ],
+         "monitoring":{
+            "INITIATE_SINGLE_PAYMENT_SORTCODE":{
+               "status":"Expired",
+               "lastTested":"2020-07-21T12:51:01.304Z",
+               "span":"PT20H55M33.987S"
+            },
+            "EXISTING_PAYMENT_INITIATION_DETAILS":{
+               "status":"Expired",
+               "lastTested":"2020-07-20T07:15:06.827Z",
+               "span":"P2DT2H31M28.464S"
+            },
+            "PERIODIC_PAYMENT_FREQUENCY_EXTENDED":{
+               "status":"Expired",
+               "lastTested":"2020-07-18T23:00:04.529Z",
+               "span":"P3DT10H46M30.762S"
+            },
+            "EXISTING_PAYMENTS_DETAILS":{
+               "status":"Expired",
+               "lastTested":"2020-07-21T12:51:09.769Z",
+               "span":"PT20H55M25.522S"
+            },
+            "IDENTITY":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:27:14.108Z",
+               "span":"PT8H42M33.63S"
+            },
+            "INITIATE_BULK_PAYMENT":{
+               "status":"Expired",
+               "lastTested":"2020-05-21T09:30:10.433Z",
+               "span":"P62DT16M24.858S"
+            },
+            "ACCOUNT_TRANSACTIONS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:44:55.736Z",
+               "span":"PT8H42M39.467S"
+            },
+            "INITIATE_ACCOUNT_REQUEST":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:26:44.259Z",
+               "span":"PT8H43M11.559S"
+            },
+            "INITIATE_INTERNATIONAL_SINGLE_PAYMENT":{
+               "status":"Expired",
+               "lastTested":"2020-01-21T09:39:43.238Z",
+               "span":"P183DT6M52.053S"
+            },
+            "INITIATE_DOMESTIC_PERIODIC_PAYMENT":{
+               "status":"Expired",
+               "lastTested":"2020-07-18T22:37:14.718Z",
+               "span":"P3DT11H9M20.573S"
+            },
+            "ACCOUNTS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:44:53.712Z",
+               "span":"PT8H42M41.858S"
+            },
+            "ACCOUNT_DIRECT_DEBITS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:29:35.041Z",
+               "span":"PT8H42M36.969S"
+            },
+            "ACCOUNT":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:44:54.877Z",
+               "span":"PT8H42M38.541S"
+            },
+            "ACCOUNT_REQUEST_DETAILS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:33:05.096Z",
+               "span":"PT8H43M10.777S"
+            },
+            "ACCOUNT_PERIODIC_PAYMENTS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:33:42.104Z",
+               "span":"PT8H42M35.731S"
+            }
+         }
+      },
+      {
+         "id":"hsbc_uk",
+         "name":"HSBC Personal",
+         "fullName":"HSBC Personal",
+         "countries":[
+            {
+               "displayName":"United Kingdom",
+               "countryCode2":"UK"
+            }
+         ],
+         "environmentType":"LIVE",
+         "credentialsType":"OPEN_BANKING_UK_AUTO",
+         "media":[
+            {
+               "source":"https://images.yapily.com/image/ccd56ed6-c274-4c8e-a988-6cb8dda2fb1c?size=0",
+               "type":"logo"
+            },
+            {
+               "source":"https://images.yapily.com/image/fc734d3c-4480-471e-94ee-500f83ae3bae?size=0",
+               "type":"icon"
+            }
+         ],
+         "features":[
+            "CREATE_INTERNATIONAL_SCHEDULED_PAYMENT",
+            "ACCOUNT_TRANSACTIONS",
+            "CREATE_DOMESTIC_PERIODIC_PAYMENT",
+            "OPEN_DATA_ATMS",
+            "INITIATE_INTERNATIONAL_PERIODIC_PAYMENT",
+            "CREATE_INTERNATIONAL_SINGLE_PAYMENT",
+            "ACCOUNTS",
+            "IDENTITY",
+            "CREATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "INITIATE_DOMESTIC_PERIODIC_PAYMENT",
+            "INITIATE_ACCOUNT_REQUEST",
+            "ACCOUNT_PERIODIC_PAYMENTS",
+            "ACCOUNT",
+            "INITIATE_SINGLE_PAYMENT_SORTCODE",
+            "ACCOUNT_REQUEST_DETAILS",
+            "INITIATE_DOMESTIC_SINGLE_PAYMENT",
+            "OPEN_DATA_PERSONAL_CURRENT_ACCOUNTS",
+            "INITIATE_INTERNATIONAL_SCHEDULED_PAYMENT",
+            "PERIODIC_PAYMENT_FREQUENCY_EXTENDED",
+            "CREATE_INTERNATIONAL_PERIODIC_PAYMENT",
+            "ACCOUNT_SCHEDULED_PAYMENTS",
+            "EXISTING_PAYMENTS_DETAILS",
+            "INITIATE_INTERNATIONAL_SINGLE_PAYMENT",
+            "INITIATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "EXISTING_PAYMENT_INITIATION_DETAILS",
+            "CREATE_SINGLE_PAYMENT_SORTCODE",
+            "CREATE_DOMESTIC_SINGLE_PAYMENT",
+            "ACCOUNT_DIRECT_DEBITS",
+            "ACCOUNT_TRANSACTIONS_WITH_MERCHANT"
+         ],
+         "monitoring":{
+            "INITIATE_ACCOUNT_REQUEST":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:32:33.727Z",
+               "span":"PT8H44M4.181S"
+            },
+            "IDENTITY":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T07:05:07.709Z",
+               "span":"PT2H41M51.243S"
+            },
+            "ACCOUNT_PERIODIC_PAYMENTS":{
+               "status":"Expired",
+               "lastTested":"2020-07-13T07:54:44.109Z",
+               "span":"P9DT1H52M14.843S"
+            },
+            "ACCOUNT_SCHEDULED_PAYMENTS":{
+               "status":"Expired",
+               "lastTested":"2020-07-13T07:54:44.689Z",
+               "span":"P9DT1H52M14.263S"
+            },
+            "ACCOUNT_DIRECT_DEBITS":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T07:07:01.486Z",
+               "span":"PT2H39M57.466S"
+            },
+            "INITIATE_DOMESTIC_SINGLE_PAYMENT":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:00:02.213Z",
+               "span":"PT2H46M48.874S"
+            },
+            "ACCOUNT_TRANSACTIONS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:32:56.411Z",
+               "span":"PT8H43M42.233S"
+            },
+            "ACCOUNT_REQUEST_DETAILS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:32:34.363Z",
+               "span":"PT8H44M3.585S"
+            },
+            "ACCOUNT":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:32:55.355Z",
+               "span":"PT8H43M43.111S"
+            },
+            "EXISTING_PAYMENTS_DETAILS":{
+               "status":"Expired",
+               "lastTested":"2020-06-23T12:56:31.932Z",
+               "span":"P28DT20H50M27.02S"
+            },
+            "ACCOUNTS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:32:54.632Z",
+               "span":"PT8H43M43.851S"
+            },
+            "CREATE_DOMESTIC_SINGLE_PAYMENT":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T08:00:36.283Z",
+               "span":"PT1H46M22.669S"
+            }
+         }
+      },
+      {
+         "id":"lloyds",
+         "name":"Lloyds (Personal)",
+         "fullName":"Lloyds (Personal)",
+         "countries":[
+            {
+               "displayName":"United Kingdom",
+               "countryCode2":"UK"
+            }
+         ],
+         "environmentType":"LIVE",
+         "credentialsType":"OPEN_BANKING_UK_MANUAL",
+         "media":[
+            {
+               "source":"https://images.yapily.com/image/0b0567cd-1fe6-4ff2-a82e-da53361b6fef?size=0",
+               "type":"icon"
+            },
+            {
+               "source":"https://images.yapily.com/image/da8f3859-978a-4027-863f-5d01d794d4c4?size=0",
+               "type":"logo"
+            }
+         ],
+         "features":[
+            "OPEN_DATA_PERSONAL_CURRENT_ACCOUNTS",
+            "ACCOUNT_SCHEDULED_PAYMENTS",
+            "ACCOUNT_TRANSACTIONS",
+            "CREATE_DOMESTIC_PERIODIC_PAYMENT",
+            "EXISTING_PAYMENTS_DETAILS",
+            "ACCOUNT_STATEMENTS",
+            "INITIATE_INTERNATIONAL_SINGLE_PAYMENT",
+            "CREATE_INTERNATIONAL_SINGLE_PAYMENT",
+            "ACCOUNTS",
+            "INITIATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "EXISTING_PAYMENT_INITIATION_DETAILS",
+            "CREATE_SINGLE_PAYMENT_SORTCODE",
+            "CREATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "CREATE_DOMESTIC_SINGLE_PAYMENT",
+            "INITIATE_DOMESTIC_PERIODIC_PAYMENT",
+            "INITIATE_ACCOUNT_REQUEST",
+            "ACCOUNT_PERIODIC_PAYMENTS",
+            "ACCOUNT_STATEMENT_FILE",
+            "ACCOUNT_DIRECT_DEBITS",
+            "ACCOUNT",
+            "ACCOUNT_TRANSACTIONS_WITH_MERCHANT",
+            "INITIATE_SINGLE_PAYMENT_SORTCODE",
+            "ACCOUNT_REQUEST_DETAILS",
+            "INITIATE_DOMESTIC_SINGLE_PAYMENT"
+         ],
+         "monitoring":{
+            "CREATE_SINGLE_PAYMENT_SORTCODE":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T08:54:18.002Z",
+               "span":"PT53M17.995S"
+            },
+            "ACCOUNT_TRANSACTIONS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:30:31.138Z",
+               "span":"PT8H46M47.725S"
+            },
+            "INITIATE_INTERNATIONAL_SINGLE_PAYMENT":{
+               "status":"Expired",
+               "lastTested":"2020-01-17T15:56:18.884Z",
+               "span":"P186DT17H51M17.113S"
+            },
+            "INITIATE_ACCOUNT_REQUEST":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:30:10.328Z",
+               "span":"P5DT5H47M15.195S"
+            },
+            "CREATE_INTERNATIONAL_SINGLE_PAYMENT":{
+               "status":"Expired",
+               "lastTested":"2020-01-17T15:59:19.805Z",
+               "span":"P186DT17H48M16.192S"
+            },
+            "ACCOUNTS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:30:30.001Z",
+               "span":"PT8H46M49.582S"
+            },
+            "INITIATE_DOMESTIC_SINGLE_PAYMENT":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T08:52:20.041Z",
+               "span":"PT55M15.956S"
+            },
+            "ACCOUNT_DIRECT_DEBITS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:06:53.978Z",
+               "span":"PT40M42.019S"
+            },
+            "ACCOUNT":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:30:32.212Z",
+               "span":"P5DT5H46M48.076S"
+            },
+            "ACCOUNT_STATEMENTS":{
+               "status":"Expired",
+               "lastTested":"2020-07-13T08:22:04.026Z",
+               "span":"P9DT1H25M31.971S"
+            },
+            "ACCOUNT_STATEMENT_FILE":{
+               "status":"Expired",
+               "lastTested":"2020-07-13T08:20:19.492Z",
+               "span":"P9DT1H27M16.505S"
+            },
+            "ACCOUNT_PERIODIC_PAYMENTS":{
+               "status":"Expired",
+               "lastTested":"2020-07-17T17:31:21.085Z",
+               "span":"P4DT16H16M14.912S"
+            }
+         }
+      },
+      {
+         "id":"nationwide",
+         "name":"Nationwide",
+         "fullName":"Nationwide Building Society",
+         "countries":[
+            {
+               "displayName":"United Kingdom",
+               "countryCode2":"UK"
+            }
+         ],
+         "environmentType":"LIVE",
+         "credentialsType":"OPEN_BANKING_UK_AUTO",
+         "media":[
+            {
+               "source":"https://images.yapily.com/image/e1505c29-0522-4638-a9c2-44f36ac350b3?size=0",
+               "type":"logo"
+            },
+            {
+               "source":"https://images.yapily.com/image/ea319578-6cec-4724-af57-333d0ec43fc0?size=0",
+               "type":"icon"
+            }
+         ],
+         "features":[
+            "PERIODIC_PAYMENT_FREQUENCY_EXTENDED",
+            "ACCOUNT_SCHEDULED_PAYMENTS",
+            "ACCOUNT_TRANSACTIONS",
+            "CREATE_DOMESTIC_PERIODIC_PAYMENT",
+            "OPEN_DATA_ATMS",
+            "EXISTING_PAYMENTS_DETAILS",
+            "ACCOUNTS",
+            "IDENTITY",
+            "INITIATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "EXISTING_PAYMENT_INITIATION_DETAILS",
+            "CREATE_SINGLE_PAYMENT_SORTCODE",
+            "CREATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "CREATE_DOMESTIC_SINGLE_PAYMENT",
+            "INITIATE_DOMESTIC_PERIODIC_PAYMENT",
+            "INITIATE_ACCOUNT_REQUEST",
+            "ACCOUNT_PERIODIC_PAYMENTS",
+            "ACCOUNT_DIRECT_DEBITS",
+            "ACCOUNT",
+            "ACCOUNT_TRANSACTIONS_WITH_MERCHANT",
+            "INITIATE_SINGLE_PAYMENT_SORTCODE",
+            "ACCOUNT_REQUEST_DETAILS",
+            "INITIATE_DOMESTIC_SINGLE_PAYMENT"
+         ],
+         "monitoring":{
+            "ACCOUNT_TRANSACTIONS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:33:41.993Z",
+               "span":"PT8H44M8.935S"
+            },
+            "INITIATE_SINGLE_PAYMENT_SORTCODE":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T01:02:36.476Z",
+               "span":"PT8H45M31.828S"
+            },
+            "INITIATE_ACCOUNT_REQUEST":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:33:25.241Z",
+               "span":"PT14H44M33.216S"
+            },
+            "EXISTING_PAYMENTS_DETAILS":{
+               "status":"Expired",
+               "lastTested":"2020-07-21T12:53:06.295Z",
+               "span":"PT20H55M2.009S"
+            },
+            "IDENTITY":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T07:44:17.312Z",
+               "span":"PT2H3M50.992S"
+            },
+            "ACCOUNTS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:33:40.301Z",
+               "span":"PT8H44M10.379S"
+            },
+            "ACCOUNT_DIRECT_DEBITS":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T07:44:41.236Z",
+               "span":"PT2H3M27.068S"
+            },
+            "ACCOUNT_REQUEST_DETAILS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:33:25.580Z",
+               "span":"PT8H44M24.825S"
+            },
+            "ACCOUNT":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:33:43.104Z",
+               "span":"PT8H44M7.949S"
+            },
+            "ACCOUNT_PERIODIC_PAYMENTS":{
+               "status":"Expired",
+               "lastTested":"2020-06-07T18:00:38.825Z",
+               "span":"P44DT15H47M29.479S"
+            }
+         }
+      },
+      {
+         "id":"rbs",
+         "name":"Royal Bank of Scotland",
+         "fullName":"Royal Bank of Scotland",
+         "countries":[
+            {
+               "displayName":"United Kingdom",
+               "countryCode2":"UK"
+            }
+         ],
+         "environmentType":"LIVE",
+         "credentialsType":"OPEN_BANKING_UK_AUTO",
+         "media":[
+            {
+               "source":"https://images.yapily.com/image/7a689514-dda3-4550-917b-c0243a9eabd3?size=0",
+               "type":"logo"
+            },
+            {
+               "source":"https://images.yapily.com/image/694b1b08-bb78-40d8-bf58-aae12a40de99?size=0",
+               "type":"icon"
+            }
+         ],
+         "features":[
+            "OPEN_DATA_PERSONAL_CURRENT_ACCOUNTS",
+            "ACCOUNT_TRANSACTIONS",
+            "EXISTING_PAYMENTS_DETAILS",
+            "ACCOUNTS",
+            "INITIATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "EXISTING_PAYMENT_INITIATION_DETAILS",
+            "CREATE_SINGLE_PAYMENT_SORTCODE",
+            "CREATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "CREATE_DOMESTIC_SINGLE_PAYMENT",
+            "INITIATE_ACCOUNT_REQUEST",
+            "ACCOUNT_PERIODIC_PAYMENTS",
+            "ACCOUNT_DIRECT_DEBITS",
+            "ACCOUNT",
+            "ACCOUNT_TRANSACTIONS_WITH_MERCHANT",
+            "INITIATE_SINGLE_PAYMENT_SORTCODE",
+            "ACCOUNT_REQUEST_DETAILS",
+            "INITIATE_DOMESTIC_SINGLE_PAYMENT"
+         ],
+         "monitoring":{
+            "EXISTING_PAYMENTS_DETAILS":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T07:26:56.653Z",
+               "span":"PT2H21M40.666S"
+            },
+            "ACCOUNT_TRANSACTIONS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:48:32.011Z",
+               "span":"PT47M23.376S"
+            },
+            "INITIATE_DOMESTIC_SINGLE_PAYMENT":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T07:26:18.450Z",
+               "span":"PT2H22M18.869S"
+            },
+            "ACCOUNTS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:48:30.857Z",
+               "span":"PT47M24.557S"
+            },
+            "CREATE_SINGLE_PAYMENT_SORTCODE":{
+               "status":"Expired",
+               "lastTested":"2020-07-20T14:33:35.170Z",
+               "span":"P1DT19H15M2.149S"
+            },
+            "ACCOUNT_DIRECT_DEBITS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:31:10.702Z",
+               "span":"PT47M21.214S"
+            },
+            "ACCOUNT_REQUEST_DETAILS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:30:51.120Z",
+               "span":"PT8H47M24.985S"
+            },
+            "INITIATE_ACCOUNT_REQUEST":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:30:50.705Z",
+               "span":"PT47M42.898S"
+            },
+            "ACCOUNT_PERIODIC_PAYMENTS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:31:11.235Z",
+               "span":"PT8H47M6.534S"
+            },
+            "ACCOUNT":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:48:31.430Z",
+               "span":"PT47M22.292S"
+            },
+            "INITIATE_SINGLE_PAYMENT_SORTCODE":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T07:26:49.763Z",
+               "span":"PT2H21M47.556S"
+            }
+         }
+      },
+      {
+         "id":"santander_uk",
+         "name":"Santander",
+         "fullName":"Santander UK Plc",
+         "countries":[
+            {
+               "displayName":"United Kingdom",
+               "countryCode2":"UK"
+            }
+         ],
+         "environmentType":"LIVE",
+         "credentialsType":"OPEN_BANKING_UK_MANUAL",
+         "media":[
+            {
+               "source":"https://images.yapily.com/image/a32a626b-92e4-449f-843a-007ca9bb0240?size=0",
+               "type":"icon"
+            },
+            {
+               "source":"https://images.yapily.com/image/2caaa7bc-400b-4d63-9732-805e94739555?size=0",
+               "type":"logo"
+            }
+         ],
+         "features":[
+            "OPEN_DATA_PERSONAL_CURRENT_ACCOUNTS",
+            "ACCOUNT_SCHEDULED_PAYMENTS",
+            "ACCOUNT_TRANSACTIONS",
+            "OPEN_DATA_ATMS",
+            "EXISTING_PAYMENTS_DETAILS",
+            "ACCOUNT_STATEMENT",
+            "ACCOUNT_STATEMENTS",
+            "INITIATE_INTERNATIONAL_SINGLE_PAYMENT",
+            "CREATE_INTERNATIONAL_SINGLE_PAYMENT",
+            "ACCOUNTS",
+            "IDENTITY",
+            "INITIATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "EXISTING_PAYMENT_INITIATION_DETAILS",
+            "CREATE_SINGLE_PAYMENT_SORTCODE",
+            "CREATE_DOMESTIC_SCHEDULED_PAYMENT",
+            "CREATE_DOMESTIC_SINGLE_PAYMENT",
+            "INITIATE_ACCOUNT_REQUEST",
+            "ACCOUNT_PERIODIC_PAYMENTS",
+            "ACCOUNT_DIRECT_DEBITS",
+            "ACCOUNT",
+            "ACCOUNT_TRANSACTIONS_WITH_MERCHANT",
+            "INITIATE_SINGLE_PAYMENT_SORTCODE",
+            "ACCOUNT_REQUEST_DETAILS",
+            "INITIATE_DOMESTIC_SINGLE_PAYMENT"
+         ],
+         "monitoring":{
+            "CREATE_SINGLE_PAYMENT_SORTCODE":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T08:51:58.166Z",
+               "span":"PT57M1.467S"
+            },
+            "ACCOUNT_TRANSACTIONS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:31:52.422Z",
+               "span":"PT8H46M49.981S"
+            },
+            "INITIATE_ACCOUNT_REQUEST":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:22:14.386Z",
+               "span":"PT8H47M11.603S"
+            },
+            "EXISTING_PAYMENTS_DETAILS":{
+               "status":"Expired",
+               "lastTested":"2020-07-21T14:33:07.613Z",
+               "span":"PT19H15M52.02S"
+            },
+            "IDENTITY":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:33:59.537Z",
+               "span":"PT15M0.096S"
+            },
+            "ACCOUNTS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:43:19.828Z",
+               "span":"PT8H46M52.98S"
+            },
+            "ACCOUNT_DIRECT_DEBITS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:31:56.026Z",
+               "span":"PT8H46M46.19S"
+            },
+            "INITIATE_DOMESTIC_SINGLE_PAYMENT":{
+               "status":"Expired",
+               "lastTested":"2020-07-22T08:51:02.065Z",
+               "span":"PT57M57.568S"
+            },
+            "ACCOUNT":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:43:21.043Z",
+               "span":"PT8H46M48.806S"
+            },
+            "ACCOUNT_REQUEST_DETAILS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:42:57.163Z",
+               "span":"P1DT23H47M11.898S"
+            },
+            "ACCOUNT_PERIODIC_PAYMENTS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:31:57.469Z",
+               "span":"PT8H46M44.686S"
+            }
+         }
+      },
+      {
+         "id":"starling",
+         "name":"Starling Bank",
+         "fullName":"Starling Bank",
+         "countries":[
+            {
+               "displayName":"United Kingdom",
+               "countryCode2":"UK"
+            }
+         ],
+         "environmentType":"LIVE",
+         "credentialsType":"OAUTH2_SIGNATURE",
+         "media":[
+            {
+               "source":"https://images.yapily.com/image/17c5ba24-fff2-4ffd-b84d-b7697cb40232?size=0",
+               "type":"logo"
+            },
+            {
+               "source":"https://images.yapily.com/image/398dcc4d-b350-4b8d-8d3d-cbd105eb9c63?size=0",
+               "type":"icon"
+            }
+         ],
+         "features":[
+            "ACCOUNT_TRANSACTIONS",
+            "EXISTING_PAYMENTS_DETAILS",
+            "INITIATE_DOMESTIC_VARIABLE_RECURRING_PAYMENT",
+            "ACCOUNTS",
+            "IDENTITY",
+            "CREATE_SINGLE_PAYMENT_SORTCODE",
+            "CREATE_DOMESTIC_SINGLE_PAYMENT",
+            "INITIATE_ACCOUNT_REQUEST",
+            "CREATE_DOMESTIC_VARIABLE_RECURRING_PAYMENT",
+            "ACCOUNT",
+            "ACCOUNT_TRANSACTIONS_WITH_MERCHANT",
+            "INITIATE_SINGLE_PAYMENT_SORTCODE",
+            "INITIATE_DOMESTIC_SINGLE_PAYMENT"
+         ],
+         "monitoring":{
+            "ACCOUNTS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:41:57.049Z",
+               "span":"P26DT5H13M49.488S"
+            },
+            "ACCOUNT_TRANSACTIONS":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:41:57.854Z",
+               "span":"P26DT5H45M54.589S"
+            },
+            "INITIATE_DOMESTIC_VARIABLE_RECURRING_PAYMENT":{
+               "status":"Up",
+               "lastTested":"2020-07-22T10:23:58.016Z",
+               "span":"PT1H56M28.138S"
+            },
+            "IDENTITY":{
+               "status":"Expired",
+               "lastTested":"2019-12-06T14:26:13.281Z",
+               "span":"P228DT19H23M8.574S"
+            }
+         }
+      }
+   ]
+}
+
+       </code></pre>
+  </div>
+    </div>
+
+                     </div>
+                  </div>
+                  <!--subgrid2--->
+               </div>
+            </div>
+         </div>
+      </main>
+   </body>
+</html>

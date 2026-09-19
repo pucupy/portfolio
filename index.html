@@ -71,12 +71,12 @@
 
   <section style="padding:96px 0;">
     <div class="hero" style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:clamp(24px,3vw,36px);margin:0 0 44px 0;">
-      <canvas data-rain aria-hidden="true" style="position:absolute;top:-24px;right:-16px;bottom:-24px;left:-16px;width:calc(100% + 32px);height:calc(100% + 48px);pointer-events:none;z-index:-1;"></canvas>
-      <div style="order:2;display:flex;flex-direction:column;align-items:center;gap:24px;max-width:720px;">
+      <canvas data-field aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+      <div style="position:relative;z-index:1;order:2;display:flex;flex-direction:column;align-items:center;gap:24px;max-width:720px;">
         <h1 style="font-size:clamp(38px,8vw,68px);font-weight:600;letter-spacing:-0.02em;line-height:1.04;margin:0;">Alejandro Velazquez</h1>
         <p style="font-size:18px;line-height:1.5;color:#EDEFEC;margin:0;text-wrap:pretty;">Product designer and design lead.</p>
       </div>
-      <div style="order:1;width:100%;max-width:min(330px,64vw);"><canvas data-grid="face" role="img" aria-label="A character-grid portrait of me. The eyes follow your cursor." style="display:block;width:100%;height:auto;"></canvas></div>
+      <div style="position:relative;z-index:1;order:1;width:100%;max-width:min(330px,64vw);"><canvas data-grid="face" role="img" aria-label="A dot-grid portrait of me. The eyes follow your cursor." style="display:block;width:100%;height:auto;"></canvas></div>
     </div>
 
     <div class="creds" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 32px;margin:0 0 48px 0;">
@@ -100,8 +100,8 @@
 
     <div style="display:flex;flex-direction:column;gap:26px;margin-bottom:44px;max-width:700px;">
       <div>
-        <div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:14px;letter-spacing:.08em;color:#6FCB92;margin-bottom:8px;">2020 – 2026</div>
-        <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Yapily. Founding designer and design lead across Hosted Pages, Console, design systems, research and go-to-market. Hosted Pages is used by 200 companies, including Google and Adyen. Worked directly with Google’s product and design teams, supported FCA compliance work, and managed two designers.</p>
+        <div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:14px;letter-spacing:.08em;color:#6FCB92;margin-bottom:8px;">2020 – PRESENT</div>
+        <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Yapily. Founding designer and design lead across Hosted Pages, Console, design systems, research and go-to-market. Hosted Pages is used by 200 companies, including Google, Adyen, Intuit and Revolut. Worked directly with Google’s product and design teams, supported FCA compliance work, and manage two designers.</p>
       </div>
       <div>
         <div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:14px;letter-spacing:.08em;color:#6FCB92;margin-bottom:8px;">2012 – 2019</div>
@@ -126,14 +126,14 @@
 
   <section id="work" style="padding-top:24px;">
     <h2 style="font-size:clamp(28px,5.5vw,44px);font-weight:600;letter-spacing:-0.018em;margin:0 0 8px 0;">Selected work</h2>
-    <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">Five case studies.</p>
+    <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">Four case studies.</p>
     <div style="border-top:1px solid rgba(237,239,236,.14);margin-top:40px;"></div>
 
     <article style="padding:64px 0;border-bottom:1px solid rgba(237,239,236,.09);">
       <div style="display:flex;gap:20px;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;">
         <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:15px;color:#79837C;">01</span>
         <h3 style="font-size:clamp(21px,4vw,30px);font-weight:600;letter-spacing:-0.014em;margin:0;">Yapily Hosted Pages</h3>
-        <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:15px;color:#79837C;">2022 – 2026 · Live in beta; optimisation ongoing</span>
+        <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:15px;color:#79837C;">2022 – present · Live in beta; optimisation ongoing</span>
       </div>
       <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0 0 16px 0;text-wrap:pretty;">From months of custom integration to a launch path that can take around two weeks.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 24px 0;text-wrap:pretty;">A white-label payment and account-connection experience across different banks, markets, devices, licence models and authentication methods. I led the original product strategy and design, then its continuing research and optimisation.</p>
@@ -153,7 +153,7 @@
       <div style="display:flex;gap:20px;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;">
         <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:15px;color:#79837C;">02</span>
         <h3 style="font-size:clamp(21px,4vw,30px);font-weight:600;letter-spacing:-0.014em;margin:0;">Yapily Console</h3>
-        <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:15px;color:#79837C;">2020 – 2026 · New Console in beta</span>
+        <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:15px;color:#79837C;">2020 – present · New Console in beta</span>
       </div>
       <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0 0 16px 0;text-wrap:pretty;">Turning a sales-led, manually operated onboarding journey into a self-service platform.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 24px 0;text-wrap:pretty;">The original Console was built for a small number of enterprise customers and one licensing model. I mapped the full commercial and operational journey, helped make its hidden cost visible, and led the information architecture for a new self-service experience now in beta.</p>
@@ -172,29 +172,8 @@
     <article style="padding:64px 0;border-bottom:1px solid rgba(237,239,236,.09);">
       <div style="display:flex;gap:20px;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;">
         <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:15px;color:#79837C;">03</span>
-        <h3 style="font-size:clamp(21px,4vw,30px);font-weight:600;letter-spacing:-0.014em;margin:0;">Yapily Design Systems</h3>
-        <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:15px;color:#79837C;">2021 – 2026</span>
-      </div>
-      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0 0 16px 0;text-wrap:pretty;">Three design systems that share a token layer and nothing else.</p>
-      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 24px 0;text-wrap:pretty;">Hosted Pages, the website and the internal tools need different things: a white-label surface a customer restyles, an expressive site restyled about once a year, and dense data screens. I set up one shared token layer held as Figma variables and mirrored in code, then gave each system its own library on top. Component naming came out of workshops with the frontend and backend teams so both sides use the same words.</p>
-      <div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:12px;letter-spacing:.08em;color:#79837C;margin:0 0 12px 0;">KEY EVIDENCE</div>
-      <div style="max-width:700px;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Separate libraries by design. A bank-consent button and a marketing button share a token, not a component.</p></div>
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Changes to shared tokens need sign-off from both the frontend lead and the design lead, so a colour edit cannot reach a regulated payment flow unreviewed.</p></div>
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Hosted Pages theming runs on the token layer: customers supply logo, typeface and colours, and contrast is checked against their palette before it goes live.</p></div>
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Accessibility fixes from the audit went in once at token level rather than screen by screen.</p></div>
-      </div>
-      <a href="design-system-reference.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View the reference<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
-      <div style="margin-top:36px;background:#F4F6F5;border-radius:12px;overflow:hidden;">
-        <img src="images/design-system-colour-tokens.png" width="2179" height="1075" alt="Colour section of the design system reference: brand tokens, a neutral ramp, and status colours with their measured contrast ratios" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;">
-      </div>
-    </article>
-
-    <article style="padding:64px 0;border-bottom:1px solid rgba(237,239,236,.09);">
-      <div style="display:flex;gap:20px;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;">
-        <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:15px;color:#79837C;">04</span>
         <h3 style="font-size:clamp(21px,4vw,30px);font-weight:600;letter-spacing:-0.014em;margin:0;">Yapily Brand &amp; Website</h3>
-        <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:15px;color:#79837C;">2020 – 2026</span>
+        <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:15px;color:#79837C;">2020 – present</span>
       </div>
       <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0 0 16px 0;text-wrap:pretty;">Evolving the brand as Yapily moved from invisible API infrastructure to a clearer product platform.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 24px 0;text-wrap:pretty;">I provided creative direction, designed the first concepts and wireframes, managed agency relationships, worked with the frontend team to translate final designs into a live system, and extended the brand across sales and marketing collateral.</p>
@@ -204,7 +183,7 @@
         <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Migration from an expensive, difficult CMS improved publishing speed and ease of use across thousands of links, landing pages and articles.</p></div>
         <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">The visual identity was designed to stand apart in a category where competitor websites looked increasingly interchangeable.</p></div>
       </div>
-      <a href="brand-website.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">Learn more<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="brand-website.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View case study<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
       <div style="margin-top:36px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;" class="cols">
         <figure style="margin:0;"><div style="background:#F4F6F5;border-radius:10px;overflow:hidden;height:220px;"><img src="images/yapily-website-2020-2021-hero-crop.webp" alt="Yapily website in 2020, headline reading Open Banking API connectivity beside a yellow block" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:left top;display:block;"></div><figcaption style="font-size:13px;color:#79837C;margin-top:10px;">2020 – 2021</figcaption></figure>
         <figure style="margin:0;"><div style="background:#F4F6F5;border-radius:10px;overflow:hidden;height:220px;"><img src="images/yapily-website-2023-2024-hero-crop.webp" alt="Yapily website in 2023, headline reading Power your product innovation with open banking" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:left top;display:block;"></div><figcaption style="font-size:13px;color:#79837C;margin-top:10px;">2023 – 2024</figcaption></figure>
@@ -214,11 +193,11 @@
 
     <article style="padding:64px 0;border-bottom:1px solid rgba(237,239,236,.09);">
       <div style="display:flex;gap:20px;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;">
-        <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:15px;color:#79837C;">05</span>
+        <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:15px;color:#79837C;">04</span>
         <h3 style="font-size:clamp(21px,4vw,30px);font-weight:600;letter-spacing:-0.014em;margin:0;">HeadBox</h3>
         <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:15px;color:#79837C;">Dec 2018 – Dec 2019</span>
       </div>
-      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0 0 16px 0;text-wrap:pretty;">Inverting a marketplace, followed by £150,228 ARR within three months.</p>
+      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0 0 16px 0;text-wrap:pretty;">Inverting a marketplace and creating £150,228 ARR within three months.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 24px 0;text-wrap:pretty;">HeadBox asked non-expert guests to search like event professionals while expert venues waited for poorly matched enquiries. I led the research and design that reversed that model: guests described what they needed, opportunities entered a central feed, and venues chose the work that suited them.</p>
       <div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:12px;letter-spacing:.08em;color:#79837C;margin:0 0 12px 0;">KEY EVIDENCE</div>
       <div style="max-width:700px;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
@@ -226,6 +205,7 @@
         <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">£150,228 ARR in the same period.</p></div>
         <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Four times the annual revenue of the previous marketplace model.</p></div>
         <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">More than 1,500 enquiries in the first month.</p></div>
+        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Approximately 90% of the original product structure remains in the current experience.</p></div>
       </div>
       <a href="headbox.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View case study<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
       <div style="margin-top:36px;background:#F4F6F5;border-radius:12px;overflow:hidden;">
@@ -244,7 +224,7 @@
       </div>
       <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:24px;">
         <div style="display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px;"><h3 style="font-size:20px;font-weight:600;letter-spacing:-0.02em;margin:0;">Payfriendz</h3><span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:15px;color:#79837C;">2013 – 2016</span></div>
-        <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Lead designer on a peer-to-peer payments app for the UK and Germany, covering the iOS and Android apps, the onboarding and bank verification flows, and a virtual Mastercard. More than £5 million transferred, 150,000 users, and third in the App Store finance category. The team went on to found Su4erheroes together.</p>
+        <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Lead design for a peer-to-peer payments product across the UK and Germany. More than £5 million transferred, 150,000 users and a top-three position in the App Store finance category.</p>
         <div style="margin-top:24px;border-radius:12px;overflow:hidden;">
           <img src="images/payfriendz-app-screens.webp" width="1400" height="606" alt="Two Payfriendz app screens: a virtual Mastercard showing a £99.99 balance, and the App Store finance chart with Payfriendz ranked third" loading="lazy" style="display:block;width:100%;height:auto;">
         </div>
@@ -264,7 +244,7 @@
   <section style="padding:96px 0 0 0;">
     <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:32px;">
       <h2 style="font-size:clamp(20px,3.6vw,22px);font-weight:600;letter-spacing:-0.02em;margin:0 0 8px 0;">Creative archive</h2>
-      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 14px 0;text-wrap:pretty;">Illustration, identity and animation made alongside the product work, much of it drawn by hand. Including Nerdtees, a 2018 side project honouring scientists who don’t get put on t-shirts, and Minimeter, a baby growth tracker that reached pilot.</p>
+      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 14px 0;text-wrap:pretty;">Illustration, identity and animation made alongside the product work, much of it drawn by hand, for fun, in the pre-AI era. Including Nerdtees, a 2018 side project honouring scientists who don’t get put on t-shirts, and Minimeter, a baby growth tracker that reached pilot.</p>
       <a href="creative-archive.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View the archive<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
     </div>
   </section>
@@ -286,7 +266,7 @@
       </div>
       <p aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);margin:0;"></p>
       </div>
-      <canvas data-grid="hand" role="img" aria-label="A character-grid drawing of a waving hand, drawn in hello in many languages" style="display:block;flex:none;width:min(330px,100%);height:auto;"></canvas>
+      <canvas data-grid="hand" role="img" aria-label="A dot-grid drawing of a hand that waves when you hover it" style="display:block;flex:none;width:min(330px,100%);height:auto;"></canvas>
     </div>
   </section>
 
@@ -298,7 +278,7 @@
       <span style="color:#4a5250;">·</span>
       <a href="https://www.linkedin.com/in/velazquezalejandro/">LinkedIn</a>
     </div>
-    <div style="padding-top:20px;font-size:14px;color:#79837C;">Last updated September 2026</div>
+    <div style="padding-top:20px;font-size:14px;color:#79837C;">Last updated August 2026</div>
   </footer>
 
 </main>

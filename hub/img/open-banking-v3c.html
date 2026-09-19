@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+   <head><meta name="robots" content="noindex">
+
+
+      <title>Yapily API Insights</title>
+      <link rel="stylesheet" type="text/css" href="yapilyui.css">
+      <link rel="shortcut icon" href="icons/icon-48x48.png">
+      <script src="js/menu.js"></script>
+
+
+           <meta property="og:title" content="Yapily API Insights" />
+           <meta property="og:image" content="http://designsystem.live/img/insights.png" />
+           <meta property="og:image:width" content="1200" />
+           <meta property="og:image:height" content="627" />
+           <meta property="og:image" content="http://designsystem.live/img/insights2.png" /> <!--Squared-->
+           <meta property="og:image:width" content="1200" />
+           <meta property="og:image:height" content="1200" />
+           <meta property="og:image:alt" content="Yapily API Insights" />
+           <meta property="og:description" content="On our API dashboard, we have gathered valuable insights on Open Banking API performance showing: Yapily Score (YS), the fastest institutions, percentage of successful requests and live API status" />
+
+
+
+
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="UTF-8">
+   </head>
+   <body class=" grid-dashboard insights vb" >
+      <header id="top" class="flex justify-space-between">
+         <div class="isologo">
+            <svg width="171" height="29" viewBox="0 0 171 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <g clip-path="url(#clip0)">
+                  <path d="M51.2952 13.9202L45.8099 4.47302H41.9043L49.3999 18.1423V24.5734H53.2484V17.9981L60.5692 4.47302H56.6926L51.2952 13.9202Z" />
+                  <path d="M74.1762 4.47278L65.3594 24.5732H69.352L71.1321 20.3247H80.952L82.7329 24.5732H86.868L78.1671 4.47278H74.1762ZM72.5104 17.0204L76.0706 8.57969L79.5736 17.0204H72.5104Z" />
+                  <path d="M109.336 6.28272C107.948 5.07666 105.991 4.47278 103.463 4.47278H95.2227V24.5732H99.0711V18.6572H103.463C105.991 18.6572 107.948 18.0226 109.336 16.7492C110.724 15.4757 111.417 13.6914 111.417 11.3944C111.417 9.1921 110.724 7.48878 109.336 6.28272ZM106.609 14.3225C105.832 14.9537 104.718 15.2702 103.262 15.2702H99.0711V7.83251H103.262C104.718 7.83251 105.832 8.13872 106.609 8.75113C107.384 9.3644 107.77 10.283 107.77 11.5087C107.771 12.7531 107.384 13.6905 106.609 14.3225Z" />
+                  <path d="M123.709 4.47278H119.861V24.5723H123.709V4.47278Z" />
+                  <path d="M138.352 4.47278H134.506V24.5732H147.024V21.0983H138.352V4.47278Z" />
+                  <path d="M166.359 4.47278L160.96 13.92L155.475 4.47278H151.571L159.066 18.142V24.5732H162.914V17.9987L170.236 4.47278H166.359Z" />
+                  <path d="M24.4686 0.0479561C21.8314 0.0837796 19.722 2.25025 19.757 4.88669L19.8005 8.07584C19.8073 8.64049 19.5907 9.18466 19.1975 9.58981L19.0397 9.75187C18.6456 10.1587 18.1049 10.3924 17.5385 10.3992L17.0881 10.4061C17.089 10.4061 17.089 10.4069 17.089 10.4086C16.3427 9.92928 15.4514 9.65463 14.4978 9.66657C13.6806 9.67766 12.9156 9.89772 12.2503 10.2756C12.1027 10.2687 11.9577 10.256 11.8084 10.2577L11.7573 10.2585C11.1935 10.2662 10.6484 10.0504 10.2441 9.65634C9.83644 9.26143 9.60444 8.72151 9.59591 8.15431L9.55156 4.76301C9.51574 2.12657 7.34927 0.0163973 4.71112 0.0513679C2.07383 0.0863385 -0.0363506 2.25366 -0.000527111 4.89096C0.0344435 7.52825 2.20177 9.63757 4.83821 9.6026L8.02736 9.55996C8.592 9.55228 9.13618 9.76893 9.54133 10.163L9.70424 10.3199C10.1102 10.7157 10.3431 11.2573 10.3508 11.8228L10.3576 12.2723C10.3593 12.2715 10.361 12.2706 10.3627 12.2697C10.0403 12.9171 9.86033 13.6472 9.86971 14.4209C9.8825 15.3455 10.1657 16.2035 10.6382 16.9251C10.6374 17.0138 10.628 17.1017 10.628 17.1921L10.6288 17.2424C10.6356 17.807 10.4199 18.3512 10.0258 18.7555C9.63174 19.1641 9.09097 19.3961 8.52462 19.4037L5.13418 19.4481C2.49603 19.4822 0.386708 21.6495 0.421679 24.2877C0.456649 26.9258 2.62483 29.0343 5.26127 28.9993C7.89941 28.9652 10.0087 26.797 9.97291 24.1589L9.93112 20.9706C9.92344 20.4068 10.1401 19.8618 10.5333 19.4566L10.6902 19.2954C11.086 18.8877 11.6259 18.6549 12.1931 18.648L12.6418 18.6421C12.6409 18.6387 12.6384 18.6344 12.6366 18.6301C13.2422 18.9039 13.9144 19.0566 14.6223 19.0464C17.2127 19.0122 19.2836 16.8833 19.2495 14.2938C19.2435 13.8255 19.1668 13.3735 19.0329 12.9487C19.0764 12.5913 19.1054 12.228 19.1011 11.8569V11.8057C19.0943 11.242 19.3101 10.6969 19.7033 10.2926C20.0973 9.88493 20.6381 9.65293 21.2053 9.6444L24.5966 9.60004C27.2339 9.56422 29.3441 7.39775 29.3091 4.7596C29.2733 2.12231 27.1059 0.0112796 24.4686 0.0479561Z" />
+               </g>
+               <defs>
+                  <clipPath id="clip0">
+                     <path d="M0 0H170.588V29H0V0Z" fill="white"/>
+                  </clipPath>
+               </defs>
+            </svg>
+         </div>
+
+         <div class="subnavMenu">
+            <div class="dropdown-nav ">
+               <a href="https://www.yapily.com/contact/"><button class="secondary prototype">Tell us what you think</button></a>
+            </div>
+         </div>
+
+         </div>
+      </header>
+      <main class="fixed-width width-100">
+         <div class="flex align-center column margin-bottom-big">
+            <div class="website-card">
+               <div class="website-card-content ">
+                  <h1 class="large margin-bottom-website">Yapily API Insights</h1>
+
+<p class="margin-bottom-website">
+On our API dashboard, we have gathered valuable insights on Open Banking API performance showing: Yapily Score (YS), the fastest institutions, percentage of successful requests and live API status. </p>
+                  <a href="https://www.yapily.com/contact/"><button class="primary prototype">Get in touch</button></a>
+               </div>
+            </div>
+            <div class="video-container">
+               <video  muted="" autoplay="" playsinline="" loop="">
+                  <source src="img/green.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  <img src="img/green.png">
+               </video>
+            </div>
+         </div>
+         <div class="margin-bottom-big flex align-items-baseline justify-space-between column ">
+            <h1 class="margin-right-big no-margin ">API Insights</h1>
+            <small>
+               <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="margin-right-tiny">
+                  <path d="M0.846154 11.1429H2.75V9.21429H0.846154V11.1429ZM3.17308 11.1429H5.28846V9.21429H3.17308V11.1429ZM0.846154 8.78571H2.75V6.64286H0.846154V8.78571ZM3.17308 8.78571H5.28846V6.64286H3.17308V8.78571ZM0.846154 6.21429H2.75V4.28571H0.846154V6.21429ZM5.71154 11.1429H7.82692V9.21429H5.71154V11.1429ZM3.17308 6.21429H5.28846V4.28571H3.17308V6.21429ZM8.25 11.1429H10.1538V9.21429H8.25V11.1429ZM5.71154 8.78571H7.82692V6.64286H5.71154V8.78571ZM3.38462 3V1.07143C3.38462 1.01339 3.36368 0.96317 3.32181 0.920759C3.27995 0.878348 3.23037 0.857143 3.17308 0.857143H2.75C2.69271 0.857143 2.64313 0.878348 2.60126 0.920759C2.5594 0.96317 2.53846 1.01339 2.53846 1.07143V3C2.53846 3.05804 2.5594 3.10826 2.60126 3.15067C2.64313 3.19308 2.69271 3.21429 2.75 3.21429H3.17308C3.23037 3.21429 3.27995 3.19308 3.32181 3.15067C3.36368 3.10826 3.38462 3.05804 3.38462 3ZM8.25 8.78571H10.1538V6.64286H8.25V8.78571ZM5.71154 6.21429H7.82692V4.28571H5.71154V6.21429ZM8.25 6.21429H10.1538V4.28571H8.25V6.21429ZM8.46154 3V1.07143C8.46154 1.01339 8.44061 0.96317 8.39874 0.920759C8.35687 0.878348 8.30729 0.857143 8.25 0.857143H7.82692C7.76963 0.857143 7.72005 0.878348 7.67819 0.920759C7.63632 0.96317 7.61538 1.01339 7.61538 1.07143V3C7.61538 3.05804 7.63632 3.10826 7.67819 3.15067C7.72005 3.19308 7.76963 3.21429 7.82692 3.21429H8.25C8.30729 3.21429 8.35687 3.19308 8.39874 3.15067C8.44061 3.10826 8.46154 3.05804 8.46154 3ZM11 2.57143V11.1429C11 11.375 10.9163 11.5759 10.7488 11.7455C10.5813 11.9152 10.383 12 10.1538 12H0.846154C0.616987 12 0.41867 11.9152 0.251202 11.7455C0.083734 11.5759 0 11.375 0 11.1429V2.57143C0 2.33929 0.083734 2.13839 0.251202 1.96875C0.41867 1.79911 0.616987 1.71429 0.846154 1.71429H1.69231V1.07143C1.69231 0.776786 1.79587 0.524554 2.003 0.314732C2.21014 0.104911 2.45913 0 2.75 0H3.17308C3.46394 0 3.71294 0.104911 3.92007 0.314732C4.1272 0.524554 4.23077 0.776786 4.23077 1.07143V1.71429H6.76923V1.07143C6.76923 0.776786 6.8728 0.524554 7.07993 0.314732C7.28706 0.104911 7.53606 0 7.82692 0H8.25C8.54087 0 8.78986 0.104911 8.997 0.314732C9.20413 0.524554 9.30769 0.776786 9.30769 1.07143V1.71429H10.1538C10.383 1.71429 10.5813 1.79911 10.7488 1.96875C10.9163 2.13839 11 2.33929 11 2.57143Z" fill="#4D5866"/>
+               </svg>
+               12th July - 18th July
+            </small>
+         </div>
+         <div class="subgrid2 margin-bottom-big">
+            <div class="card text-center column-equal">
+               <div class="margin-bottom-big">
+                  <h2 class=""> Yapily Score</h2>
+                  <p>A higher Yapily Score (YS) indicates a faster transfer rate.
+</p>
+               </div>
+               <div class=" banks">
+                  <div class="flex  margin-bottom-big bank align-center ">
+                     <div >
+                        <div class="flex align-center margin-right-big"><img src="img/revolut.png" class="margin-right-normal bank-logo"></div>
+                     </div>
+                     <div class="speed-bar hundred  margin-right-big">
+                        <div class="fifty revolut"></div>
+                     </div>
+                     <div class="speed-value">300 YS </div>
+                  </div>
+               </div>
+               <div class=" banks">
+                  <div class="flex  margin-bottom-big bank align-center ">
+                     <div >
+                        <div class="flex align-center margin-right-big"><img src="img/monzo2.png" class="margin-right-normal bank-logo"></div>
+                     </div>
+                     <div class="speed-bar hundred  margin-right-big">
+                        <div class="thirty monzo-coral"></div>
+                     </div>
+                     <div class="speed-value">200 YS </div>
+                  </div>
+               </div>
+               <div class=" banks">
+                  <div class="flex  margin-bottom-big bank align-center ">
+                     <div >
+                        <div class="flex align-center margin-right-big"><img src="img/starling2.png" class="margin-right-normal bank-logo"></div>
+                     </div>
+                     <div class="speed-bar hundred  margin-right-big">
+                        <div class="twenty starling"></div>
+                     </div>
+                     <div class="speed-value">100 YS </div>
+                  </div>
+               </div>
+
+
+               <a href="open-banking-fastest.html"  class="prototype"><button class="secondary width-100">See all</button></a>
+            </div>
+            <!--end of demo-->
+            <div class="card text-center column-equal">
+               <div class="margin-bottom-big">
+                  <h2 > Fastest Institutions</h2>
+                  <p >A lower time indicates faster responses, based purely on response time.</p>
+               </div>
+               <div class=" banks">
+                  <div class="flex  margin-bottom-big bank align-center ">
+                     <div >
+                        <div class="flex align-center margin-right-big"><img src="img/starling2.png" class="margin-right-normal bank-logo"></div>
+                     </div>
+                     <div class="speed-bar hundred  margin-right-big">
+                        <div class="twenty starling"></div>
+                     </div>
+                     <div class="speed-value">200 ms</div>
+                  </div>
+               </div>
+               <div class=" banks">
+                  <div class="flex  margin-bottom-big bank align-center ">
+                     <div >
+                        <div class="flex align-center margin-right-big"><img src="img/monzo2.png" class="margin-right-normal bank-logo"></div>
+                     </div>
+                     <div class="speed-bar hundred  margin-right-big">
+                        <div class="thirty monzo-coral"></div>
+                     </div>
+                     <div class="speed-value">310 ms</div>
+                  </div>
+               </div>
+               <div class=" banks">
+                  <div class="flex  margin-bottom-big bank align-center ">
+                     <div >
+                        <div class="flex align-center margin-right-big"><img src="img/revolut.png" class="margin-right-normal bank-logo"></div>
+                     </div>
+                     <div class="speed-bar hundred  margin-right-big">
+                        <div class="thirty revolut"></div>
+                     </div>
+                     <div class="speed-value">310 ms</div>
+                  </div>
+               </div>
+               <a href="open-banking-success.html" class="prototype"><button class="secondary width-100">See all</button></a>
+            </div>
+         </div>
+         <div class="card margin-bottom-big api-request ">
+            <div class="align-baseline justify-space-between flex column">
+               <h2 class="margin-right-big " > API Request Data & Live Status</h2>
+
+               <div >
+                  <small>Updated: 17th July 2020, 11:43:29</small>
+               </div>
+            </div>
+                         <p class=" margin-bottom-big">We are displaying a selection of 15 out of over 180 banks we are connected with.</p>
+            <div class="search margin-bottom-big">
+               <input type="text" class="input-icon " placeholder="Search" >
+            </div>
+            <table class="monitoring " id="monitoring">
+               <thead>
+                  <th></th>
+                  <th>Monday</th>
+                  <th>Tuesday</th>
+                  <th>Wednesday</th>
+                  <th>Thursday</th>
+                  <th>Friday</th>
+                  <th>Now</th>
+               </thead>
+               <tr class="green">
+                  <td class="bank-desktop">
+                     <div class="flex align-center margin-right-big"><img src="img/starling2.png" alt="Starling" class="margin-right-normal"></div>
+                  </td>
+                  <td class="">
+                     <div class="tag ">
+                        100%
+                        <div> <small>100 ms</small></div>
+                     </div>
+                  </td>
+                  <td>
+                     <div class="tag ">
+                        100%
+                        <div> <small>100 ms</small></div>
+                     </div>
+                  </td>
+                  <td>
+                     <div class="tag ">
+                      100%
+                        <div> <small>400 ms</small></div>
+                     </div>
+                  </td>
+                  <td>
+                     <div class="tag ">
+                    100%
+                        <div> <small>400 ms</small></div>
+                     </div>
+                  </td>
+                  <td class="rojo">
+                     <div class="tag  ">
+                        98%
+                        <div> <small>400 ms</small></div>
+                     </div>
+                  </td>
+                  <td>
+                     <div class="tooltip margin-bottom-big">
+                        <div>
+                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="margin-right-tiny">
+                              <circle cx="8" cy="8" r="8" fill="#62BC8A" />
+                           </svg>
+                           Available
+                        </div>
+                        <span class="tooltiptext">All resources responding</span>
+                     </div>
+                      <div class="hide-desktop"><a href="open-banking-starling.html" class="prototype"><button class="secondary width-100"> View all week's data</button></a></div>
+
+                  </td>
+               </tr>
+               <tr class="rojo">
+                  <td class="bank-desktop">
+                     <div class="flex align-center margin-right-big"><img src="img/monzo2.png" alt="Monzo" class="margin-right-normal"></div>
+                  </td>
+                  <td class="green">
+                     <div class="tag ">
+                    100%
+                        <div> <small>100 ms</small></div>
+                     </div>
+                  </td>
+                  <td>
+                     <div class="tag ">
+                  98%
+                        <div> <small>100 ms</small></div>
+                     </div>
+                  </td>
+                  <td class="green">
+                     <div class="tag ">
+                    100%
+                        <div> <small>100 ms</small></div>
+                     </div>
+                  </td>
+                  <td>
+                     <div class="tag ">
+                        98%
+                        <div> <small>400 ms</small></div>
+                     </div>
+                  </td>
+                  <td>
+                     <div class="tag ">
+                        98%
+                        <div> <small>400 ms</small></div>
+                     </div>
+                  </td>
+                  <td >
+                     <div class="tooltip margin-bottom-big">
+                        <div class="indicator">
+                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="margin-right-tiny">
+                              <circle cx="8" cy="8" r="8" fill="#B50500"/>
+                           </svg>
+                           Unavailable
+                        </div>
+                        <span class="tooltiptext">All resources not responding</span>
+                     </div>
+                       <div class="hide-desktop"><button class="secondary"> View all week's data</button></div>
+                  </td>
+               </tr>
+               <tr class="yellow">
+                  <td class="bank-desktop">
+                     <div class="flex align-center margin-right-big"><img src="img/revolut.png" alt="Revolut" class="margin-right-normal"</div>
+                  </td>
+                  <td>
+                     <div class="tag ">
+                      99%
+                        <div> <small>100 ms</small></div>
+                     </div>
+                  </td>
+                  <td class="green">
+                     <div class="tag ">
+                    100%
+                        <div> <small>100 ms</small></div>
+                     </div>
+                  </td>
+                  <td>
+                     <div class="tag ">
+                        99%
+                        <div> <small>400 ms</small></div>
+                     </div>
+                  </td>
+                  <td class="green">
+                     <div class="tag ">
+                    100%
+                        <div> <small>100 ms</small></div>
+                     </div>
+                  </td>
+                  <td>
+                     <div class="tag ">
+                      99%
+                        <div> <small>400 ms</small></div>
+                     </div>
+                  </td>
+                  <td>
+                     <div class="tooltip margin-bottom-big">
+                       <div class="indicator">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="margin-right-tiny">
+                     <circle cx="8" cy="8" r="8" fill="#F9C533"/>
+                  </svg>
+                  Incidents
+               </div>
+                        <span class="tooltiptext">Some resources not responding</span>
+                     </div>
+                       <div class="hide-desktop"><button class="secondary"> View all week's data</button></div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+         <div >
+            <div class="card margin-bottom-big">
+               <em >About these insights</em>
+               <small class="margin-bottom-normal">Our service calls each bank regurlarly, then evaluates the returned payload against a number of criteria.</small>
+               <small><em>%:</em> the availability represents the percentage of time (over the period of testing) for which the API platform was responding correctly - where data was returned i a manner conformant to the API specification imolemented by the ASPSP in question.
+               In certain cases, no data nay be shown (-). which indicates that no active consent was available at the time an attempt was made to cakk APSP protected resources.</small>
+               <small><em>ms:</em> The performance metric is a representation of the average time in milliseconds to get a response. This is an aggregate view across all of the protected resources offered by the ASPSP, and is calculated as a weighted average.</small>
+               <small class="margin-bottom-normal"><em>Yapily Score (YS):</em> This is calculated by evaluating the response time and responses sizes of valid requests for accounts and transactions over the last week. Using a combination of these metrics, Yapily scores each bank according to how well the banks perform comparatively.</small>
+               <div class="flex align-center column"><small class="margin-right-normal">If you want to be monitored </small> <button class="secondary">Get in touch</button></div>
+            </div>
+         </div>
+         </div>
+      </main>
+      <div class="flex justify-space-between footer  column">
+         <div class="dark-space"></div>
+         <div class="footer-container">
+            <footer class="stick flex column margin-bottom-big">
+              <ul>
+                 <h3>Offering</h3>
+                 <li><a href="">Explore our platform</a></li>
+                 <li><a href="">Accounting</a></li>
+                 <li><a href="">Payments</a></li>
+                 <li><a href="">Lending</a></li>
+                 <li><a href="">KYC</a></li>
+                 <li><a href="">Money Management</a></li>
+                 <li><a href="">Corporate Banking</a></li>
+              </ul>
+               <ul>
+                  <h3>Platform</h3>
+                  <li><a href="">Open Banking Coverage</li>
+  <li><a href="">Developers</a></li>
+<li><a href="">SDKs <svg width="17" height="16" viewBox="0 0 17 16" xmlns="http://www.w3.org/2000/svg" ><path d="M4.24166 12.4654C4.0464 12.6607 4.0464 12.9773 4.24166 13.1725C4.43692 13.3678 4.75351 13.3678 4.94877 13.1725L13.0952 5.02605L13.0952 12.8188C13.0952 13.095 13.3191 13.3188 13.5952 13.3188C13.8714 13.3188 14.0952 13.095 14.0952 12.8188L14.0953 3.81863C14.0953 3.54286 13.872 3.31916 13.5962 3.31862L4.5962 3.30127C4.32006 3.30074 4.09577 3.52416 4.09523 3.80031C4.0947 4.07645 4.31813 4.30074 4.59427 4.30127L12.3908 4.3163L4.24166 12.4654Z" fill="#ffffff"></path></svg></a></li>
+<li><a href="">API Documentation <svg width="17" height="16" viewBox="0 0 17 16" xmlns="http://www.w3.org/2000/svg" ><path d="M4.24166 12.4654C4.0464 12.6607 4.0464 12.9773 4.24166 13.1725C4.43692 13.3678 4.75351 13.3678 4.94877 13.1725L13.0952 5.02605L13.0952 12.8188C13.0952 13.095 13.3191 13.3188 13.5952 13.3188C13.8714 13.3188 14.0952 13.095 14.0952 12.8188L14.0953 3.81863C14.0953 3.54286 13.872 3.31916 13.5962 3.31862L4.5962 3.30127C4.32006 3.30074 4.09577 3.52416 4.09523 3.80031C4.0947 4.07645 4.31813 4.30074 4.59427 4.30127L12.3908 4.3163L4.24166 12.4654Z" fill="#ffffff"></path></svg></a></li>
+               </ul>
+               <ul>
+                  <h3>Policies</h3>
+                  <li><a href="">Open Banking Glossary</a></li>
+                  <li><a href="">  Legal Policies</a></li>
+
+
+               </ul>
+               <ul>
+                  <h3>Blog</h3>
+                  <li><a href="">Blog</a></li>
+                  <li><a href="">What is Open Banking?</a></li>
+                  <li><a href="">  Open Banking FAQs</a></li>
+
+               </ul>
+               <ul>
+                  <h3>Company</h3>
+                  <li><a href="">About Yapily
+
+</a></li>
+                  <li><a href="">Careers</a></li>
+                  <li><a href="">Contact us</a></li>
+
+               </ul>
+            </footer>
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="margin-bottom-big hide-desktop normal"><path d="M66.7873 0.00128453C59.5891 0.0990336 53.8319 6.01053 53.9274 13.2044L54.0461 21.9064C54.0647 23.4471 53.4734 24.932 52.4002 26.0374L51.9695 26.4796C50.894 27.5898 49.418 28.2275 47.8722 28.2461L46.643 28.2647C46.6454 28.2647 46.6453 28.2671 46.6453 28.2717C44.6083 26.9637 42.1756 26.2143 39.5728 26.2469C37.3426 26.2772 35.2544 26.8776 33.4385 27.9086C33.0358 27.89 32.64 27.8551 32.2326 27.8598L32.0929 27.8621C30.5541 27.883 29.0665 27.2942 27.963 26.219C26.8502 25.1414 26.217 23.6682 26.1937 22.1205L26.0727 12.8669C25.9749 5.67306 20.0617 -0.0848278 12.8612 0.010594C5.66296 0.106016 -0.0965499 6.01984 0.00122673 13.216C0.0966754 20.4122 6.01216 26.1678 13.2081 26.0724L21.9125 25.956C23.4537 25.935 24.9389 26.5262 26.0447 27.6014L26.4894 28.0297C27.5975 29.1096 28.2331 30.5874 28.254 32.1305L28.2727 33.357C28.2773 33.3547 28.282 33.3523 28.2866 33.35C27.4066 35.1165 26.9154 37.1087 26.941 39.2196C26.9759 41.7425 27.7488 44.0838 29.0386 46.0527C29.0362 46.2948 29.0106 46.5345 29.0106 46.7812L29.013 46.9185C29.0316 48.4592 28.4426 49.9441 27.3671 51.0472C26.2915 52.1621 24.8155 52.7951 23.2697 52.816L14.0159 52.9371C6.81533 53.0302 1.05815 58.944 1.15359 66.1425C1.24904 73.341 7.16686 79.0943 14.3628 78.9988C21.5633 78.9057 27.3205 72.9896 27.2227 65.7911L27.1086 57.0914C27.0877 55.553 27.679 54.0658 28.7522 52.9603L29.1806 52.5205C30.2608 51.408 31.7344 50.7726 33.2825 50.754L34.5071 50.7377C34.5047 50.7284 34.4978 50.7168 34.4931 50.7051C36.146 51.4522 37.9805 51.8688 39.9127 51.8409C46.9829 51.7478 52.6353 45.9387 52.5422 38.8728C52.5259 37.5951 52.3164 36.3616 51.9509 35.2026C52.0696 34.2274 52.1488 33.236 52.1371 32.2236V32.0839C52.1185 30.5455 52.7075 29.0584 53.7807 27.9552C54.8563 26.8427 56.3322 26.2097 57.8804 26.1864L67.1365 26.0654C74.3348 25.9676 80.0943 20.0561 79.9988 12.8576C79.9011 5.66142 73.9856 -0.0987919 66.7873 0.00128453Z" fill="#ffffff"></path></svg>
+            <div class="legal2">
+            <div class="flex align-center justify-space-between margin-bottom-big">
+              <button class="secondary">Login</button>
+            </div>
+
+            <div class="margin-bottom-big " >
+              <small class="disclaim">© 2020 Yapily Ltd. All Rights Reserved.</small>
+
+<small class="disclaim">Yapily Ltd company no. 10842280. Safeconnect Ltd, a Yapily Ltd entity, is regulated by the UK Financial Conduct Authority under the Payment Services Regulations 2017 as an Authorised Payment Institution to provide account information services and payment initiation services (Firm Reference Number: 827001)</small>
+
+            </div>
+            </div>
+
+         </div>
+         <div class="footer-logo  align-items-flex-start "><svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"  ><path  d="M66.7873 0.00128453C59.5891 0.0990336 53.8319 6.01053 53.9274 13.2044L54.0461 21.9064C54.0647 23.4471 53.4734 24.932 52.4002 26.0374L51.9695 26.4796C50.894 27.5898 49.418 28.2275 47.8722 28.2461L46.643 28.2647C46.6454 28.2647 46.6453 28.2671 46.6453 28.2717C44.6083 26.9637 42.1756 26.2143 39.5728 26.2469C37.3426 26.2772 35.2544 26.8776 33.4385 27.9086C33.0358 27.89 32.64 27.8551 32.2326 27.8598L32.0929 27.8621C30.5541 27.883 29.0665 27.2942 27.963 26.219C26.8502 25.1414 26.217 23.6682 26.1937 22.1205L26.0727 12.8669C25.9749 5.67306 20.0617 -0.0848278 12.8612 0.010594C5.66296 0.106016 -0.0965499 6.01984 0.00122673 13.216C0.0966754 20.4122 6.01216 26.1678 13.2081 26.0724L21.9125 25.956C23.4537 25.935 24.9389 26.5262 26.0447 27.6014L26.4894 28.0297C27.5975 29.1096 28.2331 30.5874 28.254 32.1305L28.2727 33.357C28.2773 33.3547 28.282 33.3523 28.2866 33.35C27.4066 35.1165 26.9154 37.1087 26.941 39.2196C26.9759 41.7425 27.7488 44.0838 29.0386 46.0527C29.0362 46.2948 29.0106 46.5345 29.0106 46.7812L29.013 46.9185C29.0316 48.4592 28.4426 49.9441 27.3671 51.0472C26.2915 52.1621 24.8155 52.7951 23.2697 52.816L14.0159 52.9371C6.81533 53.0302 1.05815 58.944 1.15359 66.1425C1.24904 73.341 7.16686 79.0943 14.3628 78.9988C21.5633 78.9057 27.3205 72.9896 27.2227 65.7911L27.1086 57.0914C27.0877 55.553 27.679 54.0658 28.7522 52.9603L29.1806 52.5205C30.2608 51.408 31.7344 50.7726 33.2825 50.754L34.5071 50.7377C34.5047 50.7284 34.4978 50.7168 34.4931 50.7051C36.146 51.4522 37.9805 51.8688 39.9127 51.8409C46.9829 51.7478 52.6353 45.9387 52.5422 38.8728C52.5259 37.5951 52.3164 36.3616 51.9509 35.2026C52.0696 34.2274 52.1488 33.236 52.1371 32.2236V32.0839C52.1185 30.5455 52.7075 29.0584 53.7807 27.9552C54.8563 26.8427 56.3322 26.2097 57.8804 26.1864L67.1365 26.0654C74.3348 25.9676 80.0943 20.0561 79.9988 12.8576C79.9011 5.66142 73.9856 -0.0987919 66.7873 0.00128453Z"></path></svg></div>
+         <div class="white-space"></div>
+      </div>
+   </body>
+</html>

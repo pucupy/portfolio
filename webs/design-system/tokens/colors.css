@@ -1,0 +1,40 @@
+:root {
+  /* Brand */
+  --hb-red: #AF231C;              /* wordmark only */
+  --hb-blue-600: #16719B;         /* primary actions, links, selected state */
+  --hb-blue-700: #0F5473;         /* hover / pressed, focus ring */
+  --hb-blue-050: #F2F9FC;         /* selected surface tint */
+  --hb-blue-025: #F7FBFD;         /* dropzone hover tint */
+  --hb-slate-050: #F2F6F8;        /* list row hover */
+
+  /* Ink */
+  --hb-ink: #2f2f2f;
+  --hb-ink-secondary: #5a5a5a;
+  --hb-ink-muted: #6b6b6b;        /* lightest text passing AA on white */
+
+  /* Lines & surfaces */
+  --hb-surface: #ffffff;
+  --hb-surface-dark: #2f2f2f;
+  --hb-border-control: #8a8a8a;   /* inputs, chips — 3:1 non-text contrast */
+  --hb-border-dashed: #8f8f8f;    /* dropzones, empty slots, upcoming steps */
+  --hb-border-card: #e4e4e4;
+  --hb-border-hairline: #e6e6e6;
+  --hb-border-header: #f1eae1;
+
+  /* Status */
+  --hb-amber: #F1AE2A;            /* under review dot */
+  --hb-amber-ink: #8a6d1f;        /* review text on white */
+
+  /* Semantic aliases */
+  --hb-text-body: var(--hb-ink);
+  --hb-text-secondary: var(--hb-ink-secondary);
+  --hb-text-hint: var(--hb-ink-secondary);
+  --hb-text-link: var(--hb-blue-600);
+  --hb-text-link-hover: var(--hb-blue-700);
+  --hb-action-bg: var(--hb-blue-600);
+  --hb-action-bg-hover: var(--hb-blue-700);
+  --hb-action-fg: #ffffff;
+  --hb-focus-ring: var(--hb-blue-700);
+  --hb-selected-border: var(--hb-blue-600);
+  --hb-selected-surface: var(--hb-blue-050);
+}
