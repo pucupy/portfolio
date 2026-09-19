@@ -18,8 +18,7 @@
 <style>
   html { color-scheme: dark; }
   body { margin:0; background:#0F1211; color:#EDEFEC; font-family:'Schibsted Grotesk',-apple-system,BlinkMacSystemFont,sans-serif; -webkit-font-smoothing:antialiased; }
-  a { color:#EDEFEC; text-decoration:underline; text-decoration-color:rgba(111,203,146,.5); text-underline-offset:4px; text-decoration-thickness:1px; }
-  a:hover { text-decoration-color:#6FCB92; }
+  a { color:#EDEFEC; }
   a:focus-visible { outline:2px solid #6FCB92; outline-offset:3px; border-radius:2px; }
   ::selection { background:#6FCB92; color:#0F1211; }
   .skiplink:focus { left:0 !important; }
@@ -41,6 +40,37 @@
 #stars{animation:stars .5s linear infinite}
 @media (prefers-reduced-motion:reduce){#lefte,#righte,#fmLefte,#fmRighte,#head,#rocket2,#flame,#moon,#stars{animation:none}#moon{opacity:1}}
 
+
+a{text-decoration:none;background-image:linear-gradient(#6FCB92,#6FCB92);background-repeat:no-repeat;background-position:0 calc(100% - 1px);background-size:0 1px;transition:background-size .3s cubic-bezier(.2,.7,.3,1),color .22s ease}
+a:hover,a:focus-visible{color:#EDEFEC;background-size:100% 1px}
+main a:not(.btn):not(.cta),footer a:not(.btn):not(.cta){background-size:100% 1px;background-image:linear-gradient(rgba(111,203,146,.5),rgba(111,203,146,.5))}
+main a:not(.btn):not(.cta):hover,main a:not(.btn):not(.cta):focus-visible,footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible{background-image:linear-gradient(#6FCB92,#6FCB92)}
+header .brand,header nav a,a.btn,a.cta{background-image:none}
+a:focus-visible,button:focus-visible{outline:2px solid #6FCB92;outline-offset:3px}
+
+button,a.btn{transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
+button:hover,button:focus-visible,a.btn:hover,a.btn:focus-visible{transform:translateY(-1px);background-color:rgba(111,203,146,.1);box-shadow:0 0 0 1px rgba(111,203,146,.35)}
+button:active,a.btn:active{transform:translateY(0)}
+
+a.cta{transition:transform .22s cubic-bezier(.2,.7,.3,1),background-color .22s ease,box-shadow .22s ease}
+a.cta:hover,a.cta:focus-visible{transform:translateY(-1px);background-color:#8AD9A8;box-shadow:0 6px 18px rgba(111,203,146,.22)}
+a.cta:active{transform:translateY(0);box-shadow:none}
+a.cta svg{transition:transform .22s cubic-bezier(.2,.7,.3,1)}
+a.cta:hover svg,a.cta:focus-visible svg{transform:translateX(3px)}
+
+header nav a[aria-current="page"]{color:#EDEFEC}
+header nav a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+
+header nav a{position:relative;transition:color .22s ease}
+header nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:#6FCB92;transform:scaleX(0);transform-origin:right;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
+header nav a:hover,header nav a:focus-visible{color:#EDEFEC}
+header nav a:hover::after,header nav a:focus-visible::after{transform:scaleX(1);transform-origin:left}
+header .brand img{transition:transform .3s cubic-bezier(.2,.7,.3,1),filter .3s ease}
+header .brand:hover img,header .brand:focus-visible img{transform:rotate(-6deg) scale(1.08);filter:drop-shadow(0 0 6px rgba(111,203,146,.45))}
+header .brand span{background-image:linear-gradient(#6FCB92,#6FCB92);background-repeat:no-repeat;background-position:0 100%;background-size:0 1px;transition:background-size .3s cubic-bezier(.2,.7,.3,1),color .22s ease}
+header .brand:hover span,header .brand:focus-visible span{background-size:100% 1px}
+@media (prefers-reduced-motion:reduce){a,button,a.btn,a.cta,a.cta svg,header nav a::after,header .brand img,header .brand span{transition:none}a.cta:hover,a.cta:hover svg,button:hover,a.btn:hover,header .brand:hover img{transform:none}}
+
 @keyframes steam{from{stroke-dashoffset:24}to{stroke-dashoffset:0}}
 #hot1,#hot2,#hot3{stroke-dasharray:14 10;stroke-opacity:.38;animation:steam 2.4s linear infinite}
 #hot2{animation-delay:-.8s}
@@ -60,10 +90,10 @@
 
 <header style="position:sticky;top:0;z-index:50;background:rgba(15,18,17,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(237,239,236,.09);">
   <div class="wrap" style="max-width:1160px;margin:0 auto;padding:18px 56px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
-    <a href="index.html" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/nav-face-mark.png" width="192" height="192" alt="" style="display:block;height:34px;width:34px;flex:none;">Alejandro Velazquez</a>
+    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/nav-face-mark.png" width="192" height="192" alt="" style="display:block;height:34px;width:34px;flex:none;"><span>Alejandro Velazquez</span></a>
     <nav style="display:flex;align-items:center;gap:22px;font-size:15px;">
       <a href="index.html#work" style="color:#A2ACA5;text-decoration:none;">Work</a>
-      <a href="about.html" style="color:#6FCB92;text-decoration:none;">About</a>
+      <a href="about.html" aria-current="page" style="color:#EDEFEC;text-decoration:none;">About</a>
       <a href="cv/Alejandro-Velazquez-CV.pdf" style="color:#A2ACA5;text-decoration:none;">CV</a>
     </nav>
   </div>
@@ -137,7 +167,7 @@
       <h2 style="font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">Let&rsquo;s talk</h2>
       <p style="font-size:18px;line-height:1.65;color:#EDEFEC;margin:0 0 24px 0;text-wrap:pretty;">I am interested in Lead Product Designer and design leadership roles where product strategy, hands-on design and complex systems are equally important.</p>
       <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;">
-        <a href="mailto:aleuxuk@gmail.com" style="display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 22px;border-radius:16px;border:1px solid rgba(237,239,236,.22);color:#EDEFEC;font-size:16px;font-weight:500;text-decoration:none;box-sizing:border-box;" style-hover="border-color:rgba(111,203,146,.6)"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;flex:none;"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M3.5 7.5l7.3 5.2a2 2 0 0 0 2.4 0l7.3-5.2"></path></svg>aleuxuk@gmail.com</a>
+        <a class="btn" href="mailto:aleuxuk@gmail.com" style="display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 22px;border-radius:16px;border:1px solid rgba(237,239,236,.22);color:#EDEFEC;font-size:16px;font-weight:500;text-decoration:none;box-sizing:border-box;" style-hover="border-color:rgba(111,203,146,.6)"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;flex:none;"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M3.5 7.5l7.3 5.2a2 2 0 0 0 2.4 0l7.3-5.2"></path></svg>aleuxuk@gmail.com</a>
         <button type="button" data-copy="aleuxuk@gmail.com" aria-label="Copy email address to clipboard" style="display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:16px;border:1px solid rgba(237,239,236,.22);background:transparent;color:#A2ACA5;font-family:inherit;font-size:15px;font-weight:500;cursor:pointer;box-sizing:border-box;transition:color .18s ease,border-color .18s ease;" style-hover="color:#EDEFEC;border-color:rgba(237,239,236,.4)">
           <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;flex:none;">
             <rect x="9" y="9" width="11" height="11" rx="2.5"></rect>

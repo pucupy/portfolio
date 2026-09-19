@@ -128,9 +128,10 @@
           var nz = Math.sin(qq * 0.055 + rr * 0.10) * 0.55 + Math.sin(qq * 0.019 - rr * 0.16 + 1.3) * 0.32 + Math.sin((qq * 0.11 + rr * 0.037) + 2.6) * 0.20;
           var nz2 = Math.sin(qq * 0.055 + (rr + 1) * 0.10) * 0.55 + Math.sin(qq * 0.019 - (rr + 1) * 0.16 + 1.3) * 0.32 + Math.sin((qq * 0.11 + (rr + 1) * 0.037) + 2.6) * 0.20;
           var ridge = Math.pow(1 / (1 + Math.abs(nz2 - nz) * 0.9 * 2.6), 1.6);
-          dy = nz * chh * 0.1;
-          rad = cw * (0.07 + (vv / 9) * 0.1 + ridge * 0.14) * (1 + handGlow * 0.55);
-          aa = Math.min(1, Math.max(0.3, (0.2 + (vv / 9) * 0.62) * (0.62 + ridge * 0.48)) * (1 + handGlow * 0.6));
+          dy = 0;
+          if (vv <= 2) continue;
+          rad = cw * (0.04 + Math.pow(vv / 9, 1.4) * 0.26) * (1 + handGlow * 0.4);
+          aa = Math.min(1, (0.06 + Math.pow(vv / 9, 1.6) * 0.9) * (1 + handGlow * 0.45));
         }
         ctx.fillStyle = (vv > 8 ? 'rgba(178,240,200,' : 'rgba(111,203,146,') + aa.toFixed(2) + ')';
         ctx.beginPath();
