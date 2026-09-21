@@ -119,7 +119,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
 <main id="main" class="wrap" style="max-width:1160px;margin:0 auto;padding:0 56px;">
 
-  <section style="max-width:700px;padding:110px 0 72px 0;">
+  <section style="max-width:700px;padding:56px 0 72px 0;">
     <div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:500;font-size:14px;letter-spacing:.1em;color:#6FCB92;margin-bottom:20px;">03: CASE STUDY</div>
     <h1 style="font-size:clamp(38px,7.5vw,60px);font-weight:600;letter-spacing:-0.02em;line-height:1.05;margin:0 0 32px 0;">Design systems at Yapily</h1>
     <p style="font-size:18px;line-height:1.6;color:#EDEFEC;margin:0;text-wrap:pretty;">Custard, Mark and Yapily UI, three design systems on one shared token layer, and the governance model that decided what got into them. I designed the first versions of the systems and built the governance jointly with the frontend lead.</p>
@@ -158,7 +158,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
     <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Accessibility is encoded rather than reviewed. Contrast requirements sit in the tokens, so the accessible choice is the default and you have to work to get it wrong.</p>
   </section>
 
-  <section style="max-width:700px;padding:80px 0 0 0;">
+  <section style="max-width:700px;padding:96px 0 0 0;">
     <h2 style="font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">Three systems, one token layer</h2>
     <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">We ran three design systems instead of one, and that was deliberate. A single system would have forced three very different surfaces into one set of compromises, and whichever surface was least like the others would have come off worst.</p>
     <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Three separate Figma libraries sat on top of a shared token library. Tokens were maintained as Figma variables and mirrored in code, with the component library documented in Storybook. Same primitives, different components, and that split is what made three systems cheaper than one compromised system, rather than three times the work.</p>
@@ -247,7 +247,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">The governing rule was about removal, not addition: a token that resolves to the same value as an existing one gets deleted, not aliased. Two names for one value is how a system ends up with forty-six hard-coded colours, which is where we started. The consolidation took that to sixteen primitives and eleven semantic aliases.</p>
   </section>
 
-  <section style="padding-top:80px;">
+  <section style="padding-top:96px;">
     <div style="max-width:700px;margin:0 0 40px 0;">
       <h2 style="font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">What we deliberately didn&rsquo;t share</h2>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">The exclusions did more work than the inclusions. Each of these was proposed as a shared token at some point and rejected for a reason specific to who uses the surface and for how long.</p>
@@ -268,13 +268,13 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
     </div>
   </section>
 
-  <section style="max-width:700px;padding-top:80px;">
+  <section style="max-width:700px;padding-top:96px;">
     <h2 style="font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">Custard shares components and inherits no brand</h2>
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Custard is the odd one out, and the architectural claim of the whole system. It takes atoms, molecules and layout from the shared library, and takes no brand values at all. Every brand slot is empty until a customer fills it. Yapily&rsquo;s own colours are a preset in that layer, not a default underneath it.</p>
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Which is why the Hosted Pages configurator works. A customer sets four values and every screen in the flow re-themes, because there was never a Yapily colour buried in a component to override. Building it the other way: a branded system with customer overrides layered on. Is how white-label products end up with a logo that changes and a button that doesn&rsquo;t.</p>
   </section>
 
-  <section style="max-width:700px;padding-top:80px;">
+  <section style="max-width:700px;padding-top:96px;">
     <h2 style="font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">Accessibility encoded in the tokens</h2>
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Status colours are defined as pairs, not single values. Each status has a saturated accent for bars, icons and borders, and a darkened partner for text, because the accent that reads correctly as a 6px bar fails 4.5:1 as 13px type on its own tint. Naming them as a pair means a designer can&rsquo;t pick the wrong one by reaching for the obvious value.</p>
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Dark mode works the same way. Deep teal is the primary action colour in light mode and fails on black, so mint is the dark-mode primary. Declared in the token layer rather than left as a judgement call per component. Both decisions move accessibility from something checked at the end to something you have to work to get wrong.</p>
@@ -420,14 +420,14 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
     </div>
   </figure>
 
-  <section style="padding-top:80px;">
+  <section style="padding-top:96px;">
     <div style="border:1px solid rgba(111, 203, 146,.35);padding:56px 48px;">
       <h2 style="font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 24px 0;">Where validation sat</h2>
       <p style="max-width:700px;font-size:18px;line-height:1.65;color:#EDEFEC;margin:0;text-wrap:pretty;">Validation sat <em>before</em> review, not after. That single ordering decision changed what review meetings were about. Teams debated evidence rather than taste, and the discussion moved faster because there was less to be subjective about.</p>
     </div>
   </section>
 
-  <section style="max-width:700px;padding-top:80px;">
+  <section style="max-width:700px;padding-top:96px;">
     <h2 style="font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">Reach</h2>
     <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Components from these systems were used across the marketing website and its landing pages, demo tools, internal tools, hosted pages, and customer-facing tools.</p>
   </section>
@@ -437,14 +437,14 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
     <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">We never formalised versioning or deprecation. What I’d put in place now: semantic versioning, so someone has to consciously decide whether a change is breaking; deprecate rather than delete, with the replacement and migration path named; a changelog written for humans; Figma and code versioned in step so designers can tell what’s actually in production; and release notes pushed to Slack rather than a wiki nobody opens.</p>
   </section>
 
-  <nav style="max-width:700px;padding:96px 0 0 0;">
+  <nav style="padding:96px 0 0 0;">
     <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:36px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:16px;">
       <a href="console.html">‹ Yapily Console</a>
       <a href="research-practice-np.html">Research practice ›</a>
     </div>
   </nav>
 
-  <footer style="max-width:700px;padding:56px 0 96px 0;">
+  <footer style="padding:56px 0 96px 0;">
     <div style="display:flex;gap:18px;flex-wrap:wrap;font-size:16px;">
       <a href="mailto:aleuxuk@gmail.com">aleuxuk@gmail.com</a>
       <span style="color:#4a5250;">·</span>
