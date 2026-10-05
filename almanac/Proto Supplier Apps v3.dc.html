@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/styles.css">
+  <link rel="stylesheet" href="Design System v2 Tokens.css">
+  <link rel="stylesheet" href="Almanac v3 Theme.css">
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/_ds_bundle.js"></script>
+</helmet>
+<div style="min-width:0">
+  <sc-if value="{{ isList }}">
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.PageHeader" title="Credit applications" dc-props="{{ listHeader }}" hint-size="100%,81px"></x-import>
+    <div style="padding:28px 24px 24px">
+      <sc-if value="{{ listEmpty }}">
+        <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No credit applications yet" description="Create a credit application for an existing customer." hint-size="100%,200px"></x-import>
+      </sc-if>
+      <sc-if value="{{ listHasRows }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid;grid-template-columns:{{ ldCols }};gap:24px;align-items:start">
+            <div style="min-width:0"><div class="alm-table-wrap">
+          <table class="alm-table alm-table--hover">
+            <thead><tr><th class="alm-th">Company name</th><th class="alm-th">Registration number</th><th class="alm-th">Status</th><th class="alm-th">Updated</th></tr></thead>
+            <tbody>
+              <sc-for list="{{ apps }}" as="a" hint-placeholder-count="5">
+                <tr onClick="{{ a.click }}" style="cursor:pointer;background:{{ a.bg }}">
+                  <td class="alm-td" style="font-weight:500">{{ a.name }}</td>
+                  <td class="alm-td" style="color:var(--muted-foreground)">{{ a.reg }}</td>
+                  <td class="alm-td"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ a.variant }}" hint-size="120px,22px">{{ a.status }}</x-import></td>
+                  <td class="alm-td" style="white-space:nowrap;color:var(--muted-foreground)">{{ a.updated }}</td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div></div>
+            <sc-if value="{{ pvOn }}">
+              <aside aria-label="Application preview" style="position:sticky;top:24px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--card);padding:20px;display:flex;flex-direction:column;gap:16px;min-width:0">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+                  <h2 style="margin:0;font-size:18px;font-weight:600;line-height:1.3;min-width:0">{{ pv.title }}</h2>
+                  <button type="button" aria-label="Close preview" onClick="{{ pvClose }}" style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;flex-shrink:0;margin:-6px -6px 0 0;border:0;border-radius:var(--radius-md);background:transparent;color:var(--muted-foreground);cursor:pointer" style-hover="background:var(--muted);color:var(--foreground)"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="X" size="{{ 16 }}" hint-size="16px,16px"></x-import></button>
+                </div>
+                <div style="display:flex;flex-direction:column">
+                  <sc-for list="{{ pv.rows }}" as="r" hint-placeholder-count="4">
+                    <div style="display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px"><span style="color:var(--muted-foreground)">{{ r.k }}</span><span style="text-align:right;min-width:0">{{ r.v }}</span></div>
+                  </sc-for>
+                </div>
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" on-click="{{ pv.open }}" hint-size="100%,32px">{{ pv.cta }}</x-import>
+              </aside>
+            </sc-if>
+          </div>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isCreate }}">
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.PageHeader" title="Create credit application" description="Choose an existing customer and configure what the buyer must provide." dc-props="{{ createHeader }}" hint-size="100%,100px"></x-import>
+    <div style="padding:28px 24px 40px;display:flex;flex-direction:column;gap:32px">
+      <section style="display:flex;flex-direction:column;gap:16px;max-width:576px">
+        <div style="display:flex;flex-direction:column;gap:6px"><h2 style="margin:0;font-size:20px;font-weight:300">Customer</h2><p style="margin:0;font-size:14px;color:var(--muted-foreground)">Choose a customer that is already on file.</p></div>
+        <sc-if value="{{ noCustomers }}">
+          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No customers yet" description="Add a customer first, then create a credit application." hint-size="100%,160px"></x-import>
+        </sc-if>
+        <sc-if value="{{ hasCustomers }}" hint-placeholder-val="{{ true }}">
+          <div style="position:relative;display:flex;flex-direction:column;gap:6px">
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Input" value="{{ custQ }}" on-change="{{ onCustQ }}" on-focus="{{ openCust }}" aria-label="Customer" aria-invalid="{{ custInvalid }}" hint-size="100%,32px"></x-import>
+            <sc-if value="{{ custOpen }}">
+              <div style="position:absolute;top:36px;left:0;right:0;z-index:20;background:var(--background);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);max-height:360px;overflow:auto;padding:4px 0">
+                <sc-for list="{{ custMatches }}" as="c" hint-placeholder-count="5">
+                  <button type="button" onClick="{{ c.pick }}" style="display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;padding:8px 12px;border:0;background:transparent;text-align:left;cursor:pointer;color:var(--foreground);font:inherit" style-hover="background:var(--muted)">
+                    <span style="font-size:14px">{{ c.name }}</span><span class="alm-mono" style="font-size:12px;color:var(--muted-foreground)">{{ c.reg }}</span>
+                  </button>
+                </sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ customerErr }}"><span role="alert" style="font-size:14px;color:var(--danger)">{{ customerErr }}</span></sc-if>
+          </div>
+          <sc-if value="{{ unlinked }}">
+            <p style="margin:0;font-size:14px;line-height:20px;color:var(--muted-foreground)">A representative of {{ customerName }} must approve the linking of the two organizations before they can start the credit application. We will send an email to that person with the connection request and the credit application request.</p>
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="Email address" required="{{ true }}" error="{{ emailErr }}" hint="{{ emailHint }}" hint-size="100%,84px">
+              <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Input" type="email" placeholder="name@company.com" value="{{ email }}" on-change="{{ onEmail }}" hint-size="100%,32px"></x-import>
+            </x-import>
+          </sc-if>
+        </sc-if>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;flex-direction:column;gap:6px"><h2 style="margin:0;font-size:20px;font-weight:300">Required steps</h2><p style="margin:0;font-size:14px;color:var(--muted-foreground)">Mark which steps the buyer must complete.</p></div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{ stepOpts }}" as="s" hint-placeholder-count="7">
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Checkbox" label="{{ s.label }}" checked="{{ s.checked }}" on-change="{{ s.toggle }}" hint-size="160px,20px"></x-import>
+          </sc-for>
+        </div>
+      </section>
+      <sc-if value="{{ createFailed }}">
+        <p role="alert" style="margin:0;font-size:14px;color:var(--danger)">A credit application is already in flight for this customer.</p>
+      </sc-if>
+      <div>
+        <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" size="lg" on-click="{{ create }}" disabled="{{ createDisabled }}" hint-size="100px,40px">{{ createLabel }}</x-import>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isOverview }}">
+    <div data-review-grid="" style="padding:28px 24px 40px;display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:28px;min-width:0">
+      <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Card" hint-size="100%,200px">
+        <div class="alm-card__header">
+          <h3 class="alm-card__title">Credit application overview</h3>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:24px">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span style="font-size:.65rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted-foreground);font-weight:500">Credit amount</span>
+            <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:var(--muted-foreground)">Requested</span><span class="alm-mono" style="font-size:14px">£50,000.00</span></div>
+            <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:var(--muted-foreground)">Creditsafe limit</span><span class="alm-mono" style="font-size:14px">£40,000.00</span></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span style="font-size:.65rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted-foreground);font-weight:500">Payment terms</span>
+            <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:var(--muted-foreground)">Requested</span><span style="font-size:14px">Net 60</span></div>
+            <div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:var(--muted-foreground)">Standard</span><span style="font-size:14px">Net 30</span></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span style="font-size:.65rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted-foreground);font-weight:500">Date</span>
+            <span style="font-size:14px">23 Jun 2026</span>
+            <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;color:var(--muted-foreground)">Reviewer</span>
+              <sc-if value="{{ reviewerLocked }}"><span style="font-size:14px">Alex Rivera</span></sc-if>
+              <sc-if value="{{ reviewerEditable }}" hint-placeholder-val="{{ true }}">
+                <select class="alm-input alm-input--sm" value="{{ reviewer }}" onChange="{{ onReviewer }}" style="max-width:180px">
+                  <option>Unassigned</option><option>Alex Rivera</option><option>Priya Patel</option><option>Sam Okafor</option>
+                </select>
+              </sc-if>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+            <span style="font-size:.65rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted-foreground);font-weight:500">Status</span>
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ statusVariant }}" hint-size="120px,22px">{{ statusLabel }}</x-import>
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" on-click="{{ openDecision }}" disabled="{{ decided }}" hint-size="80px,32px">{{ decideLabel }}</x-import>
+          </div>
+        </div>
+      </x-import>
+
+      
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
+          <h2 style="margin:0;font-size:20px;font-weight:300">Additional requests</h2>
+          <sc-if value="{{ canRequest }}" hint-placeholder-val="{{ true }}">
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" on-click="{{ openRequest }}" hint-size="180px,32px">Request new information</x-import>
+          </sc-if>
+        </div>
+        <sc-if value="{{ noRequests }}">
+          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No additional requests yet" description="Request a document from the buyer, or ask a question." hint-size="100%,180px"></x-import>
+        </sc-if>
+        <sc-if value="{{ hasRequests }}" hint-placeholder-val="{{ true }}">
+          <div class="alm-table-wrap">
+            <table class="alm-table">
+              <thead><tr><th class="alm-th">Request</th><th class="alm-th">Status</th><th class="alm-th">Response</th></tr></thead>
+              <tbody>
+                <sc-for list="{{ requests }}" as="r" hint-placeholder-count="3">
+                  <tr>
+                    <td class="alm-td"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;color:var(--muted-foreground)">{{ r.type }}</span><span>{{ r.text }}</span></div></td>
+                    <td class="alm-td"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ r.variant }}" hint-size="90px,22px">{{ r.status }}</x-import></td>
+                    <td class="alm-td" style="color:var(--muted-foreground)">{{ r.response }}</td>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+      <div data-review-pane="" style="display:flex;flex-direction:column;gap:28px;min-width:0">
+      <sc-if value="{{ showAdvisor }}" hint-placeholder-val="{{ true }}">
+        <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Card" wash="{{ advisorWash }}" hint-size="100%,320px">
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:20px">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <span style="font-size:.65rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted-foreground);font-weight:500">Credit advisor recommends</span>
+              <span style="font-size:20px;font-weight:600;color:{{ advisorColor }}">{{ advisorTitle }}</span>
+              <p style="margin:0;font-size:14px;color:var(--muted-foreground)">{{ advisorDesc }}</p>
+              <sc-if value="{{ decided }}"><span style="font-size:12px;color:var(--muted-foreground)">As recorded with the decision</span></sc-if>
+            </div>
+            <div style="display:flex;gap:10px">
+              <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" size="sm" on-click="{{ openAi }}" hint-size="130px,24px"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="Sparkles" size="{{ 14 }}" hint-size="14px,14px"></x-import>Deep AI analysis</x-import>
+              <sc-if value="{{ canAccept }}">
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" size="sm" on-click="{{ acceptRec }}" hint-size="160px,24px">Accept recommendation</x-import>
+              </sc-if>
+            </div>
+          </div>
+                    <div style="display:flex;flex-direction:column;gap:20px">
+            <sc-for list="{{ signalGroups }}" as="g" hint-placeholder-count="3">
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <span style="font-size:.65rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted-foreground);font-weight:500">{{ g.title }}</span>
+                <sc-for list="{{ g.items }}" as="i" hint-placeholder-count="1">
+                  <div style="border:1px solid var(--border);border-radius:var(--radius-lg);padding:12px 16px;display:flex;flex-direction:column;gap:8px;background:var(--card)">
+                    <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start">
+                      <span style="font-size:14px;font-weight:500">{{ i.quote }}</span>
+                      <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ i.variant }}" show-dot="{{ false }}" hint-size="120px,22px">{{ i.kind }}</x-import>
+                    </div>
+                    <span style="font-size:14px;color:var(--muted-foreground)">{{ i.question }}</span>
+                    <div style="display:flex;align-items:center;gap:10px">
+                      <span style="font-size:12px">Yes · {{ i.conf }}% confidence</span>
+                      <div style="width:120px"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Meter" value="{{ i.confVal }}" tone="accent" aria-label="Confidence" hint-size="120px,6px"></x-import></div>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-for>
+            <span style="font-size:12px;color:var(--muted-foreground)">{{ advisorFoot }}</span>
+          </div>
+        </x-import>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <h2 style="margin:0;font-size:20px;font-weight:300">Verification at glance</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:16px">
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.MetricCard" label="Creditsafe score" value="72" note="+3 vs last report" hint-size="100%,100px"></x-import>
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.MetricCard" label="Days beyond terms (DBT)" value="12" note="−2 vs last quarter" hint-size="100%,100px"></x-import>
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.MetricCard" label="Days sales outstanding" value="38" note="−4 vs last quarter" hint-size="100%,100px"></x-import>
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.MetricCard" label="Cash flow" value="£126K" note="+£18K vs prior period" hint-size="100%,100px"></x-import>
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.MetricCard" label="Total latest revenue" value="£2.4M" note="+8% vs prior year" hint-size="100%,100px"></x-import>
+          </div>
+        </div>
+      </sc-if>
+      </div>
+    </div>
+
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Sheet" open="{{ sheetOpen }}" on-open-change="{{ onSheet }}" aria-label="Credit decision" hint-size="0px,0px">
+      <div style="display:flex;flex-direction:column;gap:24px;overflow-y:auto">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <h2 style="margin:0;font-size:24px;font-weight:600;letter-spacing:-0.025em">Make a decision</h2>
+          <p style="margin:0;font-size:14px;color:var(--muted-foreground)">Kelly & Rose Taverns Ltd requested £50,000.00 on Net 60. The decision is logged with the verification data as it is now.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{ outcomeOpts }}" as="o" hint-placeholder-count="3">
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.OptionCard" name="outcome" label="{{ o.label }}" description="{{ o.description }}" checked="{{ o.checked }}" on-change="{{ o.pick }}" hint-size="100%,64px"></x-import>
+          </sc-for>
+        </div>
+        <sc-if value="{{ isApprove }}" hint-placeholder-val="{{ true }}">
+          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="Credit limit" required="{{ true }}" error="{{ limitErr }}" hint="Creditsafe suggests £40,000.00." hint-size="100%,84px">
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Input" value="{{ limit }}" on-change="{{ onLimit }}" input-mode="decimal" class-name="alm-mono" hint-size="100%,32px"></x-import>
+          </x-import>
+          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="Payment terms" hint-size="100%,64px">
+            <select class="alm-input alm-input--md" value="{{ terms }}" onChange="{{ onTerms }}"><option>Net 30</option><option>Net 60</option><option>Net 90</option></select>
+          </x-import>
+        </sc-if>
+        <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="Note" required="{{ noteRequired }}" error="{{ noteErr }}" hint="Visible in the audit trail." hint-size="100%,120px">
+          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Textarea" rows="{{ 3 }}" value="{{ note }}" on-change="{{ onNote }}" placeholder="Reason for this decision" hint-size="100%,80px"></x-import>
+        </x-import>
+        <div style="display:flex;justify-content:flex-end;gap:10px">
+          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="ghost" size="lg" on-click="{{ closeDecision }}" hint-size="90px,40px">Cancel</x-import>
+          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" size="lg" on-click="{{ recordDecision }}" disabled="{{ busy }}" hint-size="150px,40px">{{ recordLabel }}</x-import>
+        </div>
+      </div>
+    </x-import>
+
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.FocusPane" open="{{ aiOpen }}" on-open-change="{{ onAiOpen }}" layout="fill" aria-label="Deep AI analysis" hint-size="0px,0px">
+      <div style="display:flex;flex-direction:column;height:100%;min-height:0">
+        <header style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--border);padding:16px 80px 16px 24px">
+          <div style="min-width:0;display:flex;flex-direction:column;gap:2px">
+            <h2 style="margin:0;font-size:18px;font-weight:600;line-height:1.2;display:flex;align-items:center;gap:8px"><span style="display:flex;color:var(--accent)"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="Sparkles" size="{{ 18 }}" hint-size="18px,18px"></x-import></span>Deep AI analysis</h2>
+            <p style="margin:0;font-size:14px;color:var(--muted-foreground)">A credit controller’s view of this application, written by AI from the pinned data and your credit policy.</p>
+          </div>
+          <sc-if value="{{ aiHasMsgs }}">
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" size="sm" on-click="{{ aiRestart }}" disabled="{{ aiResponding }}" hint-size="120px,24px"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="RotateCcw" size="{{ 14 }}" hint-size="14px,14px"></x-import>New analysis</x-import>
+          </sc-if>
+        </header>
+        <div ref="{{ aiScrollRef }}" style="min-height:0;flex:1;overflow-y:auto">
+          <div role="log" aria-label="Deep AI analysis" style="margin:0 auto;width:100%;max-width:768px;box-sizing:border-box;display:flex;flex-direction:column;gap:32px;padding:32px 24px">
+            <sc-for list="{{ aiMsgs }}" as="m" hint-placeholder-count="1">
+              <sc-if value="{{ m.isUser }}">
+                <div style="display:flex;justify-content:flex-end"><p style="margin:0;max-width:85%;white-space:pre-wrap;overflow-wrap:break-word;border-radius:var(--radius-xl);background:color-mix(in oklab, var(--muted) 40%, transparent);padding:10px 16px;font-size:14px">{{ m.content }}</p></div>
+              </sc-if>
+              <sc-if value="{{ m.isAnswer }}">
+                <div style="min-width:0">
+                  <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Markdown" dc-props="{{ m.mdProps }}" hint-size="100%,200px"></x-import>
+                  <sc-if value="{{ m.hasTable }}">
+                    <div class="alm-table-wrap" style="margin:12px 0"><table class="alm-table">
+                      <thead><tr><sc-for list="{{ m.tHead }}" as="c" hint-placeholder-count="3"><th class="alm-th">{{ c }}</th></sc-for></tr></thead>
+                      <tbody><sc-for list="{{ m.tRows }}" as="r" hint-placeholder-count="2"><tr><sc-for list="{{ r }}" as="c" hint-placeholder-count="3"><td class="alm-td">{{ c }}</td></sc-for></tr></sc-for></tbody>
+                    </table></div>
+                  </sc-if>
+                  <sc-if value="{{ m.hasAfter }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Markdown" dc-props="{{ m.mdAfter }}" hint-size="100%,40px"></x-import></sc-if>
+                  <sc-if value="{{ m.done }}">
+                    <div style="margin-top:8px;display:flex">
+                      <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Tooltip" content="{{ m.copyLabel }}" hint-size="28px,28px">
+                        <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" size="sm" aria-label="{{ m.copyLabel }}" on-click="{{ m.copy }}" dc-props="{{ copyBtn }}" hint-size="28px,28px"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="{{ m.copyIcon }}" size="{{ 14 }}" hint-size="14px,14px"></x-import></x-import>
+                      </x-import>
+                    </div>
+                    <sc-if value="{{ m.hasRules }}">
+                      <section aria-label="Suggested rules" style="margin-top:16px">
+                        <h3 style="margin:0 0 8px;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="Lightbulb" size="{{ 14 }}" hint-size="14px,14px"></x-import>Suggested rules</h3>
+                        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px">
+                          <sc-for list="{{ m.rules }}" as="r" hint-placeholder-count="2">
+                            <li style="border:1px solid var(--border);border-radius:var(--radius-md);background:var(--card);padding:12px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
+                              <div style="min-width:0;display:flex;flex-direction:column;gap:4px;align-items:flex-start">
+                                <p style="margin:0;font-size:14px">“{{ r.text }}”</p>
+                                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ r.variant }}" size="xs" show-dot="{{ false }}" hint-size="60px,18px">{{ r.label }}</x-import>
+                              </div>
+                              <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" size="sm" on-click="{{ addRule }}" style="flex-shrink:0;gap:6px" hint-size="120px,24px">Add this rule<x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="ExternalLink" size="{{ 12 }}" hint-size="12px,12px"></x-import></x-import>
+                            </li>
+                          </sc-for>
+                        </ul>
+                      </section>
+                    </sc-if>
+                  </sc-if>
+                </div>
+              </sc-if>
+            </sc-for>
+            <sc-if value="{{ aiThinking }}">
+              <p aria-live="polite" style="margin:0;display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted-foreground)"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="Loader" size="{{ 16 }}" class-name="alm-spin" hint-size="16px,16px"></x-import>Thinking…</p>
+            </sc-if>
+          </div>
+        </div>
+        <div style="padding:8px 24px 20px">
+          <div style="margin:0 auto;width:100%;max-width:768px">
+            <form onSubmit="{{ aiSubmit }}" style="display:flex;align-items:flex-end;gap:8px;border-radius:var(--radius-xl);border:1px solid var(--input);background:var(--background);padding:8px 8px 8px 16px">
+              <textarea rows="1" value="{{ aiDraft }}" onChange="{{ onAiDraft }}" onKeyDown="{{ onAiKey }}" placeholder="Ask a follow-up question" aria-label="Ask a follow-up question" style="flex:1 1 0;min-width:0;width:0;min-height:0;max-height:200px;align-self:center;padding:6px 0;border:0;outline:0;resize:none;background:transparent;color:var(--foreground);font:inherit;font-size:14px"></textarea>
+              <sc-if value="{{ aiResponding }}">
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" aria-label="Stop" on-click="{{ aiStop }}" dc-props="{{ iconBtn }}" hint-size="32px,32px"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="Square" size="{{ 14 }}" fill="currentColor" hint-size="14px,14px"></x-import></x-import>
+              </sc-if>
+              <sc-if value="{{ aiIdle }}" hint-placeholder-val="{{ true }}">
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" type="submit" aria-label="Send" disabled="{{ aiCantSend }}" dc-props="{{ iconBtn }}" hint-size="32px,32px"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="ArrowUp" size="{{ 16 }}" hint-size="16px,16px"></x-import></x-import>
+              </sc-if>
+            </form>
+            <p style="margin:8px 0 0;text-align:center;font-size:12px;color:var(--muted-foreground)">AI can make mistakes. Check the facts that matter against the application before you decide.</p>
+          </div>
+        </div>
+      </div>
+    </x-import>
+
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Modal" open="{{ reqOpen }}" on-open-change="{{ onReqOpen }}" title="Request new information" dc-props="{{ reqModalProps }}" hint-size="0px,0px">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <x-import component-from-global-scope="AlmanacDesignSystem_94f443.ToggleGroup" value="{{ reqType }}" on-value-change="{{ onReqType }}" aria-label="Request type" hint-size="200px,32px">
+          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.ToggleGroupItem" value="Question" hint-size="90px,28px">Question</x-import>
+          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.ToggleGroupItem" value="Document" hint-size="90px,28px">Document</x-import>
+        </x-import>
+        <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="{{ reqLabel }}" required="{{ true }}" error="{{ reqErr }}" hint-size="100%,110px">
+          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Textarea" rows="{{ 3 }}" value="{{ reqText }}" on-change="{{ onReqText }}" hint-size="100%,80px"></x-import>
+        </x-import>
+      </div>
+    </x-import>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const BASE_APPS = [
+  { name: 'Kelly & Rose Taverns Ltd', reg: '11482036', status: 'Approved', updated: '12 Jan 2026' },
+  { name: 'Acme Manufacturing', reg: 'HRB 123456', status: 'Credit refused', updated: '3 Mar 2026' },
+  { name: 'Beacon Foods', reg: 'IE123456', status: 'Awaiting decision', updated: '18 Apr 2026' },
+  { name: 'Delta Logistics', reg: '89101112', status: 'In progress', updated: '2 Jun 2026' },
+  { name: 'Cedar Supply Co', reg: 'SC445566', status: 'Sale refused', updated: '21 Jul 2026' },
+];
+const VARIANT = { Approved: 'success', 'Credit refused': 'danger', 'Sale refused': 'danger', 'Awaiting decision': 'warning', 'In progress': 'accent' };
+const CUSTOMERS = [['c1', 'Kelly & Rose Taverns Ltd', true, '11482036'], ['c2', 'Acme Manufacturing', false, 'HRB 123456'], ['c3', 'Beacon Foods', true, 'IE123456'], ['c4', 'Delta Logistics', false, '89101112', true], ['c5', 'Cedar Supply Co', true, 'SC445566']];
+const STEPS = ['Company', 'Contacts', 'Open banking', 'Payment mandate', 'Credit terms', 'References', 'Documents'];
+const PRESET = { 'Optional Steps': ['c3', STEPS.slice(0, 5)], 'Unlinked Customer': ['c2', null, 'finance@acme.test'], 'Unlinked Customer Pending Invitation': ['c4'], Creating: ['c1'], 'Create Failed': ['c1'] };
+const AI_SUMMARY = "**Overall view**: extend credit with conditions. Kelly & Rose Taverns Ltd is an established, profitable company with a clean payment record, but the requested £50,000 limit is high against its bank balances and one trade reference reported late payment.\n\n**Strengths**\n- Incorporated in 2011; accounts and confirmation statement filed on time.\n- Creditsafe score 72 (B) with a £60,000 Creditsafe credit limit.\n- Average monthly inflow of £212,000 over 12 months, no returned payments.\n\n**Concerns**\n1. **Trade reference from Harbour Foods reports payments \"sometimes late\"**, up to 15 days beyond terms. Your rule on unfavourable references fired; I would give it moderate weight because the other reference is positive.\n2. **Lowest end-of-day balance of £3,400** in March suggests tight cash at quarter end.\n\n**Missing information**\n- Management accounts for the last 6 months, to confirm the March dip was seasonal.\n\n**Suggested terms**\n\n| | Requested | Suggested |\n| --- | --- | --- |\n| Credit limit | £50,000 | £30,000 |\n| Payment terms | Net 60 | Net 30 |\n\nReview after 6 months of on-time payments.";
+const AI_RULES = [{ text: 'The lowest end-of-day bank balance in the last 12 months was below £5,000.', label: 'Warning', variant: 'warning' }, { text: 'Average monthly bank inflow over the last 12 months is at least four times the requested credit limit.', label: 'Positive', variant: 'success' }];
+const AI_FOLLOW_UP = 'The data does not show that. Ask the buyer for it before you decide.';
+const BASE_REQ = [
+  { type: 'Question', text: 'Please confirm the registered office address matches Companies House.', status: 'Submitted', response: '—' },
+  { type: 'Document', text: 'Latest filed accounts (last 12 months)', status: 'Answered', response: 'Northwind-accounts-2025.pdf' },
+  { type: 'Question', text: 'Who is the authorised signatory for credit terms?', status: 'Answered', response: '“Jane Smith, Finance Director.”' },
+];
+const SIGNALS = {
+  review: [
+    { title: 'Warnings', items: [{ quote: '“The company was incorporated less than 12 months ago.”', kind: 'Warning', variant: 'warning', question: 'Was the company incorporated less than 12 months before the evaluation date?', conf: 97 }] },
+    { title: 'Information required', items: [{ quote: '“The buyer did not give any trade references.”', kind: 'Information required', variant: 'accent', question: 'Did the buyer name no trade references at all?', conf: 99 }] },
+    { title: 'Positive signals', items: [{ quote: '“The buyer has an active direct debit mandate.”', kind: 'Positive', variant: 'success', question: 'Does the buyer have an active direct debit mandate?', conf: 98 }] },
+  ],
+};
+SIGNALS.approve = [SIGNALS.review[2]];
+
+const splitTable = (content) => {
+  const i = content.indexOf('\n|');
+  if (i < 0) return { mdProps: { children: content }, hasTable: false, hasAfter: false };
+  const rest = content.slice(i + 1), end = rest.indexOf('\n\n');
+  const block = end < 0 ? '' : rest.slice(0, end);
+  const cells = (l) => l.trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
+  const lines = block.split('\n').filter((l) => l.trim() && !/^\|?\s*-{3}/.test(l.trim()));
+  const after = end < 0 ? '' : rest.slice(end + 2);
+  return { mdProps: { children: content.slice(0, i) }, hasTable: lines.length > 1, tHead: lines.length ? cells(lines[0]) : [], tRows: lines.slice(1).map(cells), hasAfter: !!after.trim(), mdAfter: { children: after } };
+};
+const sel0 = (list, id) => { const c = list.find((x) => x[0] === id); return c ? c[1] : ''; };
+class Component extends DCLogic {
+  ld(list, cta) {
+    if (!this._ldR) { this._ldR = () => this.forceUpdate(); window.addEventListener('resize', this._ldR); }
+    const wide = window.innerWidth >= 1200, i = this.state.pvI, it = wide && i != null ? list[i] : null;
+    list.forEach((x, k) => { x.bg = it && k === i ? 'color-mix(in oklab, var(--accent) 8%, transparent)' : ''; });
+    return { ldCols: it ? 'minmax(0,1fr) 360px' : 'minmax(0,1fr)', pvOn: !!it, pv: it ? { title: it.pvTitle, rows: it.pvRows, open: it.open, cta } : { rows: [] }, pvClose: () => this.setState({ pvI: null }) };
+  }
+
+  state = { customerId: '', customerErr: null, email: '', emailErr: null, steps: STEPS.slice(0, 6), creating: false, failed: false,
+    reviewer: 'Unassigned', deep: false, sheet: null, outcome: 'approve', limit: '40,000.00', terms: 'Net 30', note: '', limitErr: null, noteErr: null, busy: false,
+    reqOpen: false, reqType: 'Question', reqText: '', reqErr: null, ai: null, aiMsgs: [], aiResponding: false, aiDraft: '', copied: null };
+  aiScrollRef = React.createRef();
+  componentDidMount() { this.applyPreset(); }
+  componentDidUpdate(prev) {
+    if (prev.screen !== this.props.screen || prev.state !== this.props.state) { this.setState({ sheet: null, failed: false, creating: false, busy: false, ai: null }); this.applyPreset(); }
+    const el = this.aiScrollRef.current; if (el && this.state.aiResponding) el.scrollTop = el.scrollHeight;
+  }
+  componentWillUnmount() { clearInterval(this.aiTimer); clearTimeout(this.aiWait); }
+  applyPreset() {
+    const { screen, state: st } = this.props;
+    if (screen === 'sp.appCreate') {
+      const p = PRESET[st];
+      const c = p && CUSTOMERS.find((x) => x[0] === p[0]);
+      this.setState({ customerId: c ? c[0] : '', custQ: c ? c[1] : null, steps: p && p[1] ? p[1] : STEPS.slice(0, 6), email: p && p[2] ? p[2] : '', customerErr: null, emailErr: null });
+    }
+    if (screen === 'sp.appOverview' && st === 'Credit Analysis Open' && !this.state.aiMsgs.length) this.aiRespond([], AI_SUMMARY, AI_RULES);
+  }
+  aiSend() {
+    const text = this.state.aiDraft.trim();
+    if (!text || this.state.aiResponding) return;
+    this.setState({ aiDraft: '' });
+    this.aiRespond([...this.state.aiMsgs, { id: 'question-' + this.state.aiMsgs.length, role: 'user', content: text }], AI_FOLLOW_UP);
+  }
+  aiRespond(history, answer, rules) {
+    clearInterval(this.aiTimer); clearTimeout(this.aiWait);
+    const id = 'answer-' + history.length, words = answer.split(/(?<=\s)/);
+    let n = 0;
+    this.setState({ aiMsgs: [...history, { id, role: 'assistant', content: '' }], aiResponding: true });
+    this.aiWait = setTimeout(() => {
+      this.aiTimer = setInterval(() => {
+        n += 3;
+        const done = n >= words.length;
+        this.setState((s) => ({ aiMsgs: s.aiMsgs.map((m) => (m.id === id ? { ...m, content: words.slice(0, n).join(''), rules: done ? rules : undefined } : m)), aiResponding: !done }));
+        if (done) clearInterval(this.aiTimer);
+      }, 40);
+    }, 1200);
+  }
+  renderVals() {
+    const { screen, state: st = 'Default', go = () => {}, ctx = {}, setCtx = () => {} } = this.props;
+    const s = this.state;
+    const dec = ctx.decision;
+    const apps = [...(ctx.newApps || []), ...BASE_APPS].map((a) => {
+      const status = a.name === 'Kelly & Rose Taverns Ltd' && dec ? dec.status : a.status;
+      return { ...a, status, variant: VARIANT[status] || 'muted', open: () => go('sp.appOverview', a.name === 'Kelly & Rose Taverns Ltd' && dec ? 'Decided' : 'Default') };
+    });
+    const customers = [...(ctx.customers || []).map((c, i) => ['n' + i, c.name, false, c.reg || '—']), ...CUSTOMERS].sort((x, y) => x[1].localeCompare(y[1]));
+    const custQ = s.custQ != null ? s.custQ : (sel0(customers, s.customerId) || '');
+    const sel = customers.find((c) => c[0] === s.customerId);
+    const unlinked = !!(sel && !sel[2] && !sel[4]);
+    const decided = st === 'Decided';
+    const status = decided ? (dec ? dec.status : 'Approved') : 'Awaiting decision';
+    const approveRec = st === 'Approve Recommended';
+    const restricted = st === 'Write Restricted';
+    const sheetOpen = s.sheet != null ? s.sheet : st === 'Decision Open';
+    const requests = restricted ? [] : [...(ctx.requests || []), ...BASE_REQ].map((r) => ({ ...r, variant: r.status === 'Answered' ? 'success' : 'muted' }));
+    const h = React.createElement, DS = window.AlmanacDesignSystem_94f443 || {};
+    const noteRequired = s.outcome !== 'approve';
+    return {
+      isList: screen === 'sp.apps', listEmpty: st === 'Empty' && !(ctx.newApps || []).length, listHasRows: !(st === 'Empty' && !(ctx.newApps || []).length),
+      apps: (this._al = (st === 'Empty' ? apps.slice(0, (ctx.newApps || []).length) : apps).map((a, k) => ({ ...a, click: () => (window.innerWidth >= 1200 ? this.setState({ pvI: k }) : a.open()), pvTitle: a.name, pvRows: [{ k: 'Registration number', v: a.reg }, { k: 'Status', v: a.status }, { k: 'Updated', v: a.updated }] }))), ...this.ld(this._al, 'Open application'),
+      listHeader: { actions: DS.Button ? (st === 'Locked Create' ? h('div', { style: { display: 'flex', alignItems: 'center', gap: 8 } }, DS.PermissionLock ? h(DS.PermissionLock, { permissionKey: 'supplier:credit_applications:write' }) : null, h(DS.Button, { variant: 'outline', disabled: true }, 'Create')) : h(DS.Button, { variant: 'outline', onClick: () => go('sp.appCreate') }, 'Create')) : null },
+      isCreate: screen === 'sp.appCreate',
+      createHeader: { actions: DS.BackLink ? h(DS.BackLink, { href: '#', onClick: (e) => { e.preventDefault(); go('sp.apps'); } }, 'Credit applications') : null },
+      noCustomers: st === 'Empty', hasCustomers: st !== 'Empty',
+      customerOpts: customers.map(([id, name]) => ({ id, name })), customerId: s.customerId, customerErr: s.customerErr,
+      onCustomer: (e) => this.setState({ customerId: e.target.value, customerErr: null, failed: false }),
+      custQ, onCustQ: (e) => this.setState({ custQ: e.target.value, custOpen: true, customerId: '' }), openCust: () => this.setState({ custOpen: true }), custOpen: !!s.custOpen, custInvalid: !!s.customerErr,
+      custMatches: customers.filter((c) => !custQ.trim() || (c[1] + ' ' + c[3]).toLowerCase().includes(custQ.trim().toLowerCase())).map(([id, name, , reg]) => ({ name, reg, pick: () => this.setState({ customerId: id, custQ: name, custOpen: false, customerErr: null, failed: false }) })),
+      createDisabled: s.creating || st === 'Creating',
+      unlinked, customerName: sel ? sel[1] : 'Acme Manufacturing',
+      email: s.email, emailErr: s.emailErr, emailHint: 'Only invite a person who is part of ' + (sel ? sel[1] : 'Acme Manufacturing') + '. Almanac cannot check that this email belongs to them.',
+      onEmail: (e) => this.setState({ email: e.target.value, emailErr: null }),
+      stepOpts: STEPS.map((l) => ({ label: l, checked: s.steps.includes(l), toggle: () => this.setState((x) => ({ steps: x.steps.includes(l) ? x.steps.filter((y) => y !== l) : [...x.steps, l] })) })),
+      createFailed: st === 'Create Failed' || s.failed, creating: s.creating || st === 'Creating', createLabel: s.creating || st === 'Creating' ? 'Creating…' : 'Create',
+      create: () => {
+        if (!sel) return this.setState({ customerErr: 'Choose a customer' });
+        if (unlinked && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.email)) return this.setState({ emailErr: 'Please enter a valid email address' });
+        this.setState({ creating: true, failed: false });
+        setTimeout(() => {
+          if (sel[1] === 'Kelly & Rose Taverns Ltd') return this.setState({ creating: false, failed: true });
+          setCtx((c) => ({ newApps: [{ name: sel[1], reg: '—', status: 'In progress', updated: '30 Sep 2026' }, ...(c.newApps || [])] }));
+          this.setState({ creating: false, customerId: '', custQ: null, email: '' });
+          go('@next');
+        }, 900);
+      },
+      isOverview: screen === 'sp.appOverview',
+      reviewerLocked: decided || restricted, reviewerEditable: !(decided || restricted), reviewer: s.reviewer, onReviewer: (e) => this.setState({ reviewer: e.target.value }),
+      statusLabel: status, statusVariant: VARIANT[status] || 'muted', decided, decideLabel: decided ? 'Decided' : 'Decide',
+      openDecision: () => (st === 'Decision Open' ? this.setState({ sheet: true }) : go('sp.appOverview', 'Decision Open')),
+      showAdvisor: !restricted, advisorWash: approveRec ? 'success' : 'warning',
+      advisorColor: approveRec ? 'var(--success)' : 'var(--warning)',
+      advisorTitle: approveRec ? 'Approve credit' : 'Review needed',
+      advisorDesc: approveRec ? 'Checked 5 rules: no negative signals, warnings, or missing information.' : 'Checked 5 rules: 1 warning, 1 request for information and 1 rule that could not be assessed. A person should decide.',
+      advisorFoot: approveRec ? 'Not triggered: 4 rules' : 'Couldn’t assess 1 rule · Not triggered: 1 rule',
+      canAccept: approveRec, acceptRec: () => { this.setState({ outcome: 'approve', note: 'Accepted credit advisor recommendation.' }); go('sp.appOverview', 'Decision Open'); },
+      openAi: () => { this.setState({ ai: true }); if (!s.aiMsgs.length && !s.aiResponding) this.aiRespond([], AI_SUMMARY, AI_RULES); },
+      aiOpen: s.ai != null ? s.ai : st === 'Credit Analysis Open',
+      onAiOpen: (o) => { this.setState({ ai: o }); if (!o && st === 'Credit Analysis Open') go('sp.appOverview', 'Default'); },
+      aiHasMsgs: s.aiMsgs.length > 0, iconBtn: { style: { width: 32, height: 32, padding: 0, flexShrink: 0 } }, copyBtn: { style: { width: 28, height: 28, padding: 0, borderColor: 'transparent', color: 'var(--muted-foreground)' } }, aiResponding: s.aiResponding, aiIdle: !s.aiResponding, aiScrollRef: this.aiScrollRef,
+      aiThinking: s.aiResponding && (!s.aiMsgs.length || s.aiMsgs[s.aiMsgs.length - 1].content === ''),
+      aiMsgs: s.aiMsgs.filter((m) => m.role === 'user' || m.content !== '').map((m, i, arr) => {
+        const done = !(s.aiResponding && i === arr.length - 1 && m.role === 'assistant');
+        return { ...m, ...splitTable(m.content), isUser: m.role === 'user', isAnswer: m.role === 'assistant', done, hasRules: !!(m.rules && m.rules.length), rules: m.rules || [],
+          copyLabel: s.copied === m.id ? 'Copied' : 'Copy', copyIcon: s.copied === m.id ? 'Check' : 'Copy',
+          copy: () => { try { navigator.clipboard.writeText(m.content); } catch (e) {} this.setState({ copied: m.id }); clearTimeout(this.copyT); this.copyT = setTimeout(() => this.setState({ copied: null }), 2000); } };
+      }),
+      aiRestart: () => this.aiRespond([], AI_SUMMARY, AI_RULES),
+      aiStop: () => { clearInterval(this.aiTimer); clearTimeout(this.aiWait); this.setState({ aiResponding: false }); },
+      aiDraft: s.aiDraft, onAiDraft: (e) => this.setState({ aiDraft: e.target.value }), aiCantSend: !s.aiDraft.trim() || s.aiResponding,
+      aiSubmit: (e) => { e.preventDefault(); this.aiSend(); },
+      onAiKey: (e) => { if (e.key === 'Enter' && !e.shiftKey && !e.nativeEvent.isComposing) { e.preventDefault(); this.aiSend(); } },
+      addRule: () => go('sp.rules', 'New Rule'),
+      signalGroups: (approveRec ? SIGNALS.approve : SIGNALS.review).map((g) => ({ ...g, items: g.items.map((i) => ({ ...i, confVal: i.conf / 100 })) })),
+      canRequest: !decided, noRequests: requests.length === 0, hasRequests: requests.length > 0, requests,
+      openRequest: () => this.setState({ reqOpen: true }),
+      sheetOpen, onSheet: (o) => { this.setState({ sheet: o }); if (!o && st === 'Decision Open') go('sp.appOverview', 'Default'); },
+      closeDecision: () => { this.setState({ sheet: false }); if (st === 'Decision Open') go('sp.appOverview', 'Default'); },
+      outcomeOpts: [['approve', 'Approve credit', 'Grant a credit limit and payment terms.'], ['refuse_credit', 'Refuse credit', 'Keep trading on proforma or card payment only.'], ['refuse_sale', 'Refuse sale', 'Do not trade with this customer.']].map(([v, label, description]) => ({ label, description, checked: s.outcome === v, pick: () => this.setState({ outcome: v, noteErr: null }) })),
+      isApprove: s.outcome === 'approve', limit: s.limit, limitErr: s.limitErr, onLimit: (e) => this.setState({ limit: e.target.value, limitErr: null }),
+      terms: s.terms, onTerms: (e) => this.setState({ terms: e.target.value }),
+      note: s.note, noteErr: s.noteErr, noteRequired, onNote: (e) => this.setState({ note: e.target.value, noteErr: null }),
+      busy: s.busy, recordLabel: s.busy ? 'Recording…' : 'Record decision',
+      recordDecision: () => {
+        const amt = parseFloat(String(s.limit).replace(/[£,\s]/g, ''));
+        if (s.outcome === 'approve' && !(amt > 0)) return this.setState({ limitErr: 'Enter a credit limit above £0.00' });
+        if (noteRequired && !s.note.trim()) return this.setState({ noteErr: 'Add a reason for refusing' });
+        this.setState({ busy: true });
+        setTimeout(() => {
+          const statusMap = { approve: 'Approved', refuse_credit: 'Credit refused', refuse_sale: 'Sale refused' };
+          setCtx({ decision: { status: statusMap[s.outcome], limit: amt, terms: s.terms, note: s.note } });
+          this.setState({ busy: false, sheet: null });
+          go('sp.appOverview', 'Decided');
+        }, 700);
+      },
+      reqOpen: s.reqOpen, onReqOpen: (o) => this.setState({ reqOpen: o }),
+      reqType: s.reqType, onReqType: (v) => v && this.setState({ reqType: v }), reqLabel: s.reqType === 'Question' ? 'Question' : 'Document to request',
+      reqText: s.reqText, reqErr: s.reqErr, onReqText: (e) => this.setState({ reqText: e.target.value, reqErr: null }),
+      reqModalProps: { actions: DS.Button ? h(DS.Button, { size: 'lg', onClick: () => {
+        if (!this.state.reqText.trim()) return this.setState({ reqErr: 'Enter what you need from the buyer' });
+        setCtx((c) => ({ requests: [{ type: this.state.reqType, text: this.state.reqText.trim(), status: 'Submitted', response: '—' }, ...(c.requests || [])] }));
+        this.setState({ reqOpen: false, reqText: '' });
+      } }, 'Send request') : null },
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/radius.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/base.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/components/components.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/styles.css">
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/_ds_bundle.js"></script>
+  <style>a{color:var(--accent)}a:hover{color:var(--accent)}</style>
+</helmet>
+<div style="display:flex;min-height:100%;flex-direction:column;background:var(--muted-40);color:var(--foreground)">
+  <header style="display:flex;height:56px;flex-shrink:0;align-items:center;justify-content:space-between;gap:16px;background:var(--foreground);color:var(--background);padding:0 24px">
+    <span style="font-size:14px;font-weight:500;letter-spacing:-0.025em">Acme Supplies</span>
+    <span style="font-size:12px">Powered by Almanac</span>
+  </header>
+  <div style="display:flex;flex:1;justify-content:center;padding:40px 24px">
+    <div style="display:flex;width:100%;max-width:1024px;overflow:hidden;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--card);align-self:flex-start">
+      <aside style="width:256px;flex-shrink:0;border-right:1px solid var(--border);background:var(--muted-20);padding:32px 20px;box-sizing:border-box">
+        <nav aria-label="Application steps" style="position:relative">
+          <div style="position:absolute;top:6px;bottom:6px;left:5px;width:1px;transform:translateX(-50%);background:var(--border)"></div>
+          <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:20px">
+            <sc-for list="{{ rail }}" as="r" hint-placeholder-count="8">
+              <li style="display:flex;align-items:center;gap:12px">
+                <span style="position:relative;z-index:1;box-sizing:border-box;width:10px;height:10px;flex-shrink:0;border-radius:5px;border:1px solid {{ r.dotBorder }};background:{{ r.dotBg }};box-shadow:{{ r.ring }}"></span>
+                <button type="button" onClick="{{ r.onClick }}" disabled="{{ r.disabled }}" aria-current="{{ r.current }}" style="border:0;background:transparent;padding:0;text-align:left;font-family:inherit;font-size:14px;line-height:1.375;color:{{ r.color }};font-weight:{{ r.weight }};cursor:{{ r.cursor }}" style-hover="color:{{ r.hover }}">{{ r.label }}</button>
+              </li>
+            </sc-for>
+          </ol>
+        </nav>
+      </aside>
+      <div style="display:flex;min-width:0;flex:1;flex-direction:column;padding:32px">
+        <div style="display:flex;flex-direction:column;gap:10px;border-bottom:1px solid var(--border);padding-bottom:24px">
+          <h1 style="margin:0;font-size:24px;line-height:32px;font-weight:600;letter-spacing:-0.025em">{{ title }}</h1>
+          <p style="margin:0;font-size:14px;color:var(--muted-foreground)">{{ desc }}</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:20px;padding-top:24px">
+
+          <sc-if value="{{ isCompany }}" hint-placeholder-val="{{ true }}">
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="Country of registration" required="{{ true }}" hint-size="100%,64px">
+              <select class="alm-input alm-input--md" value="{{ country }}" onChange="{{ onCountry }}"><option value="GB">United Kingdom</option><option value="IE">Ireland</option><option value="NL">Netherlands</option></select>
+            </x-import>
+            <sc-if value="{{ showSearch }}">
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="Find your company" hint="Your details will be auto-filled from Companies House." hint-size="100%,84px">
+                  <div style="position:relative">
+                    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Input" placeholder="Search by company name or number…" autocomplete="off" value="{{ search }}" on-change="{{ onSearch }}" hint-size="100%,32px"></x-import>
+                    <sc-if value="{{ hasSearch }}">
+                      <div style="position:absolute;top:50%;right:4px;transform:translateY(-50%)"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="ghost" size="sm" aria-label="Clear search" on-click="{{ clearSearch }}" hint-size="50px,24px">Clear</x-import></div>
+                    </sc-if>
+                  </div>
+                </x-import>
+                <sc-if value="{{ hasResults }}">
+                  <ul style="list-style:none;margin:0;padding:0;max-height:224px;overflow-y:auto;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--card)">
+                    <sc-for list="{{ results }}" as="res" hint-placeholder-count="2">
+                      <li style="border-bottom:{{ res.rule }}">
+                        <button type="button" onClick="{{ res.pick }}" style="display:flex;width:100%;flex-direction:column;gap:2px;padding:10px 12px;border:0;background:transparent;text-align:left;font-family:inherit;color:var(--foreground);cursor:pointer" style-hover="background:var(--muted-50)">
+                          <span style="font-size:14px;font-weight:500">{{ res.title }}</span>
+                          <span class="alm-mono" style="font-size:12px;color:var(--muted-foreground)">{{ res.meta }}</span>
+                          <span style="font-size:12px;color:var(--muted-foreground)">{{ res.addr }}</span>
+                        </button>
+                      </li>
+                    </sc-for>
+                  </ul>
+                </sc-if>
+                <sc-if value="{{ showManualBtn }}">
+                  <div><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" size="sm" on-click="{{ enterManual }}" hint-size="160px,24px">Enter details manually</x-import></div>
+                </sc-if>
+              </div>
+            </sc-if>
+          </sc-if>
+
+          <sc-if value="{{ isContacts }}">
+            <p style="margin:0;font-size:14px;color:var(--muted-foreground)">We need one primary contact for all communications related to this application. You can add additional users once your account is set up.</p>
+          </sc-if>
+          <sc-if value="{{ isTerms }}">
+            <p style="margin:0;font-size:14px;color:var(--muted-foreground)">Enter the monthly credit limit and estimated purchase volume you would like to apply for.</p>
+          </sc-if>
+          <sc-if value="{{ isRefs }}">
+            <p style="margin:0;font-size:14px;color:var(--muted-foreground)">Provide existing suppliers who can confirm your payment history. We will contact them directly by email.</p>
+          </sc-if>
+
+          <sc-if value="{{ hasFields }}" hint-placeholder-val="{{ true }}">
+            <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
+              <sc-for list="{{ fields }}" as="x" hint-placeholder-count="7">
+                <div style="grid-column:{{ x.col }};min-width:0">
+                  <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="{{ x.label }}" required="{{ x.required }}" hint="{{ x.hint }}" hint-size="100%,64px">
+                    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Input" type="{{ x.type }}" value="{{ x.value }}" on-change="{{ x.onChange }}" placeholder="{{ x.ph }}" class-name="{{ x.cls }}" autocomplete="off" hint-size="100%,32px"></x-import>
+                  </x-import>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isContacts }}">
+            <div style="display:flex;flex-direction:column;gap:12px;border:1px solid var(--border);border-radius:var(--radius-lg);background:color-mix(in srgb, var(--muted) 10%, transparent);padding:16px">
+              <p style="margin:0;font-size:14px;font-weight:500">Does this contact also cover the following roles?</p>
+              <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Checkbox" label="I am the director" checked="{{ isDirector }}" on-change="{{ onDirector }}" hint-size="160px,20px"></x-import>
+              <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Checkbox" label="I am the accounts payable contact" checked="{{ isAp }}" on-change="{{ onAp }}" hint-size="260px,20px"></x-import>
+            </div>
+            <sc-if value="{{ bothRoles }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;align-items:center;gap:8px;border:1px solid var(--accent-30);border-radius:var(--radius-lg);background:var(--accent-5);padding:12px 16px">
+                <p style="margin:0;font-size:14px">Your details will be used for both the director and accounts payable contact.</p>
+              </div>
+            </sc-if>
+            <sc-for list="{{ contactBlocks }}" as="b" hint-placeholder-count="0">
+              <fieldset style="margin:0;display:flex;flex-direction:column;gap:12px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--muted-20);padding:16px">
+                <legend style="padding:0 4px;font-size:14px;font-weight:600">{{ b.legend }}</legend>
+                <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
+                  <sc-for list="{{ b.fields }}" as="x" hint-placeholder-count="4">
+                    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="{{ x.label }}" required="{{ x.required }}" hint-size="100%,64px">
+                      <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Input" type="{{ x.type }}" value="{{ x.value }}" on-change="{{ x.onChange }}" placeholder="{{ x.ph }}" autocomplete="off" hint-size="100%,32px"></x-import>
+                    </x-import>
+                  </sc-for>
+                </div>
+              </fieldset>
+            </sc-for>
+          </sc-if>
+
+          <sc-if value="{{ isBanking }}">
+            <sc-if value="{{ bankOn }}">
+              <div style="border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--card)">
+                <div style="display:flex;align-items:flex-start;gap:16px;padding:16px">
+                  <div style="min-width:0;flex:1">
+                    <p style="margin:0;font-size:16px;font-weight:500">Barclays</p>
+                    <p style="margin:4px 0 0;font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em">Business Current Account · ••••5678</p>
+                    <div style="margin-top:6px;display:flex;align-items:center;gap:6px;color:var(--accent)"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="ShieldCheck" size="{{ 14 }}" hint-size="14px,14px"></x-import><span style="font-size:12px">Connected</span></div>
+                  </div>
+                  <div style="display:flex;flex-shrink:0;align-items:center;gap:8px">
+                    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" size="sm" on-click="{{ disconnect }}" hint-size="70px,24px">Change</x-import>
+                    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" size="sm" on-click="{{ disconnect }}" hint-size="70px,24px">Remove</x-import>
+                  </div>
+                </div>
+                <dl style="margin:0;border-top:1px solid var(--border);padding:12px 16px">
+                  <sc-for list="{{ bankFields }}" as="b" hint-placeholder-count="3">
+                    <div style="display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:12px;padding:6px 0">
+                      <dt style="font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--muted-foreground);white-space:nowrap">{{ b.k }}</dt>
+                      <dd style="margin:0;min-width:0;font-size:14px;font-weight:500">{{ b.v }}</dd>
+                    </div>
+                  </sc-for>
+                </dl>
+              </div>
+            </sc-if>
+            <sc-if value="{{ bankOff }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;align-items:center;gap:10px;color:var(--accent)"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="ShieldCheck" size="{{ 20 }}" hint-size="20px,20px"></x-import><p style="margin:0;font-size:14px;font-weight:500;color:var(--foreground)">Verify your business through Open Banking</p></div>
+              <p style="margin:0;font-size:14px;color:var(--muted-foreground)">Connecting your business bank account through Open Banking is a secure, read-only way to verify who you are and how your business is trading. You sign in with your bank. We never see your login details and cannot move money. Your bank shares:</p>
+              <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px">
+                <sc-for list="{{ sharedData }}" as="d" hint-placeholder-count="3">
+                  <li style="display:flex;align-items:flex-start;gap:8px;color:var(--muted-foreground)"><span style="margin-top:2px;display:flex"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="Landmark" size="{{ 16 }}" hint-size="16px,16px"></x-import></span><span style="font-size:14px">{{ d }}</span></li>
+                </sc-for>
+              </ul>
+              <p style="margin:0;font-size:12px;color:var(--muted-foreground)">By connecting you agree to Plaid's Terms and Privacy Notice, and to Almanac's Privacy Policy.</p>
+              <div style="display:flex;flex-wrap:wrap;align-items:center;gap:20px">
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" on-click="{{ connect }}" disabled="{{ identityOnly }}" hint-size="190px,32px">Connect via Open Banking</x-import>
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Checkbox" label="I do not wish to share my transaction history" checked="{{ identityOnly }}" on-change="{{ onIdentityOnly }}" hint-size="300px,20px"></x-import>
+              </div>
+              <sc-if value="{{ identityOnly }}">
+                <div style="display:flex;flex-direction:column;gap:16px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--muted-20);padding:16px">
+                  <p style="margin:0;font-size:14px;color:var(--muted-foreground)">I understand that not providing my transaction history will affect the outcome of my credit application. I wish to proceed with identity verification only.</p>
+                  <div><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" on-click="{{ connect }}" hint-size="360px,32px">Connect via Open Banking (identity verification only)</x-import></div>
+                </div>
+              </sc-if>
+            </sc-if>
+          </sc-if>
+
+          <sc-if value="{{ isMandate }}">
+            <section style="display:flex;flex-direction:column;gap:16px">
+              <h2 style="margin:0;font-size:16px;font-weight:500">Payment authorisation</h2>
+              <p style="margin:0;font-size:14px;color:var(--muted-foreground)">Authorising a payment method is the simplest way to settle invoices with Acme Supplies. There are no manual transfers and no reminder emails about due dates. Buyers who set up payment authorisation are typically offered more favourable credit terms. You'll enter details on Stripe's secure page.</p>
+              <sc-if value="{{ mandateTodo }}" hint-placeholder-val="{{ true }}">
+                <div role="group" aria-label="Choose a payment method" style="display:flex;flex-direction:column;gap:8px">
+                  <sc-for list="{{ methods }}" as="m" hint-placeholder-count="2">
+                    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.OptionCard" name="ca-mandate-payment-method" value="{{ m.value }}" label="{{ m.label }}" checked="{{ m.checked }}" disabled="{{ optOut }}" on-change="{{ m.pick }}" hint-size="100%,46px"></x-import>
+                  </sc-for>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
+                  <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" size="lg" disabled="{{ optOut }}" on-click="{{ setupMandate }}" hint-size="170px,40px">{{ setupLabel }}</x-import>
+                  <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Checkbox" label="I’d rather not set up a payment authorisation now" checked="{{ optOut }}" on-change="{{ onOptOut }}" hint-size="330px,20px"></x-import>
+                </div>
+              </sc-if>
+              <sc-if value="{{ mandateDone }}">
+                <div style="display:flex;align-items:flex-start;gap:16px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--card);padding:16px">
+                  <p style="margin:0;min-width:0;flex:1;font-size:14px;font-weight:500;color:var(--accent)">{{ mandateSummary }}</p>
+                  <div style="display:flex;flex-shrink:0;align-items:center;gap:4px">
+                    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="ghost" size="sm" on-click="{{ undoMandate }}" hint-size="70px,24px">Change</x-import>
+                    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="ghost" size="sm" on-click="{{ undoMandate }}" hint-size="70px,24px">Remove</x-import>
+                  </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ showReduced }}">
+                <div style="border:1px solid var(--warning-50);border-radius:var(--radius-lg);background:var(--warning-10);padding:16px">
+                  <p style="margin:0;font-size:14px;font-weight:500;color:var(--warning)">Reduced terms possible</p>
+                  <p style="margin:4px 0 0;font-size:14px;color:var(--muted-foreground)">Acme Supplies may offer reduced credit terms or require alternative arrangements for buyers without a payment authorisation. You can discuss this with the credit team after submitting your application.</p>
+                </div>
+              </sc-if>
+            </section>
+          </sc-if>
+
+          <sc-if value="{{ isTerms }}">
+            <sc-if value="{{ withinStandard }}"><p style="margin:-8px 0 0;font-size:12px;color:var(--accent)">Within standard starting limit</p></sc-if>
+            <sc-if value="{{ aboveStandard }}">
+              <div style="border:1px solid var(--warning-50);border-radius:var(--radius-lg);background:var(--warning-10);padding:16px">
+                <p style="margin:0;font-size:14px;font-weight:500;color:var(--warning)">Above standard limit</p>
+                <p style="margin:4px 0 0;font-size:14px;color:var(--muted-foreground)">Your application will be reviewed manually by the credit team.</p>
+              </div>
+            </sc-if>
+            <section style="display:flex;flex-direction:column;gap:12px">
+              <h2 style="margin:0;font-size:16px;font-weight:500">Payment terms</h2>
+              <p style="margin:0;font-size:12px;color:var(--muted-foreground)">These are the standard payment terms that will apply to your account. If you have questions, you can contact Acme Supplies’s credit team after submitting your application.</p>
+              <dl style="margin:0;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--muted-20);padding:8px 16px">
+                <div style="display:grid;grid-template-columns:10rem 1fr;align-items:baseline;gap:12px;padding:8px 0"><dt style="font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--muted-foreground)">Payment terms</dt><dd style="margin:0;font-size:14px;font-weight:500">Net 30</dd></div>
+              </dl>
+            </section>
+            <section style="display:flex;flex-direction:column;gap:12px">
+              <h2 style="margin:0;font-size:16px;font-weight:500">Your request</h2>
+              <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="Requested payment terms" required="{{ true }}" hint-size="100%,64px">
+                <select class="alm-input alm-input--md" value="{{ reqTerms }}" onChange="{{ onReqTerms }}" style="border-color:{{ reqTermsBorder }}"><option value="standard">Same as offered</option><option value="net_60">Net 60</option><option value="net_90">Net 90</option><option value="other">Other</option></select>
+                <sc-if value="{{ nonStandard }}"><p style="margin:0;font-size:12px;color:var(--warning)">Requesting terms beyond the standard will require manual review by the credit team.</p></sc-if>
+              </x-import>
+              <sc-if value="{{ termsOther }}">
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="Please describe the terms you need" required="{{ true }}" hint-size="100%,64px">
+                  <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Input" placeholder="e.g. Net 45, or split payments across months" autocomplete="off" value="{{ otherText }}" on-change="{{ onOtherText }}" hint-size="100%,32px"></x-import>
+                </x-import>
+              </sc-if>
+            </section>
+          </sc-if>
+
+          <sc-if value="{{ isRefs }}">
+            <sc-if value="{{ noRefs }}">
+              <div style="border:1px solid var(--warning-50);border-radius:var(--radius-lg);background:var(--warning-10);padding:16px">
+                <p style="margin:0;font-size:14px;font-weight:500;color:var(--warning)">No trade references added</p>
+                <p style="margin:4px 0 0;font-size:14px;color:var(--muted-foreground)">Credit applications without trade references have a significantly lower chance of credit approval. We recommend adding at least 2 references.</p>
+              </div>
+            </sc-if>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <sc-for list="{{ refs }}" as="r" hint-placeholder-count="2">
+                <div style="border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--muted-30);padding:16px">
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:12px">
+                    <p style="margin:0;flex-shrink:0;white-space:nowrap;font-size:12px;font-weight:600">{{ r.title }}</p>
+                    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="ghost" size="sm" on-click="{{ r.remove }}" hint-size="70px,24px">Remove</x-import>
+                  </div>
+                  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
+                    <sc-for list="{{ r.fields }}" as="x" hint-placeholder-count="5">
+                      <div style="grid-column:{{ x.col }};min-width:0">
+                        <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="{{ x.label }}" required="{{ true }}" hint-size="100%,64px">
+                          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Input" type="{{ x.type }}" value="{{ x.value }}" on-change="{{ x.onChange }}" placeholder="{{ x.ph }}" autocomplete="off" hint-size="100%,32px"></x-import>
+                        </x-import>
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+            <sc-if value="{{ canAddRef }}" hint-placeholder-val="{{ true }}">
+              <div><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" size="sm" on-click="{{ addRef }}" hint-size="110px,24px">Add reference</x-import></div>
+            </sc-if>
+            <sc-if value="{{ refsAtCap }}"><p style="margin:0;font-size:12px;color:var(--muted-foreground)">Maximum 3 references reached. Remove one to add another.</p></sc-if>
+          </sc-if>
+
+          <sc-if value="{{ isDocs }}">
+            <div>
+              <h2 style="margin:0;font-size:16px;font-weight:500">Supporting documents</h2>
+              <p style="margin:4px 0 0;font-size:14px;color:var(--muted-foreground)">Upload any supporting documents for your application. Accepted formats: PDF, PNG, JPG, or DOCX. Maximum 10 MB per file.</p>
+            </div>
+            <div style="border:2px dashed var(--border);border-radius:var(--radius-lg);padding:24px;text-align:center" style-hover="border-color:var(--accent-50);background:var(--muted-20)">
+              <sc-if value="{{ docsAtCap }}"><p style="margin:0;font-size:14px;color:var(--muted-foreground)">All 5 document slots used. Remove a document to upload a new one.</p></sc-if>
+              <sc-if value="{{ docsOpen }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+                  <p style="margin:0;font-size:14px;color:var(--muted-foreground)">Drag and drop files here, or</p>
+                  <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" size="sm" on-click="{{ addDoc }}" hint-size="100px,24px">Browse files</x-import>
+                  <p style="margin:0;font-size:12px;color:var(--muted-foreground)">PDF, PNG, JPG, or DOCX up to 10 MB</p>
+                </div>
+              </sc-if>
+            </div>
+            <p style="margin:0;font-size:14px;color:var(--muted-foreground)">{{ docCount }}</p>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <sc-for list="{{ docs }}" as="d" hint-placeholder-count="2">
+                <div style="display:flex;align-items:flex-start;gap:12px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--card);padding:12px 8px 12px 12px" style-hover="background:var(--muted-30)">
+                  <div style="min-width:0;flex:1;display:flex;flex-direction:column;gap:8px">
+                    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+                      <p style="margin:0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px;font-weight:500">{{ d.fileName }}</p>
+                      <span class="alm-mono" style="flex-shrink:0;font-size:12px;color:var(--muted-foreground)">{{ d.fileSize }}</span>
+                    </div>
+                    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="Description" hint-size="100%,56px">
+                      <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Input" value="{{ d.label }}" on-change="{{ d.onLabel }}" placeholder="e.g. Bank statement, last 3 months" autocomplete="off" hint-size="100%,32px"></x-import>
+                    </x-import>
+                  </div>
+                  <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="ghost" size="sm" on-click="{{ d.remove }}" aria-label="{{ d.removeLabel }}" hint-size="70px,24px">Remove</x-import>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isReview }}">
+            <p style="margin:0;font-size:14px;color:var(--muted-foreground)">Please review your application details below. Click "Edit" on any section to make changes.</p>
+            <sc-for list="{{ review }}" as="g" hint-placeholder-count="6">
+              <section style="border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px">
+                  <h3 style="margin:0;font-size:14px;font-weight:500">{{ g.title }}</h3>
+                  <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="ghost" size="sm" on-click="{{ g.edit }}" aria-label="{{ g.editLabel }}" hint-size="50px,24px">Edit</x-import>
+                </div>
+                <sc-if value="{{ g.isEmpty }}"><p style="margin:0;font-size:14px;color:var(--warning)">{{ g.emptyMessage }}</p></sc-if>
+                <sc-if value="{{ g.hasFields }}">
+                  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;row-gap:12px">
+                    <sc-for list="{{ g.fields }}" as="r" hint-placeholder-count="4">
+                      <div><p style="margin:0 0 2px;font-size:12px;color:var(--muted-foreground)">{{ r.k }}</p><p style="margin:0;font-size:14px;font-weight:500;overflow-wrap:anywhere">{{ r.v }}</p></div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+                <sc-for list="{{ g.blocks }}" as="bl" hint-placeholder-count="0">
+                  <div style="margin-top:{{ bl.mt }};border-top:{{ bl.rule }};padding-top:{{ bl.pt }}">
+                    <p style="margin:0 0 8px;font-size:12px;font-weight:600">{{ bl.title }}</p>
+                    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;row-gap:6px">
+                      <sc-for list="{{ bl.fields }}" as="r" hint-placeholder-count="4">
+                        <div><p style="margin:0 0 2px;font-size:12px;color:var(--muted-foreground)">{{ r.k }}</p><p style="margin:0;font-size:14px;font-weight:500;overflow-wrap:anywhere">{{ r.v }}</p></div>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-for>
+              </section>
+            </sc-for>
+            <sc-if value="{{ hasReviewDocs }}">
+              <section style="border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px">
+                  <h3 style="margin:0;font-size:14px;font-weight:500">Documents</h3>
+                  <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="ghost" size="sm" on-click="{{ editDocs }}" aria-label="Edit documents" hint-size="50px,24px">Edit</x-import>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:10px">
+                  <sc-for list="{{ docs }}" as="d" hint-placeholder-count="1">
+                    <div style="border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--card);padding:12px">
+                      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><p style="margin:0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px;font-weight:500">{{ d.fileName }}</p><span class="alm-mono" style="flex-shrink:0;font-size:12px;color:var(--muted-foreground)">{{ d.fileSize }}</span></div>
+                      <sc-if value="{{ d.label }}"><p style="margin:4px 0 0;font-size:12px;color:var(--muted-foreground)">{{ d.label }}</p></sc-if>
+                    </div>
+                  </sc-for>
+                </div>
+              </section>
+            </sc-if>
+            <div style="border:2px solid {{ agreeBorder }};border-radius:var(--radius-lg);background:{{ agreeBg }};padding:20px">
+              <div style="display:flex;align-items:center;gap:12px">
+                <input type="checkbox" id="ca-review-terms" class="alm-checkbox" checked="{{ agree }}" onChange="{{ onAgree }}">
+                <label for="ca-review-terms" style="font-size:14px;line-height:1.625;cursor:pointer">I agree to the <a href="#" style="font-weight:600;color:var(--accent);text-underline-offset:4px">Terms of Service</a> and <a href="#" style="font-weight:600;color:var(--accent);text-underline-offset:4px">Privacy Policy</a></label>
+              </div>
+              <sc-if value="{{ notAgreed }}" hint-placeholder-val="{{ true }}"><p style="margin:8px 0 0 28px;font-size:12px;color:var(--warning)">Please accept the terms to submit your application</p></sc-if>
+            </div>
+          </sc-if>
+        </div>
+        <div style="margin-top:32px;display:flex;flex-direction:column;gap:10px">
+          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" size="lg" on-click="{{ next }}" disabled="{{ busy }}" style="width:100%" dc-props="{{ fullWidth }}" hint-size="100%,40px">{{ nextLabel }}</x-import>
+          <sc-if value="{{ isCompany }}" hint-placeholder-val="{{ true }}"><p style="margin:0;text-align:center;font-size:12px;color:var(--muted-foreground)">You can save and return later from your invitation link.</p></sc-if>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const STEPS = [['bw.company', 'Company', 'Company details', 'Confirm the company on your invitation and add any missing details.'], ['bw.contacts', 'Contacts', 'Contact details', 'Tell us who we should communicate with about this application.'], ['bw.banking', 'Open banking', 'Open banking', 'Connect your business bank through Open Banking so we can verify who you are.'], ['bw.mandate', 'Payment mandate', 'Payment mandate', 'Authorise how you will pay invoices from Acme Supplies.'], ['bw.terms', 'Credit terms', 'Credit terms', 'Tell us how much credit you need and confirm the payment terms.'], ['bw.refs', 'References', 'Trade references', 'List suppliers who can confirm your payment history.'], ['bw.docs', 'Documents', 'Documents', 'Upload supporting documents for your application.'], ['bw.review', 'Review & submit', 'Review & submit', 'Check everything looks right before you submit.']];
+const COUNTRIES = { GB: 'United Kingdom', IE: 'Ireland', NL: 'Netherlands' };
+const RESULTS = [{ id: '1', title: 'Northwind Traders Ltd', reg: '01234567', status: 'active', addr: '1 King Street, Manchester' }, { id: '2', title: 'Northwind Holdings Ltd', reg: '09876543', status: 'active', addr: '2 Queen Street, Leeds' }];
+const TERMS_LABEL = { standard: 'Same as offered', net_60: 'Net 60', net_90: 'Net 90', other: 'Other' };
+const emptyPerson = () => ({ first: '', last: '', email: '', phone: '' });
+const INITIAL = () => ({
+  c: { country: 'GB', reg: '01234567', name: 'Northwind Traders Ltd', type: 'Private limited company', addr: '1 King Street, Manchester, M2 4WU', vat: 'GB123456789', trading: '', web: 'https://northwind.example' },
+  p: { first: 'Ada', last: 'Lovelace', email: 'ada@northwind.example', role: 'Finance Director', phone: '+44 161 555 0100', director: true, ap: true },
+  dir: emptyPerson(), apc: emptyPerson(),
+  identityOnly: false, connected: false,
+  method: 'direct_debit', optOut: false, mandate: false,
+  t: { limit: '25000', volume: '10000', terms: 'standard', other: '' },
+  refs: [{ id: 'ref-1', company: 'Northwind Logistics', first: 'Priya', last: 'Shah', email: 'priya@northwind-logistics.example', role: 'Finance Manager' }, { id: 'ref-2', company: 'Contoso Wholesale', first: 'Sam', last: 'Rivera', email: 'sam@contoso.example', role: 'Credit Controller' }],
+  docs: [{ id: 'doc-1', fileName: 'bank-statement-q4.pdf', fileSize: '1.2 MB', label: 'Bank statement, last 3 months' }, { id: 'doc-2', fileName: 'management-accounts.xlsx', fileSize: '840 KB', label: '' }],
+  agree: false, search: '', manual: false, busy: false,
+});
+class Component extends DCLogic {
+  state = INITIAL();
+  componentDidMount() { this.applyState(); }
+  componentDidUpdate(prev) { if (prev.screen !== this.props.screen || prev.state !== this.props.state) this.applyState(); }
+  applyState() {
+    const { screen, state: st = 'Default' } = this.props;
+    if (screen === 'bw.banking') this.setState({ connected: st !== 'Default' });
+    if (screen === 'bw.company') this.setState({ search: '', manual: st !== 'With Registry Search' });
+  }
+  renderVals() {
+    const s = this.state;
+    const { screen = s.localScreen || 'bw.company', state: st = 'Default', go = (sc) => { this.setState({ localScreen: sc }); const el = document.scrollingElement; if (el) el.scrollTop = 0; }, setCtx = () => {} } = this.props;
+    const idx = Math.max(0, STEPS.findIndex((x) => x[0] === screen));
+    const [, , title, desc] = STEPS[idx];
+    const patch = (grp, k) => (e) => { const v = e.target.value; this.setState((x) => ({ [grp]: { ...x[grp], [k]: v } })); };
+    const fld = (grp, k, label, o = {}) => ({ label, required: !!o.req, hint: o.hint || '', type: o.type || 'text', ph: o.ph || '', cls: o.mono ? 'alm-mono' : '', col: o.wide ? '1 / -1' : 'auto', value: s[grp][k] || '', onChange: patch(grp, k) });
+    const registryOn = screen === 'bw.company' && st === 'With Registry Search';
+    const showManual = screen !== 'bw.company' || !registryOn || s.manual;
+    const q = s.search.trim();
+    const results = q.length >= 3 ? RESULTS.filter((r) => r.title.toLowerCase().includes(q.toLowerCase()) || r.reg.includes(q.replace(/\s/g, ''))) : [];
+    let fields = [];
+    if (screen === 'bw.company' && showManual) fields = [fld('c', 'name', 'Company name', { req: 1 }), fld('c', 'reg', 'Company registration number', { req: 1 }), fld('c', 'type', 'Company type', { ph: 'e.g. Private limited company' }), fld('c', 'addr', 'Registered address', { ph: 'Address line 1' }), fld('c', 'vat', 'VAT number', { hint: 'Leave blank if not VAT registered.', ph: 'e.g. GB123456789' }), fld('c', 'trading', 'Trading address', { hint: 'If different from registered.', ph: 'Enter trading address if different…' }), fld('c', 'web', 'Website', { type: 'url', ph: 'https://www.yourcompany.com', wide: 1 })];
+    if (screen === 'bw.contacts') fields = [fld('p', 'first', 'First name', { req: 1, ph: 'First name' }), fld('p', 'last', 'Last name', { req: 1, ph: 'Last name' }), fld('p', 'email', 'Email', { req: 1, type: 'email', ph: 'name@company.com' }), fld('p', 'role', 'Role', { req: 1, ph: 'e.g. Finance Director' }), fld('p', 'phone', 'Phone', { type: 'tel', ph: '+44 …', wide: 1 })];
+    if (screen === 'bw.terms') fields = [fld('t', 'limit', 'Requested credit limit', { req: 1, ph: 'e.g. 25000', mono: 1, hint: 'Acme Supplies’s standard starting limit is £25,000.' }), fld('t', 'volume', 'Estimated monthly purchase volume', { req: 1, ph: 'e.g. 10000', mono: 1, hint: 'Approximate monthly spend with Acme Supplies.' })];
+    const person = (grp) => [fld(grp, 'first', 'First name', { req: 1, ph: 'First name' }), fld(grp, 'last', 'Last name', { req: 1, ph: 'Last name' }), fld(grp, 'email', 'Email', { req: 1, type: 'email', ph: 'name@company.com' }), fld(grp, 'phone', 'Phone', { type: 'tel', ph: '+44 …' })];
+    const both = s.p.director && s.p.ap;
+    const limitN = Number(String(s.t.limit).replace(/[^0-9.]/g, ''));
+    const money = (v) => { const n = Number(String(v).replace(/[^0-9.]/g, '')); return n > 0 ? '£' + n.toLocaleString('en-GB') : null; };
+    const methodTitle = s.method === 'card' ? 'Card' : 'Direct Debit';
+    const setRef = (id, k) => (e) => { const v = e.target.value; this.setState((x) => ({ refs: x.refs.map((r) => (r.id === id ? { ...r, [k]: v } : r)) })); };
+    const toggle = (grp, k) => (e) => { const v = e.target.checked; this.setState((x) => ({ [grp]: { ...x[grp], [k]: v } })); };
+    const val = (v) => (v && String(v).trim() ? v : '—');
+    const sec = (id, t, rows, extra = {}) => ({ title: t, editLabel: 'Edit ' + t, edit: () => go(id), fields: rows.map(([k, v]) => ({ k, v: val(v) })), hasFields: rows.length > 0, blocks: [], isEmpty: false, ...extra });
+    const refBlocks = s.refs.map((r, i) => ({ title: 'Reference ' + (i + 1), mt: i ? '16px' : '0', rule: i ? '1px solid var(--border)' : '0', pt: i ? '12px' : '0', fields: [['Company', r.company], ['Contact', (r.first + ' ' + r.last).trim()], ['Email', r.email], ['Role', r.role]].map(([k, v]) => ({ k, v: val(v) })) }));
+    return {
+      rail: STEPS.map(([id, label], i) => {
+        const status = i < idx ? 'completed' : i === idx ? 'current' : 'upcoming';
+        return { label, onClick: () => go(id), disabled: status !== 'completed', current: status === 'current' ? 'step' : undefined, cursor: status === 'completed' ? 'pointer' : 'default', color: status === 'upcoming' ? 'var(--muted-foreground)' : 'var(--foreground)', hover: status === 'completed' ? 'var(--accent)' : 'inherit', weight: status === 'current' ? 500 : 400, dotBorder: status === 'upcoming' ? 'var(--border)' : 'var(--accent)', dotBg: status === 'upcoming' ? 'var(--muted)' : 'var(--accent)', ring: status === 'current' ? '0 0 0 2px var(--accent-30)' : 'none' };
+      }),
+      title, desc, fullWidth: { style: { width: '100%' } },
+      isCompany: screen === 'bw.company', country: s.c.country, onCountry: patch('c', 'country'),
+      showSearch: registryOn && s.c.country === 'GB', search: s.search, hasSearch: !!s.search, onSearch: (e) => this.setState({ search: e.target.value }),
+      clearSearch: () => this.setState({ search: '', manual: false }), hasResults: results.length > 0 && !(s.manual && results.some((r) => r.title === s.search)),
+      results: results.map((r, i) => ({ title: r.title, meta: r.reg + (r.status ? ' · ' + r.status : ''), addr: r.addr, rule: i < results.length - 1 ? '1px solid var(--border)' : '0', pick: () => this.setState((x) => ({ c: { ...x.c, name: r.title, reg: r.reg, addr: r.addr }, manual: true, search: r.title })) })),
+      showManualBtn: !showManual, enterManual: () => this.setState({ manual: true }),
+      hasFields: fields.length > 0, fields,
+      isContacts: screen === 'bw.contacts', isDirector: s.p.director, isAp: s.p.ap, onDirector: toggle('p', 'director'), onAp: toggle('p', 'ap'), bothRoles: both,
+      contactBlocks: both ? [] : [...(!s.p.director ? [{ legend: 'Director contact', fields: person('dir') }] : []), ...(!s.p.ap ? [{ legend: 'Accounts payable contact', fields: person('apc') }] : [])],
+      isBanking: screen === 'bw.banking', bankOn: s.connected, bankOff: !s.connected, identityOnly: s.identityOnly,
+      onIdentityOnly: (e) => this.setState({ identityOnly: e.target.checked }), connect: () => this.setState({ connected: true }), disconnect: () => this.setState({ connected: false }),
+      sharedData: ['The identity of the account holder, as confirmed by your bank', 'Up to two years of transaction history', 'Cash balances'],
+      bankFields: [...(st === 'Connected After Verification' ? [['Account holder', 'Northwind Traders Ltd']] : []), ['Account type', 'Business current account'], ['Currency', 'GBP'], ['Shared with supplier', s.identityOnly ? 'identity' : 'identity, transactions, assets']].map(([k, v]) => ({ k, v })),
+      isMandate: screen === 'bw.mandate', mandateTodo: !(s.mandate && !s.optOut), mandateDone: s.mandate && !s.optOut, optOut: s.optOut, showReduced: !s.mandate && s.optOut,
+      methods: [['direct_debit', 'Direct Debit'], ['card', 'Card']].map(([value, label]) => ({ value, label, checked: s.method === value, pick: () => this.setState({ method: value }) })),
+      setupLabel: 'Set up ' + (s.method === 'card' ? 'card' : 'Direct Debit'), setupMandate: () => this.setState({ mandate: true }), undoMandate: () => this.setState({ mandate: false }),
+      onOptOut: (e) => this.setState({ optOut: e.target.checked }), mandateSummary: methodTitle + ' set up',
+      isTerms: screen === 'bw.terms', withinStandard: limitN > 0 && limitN <= 25000, aboveStandard: limitN > 25000,
+      reqTerms: s.t.terms, onReqTerms: patch('t', 'terms'), nonStandard: s.t.terms !== 'standard', reqTermsBorder: s.t.terms !== 'standard' ? 'var(--warning)' : 'var(--input)', termsOther: s.t.terms === 'other', otherText: s.t.other, onOtherText: patch('t', 'other'),
+      isRefs: screen === 'bw.refs', noRefs: s.refs.length === 0, canAddRef: s.refs.length < 3, refsAtCap: s.refs.length >= 3,
+      addRef: () => this.setState((x) => ({ refs: [...x.refs, { id: 'ref-' + Date.now(), company: '', first: '', last: '', email: '', role: '' }] })),
+      refs: s.refs.map((r, i) => ({ title: 'Reference ' + (i + 1), remove: () => this.setState((x) => ({ refs: x.refs.filter((y) => y.id !== r.id) })), fields: [['company', 'Company name', 'Company name', 1], ['first', 'Contact first name', 'First name'], ['last', 'Contact last name', 'Last name'], ['email', 'Contact email', 'name@company.com', 1, 'email'], ['role', 'Contact role', 'e.g. Accounts Payable Manager', 1]].map(([k, label, ph, wide, type]) => ({ label, ph, type: type || 'text', col: wide ? '1 / -1' : 'auto', value: r[k], onChange: setRef(r.id, k) })) })),
+      isDocs: screen === 'bw.docs', docsAtCap: s.docs.length >= 5, docsOpen: s.docs.length < 5, docCount: s.docs.length + ' of 5 documents uploaded',
+      addDoc: () => this.setState((x) => ({ docs: [...x.docs, { id: 'doc-' + Date.now(), fileName: 'supporting-' + (x.docs.length + 1) + '.pdf', fileSize: '120 KB', label: '' }] })),
+      docs: s.docs.map((d) => ({ ...d, removeLabel: 'Remove ' + d.fileName, remove: () => this.setState((x) => ({ docs: x.docs.filter((y) => y.id !== d.id) })), onLabel: (e) => { const v = e.target.value; this.setState((x) => ({ docs: x.docs.map((y) => (y.id === d.id ? { ...y, label: v } : y)) })); } })),
+      isReview: screen === 'bw.review', hasReviewDocs: s.docs.length > 0, editDocs: () => go('bw.docs'),
+      review: [
+        sec('bw.company', 'Company details', [['Country', COUNTRIES[s.c.country]], ['Registration number', s.c.reg], ['Company name', s.c.name], ['Company type', s.c.type], ['Registered address', s.c.addr], ['Trading address', s.c.trading], ['VAT number', s.c.vat], ['Website', s.c.web]]),
+        sec('bw.contacts', 'Contact details', [['First name', s.p.first], ['Last name', s.p.last], ['Email', s.p.email], ['Role', s.p.role], ['Phone', s.p.phone], ['Also director', s.p.director ? 'Yes' : 'No'], ['Also accounts payable', s.p.ap ? 'Yes' : 'No']], { blocks: [[!s.p.director, 'Director contact', s.dir], [!s.p.ap, 'Accounts payable contact', s.apc]].filter(([on, , pp]) => on && pp.email).map(([, title, pp], i) => ({ title, mt: '16px', rule: '1px solid var(--border)', pt: '12px', fields: [['Name', (pp.first + ' ' + pp.last).trim()], ['Email', pp.email], ['Phone', pp.phone]].map(([k, v]) => ({ k, v: val(v) })) })) }),
+        sec('bw.banking', 'Open banking', s.connected ? [['Bank', 'Barclays'], ['IBAN', 'GB29 NWBK 6016 1331 9268 19'], ['Sort code', '20-00-00'], ['Account number', '12345678'], ['Account name', 'Northwind Traders Ltd']] : []),
+        sec('bw.mandate', 'Payment mandate', [['Status', s.mandate && !s.optOut ? 'Payment mandate authorised' : s.optOut ? 'Payment authorisation skipped' : 'Not set up']]),
+        sec('bw.terms', 'Credit terms', [['Requested credit limit', money(s.t.limit)], ['Estimated monthly volume', money(s.t.volume)], ['Requested payment terms', s.t.terms === 'other' ? s.t.other || 'Other' : TERMS_LABEL[s.t.terms]]]),
+        sec('bw.refs', 'Trade references', [], { blocks: refBlocks, isEmpty: refBlocks.length === 0, emptyMessage: 'No references added — this may reduce your chances of approval' }),
+      ],
+      agree: s.agree, notAgreed: !s.agree, onAgree: (e) => this.setState({ agree: e.target.checked }),
+      agreeBorder: s.agree ? 'var(--accent-30)' : 'var(--warning-30)', agreeBg: s.agree ? 'var(--accent-5)' : 'var(--warning-10)',
+      busy: s.busy, nextLabel: screen === 'bw.review' ? 'Submit credit application' : 'Next',
+      next: () => {
+        if (screen !== 'bw.review') return go(STEPS[idx + 1][0]);
+        if (!s.agree) return;
+        this.setState({ busy: true });
+        setTimeout(() => { this.setState({ busy: false }); setCtx({ buyerApp: { company: s.c.name } }); go('bp.application'); }, 900);
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

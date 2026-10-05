@@ -1,0 +1,262 @@
+# Almanac Design System: full guide for agents
+
+Generated 3 October 2026 from the design system guide, v2 rules and the v2 engineering changes. Values are v2 where marked; v1 is what ships at main@f706ec9.
+
+## How to use the kit (agent checklist)
+1. Use semantic tokens (`bg-background`, `text-muted-foreground`, `border-input`, `var(--accent-strong)`). Never raw hex, arbitrary values or palette classes.
+2. Compose from existing components and their props (`variant`, `size`, `elevated`, `tone`). Don't restyle with utility overrides.
+3. Copy: British English, sentence case, no em dash as punctuation, money with two decimals (`£1,200.00`), dates `12 Jan 2026`. Empty-state titles have no full stop.
+4. Icons: Lucide only, `currentColor`, sizes 12/14/16/18/24. Decorative icons `aria-hidden`; icon-only buttons need `aria-label`.
+5. States are named `Empty`, `Restricted` and `Skeleton`. Never hide permissions; explain them.
+6. Borders before shadows. `shadow-sm` for elevated cards and menus, `shadow-lg` for Sheet only.
+7. Anything not in the kit: mark it as a proposal and don't invent tokens.
+
+---
+
+# Almanac Design System
+
+Almanac is a **trade credit verification platform for European F&B suppliers**. Suppliers use it to onboard buyers (their customers), verify them (Companies House / registry data, Creditsafe credit bureau reports, open banking, sanctions/KYC), make credit decisions with an audit trail, collect via payment mandates (direct debit / card), and monitor portfolio risk. Product tagline in the app: *"Faster onboarding. Smarter credit decisions."*
+
+## Products / surfaces
+- **Supplier portal** — the core app: Customers, Credit applications, Invoices, Transactions, Credit policy, Credit Portfolio, Billing, Notifications, Settings. *(UI kit: `ui_kits/supplier-portal/`)*
+- **Buyer portal** — buyers complete multi-step credit applications (company, contacts, open banking, payment mandate, credit terms, references, documents, review), see suppliers, invoices, bank connections. *(not recreated yet)*
+- **Platform portal** — internal admin for users, workspaces, audit, credit prices. *(not recreated)*
+- **Site** — sign-in (OTP + passkey), accept invite, home. *(sign-in is in the supplier kit)*
+- **Transactional email** (React Email, previewed in Storybook). *(not recreated)*
+
+Domain nouns are strict (from `docs/general/DOMAIN.md` via the UI AGENTS.md): **Workspace** = login group (never "team"/"account"); **Organization** = one legal company ("company" in copy); **User** = a person; **Supplier/buyer** are roles, shown to suppliers as **Customers**.
+
+## Sources
+- Codebase (attached locally, read-only): `almanac-platform/` monorepo — Next.js 16, Tailwind 4, shadcn-derived kit.
+  - Tokens: `packages/ui/src/styles/tokens.css`, `theme.css`
+  - Primitives: `packages/ui/src/components/*.tsx`; compositions: `packages/ui/src/compositions/*.tsx`; shells: `packages/ui/src/layouts/`; page sketches: `packages/ui/src/pages/`
+  - Kit rules: `packages/ui/AGENTS.md` (copy, icon, table and card rules quoted below)
+  - Logo: `apps/web/src/components/brand/almanac-logo.tsx`, `apps/web/public/favicon.svg`
+  - App shell wiring: `apps/web/src/components/supplier-portal/supplier-portal-layout-client.tsx`, login: `apps/web/src/app/(site)/login/login-client.tsx`
+- No Figma file or slide deck was provided.
+
+---
+
+## CONTENT FUNDAMENTALS
+
+**Voice.** Plain, precise, operational British English for finance/credit people. Calm and factual, never salesy inside the app. The product speaks as **"we"** and addresses the user as **"you"** ("Enter your work email. We will send a one-time code."). Marketing lines are short declaratives: "Faster onboarding. Smarter credit decisions."
+
+**Casing.** Sentence case everywhere — page titles ("Credit applications"), buttons ("Create customer", "Import from Xero", "Refresh information"), table headers (rendered uppercase by CSS, authored in sentence case), badges ("Awaiting decision", "Not linked"). One legacy exception in nav: "Credit Portfolio".
+
+**Spelling & format.** en-GB: *utilisation, organisation-level, authorised*. Dates `12 Jan 2026`, timestamps `7 Aug 2026, 16:18`. Money always 2 decimals with symbol: `£1,200.00` (KPI tiles may round: `£243,000`). Short relative notes: `+£7,000 vs last month`, `59% of approved`, `across 3 customers`.
+
+**Punctuation rules (enforced in code review).**
+- **No em dash as a sentence separator** — restructure with a comma, colon, semicolon or full stop. The em dash `—` is used *only* as the lone placeholder for an unavailable figure.
+- **Empty-state titles have no trailing full stop** ("No invoices yet"); descriptions are full sentences with one ("Create a credit application for an existing customer.").
+- Progress labels use the ellipsis character: "Creating…", "Refreshing…", "Import in progress…".
+- Back links: "← Back to Customers". Pager: "← Prev", "Next →", "« First", "Last »".
+
+**Permissions copy.** Never hide things; explain. "You cannot view invoices" / "Your role does not include supplier:invoices:read." — the raw permission key is shown.
+
+**Errors.** Direct and actionable: "Please enter a valid email address", "Sign-in failed. Check your code, or try the passkey option below.", "That sign-in link has expired. Enter your email to get a fresh code."
+
+**Emoji:** never. **Exclamation marks:** essentially never. **Unicode glyphs:** only `←` `→` `«` `»` `▲▼` (sort indicator) and `—` placeholder.
+
+---
+
+## VISUAL FOUNDATIONS
+
+**Overall vibe.** Clean, neutral, dense-but-airy enterprise fintech. White canvas, near-black text, hairline `#e8e8e8` borders, one teal accent (`#00b3c0`). Information is carried by tables, KPI tiles and tinted status chips — not imagery. Light and dark themes are both first-class (`.dark` on `<html>`).
+
+**Colour.** Semantic tokens only (`--background`, `--card`, `--muted`, `--accent`, `--success`, `--warning`, `--danger`, `--border`, `--input`, `--ring`, `--placeholder`). Status is expressed as **tints**: 10% fill + 30% border + full-strength text (Badge, CountCircle, status Cards at 5%). Warning `#ee9d28` carries black foreground; others carry white. The deep teal gradient (`#0f766e → #2dd4bf`) is **reserved for the logo**. Source note: `tokens.css` calls the current palette a "high-contrast debug palette" pending final brand colours — treat values as current truth but expect change.
+
+**Type.** No webfonts — the OS UI stack (`ui-sans-serif, system-ui, sans-serif`) and OS mono stack. (apps/web loads Inter + Poppins via `next/font` but never wires them into a token.) Scale is Tailwind's: page title 20/700, heading 24/600 tight, section title 20/**300** (light), card title 18/600 line-height 1, body 16, UI/table 14, caption 12, KPI figure 24/**300**, eyebrow .65rem uppercase +0.05em. Mono is used for money, IDs and gauge figures at `0.9em` with tabular numerals.
+
+**Spacing & layout.** Tailwind 4px base. Stack gaps 6/10/20/28/40. Page body padding `28px 24px 24px`; PageHeader `24px` with a bottom border and `position: sticky`. Sidebar 238px (collapses to a 64px rail by clicking the logo; 300ms width transition). Main column owns scrolling; shell is viewport-locked.
+
+**Corners.** One scale: xs 4.8px, sm 6.4px, md 9.6px, lg 12.8px, xl 19.2px, 2xl 22.4px. Controls step radius with size (xs button → xs radius … lg → lg). Cards & dropdowns = lg; tooltips/inputs md; sheets xl; avatars/switches/meters full.
+
+**Cards.** Default: 1px border, flat, 24px padding. `elevated`: `shadow-sm`, no border (KPI + dashboard cards). `plain`: `#fafafa`, no border (Empty). Status variants tint surface + text. Optional `wash`: a 5rem top gradient in the status colour fading into the card. No coloured left-border accents.
+
+**Shadows.** Minimal: `shadow-sm` for elevated cards, menus, tooltips, active tab/toggle; `shadow-lg` only for Sheets. No inner shadows.
+
+**Borders.** Hairlines everywhere (`--border` #e8e8e8, inputs `--input` #dfdfdf). Table rows separated by 1px rules; headers uppercase muted.
+
+**Backgrounds & imagery.** Almost none. The only decorative background is the sign-in brand panel: a diagonal accent/15 → background gradient, a faint 2.5rem grid of border-coloured lines at 50% opacity, and a 4px accent bar on top. No photography, illustration, textures or grain in the product.
+
+**Motion.** Quiet. 150ms colour/opacity transitions on hover; 300ms ease-out slide for Sheets and sidebar width; `animate-pulse` skeletons; `animate-spin` on RefreshCw/Loader during work. Respects `prefers-reduced-motion` (spinners keep spinning). No bounces.
+
+**Hover.** Filled buttons → `opacity: .9`. Outline buttons, menu items, nav rows → `bg-muted`. Table rows → `muted/20`. Text links → shift from muted to foreground. ChoiceCard → accent border + accent/5 fill + chevron nudges 2px right.
+
+**Press / focus.** No press-shrink. Focus is a 2px `--ring` ring offset 2px from the background on every interactive control. Disabled = 50% opacity, no pointer events.
+
+**Transparency & blur.** Scrims are `foreground/40` (`black/60` in dark). No backdrop blur anywhere.
+
+**Selection states.** Selected = accent: sidebar row accent/10 + accent text; PageNavbar 2px accent underline; Option/Checkbox cards accent border + accent/5; tabs/toggles lift to background + shadow-sm on a muted track.
+
+---
+
+## ICONOGRAPHY
+
+- **Lucide only** (`lucide-react` in production). No other icon library, no custom SVG icons, no icon font, no PNG icons, **no emoji**. Stroke 2, `currentColor`, coloured via token text colours.
+- Sizes: **18** sidebar nav, **16** inline/locks/close in modal, **14** inside sm buttons and menu items, **12** inside badges, **20–28** sheet/focus-pane close, **24** Empty/Restricted icon.
+- Common glyphs: nav `BookUser, ListTodo, FileText, CreditCard, ShieldCheck, PieChart, Coins, Bell, Settings`; actions `RefreshCw, Link2Off, Lock, X, ChevronDown, ChevronRight, SquareArrowOutUpRight, Moon/Sun, Fingerprint, Loader`; sign-in `Shield, FileCheck, CheckCircle`.
+- In this design system icons render through the `Icon` component, which reads the **Lucide UMD build from CDN** (`https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js`) — load it before `_ds_bundle.js`.
+- First-party SVG is limited to the **brand mark** and primitive chrome (the Checkbox tick).
+- Brand mark: `assets/logo-mark.svg` (copied from `apps/web/public/favicon.svg`) and the `AlmanacLogo` component (transcribed from `almanac-logo.tsx`, variants gradient/mono/white/dark/outline, optional "Almanac / BUYER VERIFICATION" wordmark).
+
+---
+
+## Index
+
+- `styles.css` — entry point (imports only)
+- `tokens/` — `colors.css` (light + `.dark`, tints, aliases), `typography.css`, `radius.css`, `spacing.css`, `effects.css`, `base.css`
+- `components/components.css` — class-level port of the kit's Tailwind/cva strings (`alm-*`)
+- `components/<group>/` — React primitives (`.jsx` + `.d.ts` + `.prompt.md` + one card `.html`)
+- `guidelines/` — foundation specimen cards (colours, type, spacing, radii, elevation, iconography, logo)
+- `ui_kits/supplier-portal/` — click-through Supplier portal recreation
+- `assets/logo-mark.svg` — brand mark
+- `SKILL.md` — Agent Skill entry point
+- `thumbnail.html` — project tile
+
+### Components
+- **actions/** — Button, NoStyleButton, Icon
+- **forms/** — Input, Textarea, Label, Field, Checkbox, Radio, Switch, Dropdown, ToggleGroup, ToggleGroupItem
+- **display/** — Text, Stack, Badge, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Skeleton, CountCircle, Tooltip, Markdown
+- **data/** — Table, TableHeader, TableBody, TableFooter, TableRow, TableHead, TableCell, TableCaption, TableRowLink, Pagination, MetricCard, Meter, RadialMeter, SparkBars, LineChart, BarChart
+- **overlays/** — Modal, Sheet, FocusPane, FocusPaneHost, Collapsible, Tabs, TabsList, TabsTrigger, TabsContent
+- **navigation/** — MainLayout, SidebarNavItem, SidebarUserMenu, PageHeader, PageNavbar, PageSectionHeader, BackLink
+- **patterns/** — Empty, Restricted, PermissionLock, SnapshotLock, RefreshButton, SettingsConnectionRow, OptionCard, CheckboxCard, ChoiceCard
+- **brand/** — AlmanacLogo
+
+### Intentional additions
+- **Icon** — wrapper that renders Lucide by name from the CDN build (production imports `lucide-react` directly; not possible bundler-less).
+- **TableRowLink** — the kit's whole-row `Link` + `after:inset-0` pattern, packaged since `next/link` is unavailable.
+- `money` / `muted` props on **TableCell** — shorthand for the kit's required `font-mono text-right` and `whitespace-nowrap text-muted-foreground` call-site utilities.
+- `onNavigate` on MainLayout / PageHeader / PageNavbar — prototype hook replacing Next navigation.
+
+### Not yet built (present in source)
+Generic compositions: SearchSelect, MultiSelect, Chat, MetricTable, ExpandableTable, VersionHistory, Contacts, Passkeys, PermissionTable, RoleAssignmentTable, WorkspaceMemberTable, OrganizationRoleTable. Domain compositions: CreditDecision, CreditDecisionCta, CreditDecisionSheet, CreditAdvisorRecommendationCard, SuggestedCreditPolicyRules, CreditBureauReport, CreditBureauChangesNotice, CompanyInformation, PaymentMandate, SupplierBuyerTimeline, SupplierBuyerCreditSummary. Layouts: BuyerCreditApplicationLayout, SupplierCreditApplicationLayout, SupplierCustomerLayout, SettingsLayout.
+
+### Porting notes
+- LineChart/BarChart are hand-rolled SVG matching the Recharts styling (dashed horizontal grid, 11px muted ticks, card tooltip).
+- Markdown covers headings, paragraphs, lists, bold, code, links, quotes (production: react-markdown + GFM).
+- Modal/Sheet render `position: fixed` in place instead of portalling.
+
+
+---
+
+## Design system v2 rules
+
+Proposed rules for the next design system update. v1 stays as built. First applied in: Proto Buyer Wizard v2 (credit application form).
+
+## Colour and contrast (WCAG 2.2 AA)
+
+Token changes live in `Design System v2 Tokens.css`. Fold them into `packages/ui/src/styles/tokens.css` and the component classes once.
+
+- **New `--accent-strong: #007a83`** for anything that must be read or seen: filled buttons, links, badge/accent text, the focus ring, checked radio/checkbox/switch, selected card border, progress fill, meaningful icons. 5.11:1 with white.
+- **`--accent` #00b3c0 stays** for decoration only: tints (`--accent-5/10/30`), the logo, non-essential borders.
+- **`--danger`** #d3592f → #b8461f (4.01 → 5.34). Error text was below 4.5.
+- **`--placeholder`** #a3a3a3 → #737373 (2.52 → 4.74).
+- **`--input`** #dfdfdf → #8a8a8a (1.33 → 3.45). Input and select boundaries must meet 3:1.
+- **`--ring`** → `var(--accent-strong)`.
+- Dark theme already passes; `--accent-strong` maps to `--accent` there.
+
+## Buttons
+
+- **Buttons size to their label.** Never stretch a button to fill its container (no `width: 100%` / `w-full`).
+- **Form footers:** Back on the left, the main action on the right, both at content width.
+- **One main action per view.** Secondary actions use `outline`.
+- Connected items (bank, mandate) offer **Remove** only, no Change.
+
+## Forms
+
+- **Hints sit above the input**, under the label, as `Text variant="caption"` (12px muted). The `Field` component currently renders `hint` below at 14px; change it in the library.
+- **Field grid gap:** 28px rows, 20px columns.
+- **Native selects** use `appearance: none` plus a Lucide `ChevronDown` (16px) placed 12px from the right, matching the input's 12px left padding. A `Select` primitive should be added to the library.
+- Visible choices over dropdowns when there are four options or fewer (payment terms, preferred payment method). Use `OptionCard`.
+
+## Recommended options (Payment mandate, Bank reference)
+
+- The recommended path sits in an accent card (`--accent-30` border, `--accent-5` fill) with a `Badge variant="accent" size="xs"` reading "Recommended" and its primary button inside.
+- Then an "or" separator, then the alternatives as equal outline cards.
+- Each alternative says plainly what it may mean for the decision.
+- Payment mandate has no Skip: the alternative is "Another payment method", which asks how the buyer prefers to pay. The footer Next continues.
+- Optional steps (Bank reference) put **Skip for now** in the footer, not in a card.
+
+## Step order
+
+Company → Contacts → Credit terms → Payment mandate → Bank reference → Trade references → Documents → Review & submit.
+
+## Progress
+
+- `Meter size="sm" tone="accent"` under "Step X of 8"; value = step / total.
+
+## Added 3 Oct 2026
+
+See `v2 Engineering Changes.md` Part 1 for the full list.
+
+- Input and Textarea: 16px text below 640px.
+- Global: reduced motion, `touch-action: manipulation`, `font-kerning: normal`.
+- Undo after Remove: an inline status row with a ghost Undo button (no toast).
+- Error summary lists the fields as links.
+- No placeholder that repeats the label.
+- Hit areas are at least 24px.
+- Money has two decimals in read-only text.
+- Type trial (not decided): Newsreader for h1 and h2, Work Sans for body.
+
+
+---
+
+## Part 1. Design system (`packages/ui`)
+
+### 1.1 Tokens: `packages/ui/src/styles/tokens.css` (Agreed)
+Values are in `Design System v2 Tokens.css`.
+
+| Token | v1 | v2 | Why |
+|---|---|---|---|
+| `--accent-strong` | not present | `#007a83` (dark theme maps to `--accent`) | Text-safe accent, 5.11:1 on white. Use for solid buttons, links, accent text, focus ring, checked controls, selected card border, meter fill and meaningful icons |
+| `--accent` | `#00b3c0` | unchanged | Decoration only: tints and logo |
+| `--danger` | `#d3592f` | `#b8461f` | 4.01:1 → 5.34:1 |
+| `--placeholder` | `#a3a3a3` | `#737373` | 2.52:1 → 4.74:1 |
+| `--input` | `#dfdfdf` | `#8a8a8a` | 1.33:1 → 3.45:1, so control boundaries reach 3:1 |
+| `--ring` | accent | `var(--accent-strong)` | Visible focus |
+| `--warning` | `#ee9d28` | **not changed (open)** | 2.2:1 as text on white. v2 never uses warning colour for text; icon plus words only |
+
+### 1.2 Base styles: `theme.css` / global base (Agreed)
+- Respect `prefers-reduced-motion: reduce`: animations and transitions become near-instant. Spinners may keep spinning.
+- Add `touch-action: manipulation` on buttons, links, labels and inputs (removes the double-tap delay).
+- Add `font-kerning: normal` on the root.
+
+### 1.3 Components (Agreed)
+
+| Component | Change |
+|---|---|
+| `Input`, `Textarea` | 16px text below 640px, 14px from 640px up (`text-base sm:text-sm`). Stops iOS zooming on focus |
+| `Field` | Render `hint` above the control, under the label, as a 12px muted caption. v1 renders it below at 14px |
+| `Select` (new primitive) | Native select with `appearance: none`, Lucide `ChevronDown` 16px placed 12px from the right, `padding-right: 36px` |
+| `Modal` | No API change. Used for the bank skip confirmation with an `actions` pair (outline secondary + solid primary) |
+
+### 1.4 Rules: update `packages/ui/AGENTS.md` (Agreed)
+- Buttons size to their label; never `w-full`.
+- One main action per view, in the footer; secondary actions are `outline`.
+- Optional steps show **Skip for now** (outline) in the footer, in place of Next, until something is added.
+- Removing an item with typed or connected content shows an inline status ("… removed.") with **Undo**. There's no toast component; the status is a bordered `muted-20` row with a ghost `sm` Button.
+- Error summary: a `role="alert"` box that lists each error as a link which focuses its field.
+- No placeholder text that repeats the label (form usability). Use placeholders only for format examples ("e.g. GB123456789").
+- Hit areas are at least 24×24px (WCAG 2.5.8). Text-only buttons get vertical padding to reach it.
+- Money shows two decimals in read-only contexts (`£25,000.00`). Inputs accept whole numbers.
+- Choices with four or fewer options use `OptionCard`, not a dropdown.
+
+### 1.5 Typography (Trial)
+- The prototype trials **Newsreader** (h1, h2) and **Work Sans** (body and UI) from Google Fonts. The design system ships no webfonts today.
+- If adopted:
+  - Load the fonts with `next/font/google`.
+  - Set `--font-sans` to Work Sans and add `--font-display: Newsreader`, used for `h1` and `h2` (`PageHeader` title, section titles).
+- Keep the mono stack for money and IDs.
+- **Decision needed** before any library change. The "Font pair" tweak switches back to "System".
+
+### 1.6 Considered and not adopted (conflicts with the design system)
+- Press-shrink on buttons. The design system has no press-shrink.
+- Shadows instead of borders. The design system uses borders first.
+- 1.5px icon stroke. Lucide stays at stroke 2.
+- 16px minimum body text. UI text stays 14px.
+- Marking optional fields "(optional)" instead of marking required fields with an asterisk. `Field` uses `required` + asterisk; logged for a future discussion, not changed.
+
+---
+

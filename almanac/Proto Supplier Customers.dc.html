@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/styles.css">
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/_ds_bundle.js"></script>
+</helmet>
+<div style="min-width:0">
+  <sc-if value="{{ isList }}">
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.PageHeader" title="Customers" dc-props="{{ listHeader }}" hint-size="100%,81px"></x-import>
+    <div style="padding:28px 24px 24px">
+      <sc-if value="{{ listEmpty }}">
+        <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No customers yet" description="Create a customer, or import customers from your accounting software." dc-props="{{ emptyProps }}" hint-size="100%,220px"></x-import>
+      </sc-if>
+      <sc-if value="{{ listRows }}" hint-placeholder-val="{{ true }}">
+        <div class="alm-table-wrap"><table class="alm-table alm-table--hover">
+          <thead><tr><th class="alm-th">Company name</th><th class="alm-th">Registration number</th><th class="alm-th">Almanac status</th><th class="alm-th">Xero status</th><th class="alm-th">Payment mandate</th><th class="alm-th">Added</th></tr></thead>
+          <tbody><sc-for list="{{ customers }}" as="c" hint-placeholder-count="5">
+            <tr onClick="{{ c.open }}" style="cursor:pointer">
+              <td class="alm-td" style="font-weight:500">{{ c.name }}</td>
+              <td class="alm-td" style="color:var(--muted-foreground)">{{ c.reg }}</td>
+              <td class="alm-td"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ c.almV }}" show-dot="{{ false }}" hint-size="80px,22px">{{ c.alm }}</x-import></td>
+              <td class="alm-td"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ c.xeroV }}" show-dot="{{ false }}" hint-size="80px,22px">{{ c.xero }}</x-import></td>
+              <td class="alm-td"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ c.mandV }}" show-dot="{{ false }}" hint-size="100px,22px">{{ c.mand }}</x-import></td>
+              <td class="alm-td" style="white-space:nowrap;color:var(--muted-foreground)">{{ c.added }}</td>
+            </tr>
+          </sc-for></tbody>
+        </table></div>
+      </sc-if>
+    </div>
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Modal" open="{{ modalOpen }}" on-open-change="{{ onModal }}" title="Create customer" dc-props="{{ modalProps }}" hint-size="0px,0px">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <p style="margin:0;font-size:14px;color:var(--muted-foreground)">Search Companies House and add the company as a customer.</p>
+        <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="Company" required="{{ true }}" hint-size="100%,64px">
+          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Input" size="lg" placeholder="Search by company name or number…" value="{{ q }}" on-change="{{ onQ }}" hint-size="100%,40px"></x-import>
+        </x-import>
+        <sc-if value="{{ showHits }}">
+          <div style="border:1px solid var(--border);border-radius:var(--radius-lg);padding:4px;margin-top:-12px">
+            <sc-for list="{{ hits }}" as="h" hint-placeholder-count="3">
+              <button type="button" class="alm-menu-item" onClick="{{ h.pick }}" style="flex-direction:column;align-items:flex-start;gap:2px"><span>{{ h.title }}</span><span class="alm-mono" style="color:var(--muted-foreground);font-weight:400">{{ h.num }}</span></button>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ hasSel }}">
+          <dl style="display:grid;grid-template-columns:minmax(8rem,11rem) minmax(0,1fr);column-gap:24px;row-gap:8px;margin:0;border-radius:var(--radius-lg);border:1px solid var(--border);background:var(--muted-20);padding:12px 16px;font-size:14px">
+            <dt style="color:var(--muted-foreground)">Company name</dt><dd style="margin:0">{{ sel.title }}</dd>
+            <dt style="color:var(--muted-foreground)">Registration number</dt><dd style="margin:0" class="alm-mono">{{ sel.num }}</dd>
+            <dt style="color:var(--muted-foreground)">Company status</dt><dd style="margin:0">Active</dd>
+            <dt style="color:var(--muted-foreground)">Registered address</dt><dd style="margin:0">{{ sel.addr }}</dd>
+          </dl>
+        </sc-if>
+      </div>
+    </x-import>
+  </sc-if>
+
+  <sc-if value="{{ isDetail }}">
+    <div style="padding:28px 24px 0;display:flex;flex-direction:column;gap:28px">
+      <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Card" hint-size="100%,150px">
+        <div class="alm-card__header"><h3 class="alm-card__title">Credit overview</h3></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px">
+          <sc-for list="{{ overview }}" as="o" hint-placeholder-count="5">
+            <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-start">
+              <span style="font-size:.65rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted-foreground);font-weight:500">{{ o.k }}</span>
+              <sc-if value="{{ o.isBadge }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ o.variant }}" hint-size="90px,22px">{{ o.v }}</x-import></sc-if>
+              <sc-if value="{{ o.isText }}"><span class="alm-mono" style="font-size:18px;font-weight:300">{{ o.v }}</span></sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </x-import>
+      <section style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;flex-direction:column;gap:6px"><h2 style="margin:0;font-size:20px;font-weight:300">Timeline</h2><p style="margin:0;font-size:14px;color:var(--muted-foreground)">Everything that has happened on this customer, newest first.</p></div>
+        <sc-if value="{{ timelineEmpty }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No activity yet" hint-size="100%,140px"></x-import></sc-if>
+        <sc-if value="{{ timelineLoading }}">
+          <ol aria-busy="true" style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
+            <sc-for list="{{ skel4 }}" as="x" hint-placeholder-count="4">
+              <li style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--border);align-items:start">
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Skeleton" radius="full" style="width:32px;height:32px" hint-size="32px,32px"></x-import>
+                <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+                  <div style="display:flex;gap:12px;align-items:center"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Skeleton" style="width:5rem" hint-size="5rem,20px"></x-import><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Skeleton" style="width:10rem" hint-size="10rem,20px"></x-import><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Skeleton" style="width:7rem;margin-left:auto" hint-size="7rem,20px"></x-import></div>
+                  <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Skeleton" style="width:14rem" hint-size="14rem,20px"></x-import>
+                </div>
+              </li>
+            </sc-for>
+          </ol>
+        </sc-if>
+        <sc-if value="{{ timelineFull }}" hint-placeholder-val="{{ true }}">
+          <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
+            <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="7">
+              <li style="display:grid;grid-template-columns:32px minmax(0,1fr) auto;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);align-items:start">
+                <span style="display:flex;width:28px;height:28px;align-items:center;justify-content:center;border-radius:var(--radius-md);background:var(--muted);color:var(--muted-foreground)"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="{{ t.icon }}" size="{{ 14 }}" hint-size="14px,14px"></x-import></span>
+                <div style="display:flex;flex-direction:column;gap:2px;min-width:0">
+                  <span style="font-size:12px;color:var(--muted-foreground)">{{ t.src }}</span>
+                  <span style="font-size:14px;font-weight:500">{{ t.title }}</span>
+                  <span style="font-size:14px;color:var(--muted-foreground)">{{ t.note }}</span>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:2px;align-items:flex-end">
+                  <span class="alm-mono" style="font-size:13px">{{ t.amt }}</span>
+                  <span style="font-size:12px;color:var(--muted-foreground);white-space:nowrap">{{ t.when }}</span>
+                </div>
+              </li>
+            </sc-for>
+          </ol>
+        </sc-if>
+      </section>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showInvites }}">
+    <div style="padding:28px 24px 40px">
+      <section aria-label="Invitations" style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;flex-direction:column;gap:6px"><h2 style="margin:0;font-size:20px;font-weight:300">Invitations</h2><p style="margin:0;font-size:14px;color:var(--muted-foreground)">{{ invDesc }}</p></div>
+        <sc-if value="{{ invError }}"><p role="alert" style="margin:0;font-size:14px;color:var(--danger)">{{ invError }}</p></sc-if>
+        <sc-if value="{{ hasInvites }}" hint-placeholder-val="{{ true }}">
+          <div class="alm-table-wrap"><table class="alm-table">
+            <thead><tr><th class="alm-th">Email</th><th class="alm-th">Sent</th><th class="alm-th">Accepted</th><th class="alm-th">Status</th><sc-if value="{{ invShowActions }}"><th class="alm-th"></th></sc-if></tr></thead>
+            <tbody><sc-for list="{{ invites }}" as="i" hint-placeholder-count="3"><tr>
+              <td class="alm-td"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:500">{{ i.email }}</span><sc-if value="{{ i.pending }}"><span style="font-size:12px;color:var(--muted-foreground)">Expires {{ i.expires }}</span></sc-if></div></td>
+              <td class="alm-td" style="white-space:nowrap;color:var(--muted-foreground)">{{ i.sent }}</td><td class="alm-td" style="white-space:nowrap;color:var(--muted-foreground)">{{ i.accepted }}</td>
+              <td class="alm-td"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ i.variant }}" hint-size="80px,22px">{{ i.status }}</x-import></td>
+              <sc-if value="{{ invShowActions }}"><td class="alm-td"><div style="display:flex;gap:8px;justify-content:flex-end">
+                <sc-if value="{{ i.canResend }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" size="sm" disabled="{{ i.busy }}" on-click="{{ i.resend }}" hint-size="70px,24px">Resend</x-import></sc-if>
+                <sc-if value="{{ i.canWithdraw }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" size="sm" disabled="{{ i.busy }}" on-click="{{ i.withdraw }}" hint-size="80px,24px">Withdraw</x-import></sc-if>
+              </div></td></sc-if>
+            </tr></sc-for></tbody>
+          </table></div>
+        </sc-if>
+        <sc-if value="{{ invShowForm }}">
+          <div style="max-width:448px;display:flex;flex-direction:column;gap:10px">
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="Email address" required="{{ true }}" error="{{ invErr }}" hint="Only invite a person who is part of Northwind Traders. Almanac cannot check that this email belongs to them." hint-size="100%,100px">
+              <div style="display:flex;gap:10px;align-items:center">
+                <div style="flex:1;min-width:0"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Input" type="email" value="{{ invEmail }}" on-change="{{ onInvEmail }}" disabled="{{ invLocked }}" hint-size="100%,32px"></x-import></div>
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" on-click="{{ sendInvite }}" disabled="{{ invSendDisabled }}" hint-size="130px,32px">{{ sendLabel }}</x-import>
+              </div>
+            </x-import>
+            <sc-if value="{{ invRestricted }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.PermissionLock" permission-key="supplier:credit_applications:write" hint-size="100%,20px"></x-import></sc-if>
+          </div>
+        </sc-if>
+      </section>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isCredit }}">
+    <div style="padding:28px 24px 40px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:6px"><h2 style="margin:0;font-size:20px;font-weight:300">Credit applications</h2><p style="margin:0;font-size:14px;color:var(--muted-foreground)">Every information request raised for this customer, newest first.</p></div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <sc-if value="{{ creditLocked }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.PermissionLock" permission-key="supplier:credit_applications:write" hint-size="16px,16px"></x-import></sc-if>
+          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" on-click="{{ toCreate }}" disabled="{{ creditLocked }}" hint-size="190px,32px">Create credit application</x-import>
+        </div>
+      </div>
+      <sc-if value="{{ creditEmpty }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No credit applications yet" description="Raise the first information request from the credit applications pipeline." hint-size="100%,180px"></x-import></sc-if>
+      <sc-if value="{{ creditFull }}" hint-placeholder-val="{{ true }}">
+        <div class="alm-table-wrap"><table class="alm-table alm-table--hover">
+          <thead><tr><th class="alm-th">Application</th><th class="alm-th">Status</th><th class="alm-th">Reviewer</th><th class="alm-th">Updated</th></tr></thead>
+          <tbody><sc-for list="{{ cycles }}" as="c" hint-placeholder-count="3"><tr onClick="{{ c.open }}" style="cursor:pointer">
+            <td class="alm-td" style="font-weight:500">{{ c.name }}</td>
+            <td class="alm-td"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ c.variant }}" hint-size="100px,22px">{{ c.status }}</x-import></td>
+            <td class="alm-td">{{ c.reviewer }}</td><td class="alm-td" style="color:var(--muted-foreground)">{{ c.updated }}</td>
+          </tr></sc-for></tbody>
+        </table></div>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isPayments }}">
+    <div style="padding:28px 24px 40px;display:flex;flex-direction:column;gap:28px">
+      <section style="display:flex;flex-direction:column;gap:16px">
+        <h2 style="margin:0;font-size:20px;font-weight:300">Payment mandate</h2>
+        <sc-if value="{{ mandateEmpty }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No payment mandate set up yet" hint-size="100%,140px"></x-import></sc-if>
+        <sc-if value="{{ mandateFull }}" hint-placeholder-val="{{ true }}">
+          <div class="alm-card alm-card--default" style="max-width:560px">
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="{{ m.icon }}" size="{{ 18 }}" hint-size="18px,18px"></x-import>
+                <span style="font-size:18px;font-weight:600">{{ m.kind }}</span>
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ m.variant }}" hint-size="100px,22px">{{ m.status }}</x-import>
+              </div>
+              <sc-if value="{{ m.hasHolder }}"><div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:14px;font-weight:500">{{ m.holder }}</span><span class="alm-mono" style="font-size:13px;color:var(--muted-foreground)">{{ m.detail }}</span></div></sc-if>
+              <p style="margin:0;font-size:14px;color:var(--muted-foreground)">{{ m.note }}</p>
+              <span style="font-size:12px;color:var(--muted-foreground)">{{ m.dates }}</span>
+            </div>
+          </div>
+        </sc-if>
+      </section>
+      <section style="display:flex;flex-direction:column;gap:16px">
+        <h2 style="margin:0;font-size:20px;font-weight:300">Invoices</h2>
+        <sc-if value="{{ mandateEmpty }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No invoices yet" hint-size="100%,140px"></x-import></sc-if>
+        <sc-if value="{{ mandateFull }}" hint-placeholder-val="{{ true }}">
+          <div class="alm-table-wrap"><table class="alm-table alm-table--hover">
+            <thead><tr><th class="alm-th">Number</th><th class="alm-th" style="text-align:right">Amount</th><th class="alm-th">Issued</th><th class="alm-th">Due</th><th class="alm-th">Status</th></tr></thead>
+            <tbody><sc-for list="{{ invoices }}" as="i" hint-placeholder-count="2"><tr onClick="{{ i.open }}" style="cursor:pointer">
+              <td class="alm-td alm-mono">{{ i.num }}</td><td class="alm-td alm-mono" style="text-align:right">{{ i.amt }}</td><td class="alm-td" style="color:var(--muted-foreground)">{{ i.issued }}</td><td class="alm-td" style="color:var(--muted-foreground)">{{ i.due }}</td>
+              <td class="alm-td"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ i.variant }}" hint-size="90px,22px">{{ i.status }}</x-import></td>
+            </tr></sc-for></tbody>
+          </table></div>
+        </sc-if>
+      </section>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const BASE = [
+  ['Northwind Traders', '01234567', true, true, 'Direct debit', '12 Jan 2026'],
+  ['Acme Manufacturing', 'HRB 123456', false, true, 'Card mandate', '3 Mar 2026'],
+  ['Beacon Foods', 'IE123456', false, false, null, '18 Apr 2026'],
+  ['Delta Logistics', '89101112', false, false, 'Direct debit', '2 Jun 2026'],
+  ['Cedar Supply Co', 'SC445566', false, false, null, '21 Jul 2026'],
+];
+const HITS = [['NORTHWIND TRADERS LTD', '01234567', '1 King Street, Manchester M2 4WU'], ['GREENFIELD PRODUCE LTD', '08812345', 'Unit 4, Riverside Park, Leeds LS9 0RP'], ['HARVEST FOODS GROUP LIMITED', '06677889', '12 Mill Road, Norwich NR3 1AA'], ['KINGSWAY DISTRIBUTION LTD', '10293847', '88 Kingsway, Cardiff CF10 3AP'], ['MARLOW CATERING SUPPLIES LTD', '11987654', '3 Station Road, Marlow SL7 1NB']].map(([title, num, addr]) => ({ title, num, addr }));
+const TIMELINE = [
+  ['TrendingUp', 'Creditsafe', 'Creditsafe score 74', 'Very Low Risk. Up 6 from 68.', '', '1 Sep 2026 07:15'],
+  ['Coins', 'Payment', 'Invoice INV-1042 paid', 'Settled in full', '£12,400.00', '28 Aug 2026 15:02'],
+  ['FileText', 'Invoice', 'Invoice INV-1042 raised', 'Due 11 Aug 2026', '£12,400.00', '12 Jul 2026 10:30'],
+  ['TrendingDown', 'Creditsafe', 'Creditsafe score 68', 'Low Risk. Down 3 from 71.', '', '1 Jul 2026 07:15'],
+  ['ShieldCheck', 'Credit decision', 'Credit approved', 'Decided by Alex Rivera.', '£25,000.00', '18 Jun 2026 17:08'],
+  ['TrendingUp', 'Creditsafe', 'Creditsafe score 71', 'Very Low Risk. First score received.', '', '12 Jun 2026 12:50'],
+  ['ListTodo', 'Credit application', 'Credit application submitted', '', '£30,000.00', '12 Jun 2026 12:47'],
+].map(([icon, src, title, note, amt, when]) => ({ icon, src, title, note, amt, when }));
+const MANDATE = {
+  Default: { icon: 'Landmark', kind: 'Direct Debit', status: 'Active', variant: 'success', hasHolder: true, holder: 'Northwind Traders Ltd', detail: '20-00-00 · •••• 5678 · GBP', note: 'Almanac can collect invoices from this account.', dates: 'Set up 28 Jun 2026, 15:22 · Updated 28 Jun 2026, 15:35' },
+  'Active Card': { icon: 'CreditCard', kind: 'Card', status: 'Active', variant: 'success', hasHolder: true, holder: 'Alex Rivera', detail: 'Visa · •••• 4242 · exp 12/30', note: 'Almanac can collect invoices from this card.', dates: 'Set up 28 Jun 2026, 15:22 · Updated 28 Jun 2026, 15:35' },
+  Pending: { icon: 'Landmark', kind: 'Direct Debit', status: 'Setup in progress', variant: 'warning', hasHolder: false, note: 'The buyer started setup. Details show when setup is complete.', dates: 'Set up 11 Aug 2026, 10:04' },
+};
+const INVITES = [['buyer@example.com', 'Pending', 'in 30 days', '12 Jan 2026', '—', true, true], ['accepted@example.com', 'Accepted', '', '3 Mar 2026', '18 Mar 2026', false, false], ['declined@example.com', 'Declined', '', '18 Apr 2026', '—', false, false]];
+const IV = { Authorised: 'accent', Paid: 'success', Due: 'warning', Overdue: 'danger' };
+class Component extends DCLogic {
+  state = { importing: false, modal: null, q: '', sel: null, invEmail: '', invErr: null, sending: false };
+  componentDidUpdate(prev) { if (prev.state !== this.props.state || prev.screen !== this.props.screen) this.setState({ modal: null }); }
+  renderVals() {
+    const { screen, state: st = 'Default', go = () => {}, ctx = {}, setCtx = () => {} } = this.props;
+    const s = this.state;
+    const h = React.createElement, DS = window.AlmanacDesignSystem_94f443 || {};
+    const extra = ctx.customers || [];
+    const imported = ctx.imported;
+    const emptyBase = (st === 'Empty' || st === 'Empty Connected') && !imported;
+    const rows = [...extra.map((c) => [c.name, c.reg, false, false, null, '30 Sep 2026']), ...(emptyBase ? [] : BASE)];
+    const connected = st !== 'Empty' || ctx.xero;
+    const modalOpen = s.modal != null ? s.modal : st === 'Create Customer Open';
+    const btn = (label, props) => h(DS.Button, props, label);
+    const doImport = () => { this.setState({ importing: true }); setTimeout(() => { this.setState({ importing: false }); setCtx({ imported: true }); if (st !== 'Default') go('sp.customers', 'Default'); }, 1400); };
+    const lockedImport = st === 'Locked Import';
+    const actions = DS.Button ? h('div', { style: { display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' } },
+      lockedImport && DS.PermissionLock ? h(DS.PermissionLock, { permissionKey: 'supplier:buyers:write' }) : null,
+      connected ? btn('View import history', { variant: 'outline', onClick: () => go('sp.cImports') }) : null,
+      connected ? btn(s.importing ? 'Import in progress…' : 'Import from Xero', { variant: 'outline', disabled: s.importing || lockedImport, onClick: doImport }) : null,
+      btn('Create customer', { disabled: lockedImport, onClick: () => (st === 'Empty' || st === 'Empty Connected' ? go('sp.customers', 'Create Customer Open') : this.setState({ modal: true })) })) : null;
+    const q = s.q.trim().toLowerCase();
+    const hits = !s.sel && q ? HITS.filter((x) => (x.title + x.num).toLowerCase().includes(q)).map((x) => ({ ...x, pick: () => this.setState({ sel: x }) })) : [];
+    const closeModal = () => { this.setState({ modal: false, q: '', sel: null }); if (st === 'Create Customer Open') go('sp.customers', ctx.imported || extra.length ? 'Default' : 'Empty Connected'); };
+    const empty = st === 'Empty' && !ctx.xero;
+    const ov = st === 'Empty'
+      ? [['Credit limit', '—'], ['Outstanding payments', '—'], ['Headroom', '—'], ['Verification', 'Not decided', 'muted'], ['Decided on', '—']]
+      : [['Credit limit', '£25,000.00'], ['Outstanding payments', '£0.00'], ['Headroom', '£25,000.00'], ['Verification', 'Approved', 'success'], ['Decided on', '18 Jun 2026']];
+    const notConnected = st === 'Not Connected';
+    const isInv = screen === 'sp.cInvites';
+    const INV_V = { Pending: 'warning', Accepted: 'success', Declined: 'danger', Expired: 'muted', Withdrawn: 'muted' };
+    const claimed = isInv ? st === 'Claimed' : !notConnected;
+    const invRestricted = isInv && st === 'Restricted';
+    const baseInv = isInv ? (['Default', 'Claimed'].includes(st) ? INVITES : []) : notConnected ? [] : [['accounts@northwind-traders.example', 'Accepted', '', '11 Jun 2026', '11 Jun 2026', false, false]];
+    const allInv = [...(ctx.invites || []), ...baseInv].map((r, idx) => { const [email, status0, expires, sent, accepted, cr, cw] = r; const status = (s.invStatus || {})[email] || status0; return { email, status, expires, sent, accepted, pending: status === 'Pending', variant: INV_V[status], canResend: cr && status === 'Pending' && !claimed, canWithdraw: cw && status === 'Pending' && !claimed, busy: s.invBusy === email,
+      resend: () => { this.setState({ invBusy: email }); setTimeout(() => this.setState({ invBusy: null }), 800); },
+      withdraw: () => { this.setState({ invBusy: email }); setTimeout(() => this.setState((x) => ({ invBusy: null, invStatus: { ...(x.invStatus || {}), [email]: 'Withdrawn' } })), 800); } }; });
+    const invites = allInv;
+    const sendingNow = s.sending || (isInv && st === 'Sending');
+    const invEmailVal = s.invEmail || (isInv && (st === 'Sending' || st === 'Error') && !s.invTouched ? 'buyer@northwind.test' : '');
+    return {
+      isList: screen === 'sp.customers', listHeader: { actions },
+      listEmpty: rows.length === 0, listRows: rows.length > 0,
+      emptyProps: { actions: empty && DS.Button ? btn('Connect accounting software', { variant: 'outline', onClick: () => go('sp.integrations', 'Empty') }) : null },
+      customers: rows.map(([name, reg, alm, xero, mand, added]) => ({ name, reg, added, alm: alm ? 'Linked' : 'Not linked', almV: alm ? 'success' : 'muted', xero: xero ? 'Linked' : 'Not linked', xeroV: xero ? 'success' : 'muted', mand: mand || 'No mandate', mandV: mand ? 'success' : 'muted', open: () => go('sp.customer', alm ? 'Default' : 'Not Connected') })),
+      modalOpen, onModal: (o) => (o ? this.setState({ modal: true }) : closeModal()),
+      q: s.sel ? s.sel.title : s.q, onQ: (e) => this.setState({ q: e.target.value, sel: null }), showHits: hits.length > 0, hits, hasSel: !!s.sel, sel: s.sel || {},
+      modalProps: { actions: DS.Button ? btn('Create customer', { size: 'lg', disabled: !s.sel, onClick: () => { setCtx((c) => ({ customers: [{ name: s.sel.title.replace(/\b(LTD|LIMITED)\b/g, (w) => (w === 'LTD' ? 'Ltd' : 'Limited')).replace(/\B[A-Z]+/g, (w) => w.toLowerCase()), reg: s.sel.num }, ...(c.customers || [])] })); this.setState({ modal: false, q: '', sel: null }); if (st !== 'Default') go('sp.customers', 'Default'); } }) : null },
+      isDetail: screen === 'sp.customer',
+      overview: ov.map(([k, v, variant]) => ({ k, v, variant, isBadge: !!variant, isText: !variant })),
+      timelineEmpty: st === 'Empty', timelineFull: st !== 'Empty' && st !== 'Loading', timelineLoading: st === 'Loading', skel4: [1, 2, 3, 4], timeline: TIMELINE,
+      showInvites: screen === 'sp.customer' || isInv, invDesc: claimed ? 'This customer is already connected. New invitations cannot be sent.' : 'Invite Northwind Traders to connect to Acme Supplies Ltd.',
+      invError: s.invSendErr || (isInv && st === 'Error' && !s.invTouched ? 'Could not send the invitation. Try again.' : null),
+      invites, hasInvites: invites.length > 0, invShowActions: invites.some((i) => i.canResend || i.canWithdraw), invShowForm: !claimed, invRestricted, invLocked: sendingNow || invRestricted,
+      invSendDisabled: invRestricted || !invEmailVal.trim() || sendingNow,
+      invEmail: invEmailVal, invErr: s.invErr, onInvEmail: (e) => this.setState({ invEmail: e.target.value, invErr: null, invTouched: true, invSendErr: null }),
+      sending: sendingNow, sendLabel: sendingNow ? 'Sending…' : 'Send invitation',
+      sendInvite: () => {
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(invEmailVal)) return this.setState({ invErr: 'Please enter a valid email address' });
+        this.setState({ sending: true });
+        setTimeout(() => { setCtx((c) => ({ invites: [[invEmailVal, 'Pending', 'in 30 days', '30 Sep 2026', '—', true, true], ...(c.invites || [])] })); this.setState({ sending: false, invEmail: '', invTouched: true }); }, 800);
+      },
+      isCredit: screen === 'sp.cCredit', toCreate: () => go('sp.appCreate'),
+      creditLocked: st === 'Write Restricted', creditEmpty: st === 'Empty', creditFull: st !== 'Empty',
+      cycles: [['Cycle 3', 'In progress', 'accent', 'Amara Okafor', '2 Jun 2026'], ['Cycle 2', 'Approved', 'success', 'Amara Okafor', '18 Apr 2026'], ['Cycle 1', 'Sale refused', 'danger', '—', '12 Jan 2026']].map(([name, status, variant, reviewer, updated]) => ({ name, status, variant, reviewer, updated, open: () => go('sp.appOverview') })),
+      isPayments: screen === 'sp.cPayments', mandateEmpty: st === 'Empty', mandateFull: st !== 'Empty', m: MANDATE[st] || MANDATE.Default,
+      invoices: [['INV-1042', '£12,400.00', '12 Jan 2026', '11 Feb 2026', 'Authorised'], ['INV-1030', '£2,000.00', '1 Dec 2025', '31 Dec 2025', 'Paid']].map(([num, amt, issued, due, status]) => ({ num, amt, issued, due, status, variant: IV[status], open: () => go('sp.invoice') })),
+    };
+  }
+}
+</script>
+</body>
+</html>
