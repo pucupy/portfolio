@@ -1,0 +1,10 @@
+/* One radius scale (Tailwind names), verbatim from tokens.css */
+:root {
+  --radius-xs: 0.3rem;
+  --radius-sm: 0.4rem;
+  --radius-md: 0.6rem;
+  --radius-lg: 0.8rem;
+  --radius-xl: 1.2rem;
+  --radius-2xl: 1.4rem;
+  --radius-full: 9999px;
+}

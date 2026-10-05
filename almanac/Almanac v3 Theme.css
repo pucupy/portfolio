@@ -1,0 +1,61 @@
+@import url("Almanac Mobile Rules.css");
+/* Almanac v3 (proposed) theme. Load AFTER the design-system stylesheets and "Design System v2 Tokens.css".
+   Scope: v3 prototype files only. v1 stays as built. Engineer: see "v3 Changes.md" for what folds into packages/ui. */
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600&family=Work+Sans:wght@400;500;600;700&display=swap");
+
+:root {
+  /* Brand palette (trial): blue, cream, ink */
+  --accent: #2f45d0;
+  --accent-strong: #2f45d0;
+  --accent-foreground: #ffffff;
+  --ring: #2f45d0;
+  --text-link: #2f45d0;
+  --foreground: #1a1a1a;
+  --card-foreground: #1a1a1a;
+  --muted: #ece3d5;
+  --border: #e2d8c9;
+  --card-plain: #f6f1ea;
+  --topbar: #2f45d0;
+  --surface-sidebar: #faf7f2;
+  /* Type (trial): Work Sans for UI, Newsreader for display headings */
+  --font-family-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Newsreader", ui-serif, Georgia, serif;
+}
+.dark {
+  --accent: #8a99ff;
+  --accent-strong: #8a99ff;
+  --accent-foreground: #000000;
+  --ring: #8a99ff;
+  --text-link: #8a99ff;
+  --foreground: #fafafa;
+  --card-foreground: #fafafa;
+  --muted: #262626;
+  --border: #444444;
+  --card-plain: #1a1a1a;
+  --topbar: #1f2a80;
+  --surface-sidebar: #111111;
+}
+
+html, body { font-family: var(--font-family-sans); font-kerning: normal; }
+button, input, select, textarea { font-family: inherit; }
+/* Typography system (v3). Two families, strict roles. See skills/almanac-design-guardrails "Typography".
+   Newsreader = display only (marketing surfaces, 32px and up, set inline with font-family). Everything in the product = Work Sans. */
+:root {
+  --type-h1: 600 24px/32px var(--font-sans); --type-h2: 600 20px/28px var(--font-sans); --type-h3: 600 18px/26px var(--font-sans);
+  --type-h4: 600 16px/24px var(--font-sans); --type-h5: 600 14px/20px var(--font-sans); --type-h6: 500 12px/16px var(--font-sans);
+}
+:is(h1,h2,h3,h4,h5,h6):not([style*="Newsreader"]) { font-family: var(--font-sans) !important; font-optical-sizing: auto; text-wrap: balance; color: inherit; }
+h1:not([style*="Newsreader"]) { font: var(--type-h1) !important; letter-spacing: -0.02em !important; }
+h2:not([style*="Newsreader"]) { font: var(--type-h2) !important; letter-spacing: -0.01em !important; }
+h3:not([style*="Newsreader"]), .alm-card__title { font: var(--type-h3) !important; letter-spacing: -0.005em !important; font-family: var(--font-sans) !important; }
+h4:not([style*="Newsreader"]) { font: var(--type-h4) !important; letter-spacing: 0 !important; }
+h5:not([style*="Newsreader"]) { font: var(--type-h5) !important; letter-spacing: 0 !important; }
+h6:not([style*="Newsreader"]) { font: var(--type-h6) !important; letter-spacing: .06em !important; text-transform: uppercase; color: var(--muted-foreground); }
+.alm-card__title, .alm-card__description, [class^="alm-"] { font-family: var(--font-sans); }
+/* Numbers: Work Sans with tabular lining figures (no mono mixed into prose or KPIs). Mono stays only for codes (sort code, IBAN, registration number) via <code>. */
+.alm-mono, [class*="alm-mono"] { font-family: var(--font-sans) !important; font-variant-numeric: tabular-nums lining-nums; font-feature-settings: "tnum" 1, "lnum" 1; letter-spacing: 0; }
+td, .alm-td, [class*="metric"] { font-variant-numeric: tabular-nums lining-nums; }
+code, kbd { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .92em; }
+p, li { text-wrap: pretty; }
+

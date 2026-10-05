@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/radius.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/base.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/components/components.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/styles.css">
+  <link rel="stylesheet" href="Design System v2 Tokens.css">
+  <link rel="stylesheet" href="Almanac v3 Theme.css">
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/_ds_bundle.js"></script>
+  <style>a{color:var(--foreground)}a:hover{color:var(--accent)}</style>
+</helmet>
+<div style="min-width:0">
+
+  <sc-if value="{{ isSuppliers }}" hint-placeholder-val="{{ true }}">
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.PageHeader" title="Suppliers" hint-size="100%,72px"></x-import>
+    <div style="padding:28px 24px 24px">
+      <sc-if value="{{ empty }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No suppliers yet" description="Commercial relationships with your suppliers will appear here." hint-size="100%,180px"></x-import></sc-if>
+      <sc-if value="{{ full }}" hint-placeholder-val="{{ true }}">
+        <div class="alm-table-wrap"><table class="alm-table">
+          <thead><tr><th class="alm-th">Company name</th><th class="alm-th">Registration number</th><th class="alm-th">Added</th></tr></thead>
+          <tbody><sc-for list="{{ suppliers }}" as="r" hint-placeholder-count="3"><tr class="alm-tr"><td class="alm-td">{{ r.name }}</td><td class="alm-td" style="color:var(--muted-foreground)">{{ r.reg }}</td><td class="alm-td" style="white-space:nowrap;color:var(--muted-foreground)">{{ r.added }}</td></tr></sc-for></tbody>
+        </table></div>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isApplication }}">
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.PageHeader" title="BrewDog" description="Created 11 Sep 2026 · Submitted 11 Sep 2026" dc-props="{{ appHeader }}" hint-size="100%,96px"></x-import>
+    <div style="display:flex;flex-direction:column;gap:20px;padding:28px 24px 24px">
+      <p style="margin:0;font-size:14px;color:var(--muted-foreground)">These are the details you submitted. Your supplier is reviewing the application.</p>
+      <sc-for list="{{ sections }}" as="g" hint-placeholder-count="6">
+        <section style="border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px">
+          <h2 style="margin:0 0 16px;font-size:14px;font-weight:500">{{ g.title }}</h2>
+          <sc-if value="{{ g.isEmpty }}"><p style="margin:0;font-size:14px;color:var(--muted-foreground)">{{ g.emptyMessage }}</p></sc-if>
+          <sc-if value="{{ g.hasFields }}">
+            <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;row-gap:12px">
+              <sc-for list="{{ g.fields }}" as="r" hint-placeholder-count="4"><div><p style="margin:0 0 2px;font-size:12px;color:var(--muted-foreground)">{{ r.k }}</p><p style="margin:0;font-size:14px;font-weight:500;overflow-wrap:break-word">{{ r.v }}</p></div></sc-for>
+            </div>
+          </sc-if>
+          <sc-for list="{{ g.blocks }}" as="bl" hint-placeholder-count="0">
+            <div style="margin-top:16px;border-top:1px solid var(--border);padding-top:12px">
+              <p style="margin:0 0 8px;font-size:12px;font-weight:600">{{ bl.title }}</p>
+              <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;row-gap:6px">
+                <sc-for list="{{ bl.fields }}" as="r" hint-placeholder-count="4"><div><p style="margin:0 0 2px;font-size:12px;color:var(--muted-foreground)">{{ r.k }}</p><p style="margin:0;font-size:14px;font-weight:500;overflow-wrap:break-word">{{ r.v }}</p></div></sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </section>
+      </sc-for>
+      <sc-if value="{{ appDocs }}">
+        <section style="border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px">
+          <h2 style="margin:0 0 16px;font-size:14px;font-weight:500">Documents</h2>
+          <div style="border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--card);padding:12px">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><p style="margin:0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px;font-weight:500">bank-statement-q4.pdf</p><span class="alm-mono" style="flex-shrink:0;font-size:12px;color:var(--muted-foreground)">1.2 MB</span></div>
+            <p style="margin:4px 0 0;font-size:12px;color:var(--muted-foreground)">Bank statement, last 3 months</p>
+          </div>
+        </section>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isProfile }}">
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.PageHeader" title="Profile" hint-size="100%,72px"></x-import>
+    <div style="display:flex;flex-direction:column;gap:28px;padding:28px 24px 24px">
+      <sc-if value="{{ needsConfirm }}">
+        <div class="alm-card" style="border:1px solid color-mix(in srgb, var(--danger) 30%, transparent);background:var(--danger-5)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+            <div style="min-width:0"><p style="margin:0;font-size:14px;font-weight:500">Please confirm your details</p><p style="margin:4px 0 0;font-size:14px;color:var(--muted-foreground)">Check that your company and contact details are still correct, then confirm. You can edit either section first if something has changed.</p></div>
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="solid" size="sm" on-click="{{ confirmDetails }}" hint-size="120px,24px">Confirm details</x-import>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ full }}" hint-placeholder-val="{{ true }}">
+        <sc-for list="{{ profileCards }}" as="c" hint-placeholder-count="2">
+          <div class="alm-card alm-card--default">
+            <div class="alm-card__header">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+                <div><h3 class="alm-card__title">{{ c.title }}</h3><p class="alm-card__desc">{{ c.desc }}</p></div>
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" size="sm" hint-size="50px,24px">Edit</x-import>
+              </div>
+            </div>
+            <div>
+              <sc-for list="{{ c.rows }}" as="r" hint-placeholder-count="4">
+                <div data-stack="" style="display:grid;grid-template-columns:140px 1fr;gap:16px;padding:8px 0;border-top:{{ r.rule }}"><span style="font-size:14px;color:var(--muted-foreground)">{{ r.k }}</span><span style="font-size:14px;font-weight:500">{{ r.v }}</span></div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </sc-if>
+      <sc-if value="{{ empty }}">
+        <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No company details yet" dc-props="{{ addCompany }}" hint-size="100%,160px"></x-import>
+        <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No contact details yet" dc-props="{{ addContact }}" hint-size="100%,160px"></x-import>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isTerms }}">
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.PageHeader" title="Credit terms" description="Terms granted by your supplier after credit verification." dc-props="{{ termsHeader }}" hint-size="100%,96px"></x-import>
+    <div style="padding:28px 24px 24px">
+      <sc-if value="{{ full }}" hint-placeholder-val="{{ true }}">
+        <div class="alm-card alm-card--default">
+          <div class="alm-card__header"><h3 class="alm-card__title">Granted terms</h3><p class="alm-card__desc">From BrewDog</p></div>
+          <div>
+            <div data-stack="" style="display:grid;grid-template-columns:160px 1fr;gap:16px;padding:8px 0"><span style="font-size:14px;color:var(--muted-foreground)">Supplier</span><span style="font-size:14px;font-weight:500">BrewDog</span></div>
+            <div data-stack="" style="display:grid;grid-template-columns:160px 1fr;gap:16px;padding:8px 0;border-top:1px solid var(--border)"><span style="font-size:14px;color:var(--muted-foreground)">Credit limit</span><span class="alm-mono" style="font-size:14px;font-weight:500">£25,000.00</span></div>
+            <div data-stack="" style="display:grid;grid-template-columns:160px 1fr;gap:16px;padding:8px 0;border-top:1px solid var(--border)"><span style="font-size:14px;color:var(--muted-foreground)">Payment terms</span><span style="font-size:14px;font-weight:500">Net 30</span></div>
+            <div data-stack="" style="display:grid;grid-template-columns:160px 1fr;gap:16px;padding:8px 0;border-top:1px solid var(--border);align-items:center"><span style="font-size:14px;color:var(--muted-foreground)">Status</span><div><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="success" hint-size="60px,20px">Active</x-import></div></div>
+            <div data-stack="" style="display:grid;grid-template-columns:160px 1fr;gap:16px;padding:8px 0;border-top:1px solid var(--border)"><span style="font-size:14px;color:var(--muted-foreground)">Effective from</span><span class="alm-mono" style="font-size:14px;font-weight:500">12 Jan 2026</span></div>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ empty }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No credit terms yet" description="Terms appear here once a supplier approves your application." hint-size="100%,180px"></x-import></sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isInvoices }}">
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.PageHeader" title="Invoices" description="Review and pay invoices from your suppliers." hint-size="100%,96px"></x-import>
+    <div style="display:flex;flex-direction:column;gap:28px;padding:28px 24px 24px">
+      <div>
+        <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Tabs" value="{{ invFilter }}" on-value-change="{{ onInvFilter }}" hint-size="260px,36px">
+          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.TabsList" hint-size="260px,36px">
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.TabsTrigger" value="all" hint-size="50px,28px">All</x-import>
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.TabsTrigger" value="due" hint-size="50px,28px">Due</x-import>
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.TabsTrigger" value="unpaid" hint-size="70px,28px">Unpaid</x-import>
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.TabsTrigger" value="paid" hint-size="50px,28px">Paid</x-import>
+          </x-import>
+        </x-import>
+      </div>
+      <sc-if value="{{ invEmpty }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No invoices to show" description="Invoices from your suppliers will appear here." hint-size="100%,180px"></x-import></sc-if>
+      <sc-if value="{{ invFull }}" hint-placeholder-val="{{ true }}">
+        <div class="alm-card alm-card--default alm-table-wrap" style="padding:0;overflow:hidden">
+          <table class="alm-table">
+            <thead><tr><th class="alm-th">Invoice</th><th class="alm-th">Supplier</th><th class="alm-th" style="text-align:right">Due</th><th class="alm-th" style="text-align:right">Status</th><th class="alm-th" style="text-align:right">Amount</th><th class="alm-th"></th></tr></thead>
+            <tbody><sc-for list="{{ invoices }}" as="r" hint-placeholder-count="4"><tr class="alm-tr">
+              <td class="alm-td">{{ r.number }}</td>
+              <td class="alm-td" style="color:var(--muted-foreground)">{{ r.supplier }}</td>
+              <td class="alm-td" style="text-align:right;white-space:nowrap;color:var(--muted-foreground)">{{ r.due }}</td>
+              <td class="alm-td" style="text-align:right"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ r.variant }}" hint-size="80px,20px">{{ r.status }}</x-import></td>
+              <td class="alm-td alm-mono" style="text-align:right">{{ r.amount }}</td>
+              <td class="alm-td"><sc-if value="{{ r.canPay }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" size="sm" hint-size="44px,24px">Pay</x-import></sc-if></td>
+            </tr></sc-for></tbody>
+          </table>
+        </div>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isPayments }}">
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.PageHeader" title="Payment methods" dc-props="{{ addMethodHeader }}" hint-size="100%,72px"></x-import>
+    <div style="display:flex;flex-direction:column;gap:28px;padding:28px 24px 24px">
+      <sc-if value="{{ needsSetup }}">
+        <div class="alm-card" style="border:1px solid color-mix(in srgb, var(--danger) 30%, transparent);background:var(--danger-5)">
+          <p style="margin:0;font-size:14px;font-weight:500">Payment mandate requested</p>
+          <p style="margin:4px 0 0;font-size:14px;color:var(--muted-foreground)">Your supplier has requested that you set up a payment mandate. Add a bank account or Direct Debit mandate so invoices can be paid.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ full }}" hint-placeholder-val="{{ true }}">
+        <div class="alm-card alm-card--default alm-table-wrap" style="padding:0;overflow:hidden">
+          <table class="alm-table">
+            <thead><tr><th class="alm-th">Type</th><th class="alm-th">Account</th><th class="alm-th">Bank</th><th class="alm-th">Default</th><th class="alm-th"></th></tr></thead>
+            <tbody><sc-for list="{{ methods }}" as="m" hint-placeholder-count="2"><tr class="alm-tr">
+              <td class="alm-td">{{ m.type }}</td>
+              <td class="alm-td alm-mono" style="color:var(--muted-foreground)">{{ m.label }}</td>
+              <td class="alm-td" style="color:var(--muted-foreground)">{{ m.bank }}</td>
+              <td class="alm-td">
+                <sc-if value="{{ m.isDefault }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="success" hint-size="64px,20px">Default</x-import></sc-if>
+                <sc-if value="{{ m.notDefault }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="ghost" size="sm" on-click="{{ m.setDefault }}" hint-size="90px,24px">Set default</x-import></sc-if>
+              </td>
+              <td class="alm-td"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="ghost" size="sm" hint-size="70px,24px">Remove</x-import></td>
+            </tr></sc-for></tbody>
+          </table>
+        </div>
+      </sc-if>
+      <sc-if value="{{ plainEmpty }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No payment methods yet" description="Add a bank account or Direct Debit mandate to pay suppliers." hint-size="100%,180px"></x-import></sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isBanks }}">
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.PageHeader" title="Bank connections" description="Consents Almanac holds to read your business bank accounts. Connect from an application's bank step." hint-size="100%,96px"></x-import>
+    <div style="display:flex;flex-direction:column;gap:28px;padding:28px 24px 24px">
+      <sc-if value="{{ empty }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No bank connections" description="Connect a bank from the bank step on any in-progress application." hint-size="100%,180px"></x-import></sc-if>
+      <sc-if value="{{ full }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <sc-for list="{{ banks }}" as="b" hint-placeholder-count="2">
+            <div class="alm-card alm-card--default">
+              <div class="alm-card__header">
+                <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
+                  <div style="min-width:0">
+                    <div style="display:flex;align-items:center;gap:10px"><h3 class="alm-card__title">{{ b.bank }}</h3><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ b.variant }}" hint-size="110px,20px">{{ b.status }}</x-import></div>
+                    <p class="alm-card__desc">for Kelly & Rose Taverns Ltd</p>
+                  </div>
+                  <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="danger" size="sm" hint-size="70px,24px">Revoke</x-import>
+                </div>
+              </div>
+              <div>
+                <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;row-gap:12px">
+                  <div><p style="margin:0;font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.025em">Held by</p><p style="margin:2px 0 0;font-size:14px;font-weight:500">Almanac <span style="font-weight:400;color:var(--muted-foreground)">(data recipient; Plaid is the AISP)</span></p></div>
+                  <div><p style="margin:0;font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.025em">Purpose</p><p style="margin:2px 0 0;font-size:14px;font-weight:500">Verifying business bank accounts on credit applications</p></div>
+                  <div><p style="margin:0;font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.025em">Granted</p><p class="alm-mono" style="margin:2px 0 0;font-size:14px;font-weight:500">{{ b.granted }}</p></div>
+                  <div><p style="margin:0;font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.025em">Valid until</p><p class="alm-mono" style="margin:2px 0 0;font-size:14px;font-weight:500">{{ b.valid }}</p></div>
+                </div>
+                <div style="margin-top:16px">
+                  <p style="margin:0;font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.025em">Data shared</p>
+                  <ul style="margin:6px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font-size:14px;color:var(--muted-foreground)"><li>Account details: name, IBAN, sort code, account number</li><li>Account balances</li><li>Transaction history (up to 90 days)</li></ul>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isRefs }}">
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.PageHeader" title="Trade references" description="Suppliers you have asked to vouch for you." dc-props="{{ addRefHeader }}" hint-size="100%,96px"></x-import>
+    <div style="display:flex;flex-direction:column;gap:28px;padding:28px 24px 24px">
+      <sc-if value="{{ needsSetup }}">
+        <div class="alm-card" style="border:1px solid color-mix(in srgb, var(--danger) 30%, transparent);background:var(--danger-5)">
+          <p style="margin:0;font-size:14px;font-weight:500">Trade references requested</p>
+          <p style="margin:4px 0 0;font-size:14px;color:var(--muted-foreground)">Your supplier has requested trade references. Add referees who can vouch for your trading history.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ full }}" hint-placeholder-val="{{ true }}">
+        <div class="alm-card alm-card--default alm-table-wrap" style="padding:0;overflow:hidden">
+          <table class="alm-table">
+            <thead><tr><th class="alm-th">Company</th><th class="alm-th">Contact</th><th class="alm-th">Status</th><th class="alm-th" style="text-align:right">Requested</th><th class="alm-th"></th></tr></thead>
+            <tbody><sc-for list="{{ tradeRefs }}" as="r" hint-placeholder-count="3"><tr class="alm-tr">
+              <td class="alm-td">{{ r.company }}</td>
+              <td class="alm-td"><div>{{ r.contact }}</div><div style="font-size:12px;color:var(--muted-foreground)">{{ r.email }}</div></td>
+              <td class="alm-td"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ r.variant }}" hint-size="80px,20px">{{ r.status }}</x-import></td>
+              <td class="alm-td" style="text-align:right;white-space:nowrap;color:var(--muted-foreground)">{{ r.requested }}</td>
+              <td class="alm-td"><sc-if value="{{ r.canResend }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="ghost" size="sm" hint-size="70px,24px">Resend</x-import></sc-if></td>
+            </tr></sc-for></tbody>
+          </table>
+        </div>
+      </sc-if>
+      <sc-if value="{{ plainEmpty }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No trade references yet" description="Add a referee when a supplier asks for trade references." hint-size="100%,180px"></x-import></sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isDocs }}">
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.PageHeader" title="Documents" description="Files you have shared for credit verification." dc-props="{{ uploadHeader }}" hint-size="100%,96px"></x-import>
+    <div style="padding:28px 24px 24px">
+      <sc-if value="{{ empty }}"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No documents yet" description="Upload financial statements or licences when a supplier requests them." hint-size="100%,180px"></x-import></sc-if>
+      <sc-if value="{{ full }}" hint-placeholder-val="{{ true }}">
+        <div class="alm-card alm-card--default alm-table-wrap" style="padding:0;overflow:hidden">
+          <table class="alm-table">
+            <thead><tr><th class="alm-th">Name</th><th class="alm-th">Type</th><th class="alm-th">Size</th><th class="alm-th" style="text-align:right">Uploaded</th></tr></thead>
+            <tbody><sc-for list="{{ documents }}" as="d" hint-placeholder-count="3"><tr class="alm-tr" style="cursor:pointer">
+              <td class="alm-td">{{ d.name }}</td>
+              <td class="alm-td"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="outline" show-dot="{{ false }}" hint-size="120px,20px">{{ d.type }}</x-import></td>
+              <td class="alm-td" style="color:var(--muted-foreground)">{{ d.size }}</td>
+              <td class="alm-td" style="text-align:right;white-space:nowrap;color:var(--muted-foreground)">{{ d.uploaded }}</td>
+            </tr></sc-for></tbody>
+          </table>
+        </div>
+      </sc-if>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const SUPPLIERS = [['FARM LTD', 'SC123456', '12 Jan 2026'], ['BrewDog', 'SC311560', '3 Mar 2026'], ['Northern Wholesale', '89101112', '18 Apr 2026']];
+const INVOICES = [['INV-1042', 'BrewDog', '11 Feb 2026', 'Due', '£12,400.00', true], ['INV-1043', 'Northern Wholesale', '2 Apr 2026', 'Authorised', '£3,250.00', true], ['INV-1030', 'BrewDog', '31 Dec 2025', 'Paid', '£2,000.00', false], ['INV-0999', 'Cedar Ingredients', '18 May 2026', 'Overdue', '£890.00', true]];
+const INV_VARIANT = { Paid: 'success', Overdue: 'danger', Due: 'warning', 'Partially paid': 'warning', Authorised: 'accent', Posted: 'accent', Unpaid: 'accent' };
+const REFS = [['Brighton Packaging Co', 'Grace Hopper', 'grace@brighton-pack.example', 'Received', '12 Jan 2026'], ['Meridian Logistics', 'Alan Turing', 'alan@meridian.example', 'Pending', '3 Mar 2026'], ['Oak Valley Foods', 'Katherine Johnson', 'katherine@oakvalley.example', 'Expired', '18 Nov 2025']];
+const REF_VARIANT = { Received: 'success', Pending: 'warning', Declined: 'danger', Expired: 'muted' };
+const DOCS = [['FY2025-accounts.pdf', 'Financial statement', '1.2 MB', '12 Jan 2026'], ['trade-licence-2026.pdf', 'Trade licence', '420 KB', '3 Mar 2026'], ['director-id.pdf', 'Identity', '890 KB', '3 Mar 2026']];
+const kv = (rows) => rows.map(([k, v]) => ({ k, v: v && String(v).trim() ? v : '—' }));
+const SECTIONS = [
+  { title: 'Company details', fields: kv([['Country', 'United Kingdom'], ['Registration number', '11482036'], ['Company name', 'Kelly & Rose Taverns Ltd'], ['Company type', 'Private limited company'], ['Registered address', '24 Gloucester Road, Bristol, BS7 8AE'], ['Trading address', null], ['VAT number', 'GB284716390'], ['Website', 'https://kellyandrose.example']]) },
+  { title: 'Contact details', fields: kv([['First name', 'Dan'], ['Last name', 'Kelly'], ['Email', 'dan@kellyandrose.example'], ['Role', 'Finance Director'], ['Phone', '+44 117 496 0123'], ['Also director', 'Yes'], ['Also accounts payable', 'Yes']]) },
+  { title: 'Open banking', fields: kv([['IBAN', 'GB29 NWBK 6016 1331 9268 19'], ['Sort code', '20-00-00'], ['Account number', '12345678'], ['Account name', 'Kelly & Rose Taverns Ltd'], ['Open Banking', 'Connected']]) },
+  { title: 'Payment mandate', fields: kv([['Status', 'Payment mandate authorised']]) },
+  { title: 'Credit terms', fields: kv([['Requested credit limit', '£25,000'], ['Estimated monthly volume', '£10,000'], ['Requested payment terms', 'Same as offered']]) },
+  { title: 'Trade references', fields: [], blocks: [{ title: 'Reference 1', fields: kv([['Company', 'Clifton Fresh Produce Ltd'], ['Contact', 'Priya Shah'], ['Email', 'priya@cliftonfresh.example'], ['Role', 'Finance Manager']]) }] },
+].map((s) => ({ blocks: [], ...s, hasFields: s.fields.length > 0, isEmpty: false }));
+class Component extends DCLogic {
+  state = { invFilter: 'all', defaultId: 0, confirmed: false };
+  componentDidUpdate(prev) { if (prev.screen !== this.props.screen || prev.state !== this.props.state) this.setState({ invFilter: 'all', confirmed: false }); }
+  renderVals() {
+    const { screen = 'bp.suppliers', state: st = 'Default', go = () => {} } = this.props;
+    const s = this.state, DS = window.AlmanacDesignSystem_94f443 || {}, h = React.createElement;
+    const empty = st === 'Empty' || st === 'Needs setup';
+    const btn = (label, variant, extra) => (DS.Button ? h(DS.Button, { variant: variant || 'outline', ...(extra || {}) }, label) : null);
+    const f = s.invFilter;
+    const inv = st === 'Empty' ? [] : INVOICES.filter((r) => (f === 'paid' ? r[3] === 'Paid' : f === 'due' ? r[3] === 'Due' || r[3] === 'Overdue' : f === 'unpaid' ? r[3] !== 'Paid' : true));
+    return {
+      empty, full: !empty, needsSetup: st === 'Needs setup', plainEmpty: st === 'Empty',
+      isSuppliers: screen === 'bp.suppliers', suppliers: SUPPLIERS.map(([name, reg, added]) => ({ name, reg, added })),
+      isApplication: screen === 'bp.application',
+      appHeader: { actions: h('div', { style: { display: 'flex', alignItems: 'center', gap: 10 } }, DS.Badge ? h(DS.Badge, { variant: 'success' }, 'Submitted') : null, DS.BackLink ? h(DS.BackLink, { href: '#', onClick: (e) => { e.preventDefault(); go('bp.suppliers'); } }, 'Credit applications') : null) },
+      sections: st === 'Empty' ? [{ title: 'Trade references', fields: [], blocks: [], hasFields: false, isEmpty: true, emptyMessage: 'No trade references were provided.' }] : SECTIONS,
+      appDocs: st !== 'Empty',
+      isProfile: screen === 'bp.profile', needsConfirm: st === 'Needs confirmation' && !s.confirmed, confirmDetails: () => this.setState({ confirmed: true }),
+      profileCards: [
+        { title: 'Company details', desc: 'Shared with suppliers you apply to.', rows: [['Company name', 'Kelly & Rose Taverns Ltd'], ['Registration no.', '11482036'], ['Country', 'United Kingdom'], ['Address', '24 Gloucester Road, Bristol, BS7 8AE'], ['Website', 'https://kellyandrose.example']] },
+        { title: 'Contact details', desc: 'Primary contact for verification requests.', rows: [['Name', 'Dan Kelly'], ['Email', 'dan@kellyandrose.example'], ['Phone', '+44 117 496 0123']] },
+      ].map((c) => ({ ...c, rows: c.rows.map(([k, v], i) => ({ k, v, rule: i ? '1px solid var(--border)' : '0' })) })),
+      addCompany: { actions: btn('Add company details', 'outline', { size: 'sm' }) }, addContact: { actions: btn('Add contact details', 'outline', { size: 'sm' }) },
+      isTerms: screen === 'bp.terms', termsHeader: { actions: btn('Request new terms') },
+      isInvoices: screen === 'bp.invoices', invFilter: f, onInvFilter: (v) => this.setState({ invFilter: v }), invEmpty: inv.length === 0, invFull: inv.length > 0,
+      invoices: inv.map(([number, supplier, due, status, amount, canPay]) => ({ number, supplier, due, status, amount, canPay, variant: INV_VARIANT[status] || 'muted' })),
+      isPayments: screen === 'bp.payments', addMethodHeader: { title: h('span', { style: { whiteSpace: 'nowrap' } }, 'Payment methods'), actions: btn('Add method') },
+      methods: [['Direct Debit', '•••• 4321', 'Barclays'], ['Bank transfer', '•••• 8890', 'HSBC']].map(([type, label, bank], i) => ({ type, label, bank, isDefault: s.defaultId === i, notDefault: s.defaultId !== i, setDefault: () => this.setState({ defaultId: i }) })),
+      isBanks: screen === 'bp.banks', banks: [['Barclays', 'Active', '12 Jan 2026', '12 Jan 2027'], ['Lloyds Bank', 'Needs reconnect', '3 Mar 2025', '3 Mar 2026']].map(([bank, status, granted, valid]) => ({ bank, status, granted, valid, variant: status === 'Active' ? 'success' : 'warning' })),
+      isRefs: screen === 'bp.refs', addRefHeader: { actions: btn('Add reference') },
+      tradeRefs: REFS.map(([company, contact, email, status, requested]) => ({ company, contact, email, status, requested, variant: REF_VARIANT[status], canResend: status === 'Pending' || status === 'Expired' })),
+      isDocs: screen === 'bp.docs', uploadHeader: { actions: btn('Upload') },
+      documents: DOCS.map(([name, type, size, uploaded]) => ({ name, type, size, uploaded })),
+    };
+  }
+}
+</script>
+</body>
+</html>
