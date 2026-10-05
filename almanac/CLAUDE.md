@@ -1,6 +1,0 @@
-- Before any expensive action, warn the user and wait for a go-ahead. Expensive means: full-prototype audits or sweeps, fetching more than 3 links, rebuilding or rewriting a whole screen or file, editing Proto Supplier Money v3 extensively, multi-screen rollouts, or recapturing many screenshots. State it in one line, e.g. "Heads-up: this is a heavy one (a full audit of all screens). Go ahead, or should I do just X?" Cheap tasks (copy, colour, one component) need no warning. Default to one verification per batch and no verification for trivial edits.
-- Read brain.md (generic design knowledge) and neuron-almanac.md (Almanac-specific knowledge) first. Add generic learnings to brain.md and Almanac-only learnings to neuron-almanac.md.
-- Stick to what's in the code/spec (uploads/almanac-with-design-system.md). Don't add dialogs, flows, copy or UI that isn't there.
-- Read uploads/almanac-context-for-claude-design.md before any v2 work; follow its ground rules (v1 = as built, v2 = proposed).
-- Before designing or changing any screen or feature, read skills/almanac-design-guardrails/SKILL.md and run its pre-delivery checklist before handing over.
-- Check guidance/README.md for the reference that matches the area (WCAG, notifications, data density, motion, eval loop). Log recurring misses in guidance/eval-log.md.
