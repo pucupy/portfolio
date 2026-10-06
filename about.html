@@ -20,7 +20,11 @@
 
 <style>
   html { color-scheme: dark; }
-  body { margin:0; background:#0F1211; color:#EDEFEC; font-family:'Schibsted Grotesk',-apple-system,BlinkMacSystemFont,sans-serif; -webkit-font-smoothing:antialiased; }
+  body { margin:0; background:#0F1211; color:#EDEFEC; font-family:'Literata',Georgia,serif; -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale; }
+h1,h2,h3,h4,h5,h6,header,a.cta,a.btn,button,input,select,label,th,figcaption,[style*="text-transform:uppercase"],[style*="text-transform: uppercase"]{font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif}
+h1,h2,h3,h4{text-wrap:balance}
+h1,h2,h3,h4,p,li{overflow-wrap:break-word}
+abbr[title]{text-decoration:underline dotted;text-decoration-skip-ink:auto;cursor:help}
   a { color:#EDEFEC; }
   a:focus-visible { outline:2px solid #6FCB92; outline-offset:3px; border-radius:2px; }
   ::selection { background:#6FCB92; color:#0F1211; }
@@ -79,6 +83,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 #hot3{animation-delay:-1.6s}
 @media (prefers-reduced-motion:reduce){#hot1,#hot2,#hot3{animation:none;stroke-dasharray:none}}
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Literata:ital,opsz,wght@0,7..72,400..600;1,7..72,400&amp;display=swap">
 </head>
 <body>
 <div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;justify-content:center;">
@@ -106,7 +111,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
   <section class="hero" style="position:relative;padding:56px 0 72px 0;display:flex;flex-wrap:wrap;gap:56px;align-items:center;">
     <canvas data-field data-focus="0" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;"></canvas>
     <div style="position:relative;z-index:1;flex:1 1 380px;min-width:0;max-width:700px;">
-    <h1 style="font-size:clamp(38px,7.5vw,60px);font-weight:600;letter-spacing:-0.02em;line-height:1.05;margin:0 0 32px 0;">Product designer, design leader and builder</h1>
+    <h1 style="font-size:clamp(38px,7.5vw,60px);font-weight:600;letter-spacing:-0.025em;line-height:1.05;margin:0 0 32px 0;">Product designer, design leader and builder</h1>
     <p style="font-size:18px;line-height:1.6;color:#EDEFEC;margin:0 0 20px 0;text-wrap:pretty;">I’ve worked in digital product design since 2005 across Argentina, the US and the UK, with deep experience in regulated fintech, open banking, payments, enterprise SaaS and platform products.</p>
     <p style="font-size:18px;line-height:1.6;color:#EDEFEC;margin:0;text-wrap:pretty;">I’m most useful where complexity goes beyond the interface: regulation, operational dependencies, technical constraints, multiple customer types and fragmented ownership.</p>
     </div>
@@ -150,7 +155,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
     <h2 style="font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">Beyond design</h2>
     <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Hosted Pages operates within FCA guidelines, so I work directly with Compliance and have supported presentations to the regulator.</p>
     <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">I also manage relationships with design and research vendors and work directly with customer product teams. For two years I worked with designers and PMs at Google as they built open banking experiences on Yapily.</p>
-    <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">That work reinforced where Hosted Pages is most valuable: not as a replacement for a customer’s own design, but where market complexity makes owning every part of the experience inefficient.</p>
+    <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">That work showed Hosted Pages is most valuable where market complexity makes owning every part of the experience inefficient for the customer.</p>
   </section>
 
   <section style="max-width:700px;padding-bottom:72px;">

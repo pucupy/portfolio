@@ -48,7 +48,11 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
 <style>
   html { color-scheme: dark; }
-  body { margin:0; background:#0F1211; color:#EDEFEC; font-family:'Schibsted Grotesk',-apple-system,BlinkMacSystemFont,sans-serif; -webkit-font-smoothing:antialiased; }
+  body { margin:0; background:#0F1211; color:#EDEFEC; font-family:'Literata',Georgia,serif; -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale; }
+h1,h2,h3,h4,h5,h6,header,a.cta,a.btn,button,input,select,label,th,figcaption,[style*="text-transform:uppercase"],[style*="text-transform: uppercase"]{font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif}
+h1,h2,h3,h4{text-wrap:balance}
+h1,h2,h3,h4,p,li{overflow-wrap:break-word}
+abbr[title]{text-decoration:underline dotted;text-decoration-skip-ink:auto;cursor:help}
   a { color:#EDEFEC; }
   a:focus-visible { outline:2px solid #6FCB92; outline-offset:3px; border-radius:2px; }
   ::selection { background:#6FCB92; color:#0F1211; }
@@ -102,6 +106,7 @@ header .brand span{background-image:linear-gradient(#6FCB92,#6FCB92);background-
 header .brand:hover span,header .brand:focus-visible span{background-size:100% 1px}
 @media (prefers-reduced-motion:reduce){a,button,a.btn,a.cta,a.cta svg,header nav a::after,header .brand span{transition:none}a.cta:hover,a.cta:hover svg,button:hover,a.btn:hover{transform:none}}
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Literata:ital,opsz,wght@0,7..72,400..600;1,7..72,400&amp;display=swap">
 </head>
 <body>
 <a href="#main" class="skiplink" style="position:absolute;left:-9999px;top:0;z-index:100;background:#6FCB92;color:#0F1211;padding:10px 16px;border-radius:0 0 8px 0;font-size:14px;font-weight:500;text-decoration:none;">Skip to content</a>
@@ -121,9 +126,9 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
 <main id="main" class="wrap" style="max-width:1160px;margin:0 auto;padding:0 56px;">
 
-  <section style="max-width:700px;padding:56px 0 40px 0;">
-    <div style="font-weight:500;font-size:14px;letter-spacing:.1em;color:#6FCB92;margin-bottom:20px;">EARLIER WORK</div>
-    <h1 style="font-size:clamp(38px,7.5vw,60px);font-weight:600;letter-spacing:-0.02em;line-height:1.05;margin:0 0 32px 0;">Su4erheroes</h1>
+  <section style="max-width:700px;padding:56px 0 72px 0;">
+    <div style="text-transform:uppercase;font-weight:500;font-size:14px;letter-spacing:.1em;color:#6FCB92;margin-bottom:20px;">Earlier work</div>
+    <h1 style="font-size:clamp(38px,7.5vw,60px);font-weight:600;letter-spacing:-0.025em;line-height:1.05;margin:0 0 32px 0;">Su4erheroes</h1>
     <p style="font-size:18px;line-height:1.6;color:#EDEFEC;margin:0 0 20px 0;text-wrap:pretty;">A product design consultancy set up with four former Payfriendz colleagues. Two products of our own, one principal client, and a handful of engagements alongside. I led design across all of it, and was a company director from January 2018.</p>
     <p style="font-size:18px;line-height:1.6;color:#EDEFEC;margin:0 0 20px 0;text-wrap:pretty;">Five engagements, all of them about money moving between people who don’t trust each other yet.</p>
     <p style="font-size:18px;line-height:1.6;color:#EDEFEC;margin:0 0 20px 0;text-wrap:pretty;">The entries below are the work, not the company.</p>
@@ -145,28 +150,28 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
       </div>
       <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 0 0;text-wrap:pretty;">From January 2018, PSD2 reclassified marketplaces that hold buyers’ money on the way to sellers: handling funds that aren’t yours makes you an intermediary of payments. The licence costs upwards of €200,000 and takes up to 18 months to be granted. NOMO existed so a marketplace could stay a marketplace, payouts, escrow, KYC and AML handled by a licensed partner, through an API, without changing payment provider.</p>
       <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">Four audiences, four surfaces. Docomo’s operations team got an admin console for onboarding partners. Marketplace owners got a dashboard: revenue and net revenue per sale, wallet balance by currency, sellers, payments and payouts. Sellers got a mobile app. Developers got documentation and a sandbox.</p>
-      <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">The onboarding flow was the design problem worth solving. Adding a partner meant capturing not just a business, but that business’s own payment provider, and a link and a document describing their money-laundering and fraud controls. It’s a compliance file wearing the clothes of a two-step signup form. And it has to stay that way, because the person filling it in is trying to launch a marketplace, not pass an audit.</p>
+      <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">The onboarding flow was the design problem worth solving. Adding a partner meant capturing a business and that business’s own payment provider, and a link and a document describing their money-laundering and fraud controls. It’s a compliance file wearing the clothes of a two-step signup form. And it has to stay that way, because the person filling it in is trying to launch a marketplace, not pass an audit.</p>
       <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">The seller app answered something the web dashboard structurally couldn’t: a seller sells on more than one marketplace, and nobody was giving them a single view of what they’d earned. Payments showed a status timeline rather than a status word: pending on the 13th, paid out on the 15th. Each currency’s account fields used its own format: sort code for sterling, IBAN for euro, routing number for dollar.</p>
-      <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">Also in this engagement: a consumer cashback app for Huawei customers, launched, and payment widgets for alternative payment methods and for ICO investment.</p>
+      <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">The same engagement included a consumer cashback app for Huawei customers, which launched, and payment widgets for alternative payment methods and for ICO investment.</p>
     </div>
       <div class="grid2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:32px;">
         <figure style="margin:0;">
-          <div style="background:rgba(237,239,236,.045);border-radius:10px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
+          <div style="background:rgba(237,239,236,.045);border-radius:12px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
             <img src="images/nomo-seller-app.webp" alt="Three NOMO seller app screens: activity across marketplaces, a payment status timeline, and bank accounts by currency" loading="lazy" style="display:block;max-width:100%;max-height:100%;object-fit:contain;" width="1600" height="916">
           </div>
           <figcaption style="font-size:13px;line-height:1.45;color:#79837C;margin-top:10px;">The seller app: earnings across every marketplace, payments as a timeline</figcaption>
         </figure>
         <figure style="margin:0;">
-          <div style="background:rgba(237,239,236,.045);border-radius:10px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
+          <div style="background:rgba(237,239,236,.045);border-radius:12px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
             <img src="images/nomo-marketing-site.webp" alt="The NOMO marketing site features page, explaining payouts, escrow and compliance" loading="lazy" style="display:block;max-width:100%;max-height:100%;object-fit:contain;" width="1400" height="973">
           </div>
           <figcaption style="font-size:13px;line-height:1.45;color:#79837C;margin-top:10px;">The marketing site: explaining an intermediary licence to people who don’t want one</figcaption>
         </figure>
         <figure style="margin:0;">
-          <div style="background:rgba(237,239,236,.045);border-radius:10px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
+          <div style="background:rgba(237,239,236,.045);border-radius:12px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
             <img src="images/nomo-huawei-cashback.webp" alt="The Huawei promo cashback screen, listing two payments: one paid, one on its way" loading="lazy" style="display:block;max-width:100%;max-height:100%;object-fit:contain;" width="514" height="960">
           </div>
-          <figcaption style="font-size:13px;line-height:1.45;color:#79837C;margin-top:10px;">The Huawei cashback app: cashback as a payment with a status, not a balance</figcaption>
+          <figcaption style="font-size:13px;line-height:1.45;color:#79837C;margin-top:10px;">The Huawei cashback app: cashback shown as a payment with a status</figcaption>
         </figure>
 
       </div>
@@ -185,13 +190,13 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
     </div>
       <div class="grid2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:32px;">
         <figure style="margin:0;">
-          <div style="background:rgba(237,239,236,.045);border-radius:10px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
+          <div style="background:rgba(237,239,236,.045);border-radius:12px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
             <img src="images/keymono-collection-types.webp" alt="Two Keymono screens: choosing between Open, Split and Fixed collection types, and the contributor landing page asking for help with a dinner" loading="lazy" style="display:block;max-width:100%;max-height:100%;object-fit:contain;" width="1108" height="960">
           </div>
           <figcaption style="font-size:13px;line-height:1.45;color:#79837C;margin-top:10px;">Open, Split and Fixed, each with the situation it fits. And what a contributor sees from the link</figcaption>
         </figure>
         <figure style="margin:0;">
-          <div style="background:rgba(237,239,236,.045);border-radius:10px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
+          <div style="background:rgba(237,239,236,.045);border-radius:12px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
             <img src="images/keymono-collections.webp" alt="Two Keymono screens: a list of collections, and a completed collection with a share link" loading="lazy" style="display:block;max-width:100%;max-height:100%;object-fit:contain;" width="1108" height="960">
           </div>
           <figcaption style="font-size:13px;line-height:1.45;color:#79837C;margin-top:10px;">Collections in progress, and a completed one with its share link</figcaption>
@@ -212,16 +217,16 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
     </div>
       <div class="grid2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:32px;">
         <figure style="margin:0;">
-          <div style="background:rgba(237,239,236,.045);border-radius:10px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
+          <div style="background:rgba(237,239,236,.045);border-radius:12px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
             <img src="images/colly-balance-and-contact.webp" alt="Two Colly screens: a transaction list with the balance in Singapore dollars and the bitcoin figure underneath, and a contact page showing total sent, total received and number of payments" loading="lazy" style="display:block;max-width:100%;max-height:100%;object-fit:contain;" width="1108" height="960">
           </div>
           <figcaption style="font-size:13px;line-height:1.45;color:#79837C;margin-top:10px;">Your own currency first, the BTC figure underneath. And a contact page rather than a log</figcaption>
         </figure>
         <figure style="margin:0;">
-          <div style="background:rgba(237,239,236,.045);border-radius:10px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
+          <div style="background:rgba(237,239,236,.045);border-radius:12px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
             <img src="images/colly-fee-and-receive.webp" alt="Two Colly screens: a withdrawal with the network fee above the button, and a receive screen with QR code" loading="lazy" style="display:block;max-width:100%;max-height:100%;object-fit:contain;" width="1108" height="960">
           </div>
-          <figcaption style="font-size:13px;line-height:1.45;color:#79837C;margin-top:10px;">The fee above the button, not after it</figcaption>
+          <figcaption style="font-size:13px;line-height:1.45;color:#79837C;margin-top:10px;">The fee shown above the button</figcaption>
         </figure>
       </div>
   </section>
@@ -236,10 +241,10 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
       <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">The chain ran on four different clocks. Commissioning groups paid quarterly. The operator paid customers monthly. Care agencies invoiced weekly. Relatives sent receipts, invoices and bank statements quarterly, and the operator validated those against the support plan and audited back to the commissioning group on a spreadsheet, by email. Money was held back pending that audit, so customers chased for it. A new bank account was opened for every customer.</p>
       <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">I interviewed every party in the chain and mapped the flows: the two operators, independent carers, care agencies, and the people receiving care. Rather than build first, I ran a concierge version to test whether those flows were right: a plain HTML front end with payments still processed by hand.</p>
       <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">That surfaced the thing I’d got wrong. I’d assumed people receiving care and their families would be low on digital confidence. Most were comfortable. The real problem was time and patience for admin, chasing receipts, chasing for money, which was stressful on both sides.</p>
-      <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">What was built: an operator dashboard for verifying carers and agencies, allocating budget, monitoring spend and reporting; and an app for carers and customers to request and authorise payments, and rate the service privately. The rating is confidential by design and says so on the screen, a customer who fears their carer will see it won’t answer honestly. The reporting was designed to replace the emailed spreadsheet, so commissioning groups could see payments directly rather than waiting for a quarterly audit. I left before the pilot ran far enough for me to know whether they did.</p>
+      <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">We built an operator dashboard for verifying carers and agencies, allocating budget, monitoring spend and reporting; and an app for carers and customers to request and authorise payments, and rate the service privately. The rating is confidential by design and says so on the screen, a customer who fears their carer will see it won’t answer honestly. The reporting was designed to replace the emailed spreadsheet, so commissioning groups could see payments directly rather than waiting for a quarterly audit. I left before the pilot ran far enough for me to know whether they did.</p>
       <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">It reached MVP and ran as a pilot with a subset of customers. I wasn’t involved past that point; the product later continued as Healthmoni.</p>
     </div>
-      <figure style="margin:32px 0 0 0;">
+      <figure style="margin:40px 0 0 0;">
         <div style="background:rgba(237,239,236,.045);border-radius:12px;overflow:hidden;">
           <img src="images/caremoni-payment-chain.svg" alt="A service map of the personal health budget payment chain before automation, showing money flowing out on quarterly and monthly cycles and evidence travelling back weekly, ending in a manual audit sent by email" loading="lazy" style="display:block;width:100%;height:auto;">
         </div>
@@ -247,13 +252,13 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
       </figure>
       <div class="grid2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:32px;">
         <figure style="margin:0;">
-          <div style="background:rgba(237,239,236,.045);border-radius:10px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
+          <div style="background:rgba(237,239,236,.045);border-radius:12px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
             <img src="images/caremoni-carer-app.webp" alt="Three Caremoni app screens: authorising a payment, a confidential service rating, and carer registration" loading="lazy" style="display:block;max-width:100%;max-height:100%;object-fit:contain;" width="961" height="569">
           </div>
           <figcaption style="font-size:13px;line-height:1.45;color:#79837C;margin-top:10px;">The carer app: authorising a payment, rating a service</figcaption>
         </figure>
         <figure style="margin:0;">
-          <div style="background:rgba(237,239,236,.045);border-radius:10px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
+          <div style="background:rgba(237,239,236,.045);border-radius:12px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
             <img src="images/caremoni-carer-admin.webp" alt="The Caremoni admin table of carers, their pay rates and payment status" loading="lazy" style="display:block;max-width:100%;max-height:100%;object-fit:contain;" width="1400" height="791">
           </div>
           <figcaption style="font-size:13px;line-height:1.45;color:#79837C;margin-top:10px;">Admin: pay rates and payment status in one table</figcaption>
@@ -275,13 +280,13 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
         <span style="font-weight:500;font-size:14px;color:#79837C;">2017 · UK and Singapore</span>
       </div>
       <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 0 0;text-wrap:pretty;">Babies grow fast, and parents end up with piles of clothes they never used, often the wrong size, because people buying for a baby guess. A founder brought us an app built at a hackathon: enter your baby’s age and size, it predicts the sizes to come, share the result to Facebook.</p>
-      <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">I reviewed the app, then went to talk to parents, and ran usability sessions on the existing build. The findings didn’t improve the app, they ended it. Parents didn’t want any of this on Facebook. Sizing isn’t consistent between brands, so the prediction couldn’t be right for everyone. They installed baby apps constantly and paid for none of them. And the problem they actually had wasn’t predicting sizes, it was the cupboard of clothes already outgrown, which they’d tried and failed to sell because, as one put it, the existing sites weren’t made for it.</p>
+      <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">I reviewed the app, then went to talk to parents, and ran usability sessions on the existing build. The findings didn’t improve the app, they ended it. Parents didn’t want any of this on Facebook. Sizing isn’t consistent between brands, so the prediction couldn’t be right for everyone. They installed baby apps constantly and paid for none of them. And the problem they had wasn’t predicting sizes, it was the cupboard of clothes already outgrown, which they’d tried and failed to sell because, as one put it, the existing sites weren’t made for it.</p>
       <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">What they described was a marketplace. Rather than build one to find out, I stood up a working store on an off-the-shelf platform and put it in front of the same parents. They listed items and sold them. That was the evidence for building properly: a customised version followed, with payments and a reworked interface.</p>
       <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">Mummybay now runs in the UK and Singapore.</p>
     </div>
       <div class="grid2" style="display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:20px;margin-top:32px;">
         <figure style="margin:0;">
-          <div style="background:rgba(237,239,236,.045);border-radius:10px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
+          <div style="background:rgba(237,239,236,.045);border-radius:12px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;">
             <img src="images/mummybay-marketplace.webp" alt="The Mummybay marketplace homepage, a grid of preloved items for children" loading="lazy" style="display:block;max-width:100%;max-height:100%;object-fit:contain;" width="1400" height="920">
           </div>
           <figcaption style="font-size:13px;line-height:1.45;color:#79837C;margin-top:10px;">The marketplace, a working store, stood up to test the idea</figcaption>
