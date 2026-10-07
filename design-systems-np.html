@@ -108,12 +108,12 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 @media (prefers-reduced-motion:reduce){a,button,a.btn,a.cta,a.cta svg,header nav a::after,header .brand span{transition:none}a.cta:hover,a.cta:hover svg,button:hover,a.btn:hover{transform:none}}
 [style*="color:#79837C"],[style*="color: #79837C"]{font-variant-numeric:tabular-nums}
 a.shot{position:relative}
-a.shot::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.16) 1px,transparent 1.4px);background-size:8px 8px;opacity:.6;transition:opacity .3s ease;pointer-events:none}
-a.shot:hover::before{opacity:1}a.shot>*{position:relative}
+a.shot::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.16) 1px,transparent 1.4px);background-size:8px 8px;opacity:.6;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse at center,#000 40%,transparent 92%);mask-image:radial-gradient(ellipse at center,#000 40%,transparent 92%);}
+a.shot>*{position:relative}
 .split>div:last-child{position:relative}
 .split>div:last-child::before{content:"";position:absolute;left:-4px;top:6px;width:7px;height:7px;border-radius:50%;background:#0F1211;box-shadow:inset 0 0 0 1.5px rgba(111,203,146,.7);transition:background-color .25s ease}
 article:hover .split>div:last-child::before{background:#6FCB92}
-.mat{position:relative}.mat::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.14) 1px,transparent 1.4px);background-size:8px 8px;pointer-events:none}.mat>*{position:relative}
+.mat{position:relative}.mat::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.14) 1px,transparent 1.4px);background-size:8px 8px;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse at center,#000 40%,transparent 92%);mask-image:radial-gradient(ellipse at center,#000 40%,transparent 92%);}.mat>*{position:relative}
 @media (max-width:900px){.split>div:last-child::before{display:none}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Schibsted+Grotesk:ital,wght@0,400..700;1,400..700&amp;display=swap">
@@ -475,5 +475,6 @@ article:hover .split>div:last-child::before{background:#6FCB92}
 </main>
 
 <script src="analytics.js" defer></script>
+<script src="site-fx.js" defer></script>
 </body>
 </html>

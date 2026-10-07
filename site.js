@@ -123,6 +123,19 @@
         var px = COLS * cw * 0.62, py = 19.5 * chh;
         ctx.translate(px, py); ctx.rotate(wave); ctx.translate(-px, -py);
       }
+      if (kind === 'face') {
+        ctx.beginPath();
+        for (var mr = 0; mr < ROWS; mr += 3) for (var mq = 0; mq < COLS; mq += 3) {
+          var mi = mr * COLS + mq;
+          if (lv[mi] < 3) continue;
+          var mxp = mq * cw + cw / 2, myp = mr * chh + chh / 2;
+          if (mq + 3 < COLS && lv[mi + 3] >= 3) { ctx.moveTo(mxp, myp); ctx.lineTo(mxp + 3 * cw, myp); }
+          if (mr + 3 < ROWS && lv[mi + 3 * COLS] >= 3) { ctx.moveTo(mxp, myp); ctx.lineTo(mxp, myp + 3 * chh); }
+        }
+        ctx.strokeStyle = 'rgba(111,203,146,' + (0.08 + faceDark * 0.06).toFixed(3) + ')';
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
       var alphaBase = kind === 'hand' ? 0.18 : 0.13;
       var alphaSpan = kind === 'hand' ? 0.78 : 0.72;
       for (var m = 0; m < live.length; m++) {

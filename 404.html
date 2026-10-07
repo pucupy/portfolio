@@ -43,12 +43,13 @@ a.cta svg{transition:transform .22s cubic-bezier(.2,.7,.3,1)}
 a.cta:hover svg,a.cta:focus-visible svg{transform:translateX(3px)}
 
 [style*="color:#79837C"],[style*="color: #79837C"]{font-variant-numeric:tabular-nums}
+@media (max-width:900px){.guide{padding:0 12px !important}}@media (max-width:600px){.guide{padding:0 6px !important}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Schibsted+Grotesk:ital,wght@0,400..700;1,400..700&amp;display=swap">
 </head>
 <body>
 <div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;justify-content:center;">
-    <div class="wrap" style="width:100%;max-width:1160px;height:100%;padding:0 32px;box-sizing:border-box;"><div style="height:100%;border-left:1px solid rgba(237,239,236,.06);border-right:1px solid rgba(237,239,236,.06);"></div></div>
+    <div class="guide" style="width:100%;max-width:1272px;height:100%;padding:0 32px;box-sizing:border-box;"><div style="height:100%;border-left:1px solid rgba(237,239,236,.06);border-right:1px solid rgba(237,239,236,.06);"></div></div>
   </div>
 
 <main class="wrap" style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 56px;min-height:100vh;display:flex;align-items:center;">
@@ -268,5 +269,6 @@ class Hero {
 </script>
 <script src="/portfolio/site.js" defer></script>
 <script src="/portfolio/analytics.js" defer></script>
+<script src="site-fx.js" defer></script>
 </body>
 </html>
