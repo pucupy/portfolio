@@ -15,6 +15,7 @@ a:hover,a:focus-visible{color:#EDEFEC;background-size:100% 1px}
 main a:not(.btn):not(.cta),footer a:not(.btn):not(.cta){background-size:100% 1px;background-image:linear-gradient(rgba(111,203,146,.5),rgba(111,203,146,.5))}
 main a:not(.btn):not(.cta):hover,main a:not(.btn):not(.cta):focus-visible,footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible{background-image:linear-gradient(#6FCB92,#6FCB92)}
 header .brand,header nav a,a.btn,a.cta{background-image:none}
+footer a:not(.btn):not(.cta),main nav a:not(.btn):not(.cta){background-image:linear-gradient(#6FCB92,#6FCB92);background-size:0 1px}footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible,main nav a:not(.btn):not(.cta):hover,main nav a:not(.btn):not(.cta):focus-visible{background-size:100% 1px}
 a:focus-visible,button:focus-visible{outline:2px solid #6FCB92;outline-offset:3px}
 
 button,a.btn{transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
@@ -28,7 +29,7 @@ a.cta svg{transition:transform .22s cubic-bezier(.2,.7,.3,1)}
 a.cta:hover svg,a.cta:focus-visible svg{transform:translateX(3px)}
 
 header nav a[aria-current="page"]{color:#EDEFEC}
-header nav a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+
 
 header nav a{position:relative;transition:color .22s ease;padding:12px 0;margin:-12px 0}
 header nav a::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:#6FCB92;transform:scaleX(0);transform-origin:right;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
@@ -136,6 +137,7 @@ a:hover,a:focus-visible{color:#EDEFEC;background-size:100% 1px}
 main a:not(.btn):not(.cta),footer a:not(.btn):not(.cta){background-size:100% 1px;background-image:linear-gradient(rgba(111,203,146,.5),rgba(111,203,146,.5))}
 main a:not(.btn):not(.cta):hover,main a:not(.btn):not(.cta):focus-visible,footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible{background-image:linear-gradient(#6FCB92,#6FCB92)}
 header .brand,header nav a,a.btn,a.cta{background-image:none}
+footer a:not(.btn):not(.cta),main nav a:not(.btn):not(.cta){background-image:linear-gradient(#6FCB92,#6FCB92);background-size:0 1px}footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible,main nav a:not(.btn):not(.cta):hover,main nav a:not(.btn):not(.cta):focus-visible{background-size:100% 1px}
 a:focus-visible,button:focus-visible{outline:2px solid #6FCB92;outline-offset:3px}
 
 button,a.btn{transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
@@ -149,7 +151,7 @@ a.cta svg{transition:transform .22s cubic-bezier(.2,.7,.3,1)}
 a.cta:hover svg,a.cta:focus-visible svg{transform:translateX(3px)}
 
 header nav a[aria-current="page"]{color:#EDEFEC}
-header nav a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+
 
 header nav a{position:relative;transition:color .22s ease;padding:12px 0;margin:-12px 0}
 header nav a::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:#6FCB92;transform:scaleX(0);transform-origin:right;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
@@ -158,12 +160,21 @@ header nav a:hover::after,header nav a:focus-visible::after{transform:scaleX(1);
 header .brand span{background-image:linear-gradient(#6FCB92,#6FCB92);background-repeat:no-repeat;background-position:0 100%;background-size:0 1px;transition:background-size .3s cubic-bezier(.2,.7,.3,1),color .22s ease}
 header .brand:hover span,header .brand:focus-visible span{background-size:100% 1px}
 @media (prefers-reduced-motion:reduce){a,button,a.btn,a.cta,a.cta svg,header nav a::after,header .brand span{transition:none}a.cta:hover,a.cta:hover svg,button:hover,a.btn:hover{transform:none}}
+[style*="color:#79837C"],[style*="color: #79837C"]{font-variant-numeric:tabular-nums}
+a.shot{position:relative}
+a.shot::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.16) 1px,transparent 1.4px);background-size:8px 8px;opacity:.6;transition:opacity .3s ease;pointer-events:none}
+a.shot:hover::before{opacity:1}a.shot>*{position:relative}
+.split>div:last-child{position:relative}
+.split>div:last-child::before{content:"";position:absolute;left:-4px;top:6px;width:7px;height:7px;border-radius:50%;background:#0F1211;box-shadow:inset 0 0 0 1.5px rgba(111,203,146,.7);transition:background-color .25s ease}
+article:hover .split>div:last-child::before{background:#6FCB92}
+.mat{position:relative}.mat::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.14) 1px,transparent 1.4px);background-size:8px 8px;pointer-events:none}.mat>*{position:relative}
+@media (max-width:900px){.split>div:last-child::before{display:none}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Schibsted+Grotesk:ital,wght@0,400..700;1,400..700&amp;display=swap">
 </head>
 <body>
 <div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;justify-content:center;">
-    <div style="width:100%;max-width:1224px;height:100%;border-left:1px solid rgba(237,239,236,.06);border-right:1px solid rgba(237,239,236,.06);"></div>
+    <div class="wrap" style="width:100%;max-width:1160px;height:100%;padding:0 32px;box-sizing:border-box;"><div style="height:100%;border-left:1px solid rgba(237,239,236,.06);border-right:1px solid rgba(237,239,236,.06);"></div></div>
   </div>
 
 
@@ -173,7 +184,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
 <header style="position:sticky;top:0;z-index:50;background:rgba(15,18,17,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(237,239,236,.09);">
   <div class="wrap" style="max-width:1160px;margin:0 auto;padding:18px 56px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
-    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/nav-logo.svg" width="28" height="34" alt="" style="display:block;height:34px;width:auto;flex:none;"><span>Alejandro Velazquez</span></a>
+    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/face-dots.svg" width="28" height="34" alt="" style="display:block;height:34px;width:auto;flex:none;"><span>Alejandro Velazquez</span></a>
     <nav style="display:flex;align-items:center;gap:22px;font-size:15px;">
       <a href="index.html#work" style="color:#A2ACA5;text-decoration:none;">Work</a>
       <a href="about.html" style="color:#A2ACA5;text-decoration:none;">About</a>
@@ -185,14 +196,15 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 <main id="main" class="wrap" style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 56px;">
 
   <section style="max-width:700px;padding:56px 0 72px 0;">
-    <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;letter-spacing:.1em;color:#6FCB92;margin-bottom:20px;">02: CASE STUDY</div>
+    <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;letter-spacing:.1em;color:#79837C;margin-bottom:20px;display:flex;align-items:center;gap:12px;"><img src="images/dm-02.svg" width="44" height="28" alt="" style="display:block;width:44px;height:28px;"><span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);">02: </span>CASE STUDY</span></div>
     <h1 style="font-size:clamp(38px,7.5vw,60px);font-weight:600;letter-spacing:-0.025em;line-height:1.05;margin:0 0 32px 0;">Yapily Hosted Pages</h1>
     <p style="font-size:18px;line-height:1.6;color:#EDEFEC;margin:0;text-wrap:pretty;">Hosted Pages is Yapily’s white-label open banking flow, letting businesses launch payment and account-connection experiences without building and maintaining individual bank integrations.</p>
+    <div data-lead-figure style="margin:36px 0 0 0;padding-top:24px;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;display:flex;flex-direction:column;align-items:flex-start;gap:10px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:clamp(48px,8vw,72px);font-weight:600;letter-spacing:-0.03em;line-height:1;color:#EDEFEC;font-variant-numeric:tabular-nums;">~2 weeks</span><span style="font-size:16px;line-height:1.5;color:#A2ACA5;max-width:34ch;text-wrap:pretty;">to launch in many European markets, down from four to six months of custom integration</span></div>
   </section>
 
   <section style="max-width:700px;padding:40px 0 0 0;">
     <div style="border:1px solid rgba(237,239,236,.14);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:18px;">
-      <h2 style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;color:#6FCB92;margin:0;">At a glance</h2>
+      <h2 style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;color:#79837C;margin:0;">At a glance</h2>
       
       <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:18px;align-items:baseline;">
         <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#79837C;">Period</div>
@@ -211,7 +223,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
   </section>
 
   <section style="max-width:700px;">
-    <div style="max-width:700px;margin:40px 0 0 0;padding:28px;border:1px solid rgba(237,239,236,.14);border-radius:8px;">
+    <div style="max-width:700px;margin:40px 0 0 0;padding:28px;border:1px solid rgba(237,239,236,.14);border-radius:12px;">
       <img src="images/custard-journey-preview-2026.webp" alt="Seven hosted screens: bank selection, embedded login, the QR handoff, a declined payment and the confirmation" style="display:block;width:100%;height:auto;border-radius:6px;margin:0 0 22px 0;">
       <h3 style="font-size:clamp(19px,3.6vw,22px);font-weight:600;letter-spacing:-0.02em;margin:0 0 12px 0;">Hosted pages user flows</h3>
       <p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0 0 20px 0;text-wrap:pretty;">A clickable prototype in two viewpoints. On a phone the bank&rsquo;s app opens in place; on desktop the flow hands off to a phone by QR code and waits for it to come back.</p>
@@ -245,16 +257,11 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 <h2 style="font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">Bank discovery</h2>
 <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Research showed that finding a bank often took <strong style="color:#EDEFEC;font-weight:600;">5–15 seconds</strong>, compared with around <strong style="color:#EDEFEC;font-weight:600;">1–3 seconds</strong> in competitor experiences.</p>
 <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">We:</p>
-<ul style="max-width:700px;margin:0 0 18px 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
-<li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>grouped regional banks under recognisable parent brands</li>
-<li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>introduced Popular Banks</li>
-<li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>changed institution names to match what customers actually called them</li>
-<li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>identified search aliases and legacy names missing from the search index</li>
-</ul>
+<ol style="margin:0;padding:0;list-style:none;"><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">01</span><span>grouped regional banks under recognisable parent brands</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">02</span><span>introduced Popular Banks</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">03</span><span>changed institution names to match what customers actually called them</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">04</span><span>identified search aliases and legacy names missing from the search index</span></li></ol>
 <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 0px 0;text-wrap:pretty;">After launch, finding a bank fell to <strong style="color:#EDEFEC;font-weight:600;">1–3 seconds in most markets</strong> and <strong style="color:#EDEFEC;font-weight:600;">3–5 seconds in branch-heavy markets such as Germany</strong>.</p>
 <div class="cols" style="margin-top:40px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start;">
         <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
-          <div style="padding:16px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;">
+          <div class="mat" style="padding:16px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
             <img src="images/hp-bank-before.webp" alt="A flat alphabetical list of every institution" loading="lazy" decoding="async" style="width:100%;aspect-ratio:639/711;display:block;object-fit:contain;border-radius:10px;background:#F4F6F5">
           </div>
           <figcaption style="display:flex;align-items:baseline;gap:12px;">
@@ -263,11 +270,11 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           </figcaption>
         </figure>
         <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
-          <div style="padding:16px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;">
+          <div class="mat" style="padding:16px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
             <img data-expandable="" src="images/hp-bank-after-v2.webp" alt="Bank selection after the redesign: search, a popular-banks shortcut, and parent brands like Sparkassen and Volksbanken Raiffeisenbanken each grouping their local banks" loading="lazy" style="cursor:zoom-in;display:block;width:100%;height:auto;border-radius:10px;">
           </div>
           <figcaption style="display:flex;align-items:baseline;gap:12px;">
-            <span style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.12em;color:#6FCB92;">After</span>
+            <span style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.12em;color:#79837C;">After</span>
             <span style="font-size:14px;line-height:1.5;color:#79837C;text-wrap:pretty;">A most-popular shortcut above brand groups, each holding its branches</span>
           </figcaption>
         </figure>
@@ -283,7 +290,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 0px 0;text-wrap:pretty;">Together, this work improved embedded-login conversion by roughly <strong style="color:#EDEFEC;font-weight:600;">13%</strong>.</p>
 <div class="cols" style="margin-top:40px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start;">
         <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
-          <div style="padding:16px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;">
+          <div class="mat" style="padding:16px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
             <img src="images/hp-embedded-before.webp" alt="A login form with nothing to place it" loading="lazy" decoding="async" style="width:100%;aspect-ratio:860/815;display:block;object-fit:contain;border-radius:10px;background:#F4F6F5">
           </div>
           <figcaption style="display:flex;align-items:baseline;gap:12px;">
@@ -292,11 +299,11 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           </figcaption>
         </figure>
         <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
-          <div style="padding:16px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:14px;">
+          <div class="mat" style="padding:16px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
             <img data-expandable="" src="images/hp-embedded-after-v4.webp" alt="Embedded login after the redesign: the bank named at the top, an explanation of why the sign-in is here, and credential fields labelled as the bank labels them" loading="lazy" style="cursor:zoom-in;display:block;width:100%;height:auto;border-radius:10px;">
           </div>
           <figcaption style="display:flex;align-items:baseline;gap:12px;">
-            <span style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.12em;color:#6FCB92;">After</span>
+            <span style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.12em;color:#79837C;">After</span>
             <span style="font-size:14px;line-height:1.5;color:#79837C;text-wrap:pretty;">The bank named, the regulated entity stated, the fields labelled as the bank labels them</span>
           </figcaption>
         </figure>
@@ -326,7 +333,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
               <img data-expandable="" src="images/custard/custard-qr-handoff-lumen-desktop.webp" alt="Verify your account. The QR handoff, with numbered steps on the left, the bank named above the code, and a continue-on-this-device fallback" loading="lazy" style="cursor:zoom-in;display:block;max-width:100%;max-height:100%;width:auto;height:auto;border-radius:10px;" />
             </span>
             <span style="display:flex;align-items:baseline;gap:12px;">
-              <span style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.12em;color:#6FCB92;">After</span>
+              <span style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.12em;color:#79837C;">After</span>
               <span style="font-size:14px;line-height:1.5;color:#79837C;text-wrap:pretty;">Numbered steps, the bank named, and a continue-on-this-device fallback</span>
             </span>
           </span>
@@ -345,12 +352,12 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
   <section style="padding:96px 0 0 0;">
 <h2 style="font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">Results</h2>
 <div class="results" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 28px;margin-top:12px;">
-<div style="display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid rgba(237,239,236,.12);"><div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:30px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#6FCB92;font-variant-numeric:tabular-nums;">4–6 months → ~2&nbsp;weeks</div><div style="font-size:15px;line-height:1.5;color:#A2ACA5;text-wrap:pretty;">Customer integration effort</div></div>
-<div style="display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid rgba(237,239,236,.12);"><div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:30px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#6FCB92;font-variant-numeric:tabular-nums;">5–15 sec → 1–3&nbsp;sec</div><div style="font-size:15px;line-height:1.5;color:#A2ACA5;text-wrap:pretty;">Time to find a bank in most markets</div></div>
-<div style="display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid rgba(237,239,236,.12);"><div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:30px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#6FCB92;font-variant-numeric:tabular-nums;">~13% improvement</div><div style="font-size:15px;line-height:1.5;color:#A2ACA5;text-wrap:pretty;">Embedded-login conversion</div></div>
-<div style="display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid rgba(237,239,236,.12);"><div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:30px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#6FCB92;font-variant-numeric:tabular-nums;">~10% improvement</div><div style="font-size:15px;line-height:1.5;color:#A2ACA5;text-wrap:pretty;">QR handoff conversion where retained</div></div>
-<div style="display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid rgba(237,239,236,.12);"><div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:30px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#6FCB92;font-variant-numeric:tabular-nums;">20% → 65–75%</div><div style="font-size:15px;line-height:1.5;color:#A2ACA5;text-wrap:pretty;">End-to-end conversion from the 2023 beta to today, driven collectively by UX, frontend, backend and improved bank coverage</div></div>
-<div style="display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid rgba(237,239,236,.12);"><div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:30px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#6FCB92;font-variant-numeric:tabular-nums;">200 companies</div><div style="font-size:15px;line-height:1.5;color:#A2ACA5;text-wrap:pretty;">Using Hosted Pages</div></div>
+<div style="display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid rgba(237,239,236,.12);"><div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:30px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#79837C;font-variant-numeric:tabular-nums;">4–6 months → ~2&nbsp;weeks</div><div style="font-size:15px;line-height:1.5;color:#A2ACA5;text-wrap:pretty;">Customer integration effort</div></div>
+<div style="display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid rgba(237,239,236,.12);"><div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:30px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#79837C;font-variant-numeric:tabular-nums;">5–15 sec → 1–3&nbsp;sec</div><div style="font-size:15px;line-height:1.5;color:#A2ACA5;text-wrap:pretty;">Time to find a bank in most markets</div></div>
+<div style="display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid rgba(237,239,236,.12);"><div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:30px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#79837C;font-variant-numeric:tabular-nums;">~13% improvement</div><div style="font-size:15px;line-height:1.5;color:#A2ACA5;text-wrap:pretty;">Embedded-login conversion</div></div>
+<div style="display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid rgba(237,239,236,.12);"><div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:30px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#79837C;font-variant-numeric:tabular-nums;">~10% improvement</div><div style="font-size:15px;line-height:1.5;color:#A2ACA5;text-wrap:pretty;">QR handoff conversion where retained</div></div>
+<div style="display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid rgba(237,239,236,.12);"><div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:30px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#79837C;font-variant-numeric:tabular-nums;">20% → 65–75%</div><div style="font-size:15px;line-height:1.5;color:#A2ACA5;text-wrap:pretty;">End-to-end conversion from the 2023 beta to today, driven collectively by UX, frontend, backend and improved bank coverage</div></div>
+<div style="display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid rgba(237,239,236,.12);"><div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:30px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;color:#79837C;font-variant-numeric:tabular-nums;">200 companies</div><div style="font-size:15px;line-height:1.5;color:#A2ACA5;text-wrap:pretty;">Using Hosted Pages</div></div>
 </div>
   </section>
 
@@ -362,7 +369,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
 
   <nav style="padding:96px 0;">
-    <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:36px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:16px;">
+    <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:36px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:16px;">
       <a href="index.html">‹ All work</a>
       <a href="console.html">Yapily Console ›</a>
     </div>

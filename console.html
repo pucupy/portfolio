@@ -15,6 +15,7 @@ a:hover,a:focus-visible{color:#EDEFEC;background-size:100% 1px}
 main a:not(.btn):not(.cta),footer a:not(.btn):not(.cta){background-size:100% 1px;background-image:linear-gradient(rgba(111,203,146,.5),rgba(111,203,146,.5))}
 main a:not(.btn):not(.cta):hover,main a:not(.btn):not(.cta):focus-visible,footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible{background-image:linear-gradient(#6FCB92,#6FCB92)}
 header .brand,header nav a,a.btn,a.cta{background-image:none}
+footer a:not(.btn):not(.cta),main nav a:not(.btn):not(.cta){background-image:linear-gradient(#6FCB92,#6FCB92);background-size:0 1px}footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible,main nav a:not(.btn):not(.cta):hover,main nav a:not(.btn):not(.cta):focus-visible{background-size:100% 1px}
 a:focus-visible,button:focus-visible{outline:2px solid #6FCB92;outline-offset:3px}
 
 button,a.btn{transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
@@ -28,7 +29,7 @@ a.cta svg{transition:transform .22s cubic-bezier(.2,.7,.3,1)}
 a.cta:hover svg,a.cta:focus-visible svg{transform:translateX(3px)}
 
 header nav a[aria-current="page"]{color:#EDEFEC}
-header nav a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+
 
 header nav a{position:relative;transition:color .22s ease;padding:12px 0;margin:-12px 0}
 header nav a::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:#6FCB92;transform:scaleX(0);transform-origin:right;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
@@ -82,6 +83,7 @@ a:hover,a:focus-visible{color:#EDEFEC;background-size:100% 1px}
 main a:not(.btn):not(.cta),footer a:not(.btn):not(.cta){background-size:100% 1px;background-image:linear-gradient(rgba(111,203,146,.5),rgba(111,203,146,.5))}
 main a:not(.btn):not(.cta):hover,main a:not(.btn):not(.cta):focus-visible,footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible{background-image:linear-gradient(#6FCB92,#6FCB92)}
 header .brand,header nav a,a.btn,a.cta{background-image:none}
+footer a:not(.btn):not(.cta),main nav a:not(.btn):not(.cta){background-image:linear-gradient(#6FCB92,#6FCB92);background-size:0 1px}footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible,main nav a:not(.btn):not(.cta):hover,main nav a:not(.btn):not(.cta):focus-visible{background-size:100% 1px}
 a:focus-visible,button:focus-visible{outline:2px solid #6FCB92;outline-offset:3px}
 
 button,a.btn{transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
@@ -95,7 +97,7 @@ a.cta svg{transition:transform .22s cubic-bezier(.2,.7,.3,1)}
 a.cta:hover svg,a.cta:focus-visible svg{transform:translateX(3px)}
 
 header nav a[aria-current="page"]{color:#EDEFEC}
-header nav a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+
 
 header nav a{position:relative;transition:color .22s ease;padding:12px 0;margin:-12px 0}
 header nav a::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:#6FCB92;transform:scaleX(0);transform-origin:right;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
@@ -104,12 +106,21 @@ header nav a:hover::after,header nav a:focus-visible::after{transform:scaleX(1);
 header .brand span{background-image:linear-gradient(#6FCB92,#6FCB92);background-repeat:no-repeat;background-position:0 100%;background-size:0 1px;transition:background-size .3s cubic-bezier(.2,.7,.3,1),color .22s ease}
 header .brand:hover span,header .brand:focus-visible span{background-size:100% 1px}
 @media (prefers-reduced-motion:reduce){a,button,a.btn,a.cta,a.cta svg,header nav a::after,header .brand span{transition:none}a.cta:hover,a.cta:hover svg,button:hover,a.btn:hover{transform:none}}
+[style*="color:#79837C"],[style*="color: #79837C"]{font-variant-numeric:tabular-nums}
+a.shot{position:relative}
+a.shot::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.16) 1px,transparent 1.4px);background-size:8px 8px;opacity:.6;transition:opacity .3s ease;pointer-events:none}
+a.shot:hover::before{opacity:1}a.shot>*{position:relative}
+.split>div:last-child{position:relative}
+.split>div:last-child::before{content:"";position:absolute;left:-4px;top:6px;width:7px;height:7px;border-radius:50%;background:#0F1211;box-shadow:inset 0 0 0 1.5px rgba(111,203,146,.7);transition:background-color .25s ease}
+article:hover .split>div:last-child::before{background:#6FCB92}
+.mat{position:relative}.mat::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.14) 1px,transparent 1.4px);background-size:8px 8px;pointer-events:none}.mat>*{position:relative}
+@media (max-width:900px){.split>div:last-child::before{display:none}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Schibsted+Grotesk:ital,wght@0,400..700;1,400..700&amp;display=swap">
 </head>
 <body>
 <div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;justify-content:center;">
-    <div style="width:100%;max-width:1224px;height:100%;border-left:1px solid rgba(237,239,236,.06);border-right:1px solid rgba(237,239,236,.06);"></div>
+    <div class="wrap" style="width:100%;max-width:1160px;height:100%;padding:0 32px;box-sizing:border-box;"><div style="height:100%;border-left:1px solid rgba(237,239,236,.06);border-right:1px solid rgba(237,239,236,.06);"></div></div>
   </div>
 
 
@@ -119,7 +130,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
 <header style="position:sticky;top:0;z-index:50;background:rgba(15,18,17,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(237,239,236,.09);">
   <div class="wrap" style="max-width:1160px;margin:0 auto;padding:18px 56px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
-    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/nav-logo.svg" width="28" height="34" alt="" style="display:block;height:34px;width:auto;flex:none;"><span>Alejandro Velazquez</span></a>
+    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/face-dots.svg" width="28" height="34" alt="" style="display:block;height:34px;width:auto;flex:none;"><span>Alejandro Velazquez</span></a>
     <nav style="display:flex;align-items:center;gap:22px;font-size:15px;">
       <a href="index.html#work" style="color:#A2ACA5;text-decoration:none;">Work</a>
       <a href="about.html" style="color:#A2ACA5;text-decoration:none;">About</a>
@@ -131,7 +142,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 <main id="main" class="wrap" style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 56px;">
 
   <section style="max-width:700px;padding:56px 0 72px 0;">
-    <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;letter-spacing:.1em;color:#6FCB92;margin-bottom:20px;">03: CASE STUDY</div>
+    <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;letter-spacing:.1em;color:#79837C;margin-bottom:20px;display:flex;align-items:center;gap:12px;"><img src="images/dm-03.svg" width="44" height="28" alt="" style="display:block;width:44px;height:28px;"><span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);">03: </span>CASE STUDY</span></div>
     <h1 style="font-size:clamp(38px,7.5vw,60px);font-weight:600;letter-spacing:-0.025em;line-height:1.05;margin:0 0 32px 0;">Turning a sales-led onboarding into a self-serve one</h1>
     <p style="font-size:18px;line-height:1.6;color:#EDEFEC;margin:0 0 18px 0;text-wrap:pretty;">The Console is where Yapily customers sign up, manage applications and configure their integration.</p>
     <p style="font-size:18px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">As the company grew, the product didn’t keep up. Anything the Console couldn’t do became manual work for support, engineering or customer success. Becoming a customer could take <strong style="color:#EDEFEC;font-weight:600;">six months to a year</strong>.</p>
@@ -139,9 +150,9 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
   <section style="max-width:700px;padding:8px 0 0 0;">
     <a class="btn" href="embeds/console-screens.html" target="_blank" rel="noopener" style="display:block;text-decoration:none;border:1px solid rgba(111,203,146,.35);border-radius:16px;overflow:hidden;background:rgba(111,203,146,.05);" style-hover="border-color:#6FCB92">
-      <img src="images/console-demo-preview.webp" alt="The interactive Console demo. A customer&rsquo;s production home with consent metrics, and switchers for who is viewing and the account state" style="display:block;width:100%;height:auto;border-bottom:1px solid rgba(237,239,236,.10);">
+      <img src="images/console-demo-preview.webp" alt="The interactive Console demo. A customer&rsquo;s production home with consent metrics, and switchers for who is viewing and the account state" style="display:block;width:100%;height:auto;">
       <div style="display:flex;flex-direction:column;gap:14px;padding:24px;">
-        <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.14em;color:#6FCB92;">Interactive demo</div>
+        <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.14em;color:#79837C;">Interactive demo</div>
         <span style="display:inline-flex;align-self:flex-start;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border-radius:100px;color:#0F1211;font-size:16px;font-weight:600;box-sizing:border-box;">Open the interactive Console<span aria-hidden="true">&#8599;</span><span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;"> (opens in a new tab)</span></span>
         <p style="margin:0;font-size:14px;line-height:1.6;color:#79837C;text-wrap:pretty;">Rebuilt as live markup from the Yapily UI components, with a switcher between signing up, a non-customer&rsquo;s sandbox and a customer in production.</p>
       </div>
@@ -152,7 +163,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
   <section style="max-width:700px;padding:40px 0 0 0;">
     <div style="border:1px solid rgba(237,239,236,.14);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:18px;">
-      <h2 style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;color:#6FCB92;margin:0;">At a glance</h2>
+      <h2 style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;color:#79837C;margin:0;">At a glance</h2>
       
       <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:18px;align-items:baseline;">
         <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#79837C;">Period</div>
@@ -183,12 +194,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 <h2 style="font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">Making the problem visible</h2>
 <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">The Console wasn’t on the roadmap, so the first job was making the case for investing in it.</p>
 <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">I ran:</p>
-<ul style="max-width:700px;margin:0 0 18px 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
-<li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>customer interviews</li>
-<li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>a cross-functional workshop with product, engineering, support and customer success</li>
-<li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>a two-day hackathon where we tried to onboard using only what a real customer could access</li>
-<li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>an end-to-end map from first website visit to renewal</li>
-</ul>
+<ol style="margin:0;padding:0;list-style:none;"><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">01</span><span>customer interviews</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">02</span><span>a cross-functional workshop with product, engineering, support and customer success</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">03</span><span>a two-day hackathon where we tried to onboard using only what a real customer could access</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">04</span><span>an end-to-end map from first website visit to renewal</span></li></ol>
 <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">The workshop changed the conversation. What had looked like a design complaint became a visible operational cost across several teams.</p>
 <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 0px 0;text-wrap:pretty;">The Console was prioritised.</p>
   <figure style="margin:0;padding-top:48px;">
@@ -203,7 +209,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:13px;letter-spacing:.08em;color:#79837C;margin-bottom:6px;">STAGE 1</div>
           <div style="font-size:19px;font-weight:500;letter-spacing:-0.02em;">Evaluating</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Path</div>
           <div style="display:flex;flex-direction:column;gap:8px;">
           <div style="border:1px solid rgba(237,239,236,.16);background:transparent;border-radius:6px;padding:9px 11px;font-size:14px;line-height:1.4;color:#EDEFEC;">Organic and paid traffic</div>
@@ -213,15 +219,15 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           <div style="border:1px dashed rgba(237,239,236,.28);border-radius:6px;padding:9px 11px;font-size:14px;line-height:1.4;color:#A2ACA5;">Two routes end in no conversion</div>
           </div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Channels</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">Website · Documentation · Dashboard · Support inbox · Live chat</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Teams</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">None assigned. Nobody owns this stage.</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">What matters here</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">Coverage for their specific use case · pricing · features · how to test the API · the basics of licences, compliance and limitations · how to become a customer · time to go live · what open banking can and can’t do · how we compare · building trust</div>
         </div>
@@ -232,7 +238,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:13px;letter-spacing:.08em;color:#79837C;margin-bottom:6px;">STAGE 2</div>
           <div style="font-size:19px;font-weight:500;letter-spacing:-0.02em;">Becoming a customer</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Path</div>
           <div style="display:flex;flex-direction:column;gap:8px;">
           <div style="border:1px solid rgba(111, 203, 146,.45);background:rgba(111, 203, 146,.08);border-radius:6px;padding:9px 11px;font-size:14px;line-height:1.4;color:#EDEFEC;">Sales funnel</div>
@@ -241,15 +247,15 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           <div style="border:1px solid rgba(111, 203, 146,.45);background:rgba(111, 203, 146,.08);border-radius:6px;padding:9px 11px;font-size:14px;line-height:1.4;color:#EDEFEC;">Customer success onboarding</div>
           </div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Channels</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">Video calls · email · PDF forms · scheduling links · demos</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Teams</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">Sales · SDRs · pre-sales engineers · customer success · support · technical services · operations</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">What matters here</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">What’s in the package · no surprises in the contract · understanding the limitations · gathering documentation for legal review</div>
         </div>
@@ -260,7 +266,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:13px;letter-spacing:.08em;color:#79837C;margin-bottom:6px;">STAGE 3</div>
           <div style="font-size:19px;font-weight:500;letter-spacing:-0.02em;">Live</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Path</div>
           <div style="display:flex;flex-direction:column;gap:8px;">
           <div style="border:1px solid rgba(111, 203, 146,.45);background:rgba(111, 203, 146,.08);border-radius:6px;padding:9px 11px;font-size:14px;line-height:1.4;color:#EDEFEC;">Technical onboarding</div>
@@ -268,22 +274,22 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           <div style="border:1px solid rgba(111, 203, 146,.45);background:rgba(111, 203, 146,.08);border-radius:6px;padding:9px 11px;font-size:14px;line-height:1.4;color:#EDEFEC;">Renewal, upsell, expansion</div>
           </div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Channels</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">Documentation · dashboard · website · support · chat · video calls · shared Slack channels · public roadmap</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Teams</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">Support · technical services · customer success · account managers · operations</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">What matters here</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">Reliability of the service and the banks · speed · ease of use · support for the nuances of their use case · learning what’s new and coming · getting help with bugs · influencing the roadmap · troubleshooting</div>
         </div>
         <p style="font-size:14px;line-height:1.55;color:#79837C;font-style:italic;margin:4px 0 0 0;text-wrap:pretty;">One path serving two customer types. Agents want the experience to be theirs, not ours. Direct customers need help with registration and portal complexity. Neither is well served by the same flow.</p>
       </div>
       </div>
-      <div style="margin-top:28px;padding-top:18px;border-top:1px solid rgba(237,239,236,.09);display:flex;gap:22px;flex-wrap:wrap;font-size:13px;color:#79837C;">
+      <div style="margin-top:28px;padding-top:18px;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;display:flex;gap:22px;flex-wrap:wrap;font-size:13px;color:#79837C;">
         <span style="display:flex;align-items:center;gap:8px;"><span style="width:13px;height:13px;border-radius:3px;border:1px solid rgba(111, 203, 146,.45);background:rgba(111, 203, 146,.08);display:inline-block;"></span>Manual, depends on someone being available</span>
         <span style="display:flex;align-items:center;gap:8px;"><span style="width:13px;height:13px;border-radius:3px;border:1px solid rgba(237,239,236,.16);display:inline-block;"></span>Automated or self-served</span>
         <span style="display:flex;align-items:center;gap:8px;"><span style="width:13px;height:13px;border-radius:3px;border:1px dashed rgba(237,239,236,.28);display:inline-block;"></span>Dead end, no conversion</span>
@@ -310,7 +316,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:13px;letter-spacing:.08em;color:#79837C;margin-bottom:6px;">STAGE 1</div>
           <div style="font-size:19px;font-weight:500;letter-spacing:-0.02em;">Evaluating</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Path</div>
           <div style="display:flex;flex-direction:column;gap:8px;">
           <div style="border:1px solid rgba(237,239,236,.16);background:transparent;border-radius:6px;padding:9px 11px;font-size:14px;line-height:1.4;color:#EDEFEC;">Organic and paid traffic</div>
@@ -320,15 +326,15 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           <div style="border:1px dashed rgba(237,239,236,.28);border-radius:6px;padding:9px 11px;font-size:14px;line-height:1.4;color:#A2ACA5;">Two routes end in no conversion</div>
           </div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Channels</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">Website · Documentation · Dashboard · Support inbox · Live chat</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Teams</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">None assigned. Nobody owns this stage.</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">What matters here</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">Coverage for their specific use case · pricing · features · how to test the API · the basics of licences, compliance and limitations · how to become a customer · time to go live · what open banking can and can’t do · how we compare · building trust</div>
         </div>
@@ -339,7 +345,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:13px;letter-spacing:.08em;color:#79837C;margin-bottom:6px;">STAGE 2</div>
           <div style="font-size:19px;font-weight:500;letter-spacing:-0.02em;">Becoming a customer</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Path</div>
           <div style="display:flex;flex-direction:column;gap:8px;">
           <div style="border:1px solid rgba(111, 203, 146,.45);background:rgba(111, 203, 146,.08);border-radius:6px;padding:9px 11px;font-size:14px;line-height:1.4;color:#EDEFEC;">Sales funnel</div>
@@ -348,15 +354,15 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           <div style="border:1px solid rgba(111, 203, 146,.45);background:rgba(111, 203, 146,.08);border-radius:6px;padding:9px 11px;font-size:14px;line-height:1.4;color:#EDEFEC;">Customer success onboarding</div>
           </div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Channels</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">Video calls · email · PDF forms · scheduling links · demos</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Teams</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">Sales · SDRs · pre-sales engineers · customer success · support · technical services · operations</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">What matters here</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">What’s in the package · no surprises in the contract · understanding the limitations · gathering documentation for legal review</div>
         </div>
@@ -367,7 +373,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:13px;letter-spacing:.08em;color:#79837C;margin-bottom:6px;">STAGE 3</div>
           <div style="font-size:19px;font-weight:500;letter-spacing:-0.02em;">Live</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Path</div>
           <div style="display:flex;flex-direction:column;gap:8px;">
           <div style="border:1px solid rgba(111, 203, 146,.45);background:rgba(111, 203, 146,.08);border-radius:6px;padding:9px 11px;font-size:14px;line-height:1.4;color:#EDEFEC;">Technical onboarding</div>
@@ -375,22 +381,22 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           <div style="border:1px solid rgba(111, 203, 146,.45);background:rgba(111, 203, 146,.08);border-radius:6px;padding:9px 11px;font-size:14px;line-height:1.4;color:#EDEFEC;">Renewal, upsell, expansion</div>
           </div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Channels</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">Documentation · dashboard · website · support · chat · video calls · shared Slack channels · public roadmap</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">Teams</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">Support · technical services · customer success · account managers · operations</div>
         </div>
-        <div style="border-top:1px solid rgba(237,239,236,.09);padding-top:14px;">
+        <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:14px;">
           <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;margin-bottom:10px;">What matters here</div>
           <div style="font-size:14px;line-height:1.55;color:#A2ACA5;">Reliability of the service and the banks · speed · ease of use · support for the nuances of their use case · learning what’s new and coming · getting help with bugs · influencing the roadmap · troubleshooting</div>
         </div>
         <p style="font-size:14px;line-height:1.55;color:#79837C;font-style:italic;margin:4px 0 0 0;text-wrap:pretty;">One path serving two customer types. Agents want the experience to be theirs, not ours. Direct customers need help with registration and portal complexity. Neither is well served by the same flow.</p>
       </div>
       </div>
-      <div style="margin-top:28px;padding-top:18px;border-top:1px solid rgba(237,239,236,.09);display:flex;gap:22px;flex-wrap:wrap;font-size:13px;color:#79837C;">
+      <div style="margin-top:28px;padding-top:18px;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;display:flex;gap:22px;flex-wrap:wrap;font-size:13px;color:#79837C;">
         <span style="display:flex;align-items:center;gap:8px;"><span style="width:13px;height:13px;border-radius:3px;border:1px solid rgba(111, 203, 146,.45);background:rgba(111, 203, 146,.08);display:inline-block;"></span>Manual, depends on someone being available</span>
         <span style="display:flex;align-items:center;gap:8px;"><span style="width:13px;height:13px;border-radius:3px;border:1px solid rgba(237,239,236,.16);display:inline-block;"></span>Automated or self-served</span>
         <span style="display:flex;align-items:center;gap:8px;"><span style="width:13px;height:13px;border-radius:3px;border:1px dashed rgba(237,239,236,.28);display:inline-block;"></span>Dead end, no conversion</span>
@@ -402,15 +408,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
   <section style="padding:96px 0 0 0;">
 <h2 style="font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">What changed</h2>
 <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Customers can now:</p>
-<ul style="max-width:700px;margin:0 0 18px 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
-<li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>create an organisation and sandbox immediately</li>
-<li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>generate applications and credentials</li>
-<li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>invite team members and assign roles</li>
-<li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>complete KYB online</li>
-<li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>manage bank coverage</li>
-<li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>configure Hosted Pages</li>
-<li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>see analytics, billing and integration status directly</li>
-</ul>
+<ol style="margin:0;padding:0;list-style:none;"><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">01</span><span>create an organisation and sandbox immediately</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">02</span><span>generate applications and credentials</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">03</span><span>invite team members and assign roles</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">04</span><span>complete KYB online</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">05</span><span>manage bank coverage</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">06</span><span>configure Hosted Pages</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">07</span><span>see analytics, billing and integration status directly</span></li></ol>
 <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 0px 0;text-wrap:pretty;">The same Console serves evaluation, onboarding and production instead of handing customers between disconnected tools and teams.</p>
 <div style="display:flex;flex-direction:column;gap:48px;margin-top:48px;">
     <figure style="margin:0;">
@@ -458,7 +456,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
 
   <nav style="padding:96px 0 0 0;">
-    <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:36px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:16px;">
+    <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:36px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:16px;">
       <a href="hosted-pages.html">‹ Hosted Pages</a>
       <a href="brand-website.html">Brand &amp; Website ›</a>
     </div>

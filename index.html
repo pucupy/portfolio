@@ -58,6 +58,7 @@ a:hover,a:focus-visible{color:#EDEFEC;background-size:100% 1px}
 main a:not(.btn):not(.cta),footer a:not(.btn):not(.cta){background-size:100% 1px;background-image:linear-gradient(rgba(111,203,146,.5),rgba(111,203,146,.5))}
 main a:not(.btn):not(.cta):hover,main a:not(.btn):not(.cta):focus-visible,footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible{background-image:linear-gradient(#6FCB92,#6FCB92)}
 header .brand,header nav a,a.btn,a.cta{background-image:none}
+footer a:not(.btn):not(.cta),main nav a:not(.btn):not(.cta){background-image:linear-gradient(#6FCB92,#6FCB92);background-size:0 1px}footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible,main nav a:not(.btn):not(.cta):hover,main nav a:not(.btn):not(.cta):focus-visible{background-size:100% 1px}
 a:focus-visible,button:focus-visible{outline:2px solid #6FCB92;outline-offset:3px}
 
 button,a.btn{transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
@@ -71,7 +72,7 @@ a.cta svg{transition:transform .22s cubic-bezier(.2,.7,.3,1)}
 a.cta:hover svg,a.cta:focus-visible svg{transform:translateX(3px)}
 
 header nav a[aria-current="page"]{color:#EDEFEC}
-header nav a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+
 
 header nav a{position:relative;transition:color .22s ease;padding:12px 0;margin:-12px 0}
 header nav a::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:#6FCB92;transform:scaleX(0);transform-origin:right;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
@@ -80,12 +81,28 @@ header nav a:hover::after,header nav a:focus-visible::after{transform:scaleX(1);
 header .brand span{background-image:linear-gradient(#6FCB92,#6FCB92);background-repeat:no-repeat;background-position:0 100%;background-size:0 1px;transition:background-size .3s cubic-bezier(.2,.7,.3,1),color .22s ease}
 header .brand:hover span,header .brand:focus-visible span{background-size:100% 1px}
 @media (prefers-reduced-motion:reduce){a,button,a.btn,a.cta,a.cta svg,header nav a::after,header .brand span{transition:none}a.cta:hover,a.cta:hover svg,button:hover,a.btn:hover{transform:none}}
+[style*="color:#79837C"],[style*="color: #79837C"]{font-variant-numeric:tabular-nums}
+a.shot{display:block;padding:12px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;text-decoration:none}
+main a.shot{background-image:none !important;transition:border-color .22s ease}main a.shot:hover{border-color:rgba(111,203,146,.4)}
+a.shot .shot-in{border-radius:4px;overflow:hidden}
+a.shot img,a.shot image-slot{transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+a.shot:hover img,a.shot:hover image-slot{transform:scale(1.015)}
+@media (max-width:900px){.split{grid-template-columns:1fr !important}.split>div:first-child{padding:0 0 12px 0 !important;flex-direction:row !important;flex-wrap:wrap;gap:6px 14px !important}.split>div:last-child{border-left:0 !important;padding-left:0 !important}}
+@media (prefers-reduced-motion:reduce){a.shot img,a.shot image-slot{transition:none}a.shot:hover img,a.shot:hover image-slot{transform:none}}
+a.shot{position:relative}
+a.shot::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.16) 1px,transparent 1.4px);background-size:8px 8px;opacity:.6;transition:opacity .3s ease;pointer-events:none}
+a.shot:hover::before{opacity:1}a.shot>*{position:relative}
+.split>div:last-child{position:relative}
+.split>div:last-child::before{content:"";position:absolute;left:-4px;top:6px;width:7px;height:7px;border-radius:50%;background:#0F1211;box-shadow:inset 0 0 0 1.5px rgba(111,203,146,.7);transition:background-color .25s ease}
+article:hover .split>div:last-child::before{background:#6FCB92}
+.mat{position:relative}.mat::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.14) 1px,transparent 1.4px);background-size:8px 8px;pointer-events:none}.mat>*{position:relative}
+@media (max-width:900px){.split>div:last-child::before{display:none}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Schibsted+Grotesk:ital,wght@0,400..700;1,400..700&amp;display=swap">
 </head>
 <body>
 <div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;justify-content:center;">
-    <div style="width:100%;max-width:1224px;height:100%;border-left:1px solid rgba(237,239,236,.06);border-right:1px solid rgba(237,239,236,.06);"></div>
+    <div class="wrap" style="width:100%;max-width:1160px;height:100%;padding:0 32px;box-sizing:border-box;"><div style="height:100%;border-left:1px solid rgba(237,239,236,.06);border-right:1px solid rgba(237,239,236,.06);"></div></div>
   </div>
 
 
@@ -95,7 +112,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
 <header style="position:sticky;top:0;z-index:50;background:rgba(15,18,17,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(237,239,236,.09);">
   <div class="wrap" style="max-width:1160px;margin:0 auto;padding:18px 56px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
-    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/nav-logo.svg" width="28" height="34" alt="" style="display:block;height:34px;width:auto;flex:none;"><span>Alejandro Velazquez</span></a>
+    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/face-dots.svg" width="28" height="34" alt="" style="display:block;height:34px;width:auto;flex:none;"><span>Alejandro Velazquez</span></a>
     <nav style="display:flex;align-items:center;gap:22px;font-size:15px;">
       <a href="#work" aria-current="page" style="color:#EDEFEC;text-decoration:none;">Work</a>
       <a href="about.html" style="color:#A2ACA5;text-decoration:none;">About</a>
@@ -111,33 +128,21 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
       <canvas data-field aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
       <div style="position:relative;z-index:1;order:2;display:flex;flex-direction:column;align-items:center;gap:24px;max-width:720px;">
         <h1 style="font-size:clamp(38px,8vw,68px);font-weight:600;letter-spacing:-0.025em;line-height:1.04;margin:0;">Alejandro Velazquez</h1>
-        <p style="font-size:18px;line-height:1.5;color:#EDEFEC;margin:0;text-wrap:pretty;">Product designer and design lead.</p>
+        <p style="font-size:18px;line-height:1.5;color:#EDEFEC;margin:0;text-wrap:pretty;">Product designer and design lead in London, working in fintech and payments since 2012.</p>
       </div>
       <div style="position:relative;z-index:1;order:1;width:100%;max-width:min(165px,34vw);"><canvas data-grid="face" role="img" aria-label="A dot-grid portrait of me. The eyes follow your cursor." style="display:block;width:100%;height:auto;"></canvas></div>
     </div>
 
 
-    <div style="display:flex;flex-direction:column;gap:26px;margin-bottom:44px;max-width:700px;">
-      <div>
-        <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;letter-spacing:.08em;color:#6FCB92;margin-bottom:8px;">2026</div>
-        <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Contractor on a stealth project in finance. Product consultant at <a href="meisai.html">meisai.io</a>.</p>
-      </div>
-      <div>
-        <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;letter-spacing:.08em;color:#6FCB92;margin-bottom:8px;">2020 – 2026</div>
-        <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Yapily. Founding designer and design lead across Hosted Pages, Console, design systems, research and go-to-market. Hosted Pages is used by 200 companies, including Google, Adyen, Intuit and Revolut. Worked directly with Google’s product and design teams, supported FCA compliance work, and manage two designers.</p>
-      </div>
-      <div>
-        <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;letter-spacing:.08em;color:#6FCB92;margin-bottom:8px;">2012 – 2019</div>
-        <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Lead and senior product designer across fintech, payments and marketplaces, including Payango, Payfriendz, Su4erheroes and HeadBox. Payfriendz reached 150,000 users and the App Store finance top three. Moved to London in 2014.</p>
-      </div>
-      <div>
-        <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;letter-spacing:.08em;color:#6FCB92;margin-bottom:8px;">2005 – 2011</div>
-        <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Argentina. Freelance and agency work before joining Globant in 2008, designing enterprise products for clients including Google, JP Morgan, PwC, Coca-Cola and Telefónica.</p>
-      </div>
+    <div style="display:flex;flex-direction:column;gap:26px;margin-bottom:44px;">
+      <div class="split" style="display:grid;grid-template-columns:200px minmax(0,1fr);"><div style="padding-right:32px;display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.5;color:#79837C;font-variant-numeric:tabular-nums;">2026</span></div><div style="border-left:1px solid rgba(237,239,236,.06);padding-left:40px;min-width:0;"><p style="font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Contractor on a stealth project in finance. Product consultant at <a href="meisai.html">meisai.io</a>.</p></div></div>
+      <div class="split" style="display:grid;grid-template-columns:200px minmax(0,1fr);"><div style="padding-right:32px;display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.5;color:#79837C;font-variant-numeric:tabular-nums;">2020 – 2026</span></div><div style="border-left:1px solid rgba(237,239,236,.06);padding-left:40px;min-width:0;"><p style="font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Yapily. Founding designer and design lead across Hosted Pages, Console, design systems, research and go-to-market. Hosted Pages is used by 200 companies, including Google, Adyen, Intuit and Revolut. Worked directly with Google’s product and design teams, supported FCA compliance work, and manage two designers.</p></div></div>
+      <div class="split" style="display:grid;grid-template-columns:200px minmax(0,1fr);"><div style="padding-right:32px;display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.5;color:#79837C;font-variant-numeric:tabular-nums;">2012 – 2019</span></div><div style="border-left:1px solid rgba(237,239,236,.06);padding-left:40px;min-width:0;"><p style="font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Lead and senior product designer across fintech, payments and marketplaces, including Payango, Payfriendz, Su4erheroes and HeadBox. Payfriendz reached 150,000 users and the App Store finance top three. Moved to London in 2014.</p></div></div>
+      <div class="split" style="display:grid;grid-template-columns:200px minmax(0,1fr);"><div style="padding-right:32px;display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.5;color:#79837C;font-variant-numeric:tabular-nums;">2005 – 2011</span></div><div style="border-left:1px solid rgba(237,239,236,.06);padding-left:40px;min-width:0;"><p style="font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Argentina. Freelance and agency work, then Globant from 2008.</p></div></div>
 
     </div>
 
-    <p style="font-size:15px;color:#A2ACA5;font-style:italic;margin:0 0 20px 0;">Lead Product Designer &amp; Design Manager, Founding Designer, Yapily</p>
+    <p style="font-size:15px;color:#A2ACA5;font-style:italic;margin:0 0 20px 0;">Founding designer, then design lead and manager, Yapily</p>
     <div style="display:flex;gap:18px;flex-wrap:wrap;font-size:16px;">
       <a href="mailto:aleuxuk@gmail.com">aleuxuk@gmail.com</a>
       <span style="color:#4a5250;">·</span>
@@ -150,101 +155,101 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
   <section id="work" style="padding-top:96px;">
     <h2 style="font-size:clamp(28px,5.5vw,44px);font-weight:600;letter-spacing:-0.018em;margin:0 0 8px 0;">Selected work</h2>
     <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:16px 0 0 0;text-wrap:pretty;">Four case studies.</p>
-    <div style="border-top:1px solid rgba(237,239,236,.14);margin-top:40px;"></div>
+    <div aria-hidden="true" style="height:3px;margin-top:40px;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;"></div>
 
-    <article style="padding:64px 0;border-bottom:1px solid rgba(237,239,236,.09);">
-      <div style="display:flex;gap:20px;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;">
-        <span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;">01</span>
-        <h3 style="font-size:clamp(21px,4vw,30px);font-weight:600;letter-spacing:-0.014em;margin:0;">meisai.io redesign</h3>
-        <span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;">2026 · Not launched yet</span>
-      </div>
-      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0 0 16px 0;text-wrap:pretty;">A brand platform, visual language and bilingual website for an AI automation studio for small businesses.</p>
-      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 28px 0;text-wrap:pretty;">The first site looked and sounded like many other AI agencies. The redesign is built around one line, “Get back to the good bits.”, with a night-and-ice palette, real small-business footage and a homepage that brings Services, How we work and Use cases into one page.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:14px;"><a class="cta" href="meisai.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View case study<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a><a class="btn" href="meisai-site/index.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:transparent;border:1px solid rgba(237,239,236,.18);border-radius:16px;color:#EDEFEC;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View the prototype<span style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);"> (opens in a new tab)</span><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></div>
-      <div style="margin-top:36px;border-radius:12px;overflow:hidden;border:1px solid rgba(237,239,236,.09);background:#02060D;"><img src="images/meisai-homepage-hero.webp" width="1400" height="979" alt="meisai.io homepage hero: “Get back to the good bits.” over a darkened coffee shop" loading="lazy" style="width:100%;height:auto;display:block;"></div>
-    </article>
-
-    <article style="padding:64px 0;border-bottom:1px solid rgba(237,239,236,.09);">
-      <div style="display:flex;gap:20px;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;">
-        <span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;">02</span>
-        <h3 style="font-size:clamp(21px,4vw,30px);font-weight:600;letter-spacing:-0.014em;margin:0;">Yapily Hosted Pages</h3>
-        <span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;">2022 – present · Live in beta; optimisation ongoing</span>
-      </div>
-      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0 0 16px 0;text-wrap:pretty;">From months of custom integration to a launch path that can take around two weeks.</p>
-      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 24px 0;text-wrap:pretty;">A white-label payment and account-connection experience across different banks, markets, devices, licence models and authentication methods. I led the original product strategy and design, then its continuing research and optimisation.</p>
-      <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.08em;color:#79837C;margin:0 0 12px 0;">Evidence</div>
-      <div style="max-width:700px;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Integration reduced from approximately four to six months in many European cases to around two weeks.</p></div>
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">End-to-end conversion grew from roughly 20% in the early beta to approximately 65&ndash;75%, varying by use case and market. A platform-wide gain, not a design result. See the case study.</p></div>
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Bank discovery improved through popular banks, bank pre-selection for returning users, grouping, aliases and market-specific naming.</p></div>
-      </div>
-      <a class="cta" href="hosted-pages.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View case study<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
-      <div style="margin-top:36px;">
-        <img src="images/w01-img.webp" alt="Hosted Pages. Bank selection, redesigned" loading="lazy" decoding="async" style="width:100%;aspect-ratio:1800/779;display:block;object-fit:cover;border-radius:12px;background:#F4F6F5">
+    <article style="padding:64px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 100%;">
+      <div class="split" style="display:grid;grid-template-columns:200px minmax(0,1fr);">
+        <div style="padding-right:32px;display:flex;flex-direction:column;gap:6px;"><img src="images/dm-01.svg" width="44" height="28" alt="01" style="display:block;width:44px;height:28px;margin-bottom:6px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.5;color:#79837C;font-variant-numeric:tabular-nums;">2026 · Not launched yet</span></div>
+        <div style="border-left:1px solid rgba(237,239,236,.06);padding-left:40px;min-width:0;">
+          <h3 style="font-size:clamp(21px,4vw,30px);font-weight:600;letter-spacing:-0.014em;margin:0;">meisai.io redesign</h3>
+          
+          <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:20px 0 12px 0;text-wrap:pretty;">A brand platform, visual language and bilingual website for an AI automation studio for small businesses.</p>
+          <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 28px 0;text-wrap:pretty;">The first site looked and sounded like many other AI agencies. The redesign is built around one line, “Get back to the good bits”, with a night-and-ice palette, real small-business footage and a homepage that brings Services, How we work and Use cases into one page.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;"><a class="cta" href="meisai.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View case study<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a><a class="btn" href="meisai-site/index.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:transparent;border:1px solid rgba(237,239,236,.18);border-radius:16px;color:#EDEFEC;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View the prototype<span style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);"> (opens in a new tab)</span><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></div>
+          <a class="shot" href="meisai.html" tabindex="-1" aria-hidden="true" style="margin-top:36px;"><div class="shot-in" style="background:#02060D;"><img src="images/meisai-homepage-hero.webp" width="1400" height="979" alt="meisai.io homepage hero: “Get back to the good bits.” over a darkened coffee shop" loading="lazy" style="width:100%;height:auto;display:block;"></div></a>
+        </div>
       </div>
     </article>
 
-    <article style="padding:64px 0;border-bottom:1px solid rgba(237,239,236,.09);">
-      <div style="display:flex;gap:20px;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;">
-        <span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;">03</span>
-        <h3 style="font-size:clamp(21px,4vw,30px);font-weight:600;letter-spacing:-0.014em;margin:0;">Yapily Console</h3>
-        <span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;">2020 – present · New Console in beta</span>
-      </div>
-      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0 0 16px 0;text-wrap:pretty;">Turning a sales-led, manually operated onboarding flow into a self-service platform.</p>
-      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 24px 0;text-wrap:pretty;">The original Console was built for a small number of enterprise customers and one licensing model. I mapped the full commercial and operational process, helped make its hidden cost visible, and led the information architecture for a new self-service experience now in beta.</p>
-      <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.08em;color:#79837C;margin:0 0 12px 0;">Evidence</div>
-      <div style="max-width:700px;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">A clear split between assisted enterprise onboarding and self-service for the majority of customers.</p></div>
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Customer-controlled Hosted Pages configuration replaced repetitive support and engineering work.</p></div>
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Early signals show reduced support demand and a smaller compliance backlog; exact operational figures remain confidential.</p></div>
-      </div>
-      <a class="cta" href="console.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View case study<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
-      <div style="margin-top:36px;">
-        <img src="images/w02-img.webp" alt="Console. Redesigned dashboard or configurator" loading="lazy" decoding="async" style="width:100%;aspect-ratio:1800/779;display:block;object-fit:cover;border-radius:12px;background:#F4F6F5">
+    <article style="padding:64px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 100%;">
+      <div class="split" style="display:grid;grid-template-columns:200px minmax(0,1fr);">
+        <div style="padding-right:32px;display:flex;flex-direction:column;gap:6px;"><img src="images/dm-02.svg" width="44" height="28" alt="02" style="display:block;width:44px;height:28px;margin-bottom:6px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.5;color:#79837C;font-variant-numeric:tabular-nums;">2022 – present · Live in beta; optimisation ongoing</span></div>
+        <div style="border-left:1px solid rgba(237,239,236,.06);padding-left:40px;min-width:0;">
+          <h3 style="font-size:clamp(21px,4vw,30px);font-weight:600;letter-spacing:-0.014em;margin:0;">Yapily Hosted Pages</h3>
+          <div style="margin:22px 0 4px 0;display:flex;flex-direction:column;align-items:flex-start;gap:10px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:clamp(40px,6vw,60px);font-weight:600;letter-spacing:-0.03em;line-height:1;color:#EDEFEC;font-variant-numeric:tabular-nums;">65–75%</span><span style="font-size:15px;line-height:1.5;color:#A2ACA5;max-width:34ch;text-wrap:pretty;">end-to-end conversion, up from about 20% in early beta. A platform-wide gain.</span></div>
+          <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:20px 0 12px 0;text-wrap:pretty;">From months of custom integration to a launch path that can take around two weeks.</p>
+          <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 28px 0;text-wrap:pretty;">A white-label payment and account-connection experience across different banks, markets, devices, licence models and authentication methods. I led the original product strategy and design, then its continuing research and optimisation.</p>
+          <a class="cta" href="hosted-pages.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View case study<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
+          <a class="shot" href="hosted-pages.html" tabindex="-1" aria-hidden="true" style="margin-top:36px;"><div class="shot-in" style="background:#F4F6F5;">
+        <img src="images/w01-img.webp" alt="Hosted Pages. Bank selection, redesigned" loading="lazy" decoding="async" style="width:100%;aspect-ratio:1800/779;display:block;object-fit:cover;background:#F4F6F5">
+      </div></a>
+        </div>
       </div>
     </article>
 
-    <article style="padding:64px 0;border-bottom:1px solid rgba(237,239,236,.09);">
-      <div style="display:flex;gap:20px;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;">
-        <span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;">04</span>
-        <h3 style="font-size:clamp(21px,4vw,30px);font-weight:600;letter-spacing:-0.014em;margin:0;">Yapily Brand &amp; Website</h3>
-        <span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;">2020 – present</span>
-      </div>
-      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0 0 16px 0;text-wrap:pretty;">Evolving the brand as Yapily moved from invisible API infrastructure to a clearer product platform.</p>
-      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 24px 0;text-wrap:pretty;">I provided creative direction, designed the first concepts and wireframes, managed agency relationships, worked with the frontend team to translate final designs into a live system, and extended the brand across sales and marketing collateral.</p>
-      <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.08em;color:#79837C;margin:0 0 12px 0;">Evidence</div>
-      <div style="max-width:700px;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">A clearer product architecture helped customers understand the offering.</p></div>
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Migration from an expensive, difficult CMS improved publishing speed and ease of use across thousands of links, landing pages and articles.</p></div>
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">The visual identity was designed to stand apart in a category where competitor websites looked increasingly interchangeable.</p></div>
-      </div>
-      <a class="cta" href="brand-website.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View case study<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
-      <div style="margin-top:36px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;" class="cols">
-        <figure style="margin:0;"><div style="background:#F4F6F5;border-radius:12px;overflow:hidden;height:220px;"><img src="images/yapily-website-2020-2021-hero-crop.webp" alt="Yapily website in 2020, headline reading Open Banking API connectivity beside a yellow block" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:left top;display:block;"></div><figcaption style="font-size:13px;color:#79837C;margin-top:10px;">2020 – 2021</figcaption></figure>
-        <figure style="margin:0;"><div style="background:#F4F6F5;border-radius:12px;overflow:hidden;height:220px;"><img src="images/yapily-website-2023-2024-hero-crop.webp" alt="Yapily website in 2023, headline reading Power your product innovation with open banking" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:left top;display:block;"></div><figcaption style="font-size:13px;color:#79837C;margin-top:10px;">2023 – 2024</figcaption></figure>
-        <figure style="margin:0;"><div style="background:#F4F6F5;border-radius:12px;overflow:hidden;height:220px;"><img src="images/yapily-website-2025-2026-hero-crop.webp" alt="Yapily website in 2025, headline reading Open banking platform for frictionless finance" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:left top;display:block;"></div><figcaption style="font-size:13px;color:#79837C;margin-top:10px;">2025 – 2026</figcaption></figure>
+    <article style="padding:64px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 100%;">
+      <div class="split" style="display:grid;grid-template-columns:200px minmax(0,1fr);">
+        <div style="padding-right:32px;display:flex;flex-direction:column;gap:6px;"><img src="images/dm-03.svg" width="44" height="28" alt="03" style="display:block;width:44px;height:28px;margin-bottom:6px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.5;color:#79837C;font-variant-numeric:tabular-nums;">2020 – present · New Console in beta</span></div>
+        <div style="border-left:1px solid rgba(237,239,236,.06);padding-left:40px;min-width:0;">
+          <h3 style="font-size:clamp(21px,4vw,30px);font-weight:600;letter-spacing:-0.014em;margin:0;">Yapily Console</h3>
+          
+          <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:20px 0 12px 0;text-wrap:pretty;">Turning a sales-led, manually operated onboarding flow into a self-service platform.</p>
+          <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 28px 0;text-wrap:pretty;">The original Console was built for a small number of enterprise customers and one licensing model. I mapped the full commercial and operational process, helped make its hidden cost visible, and led the information architecture for a new self-service experience now in beta.</p>
+          <a class="cta" href="console.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View case study<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
+          <a class="shot" href="console.html" tabindex="-1" aria-hidden="true" style="margin-top:36px;"><div class="shot-in" style="background:#F4F6F5;">
+        <img src="images/w02-img.webp" alt="Console. Redesigned dashboard or configurator" loading="lazy" decoding="async" style="width:100%;aspect-ratio:1800/779;display:block;object-fit:cover;background:#F4F6F5">
+      </div></a>
+        </div>
       </div>
     </article>
 
-    <article style="padding:64px 0;border-bottom:1px solid rgba(237,239,236,.09);">
-      <div style="display:flex;gap:20px;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;">
-        <span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;">05</span>
-        <h3 style="font-size:clamp(21px,4vw,30px);font-weight:600;letter-spacing:-0.014em;margin:0;">HeadBox</h3>
-        <span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;">Dec 2018 – Dec 2019</span>
+    <article style="padding:64px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 100%;">
+      <div class="split" style="display:grid;grid-template-columns:200px minmax(0,1fr);">
+        <div style="padding-right:32px;display:flex;flex-direction:column;gap:6px;"><img src="images/dm-04.svg" width="44" height="28" alt="04" style="display:block;width:44px;height:28px;margin-bottom:6px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.5;color:#79837C;font-variant-numeric:tabular-nums;">2021 – 2026</span></div>
+        <div style="border-left:1px solid rgba(237,239,236,.06);padding-left:40px;min-width:0;">
+          <h3 style="font-size:clamp(21px,4vw,30px);font-weight:600;letter-spacing:-0.014em;margin:0;">Yapily Design Systems</h3>
+          
+          <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:20px 0 12px 0;text-wrap:pretty;">Three design systems that share a token layer and nothing else.</p>
+          <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 28px 0;text-wrap:pretty;">Hosted Pages, the website and the internal tools need different things: a white-label surface a customer restyles, an expressive site restyled about once a year, and dense data screens. I set up one shared token layer held as Figma variables and mirrored in code, then gave each system its own library on top. Component naming came out of workshops with the frontend and backend teams so both sides use the same words.</p>
+          <a class="cta" href="design-system-reference.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View the reference<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
+          <a class="shot" href="design-system-reference.html" tabindex="-1" aria-hidden="true" style="margin-top:36px;"><div class="shot-in" style="background:#F4F6F5;">
+        <img src="images/design-system-colour-tokens.png" width="2179" height="1075" alt="Colour section of the design system reference: brand tokens, a neutral ramp, and status colours with their measured contrast ratios" loading="lazy" style="width:100%;height:auto;display:block;">
+      </div></a>
+        </div>
       </div>
-      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0 0 16px 0;text-wrap:pretty;">Inverting a marketplace and creating £150,228 ARR within three months.</p>
-      <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 24px 0;text-wrap:pretty;">HeadBox asked non-expert guests to search like event professionals while expert venues waited for poorly matched enquiries. I led the research and design that reversed that model: guests described what they needed, opportunities entered a central feed, and venues chose the work that suited them.</p>
-      <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.08em;color:#79837C;margin:0 0 12px 0;">Evidence</div>
-      <div style="max-width:700px;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">117 paying customers in three months.</p></div>
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">£150,228 ARR in the same period.</p></div>
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Four times the annual revenue of the previous marketplace model.</p></div>
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">More than 1,500 enquiries in the first month.</p></div>
-        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Approximately 90% of the original product structure remains in the current experience.</p></div>
+    </article>
+
+    <article style="padding:64px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 100%;">
+      <div class="split" style="display:grid;grid-template-columns:200px minmax(0,1fr);">
+        <div style="padding-right:32px;display:flex;flex-direction:column;gap:6px;"><img src="images/dm-05.svg" width="44" height="28" alt="05" style="display:block;width:44px;height:28px;margin-bottom:6px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.5;color:#79837C;font-variant-numeric:tabular-nums;">2020 – present</span></div>
+        <div style="border-left:1px solid rgba(237,239,236,.06);padding-left:40px;min-width:0;">
+          <h3 style="font-size:clamp(21px,4vw,30px);font-weight:600;letter-spacing:-0.014em;margin:0;">Yapily Brand &amp; Website</h3>
+          <div style="margin:22px 0 4px 0;display:flex;flex-direction:column;align-items:flex-start;gap:10px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:clamp(40px,6vw,60px);font-weight:600;letter-spacing:-0.03em;line-height:1;color:#EDEFEC;font-variant-numeric:tabular-nums;">50+</span><span style="font-size:15px;line-height:1.5;color:#A2ACA5;max-width:34ch;text-wrap:pretty;">templates built in under two months</span></div>
+          <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:20px 0 12px 0;text-wrap:pretty;">Evolving the brand as Yapily moved from invisible API infrastructure to a clearer product platform.</p>
+          <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 28px 0;text-wrap:pretty;">I provided creative direction, designed the first concepts and wireframes, managed agency relationships, worked with the frontend team to translate final designs into a live system, and extended the brand across sales and marketing collateral.</p>
+          <a class="cta" href="brand-website.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View case study<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
+          <a class="shot" href="brand-website.html" tabindex="-1" aria-hidden="true" style="margin-top:36px;"><div class="cols" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start;">
+        <figure style="margin:0;"><div style="background:#F4F6F5;border-radius:4px;overflow:hidden;height:220px;"><img src="images/yapily-website-2020-2021-hero-crop.webp" alt="Yapily website in 2020, headline reading Open Banking API connectivity beside a yellow block" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:left top;display:block;"></div><figcaption style="font-size:13px;color:#79837C;margin-top:10px;">2020 – 2021</figcaption></figure>
+        <figure style="margin:0;"><div style="background:#F4F6F5;border-radius:4px;overflow:hidden;height:220px;"><img src="images/yapily-website-2023-2024-hero-crop.webp" alt="Yapily website in 2023, headline reading Power your product innovation with open banking" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:left top;display:block;"></div><figcaption style="font-size:13px;color:#79837C;margin-top:10px;">2023 – 2024</figcaption></figure>
+        <figure style="margin:0;"><div style="background:#F4F6F5;border-radius:4px;overflow:hidden;height:220px;"><img src="images/yapily-website-2025-2026-hero-crop.webp" alt="Yapily website in 2025, headline reading Open banking platform for frictionless finance" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:left top;display:block;"></div><figcaption style="font-size:13px;color:#79837C;margin-top:10px;">2025 – 2026</figcaption></figure>
+      </div></a>
+        </div>
       </div>
-      <a class="cta" href="headbox.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View case study<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
-      <div style="margin-top:36px;background:#F4F6F5;border-radius:12px;overflow:hidden;">
+    </article>
+
+    <article style="padding:64px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 100%;">
+      <div class="split" style="display:grid;grid-template-columns:200px minmax(0,1fr);">
+        <div style="padding-right:32px;display:flex;flex-direction:column;gap:6px;"><img src="images/dm-06.svg" width="44" height="28" alt="06" style="display:block;width:44px;height:28px;margin-bottom:6px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.5;color:#79837C;font-variant-numeric:tabular-nums;">Dec 2018 – Dec 2019</span></div>
+        <div style="border-left:1px solid rgba(237,239,236,.06);padding-left:40px;min-width:0;">
+          <h3 style="font-size:clamp(21px,4vw,30px);font-weight:600;letter-spacing:-0.014em;margin:0;">HeadBox</h3>
+          <div style="margin:22px 0 4px 0;display:flex;flex-direction:column;align-items:flex-start;gap:10px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:clamp(40px,6vw,60px);font-weight:600;letter-spacing:-0.03em;line-height:1;color:#EDEFEC;font-variant-numeric:tabular-nums;">4×</span><span style="font-size:15px;line-height:1.5;color:#A2ACA5;max-width:34ch;text-wrap:pretty;">the annual revenue of the previous marketplace model</span></div>
+          <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:20px 0 12px 0;text-wrap:pretty;">Reversing how a marketplace matched guests and venues: £150,228 ARR in three months.</p>
+          <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 28px 0;text-wrap:pretty;">HeadBox asked non-expert guests to search like event professionals while expert venues waited for poorly matched enquiries. I led the research and design that reversed that model: guests described what they needed, opportunities entered a central feed, and venues chose the work that suited them.</p>
+          <a class="cta" href="headbox.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View case study<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
+          <a class="shot" href="headbox.html" tabindex="-1" aria-hidden="true" style="margin-top:36px;"><div class="shot-in" style="background:#F4F6F5;">
         <img src="images/headbox-wizard-location-radius.webp" width="1400" height="955" alt="The HeadBox enquiry wizard asking “What location works best?”, with Soho, London selected, a 2km radius slider and a map showing the search circle over central London" loading="lazy" style="display:block;width:100%;height:auto;">
+      </div></a>
+        </div>
       </div>
     </article>
 
@@ -253,43 +258,38 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
   <section style="padding:96px 0 0 0;">
     <h2 style="font-size:clamp(28px,5.5vw,44px);font-weight:600;letter-spacing:-0.018em;margin:0 0 32px 0;">Other experience</h2>
     <div style="display:flex;flex-direction:column;gap:36px;">
-      <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:24px;">
-        <div style="display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px;"><h3 style="font-size:20px;font-weight:600;letter-spacing:-0.02em;margin:0;">Su4erheroes</h3><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;">2016 – 2018</span></div>
-        <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 12px 0;text-wrap:pretty;">Co-founded a product design consultancy with former Payfriendz colleagues, working across payments, personal health budgets and marketplace products. The principal client was Docomo Digital, where I designed payment products supporting marketplace and sharing-economy platforms across Europe and Asia.</p>
-        <a class="cta" href="su4erheroes.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">Learn more<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
-      </div>
-      <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:24px;">
-        <div style="display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px;"><h3 style="font-size:20px;font-weight:600;letter-spacing:-0.02em;margin:0;">Payfriendz</h3><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;">2013 – 2016</span></div>
-        <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Lead design for a peer-to-peer payments product across the UK and Germany. More than £5 million transferred, 150,000 users and a top-three position in the App Store finance category.</p>
-        <div style="margin-top:24px;border-radius:12px;overflow:hidden;">
-          <img src="images/payfriendz-app-screens.webp" width="1400" height="606" alt="Two Payfriendz app screens: a virtual Mastercard showing a £99.99 balance, and the App Store finance chart with Payfriendz ranked third" loading="lazy" style="display:block;width:100%;height:auto;">
-        </div>
-        <a class="cta" href="payfriendz.html" style="margin-top:20px;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">Learn more<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
-      </div>
-      <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:24px;">
-        <div style="display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px;"><h3 style="font-size:20px;font-weight:600;letter-spacing:-0.02em;margin:0;">Payango</h3><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;">2013</span></div>
-        <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Designed customer and operational experiences for a prepaid card product in Germany.</p>
-      </div>
-      <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:24px;">
-        <div style="display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px;"><h3 style="font-size:20px;font-weight:600;letter-spacing:-0.02em;margin:0;">Globant</h3><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;">2008 – 2011 · Argentina</span></div>
-        <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Design Analyst at <a href="https://www.globant.com/">Globant</a>, a leading IT consultancy from Argentina. Enterprise digital products for clients including Google, JP Morgan, PwC, Coca-Cola and Telefónica, with distributed product and engineering teams.</p>
-      </div>
+      <div class="split" style="display:grid;grid-template-columns:200px minmax(0,1fr);background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:28px;"><div style="padding-right:32px;display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.5;color:#79837C;font-variant-numeric:tabular-nums;">2016 – 2018</span></div><div style="border-left:1px solid rgba(237,239,236,.06);padding-left:40px;min-width:0;"><h3 style="font-size:20px;font-weight:600;letter-spacing:-0.02em;margin:0 0 10px 0;">Su4erheroes</h3>
+        <p style="font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 12px 0;text-wrap:pretty;">Co-founded a product design consultancy with former Payfriendz colleagues, working across payments, personal health budgets and marketplace products. The principal client was Docomo Digital, where I designed payment products supporting marketplace and sharing-economy platforms across Europe and Asia.</p>
+        <a class="btn" href="su4erheroes.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:transparent;border:1px solid rgba(237,239,236,.18);border-radius:16px;color:#EDEFEC;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">Learn more<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
+      </div></div>
+      <div class="split" style="display:grid;grid-template-columns:200px minmax(0,1fr);background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:28px;"><div style="padding-right:32px;display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.5;color:#79837C;font-variant-numeric:tabular-nums;">2013 – 2016</span></div><div style="border-left:1px solid rgba(237,239,236,.06);padding-left:40px;min-width:0;"><h3 style="font-size:20px;font-weight:600;letter-spacing:-0.02em;margin:0 0 10px 0;">Payfriendz</h3>
+        <p style="font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Lead design for a peer-to-peer payments product across the UK and Germany. More than £5 million transferred, 150,000 users and a top-three position in the App Store finance category.</p>
+        <div style="margin-top:24px;padding:12px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;"><div style="border-radius:4px;overflow:hidden;"><img src="images/payfriendz-app-screens.webp" width="1400" height="606" alt="Two Payfriendz app screens: a virtual Mastercard showing a £99.99 balance, and the App Store finance chart with Payfriendz ranked third" loading="lazy" style="display:block;width:100%;height:auto;"></div></div>
+        <a class="btn" href="payfriendz.html" style="margin-top:20px;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:transparent;border:1px solid rgba(237,239,236,.18);border-radius:16px;color:#EDEFEC;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">Learn more<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
+      </div></div>
+      <div class="split" style="display:grid;grid-template-columns:200px minmax(0,1fr);background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:28px;"><div style="padding-right:32px;display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.5;color:#79837C;font-variant-numeric:tabular-nums;">2013</span></div><div style="border-left:1px solid rgba(237,239,236,.06);padding-left:40px;min-width:0;"><h3 style="font-size:20px;font-weight:600;letter-spacing:-0.02em;margin:0 0 10px 0;">Payango</h3>
+        <p style="font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Designed customer and operational experiences for a prepaid card product in Germany.</p>
+      </div></div>
+      <div class="split" style="display:grid;grid-template-columns:200px minmax(0,1fr);background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:28px;"><div style="padding-right:32px;display:flex;flex-direction:column;gap:6px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.5;color:#79837C;font-variant-numeric:tabular-nums;">2008 – 2011 · Argentina</span></div><div style="border-left:1px solid rgba(237,239,236,.06);padding-left:40px;min-width:0;"><h3 style="font-size:20px;font-weight:600;letter-spacing:-0.02em;margin:0 0 10px 0;">Globant</h3>
+        <p style="font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Design Analyst at <a href="https://www.globant.com/">Globant</a>, Buenos Aires. Enterprise digital products for clients including Google, JP Morgan, PwC, Coca-Cola and Telefónica, with distributed product and engineering teams.</p>
+      </div></div>
     </div>
   </section>
 
   <section style="padding:96px 0 0 0;">
-    <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:32px;">
+    <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:32px;">
       <h2 style="font-size:clamp(20px,3.6vw,22px);font-weight:600;letter-spacing:-0.02em;margin:0 0 8px 0;">Creative archive</h2>
       <p style="max-width:700px;font-size:17px;line-height:1.6;color:#A2ACA5;margin:0 0 14px 0;text-wrap:pretty;">Illustration, identity and animation made alongside the product work, much of it drawn by hand, for fun, in the pre-AI era. Including Nerdtees, a 2018 side project honouring scientists who don’t get put on t-shirts, and Minimeter, a baby growth tracker that reached pilot.</p>
-      <a class="cta" href="creative-archive.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:#6FCB92;border:1px solid #6FCB92;border-radius:16px;color:#0F1211;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View the archive<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a class="btn" href="creative-archive.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;background:transparent;border:1px solid rgba(237,239,236,.18);border-radius:16px;color:#EDEFEC;font-size:16px;font-weight:600;text-decoration:none;box-sizing:border-box;">View the archive<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex:none;"><path d="M9 5l7 7-7 7"></path></svg></a>
     </div>
   </section>
 
   <section style="padding:96px 0 0 0;">
-    <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:44px;display:flex;flex-wrap:wrap;gap:40px;align-items:center;">
-      <div style="flex:1 1 320px;min-width:0;">
+    <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:44px;display:flex;flex-wrap:wrap;gap:40px;align-items:center;position:relative;">
+      <canvas data-field aria-hidden="true" style="position:absolute;left:0;right:0;top:12px;bottom:0;width:100%;height:calc(100% - 12px);pointer-events:none;z-index:0;opacity:.7;"></canvas>
+      <div style="flex:1 1 320px;min-width:0;position:relative;z-index:1;">
         <h2 style="font-size:clamp(28px,5.5vw,44px);font-weight:600;letter-spacing:-0.018em;margin:0 0 16px 0;">Let’s talk</h2>
-        <p style="font-size:18px;line-height:1.65;color:#A2ACA5;margin:0 0 24px 0;max-width:46ch;text-wrap:pretty;">Feel free to contact me if you have any questions or just want to chat about your project/product.</p>
+        <p style="font-size:18px;line-height:1.65;color:#A2ACA5;margin:0 0 24px 0;max-width:46ch;text-wrap:pretty;">Email me about a role or a product you’re working on.</p>
         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;">
         <a class="btn" href="mailto:aleuxuk@gmail.com" style="display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 22px;border-radius:16px;border:1px solid rgba(237,239,236,.22);color:#EDEFEC;font-size:16px;font-weight:500;text-decoration:none;box-sizing:border-box;" style-hover="border-color:rgba(111,203,146,.6)"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;flex:none;"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M3.5 7.5l7.3 5.2a2 2 0 0 0 2.4 0l7.3-5.2"></path></svg>aleuxuk@gmail.com</a>
         <button type="button" data-copy="aleuxuk@gmail.com" aria-label="Copy email address to clipboard" style="display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:16px;border:1px solid rgba(237,239,236,.22);background:transparent;color:#A2ACA5;font-family:inherit;font-size:15px;font-weight:500;cursor:pointer;box-sizing:border-box;transition:color .18s ease,border-color .18s ease;" style-hover="color:#EDEFEC;border-color:rgba(237,239,236,.4)">
@@ -302,12 +302,12 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
       </div>
       <p aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);margin:0;"></p>
       </div>
-      <canvas data-grid="hand" role="img" aria-label="A dot-grid drawing of a hand that waves when you hover it" style="display:block;flex:none;width:min(330px,100%);height:auto;"></canvas>
+      <canvas data-grid="hand" role="img" aria-label="A dot-grid drawing of a hand that waves when you hover it" style="display:block;flex:none;width:min(330px,100%);height:auto;position:relative;z-index:1;"></canvas>
     </div>
   </section>
 
   <footer style="padding:96px 0 96px 0;">
-    <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:36px;display:flex;gap:18px;flex-wrap:wrap;font-size:16px;">
+    <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:36px;display:flex;gap:18px;flex-wrap:wrap;font-size:16px;">
       <a href="mailto:aleuxuk@gmail.com">aleuxuk@gmail.com</a>
       <span style="color:#4a5250;">·</span>
       <a href="cv/Alejandro-Velazquez-CV.pdf">Download CV (PDF)</a>

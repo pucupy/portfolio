@@ -15,6 +15,7 @@ a:hover,a:focus-visible{color:#EDEFEC;background-size:100% 1px}
 main a:not(.btn):not(.cta),footer a:not(.btn):not(.cta){background-size:100% 1px;background-image:linear-gradient(rgba(111,203,146,.5),rgba(111,203,146,.5))}
 main a:not(.btn):not(.cta):hover,main a:not(.btn):not(.cta):focus-visible,footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible{background-image:linear-gradient(#6FCB92,#6FCB92)}
 header .brand,header nav a,a.btn,a.cta{background-image:none}
+footer a:not(.btn):not(.cta),main nav a:not(.btn):not(.cta){background-image:linear-gradient(#6FCB92,#6FCB92);background-size:0 1px}footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible,main nav a:not(.btn):not(.cta):hover,main nav a:not(.btn):not(.cta):focus-visible{background-size:100% 1px}
 a:focus-visible,button:focus-visible{outline:2px solid #6FCB92;outline-offset:3px}
 
 button,a.btn{transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
@@ -28,7 +29,7 @@ a.cta svg{transition:transform .22s cubic-bezier(.2,.7,.3,1)}
 a.cta:hover svg,a.cta:focus-visible svg{transform:translateX(3px)}
 
 header nav a[aria-current="page"]{color:#EDEFEC}
-header nav a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+
 
 header nav a{position:relative;transition:color .22s ease;padding:12px 0;margin:-12px 0}
 header nav a::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:#6FCB92;transform:scaleX(0);transform-origin:right;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
@@ -82,6 +83,7 @@ a:hover,a:focus-visible{color:#EDEFEC;background-size:100% 1px}
 main a:not(.btn):not(.cta),footer a:not(.btn):not(.cta){background-size:100% 1px;background-image:linear-gradient(rgba(111,203,146,.5),rgba(111,203,146,.5))}
 main a:not(.btn):not(.cta):hover,main a:not(.btn):not(.cta):focus-visible,footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible{background-image:linear-gradient(#6FCB92,#6FCB92)}
 header .brand,header nav a,a.btn,a.cta{background-image:none}
+footer a:not(.btn):not(.cta),main nav a:not(.btn):not(.cta){background-image:linear-gradient(#6FCB92,#6FCB92);background-size:0 1px}footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible,main nav a:not(.btn):not(.cta):hover,main nav a:not(.btn):not(.cta):focus-visible{background-size:100% 1px}
 a:focus-visible,button:focus-visible{outline:2px solid #6FCB92;outline-offset:3px}
 
 button,a.btn{transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
@@ -95,7 +97,7 @@ a.cta svg{transition:transform .22s cubic-bezier(.2,.7,.3,1)}
 a.cta:hover svg,a.cta:focus-visible svg{transform:translateX(3px)}
 
 header nav a[aria-current="page"]{color:#EDEFEC}
-header nav a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+
 
 header nav a{position:relative;transition:color .22s ease;padding:12px 0;margin:-12px 0}
 header nav a::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:#6FCB92;transform:scaleX(0);transform-origin:right;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
@@ -104,6 +106,15 @@ header nav a:hover::after,header nav a:focus-visible::after{transform:scaleX(1);
 header .brand span{background-image:linear-gradient(#6FCB92,#6FCB92);background-repeat:no-repeat;background-position:0 100%;background-size:0 1px;transition:background-size .3s cubic-bezier(.2,.7,.3,1),color .22s ease}
 header .brand:hover span,header .brand:focus-visible span{background-size:100% 1px}
 @media (prefers-reduced-motion:reduce){a,button,a.btn,a.cta,a.cta svg,header nav a::after,header .brand span{transition:none}a.cta:hover,a.cta:hover svg,button:hover,a.btn:hover{transform:none}}
+[style*="color:#79837C"],[style*="color: #79837C"]{font-variant-numeric:tabular-nums}
+a.shot{position:relative}
+a.shot::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.16) 1px,transparent 1.4px);background-size:8px 8px;opacity:.6;transition:opacity .3s ease;pointer-events:none}
+a.shot:hover::before{opacity:1}a.shot>*{position:relative}
+.split>div:last-child{position:relative}
+.split>div:last-child::before{content:"";position:absolute;left:-4px;top:6px;width:7px;height:7px;border-radius:50%;background:#0F1211;box-shadow:inset 0 0 0 1.5px rgba(111,203,146,.7);transition:background-color .25s ease}
+article:hover .split>div:last-child::before{background:#6FCB92}
+.mat{position:relative}.mat::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.14) 1px,transparent 1.4px);background-size:8px 8px;pointer-events:none}.mat>*{position:relative}
+@media (max-width:900px){.split>div:last-child::before{display:none}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Schibsted+Grotesk:ital,wght@0,400..700;1,400..700&amp;display=swap">
 </head>
@@ -114,7 +125,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
 <header style="position:sticky;top:0;z-index:50;background:rgba(15,18,17,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(237,239,236,.09);">
   <div class="wrap" style="max-width:1160px;margin:0 auto;padding:18px 56px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
-    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/nav-logo.svg" width="28" height="34" alt="" style="display:block;height:34px;width:auto;flex:none;"><span>Alejandro Velazquez</span></a>
+    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/face-dots.svg" width="28" height="34" alt="" style="display:block;height:34px;width:auto;flex:none;"><span>Alejandro Velazquez</span></a>
     <nav style="display:flex;align-items:center;gap:22px;font-size:15px;">
       <a href="index.html#work" style="color:#A2ACA5;text-decoration:none;">Work</a>
       <a href="about.html" style="color:#A2ACA5;text-decoration:none;">About</a>
@@ -126,14 +137,14 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 <main id="main" class="wrap" style="max-width:1160px;margin:0 auto;padding:0 56px;">
 
   <section style="max-width:700px;padding:56px 0 72px 0;">
-    <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;letter-spacing:.1em;color:#6FCB92;margin-bottom:20px;">03: CASE STUDY</div>
+    <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;letter-spacing:.1em;color:#79837C;margin-bottom:20px;display:flex;align-items:center;gap:12px;"><img src="images/dm-03.svg" width="44" height="28" alt="" style="display:block;width:44px;height:28px;"><span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);">03: </span>CASE STUDY</span></div>
     <h1 style="font-size:clamp(38px,7.5vw,60px);font-weight:600;letter-spacing:-0.025em;line-height:1.05;margin:0 0 32px 0;">Design systems at Yapily</h1>
     <p style="font-size:18px;line-height:1.6;color:#EDEFEC;margin:0;text-wrap:pretty;">Custard, Mark and Yapily UI, three design systems on one shared token layer, and the governance model that decided what got into them. I designed the first versions of the systems and built the governance jointly with the frontend lead.</p>
   </section>
 
   <section style="max-width:700px;padding:40px 0 0 0;">
     <div style="border:1px solid rgba(237,239,236,.14);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:18px;">
-      <h2 style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;color:#6FCB92;margin:0;">At a glance</h2>
+      <h2 style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;color:#79837C;margin:0;">At a glance</h2>
       <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:18px;align-items:baseline;">
         <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#79837C;">Role</div>
         <div style="font-size:16px;line-height:1.55;color:#A2ACA5;text-wrap:pretty;">Design system strategy, architecture and governance</div>
@@ -172,15 +183,15 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
   <section style="padding-top:48px;">
     <div class="cols" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;">
-      <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:24px;">
+      <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:24px;">
         <h3 style="font-size:19px;font-weight:500;letter-spacing:-0.02em;margin:0 0 12px 0;">Custard: hosted pages</h3>
         <p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">White-label, and minimal by design. Customers themed it themselves, logo, typeface, and brand colours applied mainly to buttons and links, with a choice of light, dark or system-matched appearance. Everything else stayed locked. When customers control the surface, the system’s job is to expose as little as possible while still reading as their product.</p>
       </div>
-      <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:24px;">
+      <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:24px;">
         <h3 style="font-size:19px;font-weight:500;letter-spacing:-0.02em;margin:0 0 12px 0;">Mark: website</h3>
         <p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Restyled annually with distinctive, playful work, larger heading spacing, more expressive layout. Separated from the product systems, it moved at its own pace.</p>
       </div>
-      <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:24px;">
+      <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:24px;">
         <h3 style="font-size:19px;font-weight:500;letter-spacing:-0.02em;margin:0 0 12px 0;">Yapily UI: tools</h3>
         <p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Dense by nature, analytics and data-heavy pages where vertical rhythm is tight and information density is the point. Its atoms and molecules were built for that.</p>
       </div>
@@ -259,15 +270,15 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">The exclusions did more work than the inclusions. Each of these was proposed as a shared token at some point and rejected for a reason specific to who uses the surface and for how long.</p>
     </div>
     <div class="cols" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;">
-      <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:20px;">
+      <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:20px;">
         <h3 style="font-size:19px;font-weight:500;letter-spacing:-0.02em;margin:0 0 10px 0;">Mark&rsquo;s lime</h3>
         <p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Right on a marketing page someone looks at for ninety seconds. Wrong in a tool an operations person has open for six hours. At that duration a saturated accent stops being energetic and starts being fatiguing.</p>
       </div>
-      <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:20px;">
+      <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:20px;">
         <h3 style="font-size:19px;font-weight:500;letter-spacing:-0.02em;margin:0 0 10px 0;">Yapily UI&rsquo;s eight greys</h3>
         <p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Dense data needs eight steps to separate row, header, hover, selected, disabled and three borders. Marketing needs three. Pushing eight onto Mark would have handed it a precision it has no use for.</p>
       </div>
-      <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:20px;">
+      <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:20px;">
         <h3 style="font-size:19px;font-weight:500;letter-spacing:-0.02em;margin:0 0 10px 0;">Mark&rsquo;s gradients</h3>
         <p style="font-size:16px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Expressive headings and gradient fills belong on a site that gets restyled annually. Letting them into the shared tier would have made flat console surfaces a matter of restraint rather than a matter of what exists.</p>
       </div>
@@ -325,42 +336,42 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
   <section style="max-width:820px;padding-top:36px;">
     <div style="display:flex;flex-direction:column;">
-      <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px;padding:24px 0;border-top:1px solid rgba(237,239,236,.09);">
+      <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px;padding:24px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;">
         <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;padding-top:2px;">01</div>
         <div>
           <h3 style="font-size:19px;font-weight:500;letter-spacing:-0.02em;margin:0 0 8px 0;">Proposal</h3>
           <p style="font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Anyone could propose a component; in practice proposals came from design and frontend. The proposer produced a simple mockup, enough to evaluate, not a finished spec.</p>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px;padding:24px 0;border-top:1px solid rgba(237,239,236,.09);">
+      <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px;padding:24px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;">
         <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;padding-top:2px;">02</div>
         <div>
           <h3 style="font-size:19px;font-weight:500;letter-spacing:-0.02em;margin:0 0 8px 0;">Validation</h3>
           <p style="font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">The component was tested for usability and accessibility before it was eligible for review, a mix of guerrilla testing and external platforms: Maze for unmoderated usability, Testbirds for broader usability and accessibility coverage.</p>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px;padding:24px 0;border-top:1px solid rgba(237,239,236,.09);">
+      <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px;padding:24px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;">
         <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;padding-top:2px;">03</div>
         <div>
           <h3 style="font-size:19px;font-weight:500;letter-spacing:-0.02em;margin:0 0 8px 0;">Documentation</h3>
           <p style="font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">The proposer wrote the component up with its use cases. Defining where a component <em>shouldn’t</em> be used mattered as much as where it should.</p>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px;padding:24px 0;border-top:1px solid rgba(237,239,236,.09);">
+      <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px;padding:24px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;">
         <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;padding-top:2px;">04</div>
         <div>
           <h3 style="font-size:19px;font-weight:500;letter-spacing:-0.02em;margin:0 0 8px 0;">Review</h3>
           <p style="font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Ad-hoc meetings with the frontend team and other designers. Bringing frontend in at proposal stage rather than at handoff surfaced implementation cost while the design was still cheap to change.</p>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px;padding:24px 0;border-top:1px solid rgba(237,239,236,.09);">
+      <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px;padding:24px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;">
         <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;padding-top:2px;">05</div>
         <div>
           <h3 style="font-size:19px;font-weight:500;letter-spacing:-0.02em;margin:0 0 8px 0;">Approval</h3>
           <p style="font-size:17px;line-height:1.6;color:#A2ACA5;margin:0;text-wrap:pretty;">Approval has two stages. Design signs off first, then design and the frontend team decide together.</p>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px;padding:24px 0;border-top:1px solid rgba(237,239,236,.09);border-bottom:1px solid rgba(237,239,236,.09);">
+      <div style="display:grid;grid-template-columns:56px minmax(0,1fr);gap:20px;padding:24px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;">
         <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:15px;color:#79837C;padding-top:2px;">06</div>
         <div>
           <h3 style="font-size:19px;font-weight:500;letter-spacing:-0.02em;margin:0 0 8px 0;">Adoption</h3>
@@ -444,7 +455,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
   </section>
 
   <nav style="padding:96px 0 0 0;">
-    <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:36px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:16px;">
+    <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:36px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:16px;">
       <a href="console.html">‹ Yapily Console</a>
       <a href="research-practice-np.html">Research practice ›</a>
     </div>

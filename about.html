@@ -54,6 +54,7 @@ a:hover,a:focus-visible{color:#EDEFEC;background-size:100% 1px}
 main a:not(.btn):not(.cta),footer a:not(.btn):not(.cta){background-size:100% 1px;background-image:linear-gradient(rgba(111,203,146,.5),rgba(111,203,146,.5))}
 main a:not(.btn):not(.cta):hover,main a:not(.btn):not(.cta):focus-visible,footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible{background-image:linear-gradient(#6FCB92,#6FCB92)}
 header .brand,header nav a,a.btn,a.cta{background-image:none}
+footer a:not(.btn):not(.cta),main nav a:not(.btn):not(.cta){background-image:linear-gradient(#6FCB92,#6FCB92);background-size:0 1px}footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible,main nav a:not(.btn):not(.cta):hover,main nav a:not(.btn):not(.cta):focus-visible{background-size:100% 1px}
 a:focus-visible,button:focus-visible{outline:2px solid #6FCB92;outline-offset:3px}
 
 button,a.btn{transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
@@ -67,7 +68,7 @@ a.cta svg{transition:transform .22s cubic-bezier(.2,.7,.3,1)}
 a.cta:hover svg,a.cta:focus-visible svg{transform:translateX(3px)}
 
 header nav a[aria-current="page"]{color:#EDEFEC}
-header nav a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+
 
 header nav a{position:relative;transition:color .22s ease;padding:12px 0;margin:-12px 0}
 header nav a::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:#6FCB92;transform:scaleX(0);transform-origin:right;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
@@ -82,12 +83,21 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 #hot2{animation-delay:-.8s}
 #hot3{animation-delay:-1.6s}
 @media (prefers-reduced-motion:reduce){#hot1,#hot2,#hot3{animation:none;stroke-dasharray:none}}
+[style*="color:#79837C"],[style*="color: #79837C"]{font-variant-numeric:tabular-nums}
+a.shot{position:relative}
+a.shot::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.16) 1px,transparent 1.4px);background-size:8px 8px;opacity:.6;transition:opacity .3s ease;pointer-events:none}
+a.shot:hover::before{opacity:1}a.shot>*{position:relative}
+.split>div:last-child{position:relative}
+.split>div:last-child::before{content:"";position:absolute;left:-4px;top:6px;width:7px;height:7px;border-radius:50%;background:#0F1211;box-shadow:inset 0 0 0 1.5px rgba(111,203,146,.7);transition:background-color .25s ease}
+article:hover .split>div:last-child::before{background:#6FCB92}
+.mat{position:relative}.mat::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.14) 1px,transparent 1.4px);background-size:8px 8px;pointer-events:none}.mat>*{position:relative}
+@media (max-width:900px){.split>div:last-child::before{display:none}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Schibsted+Grotesk:ital,wght@0,400..700;1,400..700&amp;display=swap">
 </head>
 <body>
 <div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;justify-content:center;">
-    <div style="width:100%;max-width:1224px;height:100%;border-left:1px solid rgba(237,239,236,.06);border-right:1px solid rgba(237,239,236,.06);"></div>
+    <div class="wrap" style="width:100%;max-width:1160px;height:100%;padding:0 32px;box-sizing:border-box;"><div style="height:100%;border-left:1px solid rgba(237,239,236,.06);border-right:1px solid rgba(237,239,236,.06);"></div></div>
   </div>
 
 
@@ -97,7 +107,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
 <header style="position:sticky;top:0;z-index:50;background:rgba(15,18,17,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(237,239,236,.09);">
   <div class="wrap" style="max-width:1160px;margin:0 auto;padding:18px 56px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
-    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/nav-logo.svg" width="28" height="34" alt="" style="display:block;height:34px;width:auto;flex:none;"><span>Alejandro Velazquez</span></a>
+    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/face-dots.svg" width="28" height="34" alt="" style="display:block;height:34px;width:auto;flex:none;"><span>Alejandro Velazquez</span></a>
     <nav style="display:flex;align-items:center;gap:22px;font-size:15px;">
       <a href="index.html#work" style="color:#A2ACA5;text-decoration:none;">Work</a>
       <a href="about.html" aria-current="page" style="color:#EDEFEC;text-decoration:none;">About</a>
@@ -142,12 +152,12 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
   <section style="max-width:700px;padding-bottom:72px;">
     <h2 style="font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">What I bring</h2>
     <div style="display:flex;flex-direction:column;gap:14px;">
-      <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Product strategy grounded in customer and commercial evidence.</p></div>
-      <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Strong hands-on interaction and interface design.</p></div>
-      <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Experience in regulated and technically constrained products.</p></div>
-      <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Continuous research and experimentation.</p></div>
-      <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Pragmatic design-system governance.</p></div>
-      <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;"><span style="color:#6FCB92;font-size:17px;line-height:1.6;">•</span><p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Team leadership focused on independence, clarity and quality.</p></div>
+      <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">01</span><p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Product strategy grounded in customer and commercial evidence.</p></div>
+      <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">02</span><p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Strong hands-on interaction and interface design.</p></div>
+      <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">03</span><p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Experience in regulated and technically constrained products.</p></div>
+      <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">04</span><p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Continuous research and experimentation.</p></div>
+      <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">05</span><p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Pragmatic design-system governance.</p></div>
+      <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">06</span><p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Team leadership focused on independence, clarity and quality.</p></div>
     </div>
   </section>
 
@@ -170,7 +180,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
   </section>
 
   <section style="padding-bottom:72px;">
-    <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:44px;">
+    <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:44px;">
       <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">Let&rsquo;s talk</h2>
       <p style="max-width:700px;font-size:18px;line-height:1.65;color:#EDEFEC;margin:0 0 24px 0;text-wrap:pretty;">I am interested in Lead Product Designer and design leadership roles where product strategy, hands-on design and complex systems are equally important.</p>
       <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;">
@@ -188,7 +198,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
   </section>
 
   <footer style="padding:32px 0 96px 0;">
-    <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:36px;display:flex;gap:18px;flex-wrap:wrap;font-size:16px;">
+    <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:36px;display:flex;gap:18px;flex-wrap:wrap;font-size:16px;">
       <a href="mailto:aleuxuk@gmail.com">aleuxuk@gmail.com</a>
       <span style="color:#4a5250;">·</span>
       <a href="cv/Alejandro-Velazquez-CV.pdf">Download CV (PDF)</a>

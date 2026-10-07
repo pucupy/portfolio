@@ -15,6 +15,7 @@ a:hover,a:focus-visible{color:#EDEFEC;background-size:100% 1px}
 main a:not(.btn):not(.cta),footer a:not(.btn):not(.cta){background-size:100% 1px;background-image:linear-gradient(rgba(111,203,146,.5),rgba(111,203,146,.5))}
 main a:not(.btn):not(.cta):hover,main a:not(.btn):not(.cta):focus-visible,footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible{background-image:linear-gradient(#6FCB92,#6FCB92)}
 header .brand,header nav a,a.btn,a.cta{background-image:none}
+footer a:not(.btn):not(.cta),main nav a:not(.btn):not(.cta){background-image:linear-gradient(#6FCB92,#6FCB92);background-size:0 1px}footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible,main nav a:not(.btn):not(.cta):hover,main nav a:not(.btn):not(.cta):focus-visible{background-size:100% 1px}
 a:focus-visible,button:focus-visible{outline:2px solid #6FCB92;outline-offset:3px}
 
 button,a.btn{transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
@@ -28,7 +29,7 @@ a.cta svg{transition:transform .22s cubic-bezier(.2,.7,.3,1)}
 a.cta:hover svg,a.cta:focus-visible svg{transform:translateX(3px)}
 
 header nav a[aria-current="page"]{color:#EDEFEC}
-header nav a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+
 
 header nav a{position:relative;transition:color .22s ease;padding:12px 0;margin:-12px 0}
 header nav a::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:#6FCB92;transform:scaleX(0);transform-origin:right;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
@@ -83,6 +84,7 @@ a:hover,a:focus-visible{color:#EDEFEC;background-size:100% 1px}
 main a:not(.btn):not(.cta),footer a:not(.btn):not(.cta){background-size:100% 1px;background-image:linear-gradient(rgba(111,203,146,.5),rgba(111,203,146,.5))}
 main a:not(.btn):not(.cta):hover,main a:not(.btn):not(.cta):focus-visible,footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible{background-image:linear-gradient(#6FCB92,#6FCB92)}
 header .brand,header nav a,a.btn,a.cta{background-image:none}
+footer a:not(.btn):not(.cta),main nav a:not(.btn):not(.cta){background-image:linear-gradient(#6FCB92,#6FCB92);background-size:0 1px}footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible,main nav a:not(.btn):not(.cta):hover,main nav a:not(.btn):not(.cta):focus-visible{background-size:100% 1px}
 a:focus-visible,button:focus-visible{outline:2px solid #6FCB92;outline-offset:3px}
 
 button,a.btn{transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
@@ -96,7 +98,7 @@ a.cta svg{transition:transform .22s cubic-bezier(.2,.7,.3,1)}
 a.cta:hover svg,a.cta:focus-visible svg{transform:translateX(3px)}
 
 header nav a[aria-current="page"]{color:#EDEFEC}
-header nav a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+
 
 header nav a{position:relative;transition:color .22s ease;padding:12px 0;margin:-12px 0}
 header nav a::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:#6FCB92;transform:scaleX(0);transform-origin:right;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
@@ -105,6 +107,15 @@ header nav a:hover::after,header nav a:focus-visible::after{transform:scaleX(1);
 header .brand span{background-image:linear-gradient(#6FCB92,#6FCB92);background-repeat:no-repeat;background-position:0 100%;background-size:0 1px;transition:background-size .3s cubic-bezier(.2,.7,.3,1),color .22s ease}
 header .brand:hover span,header .brand:focus-visible span{background-size:100% 1px}
 @media (prefers-reduced-motion:reduce){a,button,a.btn,a.cta,a.cta svg,header nav a::after,header .brand span{transition:none}a.cta:hover,a.cta:hover svg,button:hover,a.btn:hover{transform:none}}
+[style*="color:#79837C"],[style*="color: #79837C"]{font-variant-numeric:tabular-nums}
+a.shot{position:relative}
+a.shot::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.16) 1px,transparent 1.4px);background-size:8px 8px;opacity:.6;transition:opacity .3s ease;pointer-events:none}
+a.shot:hover::before{opacity:1}a.shot>*{position:relative}
+.split>div:last-child{position:relative}
+.split>div:last-child::before{content:"";position:absolute;left:-4px;top:6px;width:7px;height:7px;border-radius:50%;background:#0F1211;box-shadow:inset 0 0 0 1.5px rgba(111,203,146,.7);transition:background-color .25s ease}
+article:hover .split>div:last-child::before{background:#6FCB92}
+.mat{position:relative}.mat::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.14) 1px,transparent 1.4px);background-size:8px 8px;pointer-events:none}.mat>*{position:relative}
+@media (max-width:900px){.split>div:last-child::before{display:none}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Schibsted+Grotesk:ital,wght@0,400..700;1,400..700&amp;display=swap">
 </head>
@@ -115,7 +126,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
 <header style="position:sticky;top:0;z-index:50;background:rgba(15,18,17,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(237,239,236,.09);">
   <div class="wrap" style="max-width:1160px;margin:0 auto;padding:18px 56px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
-    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/nav-logo.svg" width="28" height="34" alt="" style="display:block;height:34px;width:auto;flex:none;"><span>Alejandro Velazquez</span></a>
+    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/face-dots.svg" width="28" height="34" alt="" style="display:block;height:34px;width:auto;flex:none;"><span>Alejandro Velazquez</span></a>
     <nav style="display:flex;align-items:center;gap:22px;font-size:15px;">
       <a href="index.html#work" style="color:#A2ACA5;text-decoration:none;">Work</a>
       <a href="about.html" style="color:#A2ACA5;text-decoration:none;">About</a>
@@ -127,7 +138,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 <main id="main" class="wrap" style="max-width:1160px;margin:0 auto;padding:0 56px;">
 
   <section style="max-width:700px;padding:56px 0 72px 0;">
-    <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;letter-spacing:.1em;color:#6FCB92;margin-bottom:20px;">04: CASE STUDY</div>
+    <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;letter-spacing:.1em;color:#79837C;margin-bottom:20px;display:flex;align-items:center;gap:12px;"><img src="images/dm-04.svg" width="44" height="28" alt="" style="display:block;width:44px;height:28px;"><span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);">04: </span>CASE STUDY</span></div>
     <h1 style="font-size:clamp(38px,7.5vw,60px);font-weight:600;letter-spacing:-0.025em;line-height:1.05;margin:0 0 32px 0;">Research practice at Yapily</h1>
     <p style="font-size:18px;line-height:1.6;color:#EDEFEC;margin:0 0 20px 0;text-wrap:pretty;">Yapily never had a dedicated researcher, so designers did the research alongside the design work. This is the practice I built inside that constraint, and ran for six years.</p>
     <p style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;letter-spacing:.06em;color:#79837C;margin:0;">2020–2026 · FOUNDING DESIGNER → DESIGN LEAD</p>
@@ -140,65 +151,65 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
   <section style="padding-top:96px;">
     <h2 style="max-width:700px;font-size:clamp(28px,5.5vw,44px);font-weight:600;letter-spacing:-0.018em;margin:0 0 12px 0;">How it worked</h2>
-    <div style="border-top:1px solid rgba(237,239,236,.14);margin-top:32px;"></div>
+    <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;margin-top:32px;"></div>
 
-    <div style="padding:56px 0;border-bottom:1px solid rgba(237,239,236,.09);">
+    <div style="padding:56px 0;">
       <h3 style="max-width:700px;font-size:clamp(21px,4vw,26px);font-weight:600;letter-spacing:-0.02em;margin:0 0 16px 0;">Continuous discovery</h3>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">I ran my first customer conversation in 2020 and my most recent one last week. Between those, at least three customer interviews a month, sustained, over two hundred conversations across six years. Early sessions were broad: what are you trying to do, where does it hurt, what’s missing. As the products matured they narrowed to specific surfaces, Console, the documentation, Hosted Pages. And the purpose shifted from finding the problem to validating a direction.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 24px 0;text-wrap:pretty;">Alongside the scheduled interviews I ran informal Slack channels with customers, a direct line for the observations that never make it into a formal session because they’re too small to raise a ticket over.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0;padding-left:20px;border-left:2px solid rgba(111, 203, 146,.5);text-wrap:pretty;">A fixed cadence rather than a project-triggered one. If research is booked as a standing commitment you never start a discovery phase from zero, and you notice a shift in what customers are saying before it turns into a roadmap problem.</p>
     </div>
 
-    <div style="padding:56px 0;border-bottom:1px solid rgba(237,239,236,.09);">
+    <div style="padding:56px 0;">
       <h3 style="max-width:700px;font-size:clamp(21px,4vw,26px);font-weight:600;letter-spacing:-0.02em;margin:0 0 16px 0;">Two audiences</h3>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Yapily’s customers are businesses. Hosted Pages’ users are consumers connecting their bank accounts. Research had to reach both, and the two needed different methods. The interview cadence covered the first group, the PMs, developers and operations people integrating with us, who could say what was hard to build against and what their own customers complained about, but who were not themselves using the flow. For the second, the 2023–2026 usability programme ran moderated and unmoderated sessions with ordinary people going through the act of connecting a bank account.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0;padding-left:20px;border-left:2px solid rgba(111, 203, 146,.5);text-wrap:pretty;">In a B2B2C product it’s easy to only research the buyer, because the buyer is who you’re talking to every week. But they can tell you about their integration problems, they can’t tell you why someone gave up at the QR screen.</p>
     </div>
 
-    <div style="padding:56px 0;border-bottom:1px solid rgba(237,239,236,.09);">
+    <div style="padding:56px 0;">
       <h3 style="max-width:700px;font-size:clamp(21px,4vw,26px);font-weight:600;letter-spacing:-0.02em;margin:0 0 16px 0;">Feedback loops with the people closest to customers</h3>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 24px 0;text-wrap:pretty;">Support and Customer Success hear things design never will. The loop existed to get that into the product: a bi-weekly forum with PMs, CSMs, design and engineering, focused on trending feedback rather than individual tickets; a shared board where that feedback was consolidated and prioritised, so the same issue raised by four customers surfaced as one item with weight behind it; and beta programmes. Around 150 customers took part between 2023 and 2026, giving us a population to test with that already had context and stake.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 24px 0;text-wrap:pretty;">I set the loop up. Prioritisation was a joint call with PMs and engineering, and that’s the part that made it hold. A board design owns on its own is a wishlist. When three functions prioritise it together, it becomes a queue people act on.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0;padding-left:20px;border-left:2px solid rgba(111, 203, 146,.5);text-wrap:pretty;">Support and CSM as a research channel rather than an escalation channel. The bi-weekly cadence mattered as much as the board, a recurring meeting turns feedback into a habit instead of a fire drill.</p>
     </div>
 
-    <div style="padding:56px 0;border-bottom:1px solid rgba(237,239,236,.09);">
+    <div style="padding:56px 0;">
       <h3 style="max-width:700px;font-size:clamp(21px,4vw,26px);font-weight:600;letter-spacing:-0.02em;margin:0 0 16px 0;">Building shared understanding</h3>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Research that only designers understand doesn’t change anything. Two formats did most of that work: problem-framing workshops with PMs, engineering and wider teams, to get everyone to the same understanding of the customer problem before anyone proposed a solution; and prioritisation sessions run off the back of them, so what got built was argued from the same evidence base.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 24px 0;text-wrap:pretty;">Card sorting on the documentation sat slightly apart. We used it to restructure the information architecture of the docs, and tested findability and task flows both before and after the change.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0;padding-left:20px;border-left:2px solid rgba(111, 203, 146,.5);text-wrap:pretty;">The before-and-after measurement. Most IA work ships on the strength of the argument that made it. Testing the same tasks against the old and new structure is what turns a redesign into a result.</p>
       <figure style="margin:40px 0 0 0;max-width:785px;">
-        <div style="background:rgba(237,239,236,.045);border-radius:12px;overflow:hidden;">
+        <div style="border:1px solid rgba(237,239,236,.09);background:#151918;border-radius:12px;overflow:hidden;">
           <img src="images/research-hackathon-room.webp" alt="A meeting room of Yapily colleagues watching a colleague place sticky notes on a whiteboard, laptops and notebooks open around a long table" loading="lazy" style="display:block;width:100%;height:auto;">
         </div>
         <figcaption style="font-size:14px;line-height:1.5;color:#79837C;margin-top:12px;">A problem-framing workshop with PMs, engineering and wider teams</figcaption>
       </figure>
       <figure style="margin:40px 0 0 0;max-width:860px;">
-        <div style="background:rgba(237,239,236,.045);border-radius:12px;overflow:hidden;">
+        <div style="border:1px solid rgba(237,239,236,.09);background:#151918;border-radius:12px;overflow:hidden;">
           <img src="images/research-content-workshop.webp" alt="Seven Yapily colleagues around a table writing on paper, a laptop showing the instruction: make a list of all the content you think should be there to help people do their job" loading="lazy" style="display:block;width:100%;height:auto;" width="1400" height="1050">
         </div>
         <figcaption style="font-size:14px;line-height:1.5;color:#79837C;margin-top:12px;">A content workshop, the task on screen: list the content you think should be there to help people do their job</figcaption>
       </figure>
     </div>
 
-    <div style="padding:56px 0;border-bottom:1px solid rgba(237,239,236,.09);">
+    <div style="padding:56px 0;">
       <h3 style="max-width:700px;font-size:clamp(21px,4vw,26px);font-weight:600;letter-spacing:-0.02em;margin:0 0 16px 0;">Matching method to decision</h3>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Guerrilla sessions for early iterations. Fast, cheap, run on whoever was available, used to kill bad directions before they were expensive. Commissioned studies for the decisions that warranted them: usability, accessibility and competitor benchmarking on both Hosted Pages and Console through Testbirds and Applause. Studies were sized to the decision, moderated and unmoderated, the right size for finding usability problems and the wrong size for producing a percentage, which is why the production experiments existed alongside them.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0;padding-left:20px;border-left:2px solid rgba(111, 203, 146,.5);text-wrap:pretty;">Matching method cost to decision cost. Guerrilla testing where the question is “is this direction obviously wrong”; commissioned panels where the question is “does this meet a standard we can be held to.”</p>
     </div>
 
-    <div style="padding:56px 0;border-bottom:1px solid rgba(237,239,236,.09);">
+    <div style="padding:56px 0;">
       <h3 style="max-width:700px;font-size:clamp(21px,4vw,26px);font-weight:600;letter-spacing:-0.02em;margin:0 0 16px 0;">Not every finding was a design finding</h3>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Three of the more useful results from the sessions weren’t screen changes. We had been listing banks under the names institutions register under, and users don’t recognise those, they know the name on their card and in their app, so we matched the display names to what people call their bank. Session after session we watched people type a name and get nothing back: aliases, informal names, old brand names our index didn’t hold. The fix landed in how search resolved queries, not on a screen. And on embedded login we found our retry handling didn’t match what banks permitted, three retries assumed on credentials where banks varied, and a single retry on SCA codes where banks allowed several. Engineering built the per-bank mapping; research is what established the rule we were enforcing was invented.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">None of the three observations would have existed without sitting and watching real people use the flow, and none of the three fixes belonged to design.</p>
     </div>
 
-    <div style="padding:56px 0;border-bottom:1px solid rgba(237,239,236,.09);">
+    <div style="padding:56px 0;">
       <h3 style="max-width:700px;font-size:clamp(21px,4vw,26px);font-weight:600;letter-spacing:-0.02em;margin:0 0 16px 0;">Accessibility</h3>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">On accessibility the standard was WCAG AA, and two studies did different jobs. A commissioned audit found contrast failures and alternative text implemented badly enough that a screen reader user couldn’t navigate the flow at all. We postponed a release to fix both rather than shipping and correcting afterwards. I wrote the findings up as a document for the frontend team to work from. A separate unmoderated study of 21 testers in Germany, including participants with disabilities, tested the redesigned flow against the live demo: 62% preferred the new flow, rising to 78% among testers with disabilities.</p>
     </div>
 
-    <div style="padding:56px 0;border-bottom:1px solid rgba(237,239,236,.09);">
+    <div style="padding:56px 0;">
       <h3 style="max-width:700px;font-size:clamp(21px,4vw,26px);font-weight:600;letter-spacing:-0.02em;margin:0 0 16px 0;">Instrumentation</h3>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Working with engineering and product, we mapped the events needed to measure customer flows accurately. Deciding what to track, and where, so flow performance was measurable rather than inferred. This is the unglamorous half. Without it there’s no funnel, no baseline and no experiment, and event schemas designed after the fact are always worse than ones designed alongside the flow.</p>
     </div>
@@ -242,7 +253,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
     <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Qualitative work told us what customers were trying to do and where it broke. Instrumentation told us how often, and where in the flow. Experimentation told us whether the fix worked. Each answered a question the others couldn’t, and the loop ran continuously rather than being spun up per project.</p>
     <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">All of it built and run by designers, with no dedicated research function.</p>
       <figure style="margin:40px 0 0 0;max-width:620px;">
-        <div style="background:rgba(237,239,236,.045);border-radius:12px;overflow:hidden;">
+        <div style="border:1px solid rgba(237,239,236,.09);background:#151918;border-radius:12px;overflow:hidden;">
           <img src="images/research-slack-feedback.webp" alt="A Slack message from Simon in Yapily Support: I think you are doing a cracking job here, I like the games, the customer interviews, the write-ups, and the insights you are gaining" loading="lazy" style="display:block;width:100%;height:auto;" width="1170" height="291">
         </div>
         <figcaption style="font-size:14px;line-height:1.5;color:#79837C;margin-top:12px;">Support, in the channel where the write-ups were posted</figcaption>
@@ -250,7 +261,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
   </section>
 
   <nav style="padding:96px 0 0 0;">
-    <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:36px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:16px;">
+    <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:36px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:16px;">
       <a href="design-systems-np.html">‹ Design systems</a>
       <a href="headbox.html">HeadBox ›</a>
     </div>

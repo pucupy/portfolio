@@ -15,6 +15,7 @@ a:hover,a:focus-visible{color:#EDEFEC;background-size:100% 1px}
 main a:not(.btn):not(.cta),footer a:not(.btn):not(.cta){background-size:100% 1px;background-image:linear-gradient(rgba(111,203,146,.5),rgba(111,203,146,.5))}
 main a:not(.btn):not(.cta):hover,main a:not(.btn):not(.cta):focus-visible,footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible{background-image:linear-gradient(#6FCB92,#6FCB92)}
 header .brand,header nav a,a.btn,a.cta{background-image:none}
+footer a:not(.btn):not(.cta),main nav a:not(.btn):not(.cta){background-image:linear-gradient(#6FCB92,#6FCB92);background-size:0 1px}footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible,main nav a:not(.btn):not(.cta):hover,main nav a:not(.btn):not(.cta):focus-visible{background-size:100% 1px}
 a:focus-visible,button:focus-visible{outline:2px solid #6FCB92;outline-offset:3px}
 
 button,a.btn{transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
@@ -28,7 +29,7 @@ a.cta svg{transition:transform .22s cubic-bezier(.2,.7,.3,1)}
 a.cta:hover svg,a.cta:focus-visible svg{transform:translateX(3px)}
 
 header nav a[aria-current="page"]{color:#EDEFEC}
-header nav a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+
 
 header nav a{position:relative;transition:color .22s ease;padding:12px 0;margin:-12px 0}
 header nav a::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:#6FCB92;transform:scaleX(0);transform-origin:right;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
@@ -83,6 +84,7 @@ a:hover,a:focus-visible{color:#EDEFEC;background-size:100% 1px}
 main a:not(.btn):not(.cta),footer a:not(.btn):not(.cta){background-size:100% 1px;background-image:linear-gradient(rgba(111,203,146,.5),rgba(111,203,146,.5))}
 main a:not(.btn):not(.cta):hover,main a:not(.btn):not(.cta):focus-visible,footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible{background-image:linear-gradient(#6FCB92,#6FCB92)}
 header .brand,header nav a,a.btn,a.cta{background-image:none}
+footer a:not(.btn):not(.cta),main nav a:not(.btn):not(.cta){background-image:linear-gradient(#6FCB92,#6FCB92);background-size:0 1px}footer a:not(.btn):not(.cta):hover,footer a:not(.btn):not(.cta):focus-visible,main nav a:not(.btn):not(.cta):hover,main nav a:not(.btn):not(.cta):focus-visible{background-size:100% 1px}
 a:focus-visible,button:focus-visible{outline:2px solid #6FCB92;outline-offset:3px}
 
 button,a.btn{transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,background-color .22s ease,color .22s ease,box-shadow .22s ease}
@@ -96,7 +98,7 @@ a.cta svg{transition:transform .22s cubic-bezier(.2,.7,.3,1)}
 a.cta:hover svg,a.cta:focus-visible svg{transform:translateX(3px)}
 
 header nav a[aria-current="page"]{color:#EDEFEC}
-header nav a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left}
+
 
 header nav a{position:relative;transition:color .22s ease;padding:12px 0;margin:-12px 0}
 header nav a::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:1px;background:#6FCB92;transform:scaleX(0);transform-origin:right;transition:transform .28s cubic-bezier(.2,.7,.3,1)}
@@ -105,19 +107,28 @@ header nav a:hover::after,header nav a:focus-visible::after{transform:scaleX(1);
 header .brand span{background-image:linear-gradient(#6FCB92,#6FCB92);background-repeat:no-repeat;background-position:0 100%;background-size:0 1px;transition:background-size .3s cubic-bezier(.2,.7,.3,1),color .22s ease}
 header .brand:hover span,header .brand:focus-visible span{background-size:100% 1px}
 @media (prefers-reduced-motion:reduce){a,button,a.btn,a.cta,a.cta svg,header nav a::after,header .brand span{transition:none}a.cta:hover,a.cta:hover svg,button:hover,a.btn:hover{transform:none}}
+[style*="color:#79837C"],[style*="color: #79837C"]{font-variant-numeric:tabular-nums}
+a.shot{position:relative}
+a.shot::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.16) 1px,transparent 1.4px);background-size:8px 8px;opacity:.6;transition:opacity .3s ease;pointer-events:none}
+a.shot:hover::before{opacity:1}a.shot>*{position:relative}
+.split>div:last-child{position:relative}
+.split>div:last-child::before{content:"";position:absolute;left:-4px;top:6px;width:7px;height:7px;border-radius:50%;background:#0F1211;box-shadow:inset 0 0 0 1.5px rgba(111,203,146,.7);transition:background-color .25s ease}
+article:hover .split>div:last-child::before{background:#6FCB92}
+.mat{position:relative}.mat::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:radial-gradient(circle,rgba(111,203,146,.14) 1px,transparent 1.4px);background-size:8px 8px;pointer-events:none}.mat>*{position:relative}
+@media (max-width:900px){.split>div:last-child::before{display:none}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Schibsted+Grotesk:ital,wght@0,400..700;1,400..700&amp;display=swap">
 </head>
 <body>
 <div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;justify-content:center;">
-    <div style="width:100%;max-width:1224px;height:100%;border-left:1px solid rgba(237,239,236,.06);border-right:1px solid rgba(237,239,236,.06);"></div>
+    <div class="wrap" style="width:100%;max-width:1160px;height:100%;padding:0 32px;box-sizing:border-box;"><div style="height:100%;border-left:1px solid rgba(237,239,236,.06);border-right:1px solid rgba(237,239,236,.06);"></div></div>
   </div>
 
   <a href="#main" class="skiplink" style="position:absolute;left:-9999px;top:0;z-index:100;background:#6FCB92;color:#0F1211;padding:10px 16px;border-radius:0 0 8px 0;font-size:14px;font-weight:500;text-decoration:none;">Skip to content</a>
 
 <header style="position:sticky;top:0;z-index:50;background:rgba(15,18,17,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(237,239,236,.09);">
   <div class="wrap" style="max-width:1160px;margin:0 auto;padding:18px 56px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
-    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/nav-logo.svg" width="28" height="34" alt="" style="display:block;height:34px;width:auto;flex:none;"><span>Alejandro Velazquez</span></a>
+    <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#EDEFEC;text-decoration:none;letter-spacing:-0.005em;"><img src="images/face-dots.svg" width="28" height="34" alt="" style="display:block;height:34px;width:auto;flex:none;"><span>Alejandro Velazquez</span></a>
     <nav style="display:flex;align-items:center;gap:22px;font-size:15px;">
       <a href="index.html#work" style="color:#A2ACA5;text-decoration:none;">Work</a>
       <a href="about.html" style="color:#A2ACA5;text-decoration:none;">About</a>
@@ -129,14 +140,15 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 <main id="main" class="wrap" style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 56px;">
 
   <section style="max-width:700px;padding:56px 0 72px 0;">
-    <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;letter-spacing:.1em;color:#6FCB92;margin-bottom:20px;">06: CASE STUDY</div>
+    <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;letter-spacing:.1em;color:#79837C;margin-bottom:20px;display:flex;align-items:center;gap:12px;"><img src="images/dm-06.svg" width="44" height="28" alt="" style="display:block;width:44px;height:28px;"><span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);">06: </span>CASE STUDY</span></div>
     <h1 style="font-size:clamp(38px,7.5vw,60px);font-weight:600;letter-spacing:-0.025em;line-height:1.05;margin:0 0 32px 0;">Turning a marketplace the right way round</h1>
     <p style="font-size:18px;line-height:1.6;color:#EDEFEC;margin:0 0 24px 0;text-wrap:pretty;">My only non-Yapily case study, and the clearest example I have of research changing a business model rather than a screen.</p>
-    </section>
+      <div data-lead-figure style="margin:36px 0 0 0;padding-top:24px;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;display:flex;flex-direction:column;align-items:flex-start;gap:10px;"><span style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:clamp(48px,8vw,72px);font-weight:600;letter-spacing:-0.03em;line-height:1;color:#EDEFEC;font-variant-numeric:tabular-nums;">£150,228</span><span style="font-size:16px;line-height:1.5;color:#A2ACA5;max-width:34ch;text-wrap:pretty;">ARR in the first three months, from 117 paying customers</span></div>
+  </section>
 
   <section style="padding:0;">
     <figure style="margin:0;">
-      <div style="padding:18px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:16px;">
+      <div class="mat" style="padding:18px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
         <img src="images/headbox-prototype-create-your-free-listing.webp" alt="The host-side listing page: Create your free listing, with three steps and a Join for free button" width="1400" height="727" decoding="async" style="display:block;width:100%;height:auto;border-radius:12px;" fetchpriority="high" decoding="async">
       </div>
       <figcaption style="margin-top:14px;max-width:700px;font-size:14px;line-height:1.55;color:#79837C;text-wrap:pretty;">The host side of the reversed model: venues list free, and pay only when a brief becomes a booking.</figcaption>
@@ -145,7 +157,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
   <section style="max-width:700px;padding:40px 0 0 0;">
     <div style="border:1px solid rgba(237,239,236,.14);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:18px;">
-      <h2 style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;color:#6FCB92;margin:0;">At a glance</h2>
+      <h2 style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;color:#79837C;margin:0;">At a glance</h2>
       <div style="display:grid;grid-template-columns:120px minmax(0,1fr);gap:18px;align-items:baseline;">
         <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#79837C;">Period</div>
         <div style="font-size:16px;line-height:1.55;color:#A2ACA5;text-wrap:pretty;">December 2018: December 2019</div>
@@ -167,35 +179,21 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
 
   <section aria-labelledby="star-heading" style="max-width:700px;padding:44px 0 0 0;">
     <h2 id="star-heading" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;">Summary</h2>
-    <div style="padding:26px 0;border-top:1px solid rgba(237,239,236,.10);">
-      <h3 style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#6FCB92;margin:0 0 12px 0;">Situation</h3>
+    <div style="padding:26px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;">
+      <h3 style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#79837C;margin:0 0 12px 0;">Situation</h3>
       <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">HeadBox was a two-sided marketplace where guests searched a directory of venues, filtered, messaged two to four of them and waited. Around one in ten searches turned into anything. Guests aren’t event experts: most plan one event a year. So faced with a directory they shortlisted a few venues, googled them and rang them directly, off the platform entirely. Hosts received enquiries from every direction with almost none matched to their venue, and only 20% of enquiries ever received a proposal. Around 80% of the company was sales and account managers matching enquiries to venues by hand out of spreadsheets and slides.</p>
     </div>
-    <div style="padding:26px 0;border-top:1px solid rgba(237,239,236,.10);">
-      <h3 style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#6FCB92;margin:0 0 12px 0;">Task</h3>
+    <div style="padding:26px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;">
+      <h3 style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#79837C;margin:0 0 12px 0;">Task</h3>
       <p style="font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">As Lead Product Designer I was asked to improve conversion. The brief assumed the marketplace needed to work harder. A better directory, better search, better matching. Which is what every previous attempt had assumed too. The research took me somewhere else. What I concluded, and proposed, was that the shape of the marketplace was the problem rather than its execution, and that fixing conversion meant inverting who did the difficult part. The company changed its revenue model as a consequence.</p>
     </div>
-    <div style="padding:26px 0;border-top:1px solid rgba(237,239,236,.10);">
-      <h3 style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#6FCB92;margin:0 0 12px 0;">Actions</h3>
-      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;">
-          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Ran three rounds of research with 45 customers and non-customers, much of it on site in the venues themselves, plus usability sessions and internal research with the sales and account management teams.</li>
-          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Identified that the expertise was on the wrong side: guests who do this once a year were being asked to make expert decisions, while hosts who do it daily were handed a queue they couldn’t act on.</li>
-          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Designed the inversion: guests complete a short wizard capturing what they need, enquiries pool into a central feed, and hosts choose the events they want.</li>
-          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Rebuilt venue creation around structured capacity, layout and suitability rather than prose, in resumable steps, with the fields the feed depends on made unavoidable.</li>
-          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Tested the cheapest thing that produced real evidence at each stage: the Enquiry Hub shipped London-only capped at &pound;10k; the feed’s first prototype was a spreadsheet; guest-side prototyping started as a Google Form, before moving through Figma into coded prototypes.</li>
-          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Established the design system, governance framework and research practice used across the organisation.</li>
-      </ul>
+    <div style="padding:26px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;">
+      <h3 style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#79837C;margin:0 0 12px 0;">Actions</h3>
+      <ol style="margin:0;padding:0;list-style:none;"><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">01</span><span>Ran three rounds of research with 45 customers and non-customers, much of it on site in the venues themselves, plus usability sessions and internal research with the sales and account management teams.</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">02</span><span>Identified that the expertise was on the wrong side: guests who do this once a year were being asked to make expert decisions, while hosts who do it daily were handed a queue they couldn’t act on.</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">03</span><span>Designed the inversion: guests complete a short wizard capturing what they need, enquiries pool into a central feed, and hosts choose the events they want.</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">04</span><span>Rebuilt venue creation around structured capacity, layout and suitability rather than prose, in resumable steps, with the fields the feed depends on made unavoidable.</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">05</span><span>Tested the cheapest thing that produced real evidence at each stage: the Enquiry Hub shipped London-only capped at &pound;10k; the feed’s first prototype was a spreadsheet; guest-side prototyping started as a Google Form, before moving through Figma into coded prototypes.</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">06</span><span>Established the design system, governance framework and research practice used across the organisation.</span></li></ol>
     </div>
-    <div style="padding:26px 0;border-top:1px solid rgba(237,239,236,.10);border-bottom:1px solid rgba(237,239,236,.10);">
-      <h3 style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#6FCB92;margin:0 0 12px 0;">Result</h3>
-      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;">
-          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>&pound;150,228 ARR from 117 paying venues within three months. Four times the prior revenue model, and the company’s first scalable, profitable product.</li>
-          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>More than 1,500 leads in the first month.</li>
-          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Brief completion improved directionally from roughly 50% to around 75% after the guest flow was simplified.</li>
-          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Hosts logged in every day from launch, which is the exact thing every previous attempt had failed to achieve.</li>
-          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>The company pivoted its business model on the result, moving from commission on the sale to venues paying for access to the feed. Which also designed out the off-platform leakage, because there was no percentage left to avoid.</li>
-          <li style="font-size:17px;line-height:1.65;color:#A2ACA5;text-wrap:pretty;padding-left:20px;position:relative;"><span aria-hidden="true" style="position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:rgba(111,203,146,.55);"></span>Approximately 90% of the original product structure remains in the current experience, and the wizard is still HeadBox&rsquo;s front door in 2026.</li>
-                </ul>
+    <div style="padding:26px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;">
+      <h3 style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;font-weight:500;letter-spacing:.1em;color:#79837C;margin:0 0 12px 0;">Result</h3>
+      <ol style="margin:0;padding:0;list-style:none;"><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">01</span><span>&pound;150,228 ARR from 117 paying venues within three months. Four times the prior revenue model, and the company’s first scalable, profitable product.</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">02</span><span>More than 1,500 leads in the first month.</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">03</span><span>Brief completion improved directionally from roughly 50% to around 75% after the guest flow was simplified.</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">04</span><span>Hosts logged in every day from launch, which is the exact thing every previous attempt had failed to achieve.</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">05</span><span>The company pivoted its business model on the result, moving from commission on the sale to venues paying for access to the feed. Which also designed out the off-platform leakage, because there was no percentage left to avoid.</span></li><li style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:12px 0;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;font-size:17px;line-height:1.6;color:#A2ACA5;text-wrap:pretty;"><span aria-hidden="true" style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:#79837C;">06</span><span>Approximately 90% of the original product structure remains in the current experience, and the wizard is still HeadBox&rsquo;s front door in 2026.</span></li></ol>
     </div>
   </section>
 
@@ -204,7 +202,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">HeadBox was a two-sided marketplace: search a directory of venues, filter, message two to four of them, wait. Around one in ten searches turned into anything.</p>
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">The old homepage stated the problem without meaning to. The first thing it asked was <em style="font-style:italic;color:#EDEFEC;">what type of Space?</em>, a question that assumes the person already knows the answer. Further down sat an account management phone number, which is what a business does when the product can&rsquo;t carry the customer on its own.</p>
       <figure style="margin:40px 0 0 0;">
-        <div style="padding:18px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:16px;">
+        <div class="mat" style="padding:18px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
           <img src="images/headbox-2019-homepage.webp" alt="The HeadBox homepage in 2019. A search box asking what type of space, and an account management phone number" style="display:block;width:100%;height:auto;border-radius:12px;" loading="lazy" decoding="async">
         </div>
         <figcaption style="display:flex;align-items:baseline;gap:12px;margin-top:14px;max-width:820px;">
@@ -217,22 +215,22 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
   <section style="padding:96px 0 0 0;">
     <h2 style="max-width:700px;font-size:clamp(28px,5.5vw,44px);font-weight:600;letter-spacing:-0.018em;margin:0 0 12px 0;">Both sides were failing, for opposite reasons</h2>
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Three rounds of research with 45 customers and non-customers, usability sessions, and internal research with the sales and account management teams, alongside observation of the existing flow, support and chat analysis, and a review of thousands of messages between guests and venues. Much of the host research was done on site rather than over video, in venues ranging from local pubs to Kensington Palace and the O2. The picture that came back was symmetrical.</p>
-    <div style="border-top:1px solid rgba(237,239,236,.14);margin-top:32px;"></div>
+    <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;margin-top:32px;"></div>
 
-    <div style="padding:56px 0;border-bottom:1px solid rgba(237,239,236,.09);">
+    <div style="padding:56px 0;">
       <h3 style="max-width:700px;font-size:clamp(21px,4vw,26px);font-weight:600;letter-spacing:-0.02em;margin:0 0 16px 0;">Guests were overwhelmed by choice</h3>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">They aren&rsquo;t event experts, most plan one event a year and don&rsquo;t know what they want or what it should cost. Faced with a directory and too many options, they&rsquo;d shortlist a few venues, Google them, and ring them directly. Off the platform entirely.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.6;color:#EDEFEC;margin:0;padding-left:20px;border-left:2px solid rgba(111, 203, 146,.5);text-wrap:pretty;">The behaviour that looks like poor conversion was people getting the job done outside the product, because the product was harder than a phone call.</p>
     </div>
 
-    <div style="padding:56px 0;border-bottom:1px solid rgba(237,239,236,.09);">
+    <div style="padding:56px 0;">
       <h3 style="max-width:700px;font-size:clamp(21px,4vw,26px);font-weight:600;letter-spacing:-0.02em;margin:0 0 16px 0;">Hosts were drowning in undifferentiated leads</h3>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Enquiries arrived from every direction, almost none matched to their venue, so the genuine ones got buried and hosts stopped logging in. Only 20% of enquiries ever received a proposal.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Some of the leakage was deliberate. Passing contact details outside the platform to avoid the commission is a structural weakness of any marketplace taking a percentage, not a policing problem, a design one.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">A CRM for venues, built before I joined, was meant to solve the host side. Its own marketing page made the case against it: 57% of venue enquiries arrive outside office hours, and the tool existed to capture them around the clock. A product whose entire value proposition depends on people logging in, that people won&rsquo;t log into, has no value proposition.</p>
       <div class="cols" style="margin-top:36px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start;">
         <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
-          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:12px;">
+          <div class="mat" style="padding:14px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
             <img src="images/headbox-2019-stack-crm.webp" alt="The HeadBox Stack CRM marketing page, 2019" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
           </div>
           <figcaption>
@@ -241,7 +239,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           </figcaption>
         </figure>
         <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
-          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:12px;">
+          <div class="mat" style="padding:14px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
             <img src="images/headbox-2019-stack-crm-outside-hours.webp" alt="Stack marketing claim, 57% of venue enquiries arrive outside office hours" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
           </div>
           <figcaption>
@@ -252,7 +250,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
       </div>
     </div>
 
-    <div style="padding:56px 0;border-bottom:1px solid rgba(237,239,236,.09);">
+    <div style="padding:56px 0;">
       <h3 style="max-width:700px;font-size:clamp(21px,4vw,26px);font-weight:600;letter-spacing:-0.02em;margin:0 0 16px 0;">And the company was absorbing the difference</h3>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Around 80% of the company was sales and account managers, running the business out of spreadsheets and slides, matching enquiries to venues by hand, chasing both sides.</p>
       <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">That works for a handful of large corporate accounts. It doesn&rsquo;t work for the many small and medium ones, which is where the volume was. The same pattern I&rsquo;d meet again at Yapily: a product gap that presents as a headcount need.</p>
@@ -265,29 +263,29 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
     <div class="cols" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start;">
 
       <div style="border:1px solid rgba(237,239,236,.14);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:16px;">
-        <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#6FCB92;">Host</div>
+        <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;">Host</div>
         <div>
           <div style="font-size:19px;font-weight:600;color:#EDEFEC;margin-bottom:4px;">The venue owner</div>
           <div style="font-size:15px;line-height:1.55;color:#A2ACA5;">Anything from a pub back room to a single hire space to the O2. A one&#8209;person operation and a full events team are the same user here.</div>
         </div>
         <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 14px;align-items:baseline;">
-          <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;letter-spacing:.08em;color:#6FCB92;white-space:nowrap;">Wants</div>
+          <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;letter-spacing:.08em;color:#79837C;white-space:nowrap;">Wants</div>
           <div style="font-size:15px;line-height:1.55;color:#EDEFEC;">The venue full all year, and enough forward visibility to plan against, not a rush and then nothing.</div>
-          <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;letter-spacing:.08em;color:#6FCB92;white-space:nowrap;">SO</div>
+          <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;letter-spacing:.08em;color:#79837C;white-space:nowrap;">SO</div>
           <div style="font-size:15px;line-height:1.55;color:#A2ACA5;">Enquiries with the requirements already stated, so a host can judge fit in seconds and quote only for the ones worth quoting for.</div>
         </div>
       </div>
 
       <div style="border:1px solid rgba(237,239,236,.14);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:16px;">
-        <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#6FCB92;">Guest</div>
+        <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:12px;letter-spacing:.1em;color:#79837C;">Guest</div>
         <div>
           <div style="font-size:19px;font-weight:600;color:#EDEFEC;margin-bottom:4px;">The occasional booker</div>
           <div style="font-size:15px;line-height:1.55;color:#A2ACA5;">Usually an assistant or someone in HR organising a team party, or a person planning their own wedding or birthday.</div>
         </div>
         <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 14px;align-items:baseline;">
-          <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;letter-spacing:.08em;color:#6FCB92;white-space:nowrap;">Wants</div>
+          <div style="text-transform:uppercase;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;letter-spacing:.08em;color:#79837C;white-space:nowrap;">Wants</div>
           <div style="font-size:15px;line-height:1.55;color:#EDEFEC;">A venue that works, booked without becoming an expert in venue hire first.</div>
-          <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;letter-spacing:.08em;color:#6FCB92;white-space:nowrap;">SO</div>
+          <div style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;letter-spacing:.08em;color:#79837C;white-space:nowrap;">SO</div>
           <div style="font-size:15px;line-height:1.55;color:#A2ACA5;">Describe the event rather than filter a directory, and let the people who do this for a living do the matching.</div>
         </div>
       </div>
@@ -334,7 +332,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">Guests complete a short wizard that captures what they need rather than browsing a directory. Those enquiries pool into a feed. Hosts choose the events they want, rather than events choosing them.</p>
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;"><span style="color:#EDEFEC;">The revenue model changed as a consequence rather than as a goal.</span> Venues pay for access to the feed instead of commission on the sale. Which also designs out the off-platform leakage, because there&rsquo;s no percentage left to avoid. Marketplace to SaaS.</p>
       <figure style="margin:40px 0 0 0;">
-        <div style="padding:18px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:16px;">
+        <div class="mat" style="padding:18px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
           <img src="images/headbox-prototype-brief-type-of-event.webp" alt="Step 1 of 8 of the brief wizard: Type of event, with a picture card per event type and an eight-step sidebar" width="1400" height="871" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:12px;">
         </div>
         <figcaption style="margin-top:14px;max-width:700px;font-size:14px;line-height:1.55;color:#79837C;text-wrap:pretty;">Step one of eight. The brief asks what the event is, not which venue you want. The choosing is left to the hosts.</figcaption>
@@ -347,7 +345,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">The range is what forced the structure. Host research was run on site, in venues from local pubs to Kensington Palace and the O2, and no single prose description can serve a feed that has to match a pub back room and an arena against the same brief. Capacity, layout and suitability had to stop being copy and become data.</p>
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">So the form was rebuilt around structured capacity, layout and suitability rather than copy, split into resumable steps, with the fields the feed depends on made unavoidable and the rest optional.</p>
       <figure style="margin:40px 0 0 0;">
-        <div style="padding:18px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:16px;">
+        <div class="mat" style="padding:18px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
           <img src="images/headbox-2019-list-your-space.webp" alt="The 2019 list-your-space page. One long form built for a directory listing" style="display:block;width:100%;height:auto;border-radius:12px;" loading="lazy" decoding="async">
         </div>
         <figcaption style="display:flex;align-items:baseline;gap:12px;margin-top:14px;max-width:820px;">
@@ -363,7 +361,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">The first prototype of the feed was a spreadsheet: a list of recent enquiries, filtered, shown to twenty venues. Hosts called the guests they matched with, and eighteen of the twenty events became confirmed bookings. That established both things we needed to know. That venues were better at matching than any algorithm we could have written, and that they would pay for access. Before anyone built anything. It evolved through Figma into coded prototypes.</p>
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0;text-wrap:pretty;">Guest-side prototyping started as a Google Form, for the same reason. Find the cheapest thing that produces real evidence.</p>
       <figure style="margin:40px 0 0 0;">
-        <div style="padding:18px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:16px;">
+        <div class="mat" style="padding:18px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
           <img src="images/headbox-lead-feed-2023.webp" alt="The Lead Feed: rows of briefs with location, budget, guest count, timings, a fit label and an I&rsquo;m available action" width="1600" height="1265" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:12px;">
         </div>
         <figcaption style="margin-top:14px;max-width:700px;font-size:14px;line-height:1.55;color:#79837C;text-wrap:pretty;">The Lead Feed the spreadsheet turned into: budget, guests, timings and fit on one row, and a single action to respond.</figcaption>
@@ -393,7 +391,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
   <section style="padding:96px 0 0 0;">
     <h2 style="max-width:700px;font-size:clamp(26px,5vw,34px);font-weight:600;letter-spacing:-0.014em;margin:0 0 20px 0;">What it produced</h2>
     <p style="max-width:700px;font-size:18px;line-height:1.65;color:#EDEFEC;margin:0 0 36px 0;text-wrap:pretty;">£150,228 ARR from 117 customers within three months, four times the prior model&rsquo;s performance, and the company&rsquo;s first scalable, profitable product.</p>
-    <div class="stats" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;padding-top:36px;border-top:1px solid rgba(237,239,236,.14);">
+    <div class="stats" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;padding-top:36px;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;">
         <div>
           <div style="font-size:34px;font-weight:500;letter-spacing:-0.018em;color:#6FCB92;line-height:1.1;margin-bottom:10px;">£150,228</div>
           <div style="font-size:15px;line-height:1.5;color:#A2ACA5;">ARR within three months</div>
@@ -419,7 +417,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
     <p style="max-width:700px;font-size:17px;line-height:1.65;color:#A2ACA5;margin:0 0 18px 0;text-wrap:pretty;">The wizard is still HeadBox&rsquo;s front door in 2026, and the three steps beside every screen are the same ones: tell us what you&rsquo;re looking for, we share your enquiry with suitable venues, venues message you. Seven years is a reasonable test of whether a structural bet was right.</p>
     <div class="cols" style="margin-top:44px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 28px;align-items:start;">
         <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
-          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:12px;">
+          <div class="mat" style="padding:14px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
             <img src="images/headbox-wizard-event-type.webp" alt="Wizard step. What are you planning?" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
           </div>
           <figcaption>
@@ -428,7 +426,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           </figcaption>
         </figure>
         <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
-          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:12px;">
+          <div class="mat" style="padding:14px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
             <img src="images/headbox-wizard-guests-layout.webp" alt="Wizard step. Who is invited and how the space is set up" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
           </div>
           <figcaption>
@@ -437,7 +435,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           </figcaption>
         </figure>
         <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
-          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:12px;">
+          <div class="mat" style="padding:14px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
             <img src="images/headbox-wizard-location-radius.webp" alt="Wizard step. Location with a radius slider on a map" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
           </div>
           <figcaption>
@@ -446,7 +444,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           </figcaption>
         </figure>
         <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
-          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:12px;">
+          <div class="mat" style="padding:14px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
             <img src="images/headbox-wizard-budget-guidance.webp" alt="Wizard step. Budget with a distribution chart and typical price range" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
           </div>
           <figcaption>
@@ -455,7 +453,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           </figcaption>
         </figure>
         <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
-          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:12px;">
+          <div class="mat" style="padding:14px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
             <img src="images/headbox-wizard-venue-styles.webp" alt="Wizard step. Venue styles" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
           </div>
           <figcaption>
@@ -464,7 +462,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           </figcaption>
         </figure>
         <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
-          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:12px;">
+          <div class="mat" style="padding:14px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
             <img src="images/headbox-wizard-facilities-catering.webp" alt="Wizard step. Facilities and catering requirements" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
           </div>
           <figcaption>
@@ -473,7 +471,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           </figcaption>
         </figure>
         <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
-          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:12px;">
+          <div class="mat" style="padding:14px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
             <img src="images/headbox-wizard-event-name-urgency.webp" alt="Wizard step. Event name and how soon you want to book" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
           </div>
           <figcaption>
@@ -482,7 +480,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
           </figcaption>
         </figure>
         <figure style="margin:0;display:flex;flex-direction:column;gap:14px;">
-          <div style="padding:14px;background:rgba(237,239,236,.04);border:1px solid rgba(237,239,236,.09);border-radius:12px;">
+          <div class="mat" style="padding:14px;background:#151918;border:1px solid rgba(237,239,236,.09);border-radius:12px;">
             <img src="images/headbox-wizard-personal-details-last.webp" alt="Wizard step. Name, contact number and marketing preferences, at the end" style="display:block;width:100%;height:auto;border-radius:8px;" loading="lazy" decoding="async">
           </div>
           <figcaption>
@@ -508,7 +506,7 @@ header .brand:hover span,header .brand:focus-visible span{background-size:100% 1
   </section>
 
   <nav style="padding:96px 0 0 0;">
-    <div style="border-top:1px solid rgba(237,239,236,.14);padding-top:36px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:16px;">
+    <div style="background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;background-position:0 0;padding-top:36px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:16px;">
       <a href="brand-website.html">‹ Brand &amp; Website</a>
       <a href="meisai.html">meisai.io ›</a>
     </div>
