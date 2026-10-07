@@ -113,7 +113,7 @@
     if (!document.querySelector('main h1') || document.querySelector('#work')) return;
     var hs = [].slice.call(document.querySelectorAll('main h2')).filter(function (h) {
       var s = getComputedStyle(h);
-      return s.position !== 'absolute' && s.textTransform !== 'uppercase' && parseFloat(s.fontSize) >= 22;
+      return s.position !== 'absolute' && s.textTransform !== 'uppercase' && parseFloat(s.fontSize) >= 22 && !/^let.s talk$/i.test(h.textContent.trim()) && !h.hasAttribute('data-no-count');
     });
     if (hs.length < 3) return;
     var total = String(hs.length).padStart(2, '0');
