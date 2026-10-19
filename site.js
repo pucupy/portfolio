@@ -101,19 +101,23 @@
       cv.addEventListener('pointerenter', function () { hover = true; });
       cv.addEventListener('pointerleave', function () { hover = false; });
     }
+    var lastT = 0, sweepT0 = 0;
     var frame = function (t) {
       raf = requestAnimationFrame(frame);
       if (!w || Math.abs(cv.getBoundingClientRect().width - w) > 1) { if (!measure()) return; }
-      look.x += (look.tx - look.x) * 0.12;
-      look.y += (look.ty - look.y) * 0.12;
+      var dt = Math.min(64, lastT ? t - lastT : 16.7); lastT = t;
+      var ease = function (k) { return 1 - Math.pow(1 - k, dt / 16.7); };
+      look.x += (look.tx - look.x) * ease(0.1);
+      look.y += (look.ty - look.y) * ease(0.1);
       if (!REDUCE) {
         if (blink) { if (t > blinkAt) { blink = 0; blinkAt = t + 2600 + Math.random() * 4200; } }
         else if (t > blinkAt) { blink = 1; blinkAt = t + 150; }
       }
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, cv.width, cv.height);
-      handGlow += ((hover ? 1 : 0) - handGlow) * 0.1;
-      faceDark += ((hover ? 1 : 0) - faceDark) * (REDUCE ? 1 : 0.14);
+      handGlow += ((hover ? 1 : 0) - handGlow) * ease(0.1);
+      if (hover && faceDark < 0.02) sweepT0 = t;
+      faceDark += ((hover ? 1 : 0) - faceDark) * (REDUCE ? 1 : ease(0.09));
       if (PAD) {
         ctx.translate(PAD * cw, chh);
         if (hover && !hoverStart) hoverStart = t;
@@ -123,19 +127,8 @@
         var px = COLS * cw * 0.62, py = 19.5 * chh;
         ctx.translate(px, py); ctx.rotate(wave); ctx.translate(-px, -py);
       }
-      if (kind === 'face') {
-        ctx.beginPath();
-        for (var mr = 0; mr < ROWS; mr += 3) for (var mq = 0; mq < COLS; mq += 3) {
-          var mi = mr * COLS + mq;
-          if (lv[mi] < 3) continue;
-          var mxp = mq * cw + cw / 2, myp = mr * chh + chh / 2;
-          if (mq + 3 < COLS && lv[mi + 3] >= 3) { ctx.moveTo(mxp, myp); ctx.lineTo(mxp + 3 * cw, myp); }
-          if (mr + 3 < ROWS && lv[mi + 3 * COLS] >= 3) { ctx.moveTo(mxp, myp); ctx.lineTo(mxp, myp + 3 * chh); }
-        }
-        ctx.strokeStyle = 'rgba(111,203,146,' + (0.08 + faceDark * 0.06).toFixed(3) + ')';
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
-      }
+      var sweep = REDUCE ? 0.5 : -0.35 + ((t - sweepT0) * 0.00038) % 1.9;
+      var glow = 0;
       var alphaBase = kind === 'hand' ? 0.18 : 0.13;
       var alphaSpan = kind === 'hand' ? 0.78 : 0.72;
       for (var m = 0; m < live.length; m++) {
@@ -152,18 +145,31 @@
           aa = Math.min(1, (0.06 + Math.pow(vv / 9, 1.6) * 0.9) * (1 + handGlow * 0.45));
         }
         if (kind === 'face') {
-          var mx = function (c1, c2) { return Math.round(c1 + (c2 - c1) * faceDark); };
-          var ha = Math.min(1, aa * (1 + faceDark * 0.9));
+          var band = (qq / COLS) * 0.6 + (rr / ROWS) * 0.4 - sweep;
+          var spec = faceDark * Math.exp(-(band * band) / 0.006) * (vv / 9);
+          var lift = Math.min(1, faceDark * 0.75 + spec);
+          var mx = function (c1, c2) { return Math.round(c1 + (c2 - c1) * lift); };
+          var ha = Math.min(1, aa * (1 + faceDark * 1.4) + spec * 0.6);
           ctx.fillStyle = vv > 8
-            ? 'rgba(' + mx(178, 232) + ',' + mx(240, 255) + ',' + mx(200, 240) + ',' + ha.toFixed(2) + ')'
-            : 'rgba(' + mx(111, 168) + ',' + mx(203, 245) + ',' + mx(146, 198) + ',' + ha.toFixed(2) + ')';
+            ? 'rgba(' + mx(178, 255) + ',' + mx(240, 255) + ',' + mx(200, 250) + ',' + ha.toFixed(2) + ')'
+            : 'rgba(' + mx(111, 214) + ',' + mx(203, 255) + ',' + mx(146, 228) + ',' + ha.toFixed(2) + ')';
+          glow = vv > 5 ? faceDark * 0.08 + spec * 0.22 : 0;
+          rad = rad * (1 + faceDark * 0.25 + spec * 0.45);
         } else {
           ctx.fillStyle = (vv > 8 ? 'rgba(178,240,200,' : 'rgba(111,203,146,') + aa.toFixed(2) + ')';
         }
         ctx.beginPath();
         ctx.arc(qq * cw + cw / 2, rr * chh + chh / 2 + dy, rad, 0, 6.2832);
         ctx.fill();
+        if (glow > 0.02) {
+          ctx.fillStyle = 'rgba(200,255,222,' + glow.toFixed(3) + ')';
+          ctx.beginPath();
+          ctx.arc(qq * cw + cw / 2, rr * chh + chh / 2 + dy, rad * 2.2, 0, 6.2832);
+          ctx.fill();
+          glow = 0;
+        }
       }
+      ctx.shadowBlur = 0;
       if (kind === 'face') {
         ctx.shadowColor = 'rgba(111,203,146,0.85)';
         for (var ee = 0; ee < eyes.length; ee++) {

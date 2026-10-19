@@ -16,7 +16,7 @@
     '.fx-mono{font-family:' + MONO + ' !important;font-weight:400 !important}',
     '.fx-num{font-size:13px !important;letter-spacing:0 !important}',
     '.fx-rule{position:relative;background-image:none !important}',
-    '.fx-rule::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;pointer-events:none;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;clip-path:inset(0 100% 0 0);transition:clip-path 1.1s cubic-bezier(.2,.7,.2,1)}',
+    '.fx-rule::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;pointer-events:none;background-image:radial-gradient(circle,rgba(237,239,236,.2) 1px,transparent 1.3px);background-size:6px 3px;background-repeat:repeat-x;clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.16,1,.3,1)}',
     '.fx-rule.fx-b::after{top:auto;bottom:0}',
     '.fx-rule.fx-in::after{clip-path:inset(0 0 0 0)}',
     '.fx-dm svg circle.on{transition:fill-opacity .25s ease}',
@@ -35,7 +35,7 @@
     '.fx-cmd li[aria-selected="true"]{background:rgba(111,203,146,.1);color:#EDEFEC}',
     '.fx-cmd .fx-empty{padding:16px 12px;color:#79837C;font-size:14px}',
     '.fx-status{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding-top:12px;font-family:' + MONO + ';font-size:12px;color:#79837C;font-variant-numeric:tabular-nums}',
-    '.fx-status i{width:7px;height:7px;border-radius:50%;background:#6FCB92;display:inline-block;animation:fxPulse 2.4s ease-in-out infinite}',
+    '.fx-status i{width:7px;height:7px;border-radius:50%;background:#6FCB92;display:inline-block;}',
     '@keyframes fxPulse{0%,100%{opacity:1}50%{opacity:.35}}',
     '@media (prefers-reduced-motion:reduce){.fx-rule::after{clip-path:none;transition:none}.fx-status i{animation:none}::view-transition-old(root),::view-transition-new(root){animation:none}}'
   ].join('\n');
@@ -147,9 +147,9 @@
 
   var ITEMS = [
     ['Home', 'index.html', 'Page'], ['About', 'about.html', 'Page'],
-    ['meisai.io redesign', 'meisai.html', 'Case study'], ['Yapily Hosted Pages', 'hosted-pages.html', 'Case study'],
+    ['Yapily Hosted Pages', 'hosted-pages.html', 'Case study'], ['HeadBox', 'headbox.html', 'Case study'],
     ['Yapily Console', 'console.html', 'Case study'], ['Yapily Design Systems', 'design-systems-np.html', 'Case study'],
-    ['Yapily Brand & Website', 'brand-website.html', 'Case study'], ['HeadBox', 'headbox.html', 'Case study'],
+    ['Yapily Brand & Website', 'brand-website.html', 'Case study'], ['meisai.io redesign', 'meisai.html', 'Case study'],
     ['Su4erheroes', 'su4erheroes.html', 'Earlier work'], ['Payfriendz', 'payfriendz.html', 'Earlier work'],
     ['Research practice', 'research-practice-np.html', 'Practice'], ['Creative archive', 'creative-archive.html', 'Archive'],
     ['Copy email address', 'copy', 'Action'], ['Download CV (PDF)', 'cv/Alejandro-Velazquez-CV.pdf', 'Download'],
@@ -311,7 +311,7 @@
   }
 
   function init() {
-    [mono, fields, rules, dotMatrix, countUp, sections, command, status].forEach(function (f) { try { f(); } catch (e) { console.warn('site-fx', f.name, e); } });
+    [mono, rules, command, status].forEach(function (f) { try { f(); } catch (e) { console.warn('site-fx', f.name, e); } });
   }
   (function boot() {
     if (!document.querySelector('main') || document.readyState === 'loading') return setTimeout(boot, 80);
