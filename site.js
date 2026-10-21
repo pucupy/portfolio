@@ -332,9 +332,9 @@
     var eyes = root.querySelectorAll('.hero-eye'); if (!eyes.length) return null;
     var face = eyes[0].parentNode, raf = 0, lx = 0, ly = 0;
     var apply = function () { raf = 0; var r = face.getBoundingClientRect(), cell = r.width / 47;
-      var dx = Math.max(-1, Math.min(1, (lx - (r.left + r.width / 2)) / (innerWidth / 2)));
-      var dy = Math.max(-1, Math.min(1, (ly - (r.top + r.height * 0.53)) / (innerHeight / 2)));
-      var t = 'translate(' + (dx * cell * 0.8).toFixed(2) + 'px,' + (dy * cell * 0.6).toFixed(2) + 'px)';
+      var dx = Math.max(-1, Math.min(1, (lx - (r.left + r.width / 2)) / Math.min(innerWidth / 2, 420)));
+      var dy = Math.max(-1, Math.min(1, (ly - (r.top + r.height * 0.53)) / Math.min(innerHeight / 2, 360)));
+      var t = 'translate(' + (dx * cell * 1.7).toFixed(2) + 'px,' + (dy * cell * 1.2).toFixed(2) + 'px)';
       for (var i = 0; i < eyes.length; i++) eyes[i].style.transform = t; };
     var move = function (e) { lx = e.clientX; ly = e.clientY; if (!raf) raf = requestAnimationFrame(apply); };
     addEventListener('pointermove', move, { passive: true });

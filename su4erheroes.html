@@ -118,6 +118,27 @@ article:hover .split>div:last-child::before{background:#6FCB92}
 @media (max-width:900px){.split>div:last-child::before{display:none}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&amp;family=Schibsted+Grotesk:ital,wght@0,400..700;1,400..700&amp;display=swap">
+<style data-mobile>
+html{scroll-padding-top:84px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html,body{overflow-x:clip}
+a,button{-webkit-tap-highlight-color:transparent}
+@media (max-width:600px){
+html{scroll-padding-top:72px}
+header .wrap{flex-wrap:nowrap !important;padding-top:6px !important;padding-bottom:6px !important;gap:8px !important}
+header .brand{min-width:0;min-height:44px}
+header .brand img{height:30px !important}
+header .brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+header nav{gap:0 !important;margin-right:-10px;flex:none}
+header nav a{display:inline-flex !important;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0 10px !important;margin:0 !important;box-sizing:border-box}
+header nav a::after{left:10px;right:10px;bottom:11px}
+footer div:has(>a),main div:has(>a+span+a){flex-direction:column !important;align-items:flex-start !important;gap:0 !important}footer div:has(>a)>span,main div:has(>a+span+a)>span{display:none}main div:has(>a+span+a)>a{display:inline-flex !important;align-items:center;min-height:44px}
+footer a,main nav a{display:inline-flex !important;align-items:center;min-height:44px}
+main nav div:has(>a){gap:12px !important}
+}
+@media (max-width:600px),(hover:none){header .fx-kbtn{display:none !important}}
+@media (max-width:359px){header .brand span{font-size:14px}header nav a{padding:0 7px !important}header nav{margin-right:-7px}}
+@media (hover:none){a.shot:hover img,a.shot:hover image-slot{transform:none}a.cta:hover,a.btn:hover,button:hover{transform:none}}
+</style>
 </head>
 <body>
 <a href="#main" class="skiplink" style="position:absolute;left:-9999px;top:0;z-index:100;background:#6FCB92;color:#0F1211;padding:10px 16px;border-radius:0 0 8px 0;font-size:14px;font-weight:500;text-decoration:none;">Skip to content</a>
