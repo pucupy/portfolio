@@ -129,6 +129,8 @@
       }
       var sweep = REDUCE ? 0.5 : -0.35 + ((t - sweepT0) * 0.00038) % 1.9;
       var glow = 0;
+      var spread = kind === 'face' ? 1 + 0.07 * faceDark : 1, smx = COLS * cw / 2, smy = ROWS * chh / 2;
+      var SX = function (x) { return smx + (x - smx) * spread; }, SY = function (y) { return smy + (y - smy) * spread; };
       var alphaBase = kind === 'hand' ? 0.18 : 0.13;
       var alphaSpan = kind === 'hand' ? 0.78 : 0.72;
       for (var m = 0; m < live.length; m++) {
@@ -154,16 +156,16 @@
             ? 'rgba(' + mx(232, 255) + ',' + mx(240, 255) + ',' + mx(190, 236) + ',' + ha.toFixed(2) + ')'
             : 'rgba(' + mx(86, 190) + ',' + mx(212, 255) + ',' + mx(168, 226) + ',' + ha.toFixed(2) + ')';
           glow = vv > 5 ? faceDark * 0.08 + spec * 0.22 : 0;
-          rad = rad * (1 + faceDark * 0.25 + spec * 0.45);
+          rad = rad * (1 - faceDark * 0.12 + spec * 0.45);
         } else {
           ctx.fillStyle = (vv > 8 ? 'rgba(178,240,200,' : 'rgba(111,203,146,') + aa.toFixed(2) + ')';
         }
         ctx.beginPath();
-        if (kind === 'face') ctx.ellipse(qq * cw + cw / 2, rr * chh + chh / 2 + dy, rad * 0.82, rad * 1.18, 0, 0, 6.2832);
+        if (kind === 'face') ctx.ellipse(SX(qq * cw + cw / 2), SY(rr * chh + chh / 2), rad * 0.82, rad * 1.18, 0, 0, 6.2832);
         else ctx.arc(qq * cw + cw / 2, rr * chh + chh / 2 + dy, rad, 0, 6.2832);
         ctx.fill();
         if (kind === 'face') {
-          var fx0 = qq * cw + cw / 2, fy0 = rr * chh + chh / 2 + dy;
+          var fx0 = SX(qq * cw + cw / 2), fy0 = SY(rr * chh + chh / 2);
           var fr = (0.1 + 0.3 * (1 - vv / 9)) * (0.7 + 0.3 * faceDark);
           ctx.fillStyle = 'rgba(255,70,120,' + fr.toFixed(3) + ')';
           ctx.beginPath(); ctx.ellipse(fx0 - rad * 1.05, fy0, rad * 0.4, rad * 0.75, 0, 0, 6.2832); ctx.fill();
@@ -173,7 +175,7 @@
         if (glow > 0.02) {
           ctx.fillStyle = 'rgba(200,255,222,' + glow.toFixed(3) + ')';
           ctx.beginPath();
-          ctx.arc(qq * cw + cw / 2, rr * chh + chh / 2 + dy, rad * 2.2, 0, 6.2832);
+          ctx.arc(SX(qq * cw + cw / 2), SY(rr * chh + chh / 2 + dy), rad * 2.2, 0, 6.2832);
           ctx.fill();
           glow = 0;
         }
@@ -197,7 +199,7 @@
           if (blink) {
             ctx.shadowBlur = 0;
             ctx.fillStyle = 'rgba(111,203,146,0.8)';
-            for (var qd = -2; qd <= 2; qd++) { ctx.beginPath(); ctx.arc((e2.c + qd) * cw + cw / 2, e2.r * chh + chh / 2, cw * 0.13, 0, 6.2832); ctx.fill(); }
+            for (var qd = -2; qd <= 2; qd++) { ctx.beginPath(); ctx.arc(SX((e2.c + qd) * cw + cw / 2), SY(e2.r * chh + chh / 2), cw * 0.13, 0, 6.2832); ctx.fill(); }
             continue;
           }
           for (var q2 = -2; q2 <= 2; q2++) for (var r2 = -1; r2 <= 1; r2++) {
@@ -209,7 +211,7 @@
             ctx.shadowBlur = 5 * (1 - d2);
             ctx.fillStyle = 'rgba(224,255,235,' + a2.toFixed(2) + ')';
             ctx.beginPath();
-            ctx.arc(gq * cw + cw / 2, gr * chh + chh / 2, cw * (d2 < 0.5 ? 0.32 : 0.20), 0, 6.2832);
+            ctx.arc(SX(gq * cw + cw / 2), SY(gr * chh + chh / 2), cw * (d2 < 0.5 ? 0.32 : 0.20), 0, 6.2832);
             ctx.fill();
           }
         }
@@ -254,8 +256,16 @@
         var s2 = Math.sin(i * 39.346 + j * 11.135) * 24634.6345; s2 = s2 - Math.floor(s2);
         var cl = 0.5 + 0.5 * Math.sin(i * 0.53 + j * 0.91) * Math.sin(i * 0.21 - j * 0.37);
         if (s2 > Math.pow(e, 0.7) * (0.7 + 0.45 * cl) || s2 > 0.985) continue;
-        pts.push({ x: px0, y: py0, i: i, j: j, s: s });
+        pts.push({ x: px0, y: py0, i: i, j: j, s: s, k: 1 });
       }
+      var crc = cv.getBoundingClientRect();
+      [].forEach.call(host.querySelectorAll('h1, h1 ~ p'), function (el) {
+        var r = el.getBoundingClientRect(); if (!r.width) return;
+        var x0 = r.left - crc.left - 16, x1 = r.right - crc.left + 16, y0 = r.top - crc.top - 12, y1 = r.bottom - crc.top + 12;
+        for (var q = 0; q < pts.length; q++) { var p = pts[q];
+          var dx = Math.max(x0 - p.x, 0, p.x - x1), dy = Math.max(y0 - p.y, 0, p.y - y1);
+          var k = 0.12 + 0.88 * Math.min(1, Math.sqrt(dx * dx + dy * dy) / 70); if (k < p.k) p.k = k; }
+      });
       return true;
     };
     var ptr = { x: -9999, y: -9999, on: 0, target: 0 };
@@ -274,8 +284,9 @@
         var hf = 0;
         if (ptr.on > 0.01) {
           var dx = p.x - ptr.x, dy = p.y - ptr.y, d = Math.sqrt(dx * dx + dy * dy);
-          if (d < R) { var f = (1 - d / R) * (1 - d / R) * ptr.on; b = Math.min(1, b + f * 0.55); hf = Math.min(1, f * 1.6); px -= dx * f * 0.32; py -= dy * f * 0.32; }
+          if (d < R) { var f = (1 - d / R) * (1 - d / R) * ptr.on; b = Math.min(1, b + f * 0.4); hf = Math.min(1, f * 1.3); px -= dx * f * 0.2; py -= dy * f * 0.2; }
         }
+        b *= p.k; hf *= p.k;
         var g = b * b, rw = CELL * (0.13 + b * 0.12), rh = rw * 1.7;
         var cr = 86 + 154 * g, cg = 212 + 30 * g, cb = 168 + 30 * g;
         ctx.fillStyle = 'rgba(' + Math.round(cr) + ',' + Math.round(cg) + ',' + Math.round(cb) + ',' + (0.08 + b * 0.78).toFixed(3) + ')';
@@ -289,7 +300,7 @@
         } else ctx.ellipse(px, py, rw, rh, 0, 0, 6.2832);
         ctx.fill();
         if (p.s > 0.55 || b > 0.25) {
-          var fr = (0.05 + 0.16 * (1 - b) + 0.12 * b) * (p.s > 0.9 ? 2.6 : 1);
+          var fr = p.k * (0.05 + 0.16 * (1 - b) + 0.12 * b) * (p.s > 0.9 ? 2.6 : 1);
           ctx.fillStyle = 'rgba(255,70,120,' + fr.toFixed(3) + ')';
           ctx.beginPath(); ctx.ellipse(px - rw * 1.8, py, rw * 0.6, rh * 0.85, 0, 0, 6.2832); ctx.fill();
           ctx.fillStyle = 'rgba(80,110,255,' + fr.toFixed(3) + ')';
@@ -316,4 +327,17 @@
   }
 
   Array.prototype.forEach.call(document.querySelectorAll('canvas[data-field]'), startField);
+  (function (root) {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+    var eyes = root.querySelectorAll('.hero-eye'); if (!eyes.length) return null;
+    var face = eyes[0].parentNode, raf = 0, lx = 0, ly = 0;
+    var apply = function () { raf = 0; var r = face.getBoundingClientRect(), cell = r.width / 47;
+      var dx = Math.max(-1, Math.min(1, (lx - (r.left + r.width / 2)) / (innerWidth / 2)));
+      var dy = Math.max(-1, Math.min(1, (ly - (r.top + r.height * 0.53)) / (innerHeight / 2)));
+      var t = 'translate(' + (dx * cell * 0.8).toFixed(2) + 'px,' + (dy * cell * 0.6).toFixed(2) + 'px)';
+      for (var i = 0; i < eyes.length; i++) eyes[i].style.transform = t; };
+    var move = function (e) { lx = e.clientX; ly = e.clientY; if (!raf) raf = requestAnimationFrame(apply); };
+    addEventListener('pointermove', move, { passive: true });
+    return function () { removeEventListener('pointermove', move); };
+  })(document);
 })();
