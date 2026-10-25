@@ -10,11 +10,11 @@
 <helmet>
   <title>Security and data · Almanac</title>
   <meta name="description" content="How Almanac handles credit application data: where it is held, who can see it, how bank connections work, which providers process it and how decisions are recorded.">
-  <link rel="stylesheet" href="_ds/almanac-design-system-dcf446cd-d43d-4430-961d-531639d17cdf/styles.css">
+  <link rel="stylesheet" href="ds/almanac-design-system-dcf446cd-d43d-4430-961d-531639d17cdf/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;family=Familjen+Grotesk:wght@500;600;700&amp;family=Zen+Dots&amp;display=swap">
   <script src="vendor/lucide.min.js"></script>
-  <script src="_ds/almanac-design-system-dcf446cd-d43d-4430-961d-531639d17cdf/_ds_bundle.js"></script>
+  <script src="ds/almanac-design-system-dcf446cd-d43d-4430-961d-531639d17cdf/_ds_bundle.js"></script>
   <script src="brand-themes.js"></script>
   <script src="brand-assets/almanac-globe.js"></script>
   <script src="brand-assets/brand-motifs.js"></script>
@@ -644,129 +644,7 @@
   </section>
   </sc-if>
 
-  <sc-if value="{{ lab.show }}" hint-placeholder-val="{{ false }}">
-  <div data-internal-tool="brand-lab" style="position:fixed;right:12px;bottom:12px;z-index:100;font-family:'Schibsted Grotesk',sans-serif;color:#F4F5F7">
-    <sc-if value="{{ lab.closed }}" hint-placeholder-val="{{ true }}">
-      <div style="display:flex;align-items:center;height:32px;border-radius:999px;background:#0B0B0C;box-shadow:0 0 0 1px #FFC24B,0 6px 16px rgba(0,0,0,.3);opacity:.85" style-hover="opacity:1">
-        <button type="button" onClick="{{ lab.toggle }}" aria-expanded="false" style="display:flex;align-items:center;gap:6px;height:32px;padding:0 12px 0 4px;border:0;border-radius:999px;background:transparent;color:#FFFFFF;font:inherit;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;max-width:320px;overflow:hidden;text-overflow:ellipsis" style-hover="background:rgba(255,194,75,.14)">
-          <span style="width:24px;height:24px;border-radius:999px;background:#FFC24B;color:#0B0B0C;display:flex;align-items:center;justify-content:center;flex:none"><x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Icon" name="palette" size="{{ 13 }}" hint-size="13px,13px"></x-import></span>
-          Brand lab
-        </button>
-      </div>
-    </sc-if>
-    <sc-if value="{{ lab.open }}" hint-placeholder-val="{{ false }}">
-      <aside role="dialog" aria-label="Brand lab" style="position:fixed;top:0;right:0;bottom:0;width:min(400px,100vw);overflow:auto;overscroll-behavior:contain;background:#0B0B0C;box-shadow:-1px 0 0 rgba(255,255,255,.12),-20px 0 50px rgba(0,0,0,.35);animation:mk-sheet-in 300ms cubic-bezier(.23,1,.32,1) both">
-        <div style="position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:8px;padding:12px 16px 12px 20px;background:#0B0B0C;box-shadow:0 1px 0 rgba(255,255,255,.08)">
-          <p style="margin:0;font-size:15px;font-weight:600">Brand lab</p>
-          <button type="button" onClick="{{ lab.toggle }}" aria-label="Minimise brand lab" title="Minimise" style="margin-left:auto;width:32px;height:32px;border:0;border-radius:8px;background:transparent;color:#F4F5F7;cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:rgba(255,255,255,.08)"><x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Icon" name="minus" size="{{ 16 }}" hint-size="16px,16px"></x-import></button>
-          <button type="button" onClick="{{ lab.hide }}" aria-label="Close brand lab" title="Close" style="width:32px;height:32px;border:0;border-radius:8px;background:transparent;color:#F4F5F7;cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:rgba(255,255,255,.08)"><x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Icon" name="x" size="{{ 16 }}" hint-size="16px,16px"></x-import></button>
-        </div>
 
-        <sc-if value="{{ lab.tabDirection }}" hint-placeholder-val="{{ true }}">
-          <div style="padding:16px 20px 20px;display:flex;flex-direction:column;gap:18px">
-            <a href="competitor-comparison.html" style="height:40px;border-radius:10px;background:transparent;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3);color:#F4F5F7;font-size:14px;font-weight:550;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px" style-hover="background:rgba(255,255,255,.08);color:#F4F5F7"><x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Icon" name="table-2" size="{{ 16 }}" hint-size="16px,16px"></x-import>Compare with competitors</a>
-            <div>
-              <p style="margin:0 0 10px;font-size:12px;font-weight:550;letter-spacing:.06em;text-transform:uppercase;color:#A3AAB8">Brand direction</p>
-              <div style="display:flex;flex-wrap:wrap;gap:6px">
-                <sc-for list="{{ lab.chips }}" as="c" hint-placeholder-count="7">
-                  <button type="button" onClick="{{ c.onClick }}" aria-pressed="{{ c.sel }}" style="{{ c.style }}"><span aria-hidden="true" style="{{ c.symBox }}"></span>{{ c.name }}</button>
-                </sc-for>
-              </div>
-            </div>
-            <div style="padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.05);display:flex;flex-direction:column;gap:6px">
-              <div style="display:flex;align-items:center;gap:8px"><span style="font-size:13px;color:#A3AAB8">Selected</span><span style="margin-left:auto;font-size:15px;font-weight:600">{{ lab.brandName }}</span><sc-if value="{{ lab.hasStatus }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;font-weight:550;padding:2px 8px;border-radius:999px;background:{{ lab.statusBg }};color:#0B0B0C">{{ lab.status }}</span></sc-if></div>
-              <p style="margin:0;font-size:13px;line-height:19px;color:#D7DAE0">{{ lab.summary }}</p>
-              <p style="margin:0;font-size:13px;line-height:19px;color:#A3AAB8"><span style="color:#F4F5F7">Fit:</span> {{ lab.fit }}</p>
-              <p style="margin:0;font-size:13px;line-height:19px;color:#A3AAB8"><span style="color:#F4F5F7">Risk:</span> {{ lab.risk }}</p>
-            </div>
-            <div>
-              <p style="margin:0 0 10px;font-size:12px;font-weight:550;letter-spacing:.06em;text-transform:uppercase;color:#A3AAB8">Hero art direction</p>
-              <div style="display:flex;flex-direction:column;gap:6px">
-                <sc-for list="{{ lab.comps }}" as="c" hint-placeholder-count="3">
-                  <button type="button" onClick="{{ c.onClick }}" aria-pressed="{{ c.sel }}" style="{{ c.style }}"><span style="font-weight:600">{{ c.id }}</span><span style="flex:1;text-align:left">{{ c.name }}</span><span style="font-size:12px;color:#A3AAB8">{{ c.note }}</span></button>
-                </sc-for>
-              </div>
-            </div>
-            <div>
-              <p style="margin:0 0 10px;font-size:12px;font-weight:550;letter-spacing:.06em;text-transform:uppercase;color:#A3AAB8">Colours</p><sc-if value="{{ lab.locked }}" hint-placeholder-val="{{ false }}"><p style="margin:0 0 10px;font-size:12px;color:#A3AAB8">Locked for Industries. The scenes set the background.</p></sc-if>
-              <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-height:300px;overflow:auto;padding-right:2px">
-                <sc-for list="{{ lab.pals }}" as="o" hint-placeholder-count="9">
-                  <button type="button" onClick="{{ o.onClick }}" aria-pressed="{{ o.sel }}" style="{{ o.btn }}"><span aria-hidden="true" style="{{ o.tile }}"><span style="{{ o.a }}"></span><span style="{{ o.c }}"></span></span><span style="font-size:12px;line-height:16px;text-align:left">{{ o.label }}</span></button>
-                </sc-for>
-              </div>
-            </div>
-            <div>
-              <p style="margin:0 0 10px;font-size:12px;font-weight:550;letter-spacing:.06em;text-transform:uppercase;color:#A3AAB8">Background</p><sc-if value="{{ lab.locked }}" hint-placeholder-val="{{ false }}"><p style="margin:0 0 10px;font-size:12px;color:#A3AAB8">Locked for Industries. The scenes set the background.</p></sc-if>
-              <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
-                <sc-for list="{{ lab.bgs }}" as="o" hint-placeholder-count="6">
-                  <button type="button" onClick="{{ o.onClick }}" aria-pressed="{{ o.sel }}" style="{{ o.btn }}"><span aria-hidden="true" style="{{ o.tile }}">{{ o.thumb }}</span><span style="font-size:12px;line-height:16px;text-align:left">{{ o.label }}</span></button>
-                </sc-for>
-              </div>
-            </div>
-            <div>
-              <p style="margin:0 0 10px;font-size:12px;font-weight:550;letter-spacing:.06em;text-transform:uppercase;color:#A3AAB8">Section light</p><sc-if value="{{ lab.locked }}" hint-placeholder-val="{{ false }}"><p style="margin:0 0 10px;font-size:12px;color:#A3AAB8">Locked for Industries.</p></sc-if>
-              <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:20px">
-                <sc-for list="{{ lab.sheenTiles }}" as="o" hint-placeholder-count="7">
-                  <button type="button" onClick="{{ o.onClick }}" aria-pressed="{{ o.sel }}" style="{{ o.btn }}"><span aria-hidden="true" style="{{ o.tile }}"></span><span style="font-size:12px;line-height:16px;text-align:left">{{ o.label }}</span></button>
-                </sc-for>
-              </div>
-              <p style="margin:0 0 10px;font-size:12px;font-weight:550;letter-spacing:.06em;text-transform:uppercase;color:#A3AAB8">Texture</p><sc-if value="{{ lab.locked }}" hint-placeholder-val="{{ false }}"><p style="margin:0 0 10px;font-size:12px;color:#A3AAB8">Locked for Industries.</p></sc-if>
-              <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
-                <sc-for list="{{ lab.patternTiles }}" as="o" hint-placeholder-count="9">
-                  <button type="button" onClick="{{ o.onClick }}" aria-pressed="{{ o.sel }}" style="{{ o.btn }}"><span aria-hidden="true" style="{{ o.tile }}"><span style="{{ o.tex }}"></span></span><span style="font-size:12px;line-height:16px;text-align:left">{{ o.label }}</span></button>
-                </sc-for>
-              </div>
-            </div>
-            <div>
-              <p style="margin:0 0 10px;font-size:12px;font-weight:550;letter-spacing:.06em;text-transform:uppercase;color:#A3AAB8">Mode</p><sc-if value="{{ lab.locked }}" hint-placeholder-val="{{ false }}"><p style="margin:0 0 10px;font-size:12px;color:#A3AAB8">Locked for Industries.</p></sc-if>
-              <div style="display:flex;gap:4px;padding:3px;border-radius:9px;background:rgba(255,255,255,.08)">
-                <sc-for list="{{ lab.modes }}" as="m" hint-placeholder-count="2"><button type="button" onClick="{{ m.onClick }}" aria-pressed="{{ m.sel }}" style="{{ m.style }}">{{ m.label }}</button></sc-for>
-              </div>
-            </div>
-            
-            
-            <p style="margin:0;font-size:12px;line-height:17px;color:#8A8F99">Internal only. Not rendered when the site is built with ?production=1. Content, product UI and the form are identical in every direction.</p>
-          </div>
-        </sc-if>
-
-        <sc-if value="{{ lab.tabTokens }}" hint-placeholder-val="{{ false }}">
-          <div style="padding:16px 20px 20px;display:flex;flex-direction:column;gap:18px;font-size:13px">
-            <div>
-              <p style="margin:0 0 8px;font-size:12px;font-weight:550;letter-spacing:.06em;text-transform:uppercase;color:#A3AAB8">1 · Approved product tokens</p>
-              <p style="margin:0;color:#D7DAE0;line-height:19px">Almanac Design System v7.37. Used unchanged for the product preview, form fields, badges and buttons inside cards. Never themed.</p>
-            </div>
-            <div>
-              <p style="margin:0 0 8px;font-size:12px;font-weight:550;letter-spacing:.06em;text-transform:uppercase;color:#A3AAB8">2 · Proposed marketing extensions</p>
-              <sc-for list="{{ lab.schema }}" as="s" hint-placeholder-count="6">
-                <div style="display:grid;grid-template-columns:120px 1fr;gap:8px;padding:7px 0;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)"><code style="font-size:12px;color:#F4F5F7">{{ s.name }}</code><span style="color:#A3AAB8">{{ s.desc }} <span style="color:#D7DAE0">Share with app: {{ s.share }}</span></span></div>
-              </sc-for>
-            </div>
-            <div>
-              <p style="margin:0 0 8px;font-size:12px;font-weight:550;letter-spacing:.06em;text-transform:uppercase;color:#A3AAB8">3 · Experimental theme: {{ lab.brandName }}</p>
-              <sc-for list="{{ lab.values }}" as="v" hint-placeholder-count="8">
-                <div style="display:flex;align-items:center;gap:8px;padding:6px 0;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)"><span style="width:14px;height:14px;border-radius:4px;flex:none;background:{{ v.swatch }};box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)"></span><span style="flex:1;color:#D7DAE0">{{ v.key }}</span><code style="font-size:12px;color:#F4F5F7;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ v.val }}</code><span style="width:34px;text-align:right;font-size:12px;font-weight:600;color:{{ v.provColor }}">{{ v.prov }}</span></div>
-              </sc-for>
-              <p style="margin:10px 0 0;color:#8A8F99;line-height:17px">DS approved · E from Brand Explorations · P proposed here, not in any source.</p>
-            </div>
-          </div>
-        </sc-if>
-
-        <sc-if value="{{ lab.tabLog }}" hint-placeholder-val="{{ false }}">
-          <div style="padding:16px 20px 20px;display:flex;flex-direction:column;gap:12px;font-size:13px">
-            <sc-for list="{{ lab.summaryRows }}" as="r" hint-placeholder-count="7">
-              <div style="display:flex;align-items:center;gap:8px;padding:8px 0;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)"><span style="flex:1;color:#F4F5F7">{{ r.name }}</span><span style="color:#A3AAB8">{{ r.score }}</span><span style="width:80px;text-align:right;color:#D7DAE0">{{ r.decision }}</span></div>
-            </sc-for>
-            <p style="margin:8px 0 0;font-size:12px;font-weight:550;letter-spacing:.06em;text-transform:uppercase;color:#A3AAB8">Decision log</p>
-            <sc-if value="{{ lab.noLog }}" hint-placeholder-val="{{ true }}"><p style="margin:0;color:#8A8F99">No decisions recorded yet. Score directions in Compare.</p></sc-if>
-            <sc-for list="{{ lab.log }}" as="l" hint-placeholder-count="0">
-              <div style="padding:8px 0;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)"><p style="margin:0;color:#F4F5F7">{{ l.title }}</p><p style="margin:2px 0 0;color:#A3AAB8">{{ l.when }} · {{ l.note }}</p></div>
-            </sc-for>
-          </div>
-        </sc-if>
-      </aside>
-    </sc-if>
-  </div>
-  </sc-if>
 
   <sc-if value="{{ cmp.open }}" hint-placeholder-val="{{ false }}">
   <div data-internal-tool="brand-compare" role="dialog" aria-label="Compare brand directions" style="position:fixed;inset:0;z-index:200;background:#0B0B0C;color:#F4F5F7;font-family:'Schibsted Grotesk',sans-serif;display:flex;flex-direction:column">
@@ -834,7 +712,7 @@
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;showLab&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Brand lab&quot;},&quot;defaultBrand&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;current&quot;,&quot;softlight&quot;,&quot;softwhite&quot;,&quot;grid&quot;,&quot;rule&quot;,&quot;spectrum&quot;,&quot;twoways&quot;],&quot;default&quot;:&quot;current&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand lab&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;showLab&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Brand lab&quot;},&quot;defaultBrand&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;current&quot;,&quot;softlight&quot;,&quot;softwhite&quot;,&quot;grid&quot;,&quot;rule&quot;,&quot;spectrum&quot;,&quot;twoways&quot;],&quot;default&quot;:&quot;current&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand lab&quot;}}">
 const SEC_PROVIDERS = [
       { name: 'AWS', role: 'Database files, documents and encryption keys', where: 'London', uk: true },
       { name: 'Neon', role: 'Primary database', where: 'London', uk: true },
@@ -878,7 +756,7 @@ class Component extends DCLogic {
       w: window.innerWidth, ready: !!window.ALMANAC_BRANDS,
       f: { name: '', email: '', company: '', role: 'Credit controller', pilot: false, tried: false, done: false }
     };
-    this.labMode = props.showLab === true;
+    this.labMode = false;
     if (!this.labMode && !this.embed) Object.assign(this.state, { brand: 'ledger', comp: 'I', mode: 'light', pattern: 'brand', sheen: 'edge', bg: 'globe', pal: 'night-mint', labOpen: false, labHidden: true });
   }
   componentDidUpdate(prev) {
@@ -992,7 +870,7 @@ class Component extends DCLogic {
     window.addEventListener('resize', this.onResize);
     this.onKey = (e) => {
       const t = e.target && e.target.tagName;
-      if (e.shiftKey && (e.key === 'B' || e.key === 'b') && !/INPUT|TEXTAREA|SELECT/.test(t || '')) this.save({ labHidden: !this.state.labHidden, labOpen: this.state.labHidden });
+      if (false && e.shiftKey && (e.key === 'B' || e.key === 'b') && !/INPUT|TEXTAREA|SELECT/.test(t || '')) this.save({ labHidden: !this.state.labHidden, labOpen: this.state.labHidden });
     };
     window.addEventListener('keydown', this.onKey);
     if (!window.ALMANAC_BRANDS) this.poll = setInterval(() => { if (window.ALMANAC_BRANDS) { clearInterval(this.poll); this.setState({ ready: true }); } }, 50);
@@ -1320,7 +1198,7 @@ class Component extends DCLogic {
     const scoreOf = (id) => { const e = s.evals[id]; if (!e || !e.scores) return null; const v = Object.values(e.scores); return v.length ? v.reduce((a, c) => a + c, 0) : null; };
     const COMPS = [['I', 'Industries', 'Illustrated trade scenes'], ['B', 'Product-first', 'Light, live UI'], ['C', 'Editorial', 'Type-led poster']];
     const lab = {
-      show: !this.embed && !this.production && this.props.showLab === true,
+      show: false,
       open: s.labOpen, closed: !s.labOpen, toggle: () => this.setState({ labOpen: !s.labOpen }),
       hide: () => this.setState({ labOpen: false }),
       locked: lockInd,
