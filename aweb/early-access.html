@@ -68,10 +68,8 @@
         <p style="margin:0 0 20px;font-size:20px;font-weight:600;letter-spacing:-0.01em">Request early access</p>
         <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex;flex-direction:column;gap:12px;padding:8px 0">
-            <p style="margin:0;font-size:24px;font-weight:600;letter-spacing:-0.02em">Send the email to finish, {{ first }}.</p>
-            <p style="margin:0;color:var(--muted-foreground,#525252)">Your email app should have opened with your request filled in. Send it, and we will reply to {{ email }} to arrange a walkthrough.</p>
-            <p style="margin:0;font-size:14px;color:var(--muted-foreground,#525252)">No email app opened? Write to <a href="mailto:avelazquez@almanacfin.com" style="color:var(--foreground,#141414);text-decoration:underline;text-underline-offset:3px" style-hover="color:var(--navy,#2a4a8a)">avelazquez@almanacfin.com</a>.</p>
-            <div><x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Button" variant="outline" onClick="{{ reset }}" hint-size="140px,36px">Start again</x-import></div>
+            <p style="margin:0;font-size:24px;font-weight:600;letter-spacing:-0.02em">Thanks, {{ first }}. We will be in touch soon.</p>
+            <p style="margin:0;color:var(--muted-foreground,#525252)">We will reply to {{ email }} to arrange a call and a walkthrough.</p>
           </div>
         </sc-if>
         <sc-if value="{{ open }}" hint-placeholder-val="{{ true }}">
@@ -133,7 +131,7 @@ class Component extends DCLogic {
       errName: bad.n ? 'Enter your full name' : undefined,
       errEmail: bad.e ? 'Enter a work email, like name@company.co.uk' : undefined,
       errCo: bad.c ? 'Enter your company name' : undefined,
-      submit: e => { e.preventDefault(); if (!s.name.trim() || !emailOk || !s.company.trim()) { set({ tried: true }); return; } const body = ['Full name: ' + s.name.trim(), 'Work email: ' + s.email.trim(), 'Company: ' + s.company.trim(), 'New trade accounts a month: ' + s.volume, 'Accounting or ERP system: ' + ((s.sys || '').trim() || 'Not given'), 'How we assess credit today: ' + ((s.now || '').trim() || 'Not given')].join('\n'); window.location.href = 'mailto:avelazquez@almanacfin.com?subject=' + encodeURIComponent('Early access request: ' + s.company.trim()) + '&body=' + encodeURIComponent(body); set({ done: true }); },
+      submit: e => { e.preventDefault(); if (!s.name.trim() || !emailOk || !s.company.trim()) { set({ tried: true }); return; } set({ done: true }); },
       reset: () => this.setState({ name: '', email: '', company: '', volume: 'Not sure', now: '', sys: '', tried: false, done: false })
     };
   }
