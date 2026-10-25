@@ -218,12 +218,11 @@
 
           <sc-if value="{{ pv.checks }}" hint-placeholder-val="{{ false }}">
             <div style="margin-top:24px;background:var(--card);border-radius:12px;box-shadow:var(--shadow-card);overflow:hidden;transition:transform 220ms cubic-bezier(.23,1,.32,1), box-shadow 220ms cubic-bezier(.23,1,.32,1)" style-hover="transform:translateY(-4px);box-shadow:var(--shadow-card),0 22px 40px -18px rgba(15,23,42,.35)">
-              <div style="display:flex;padding:12px 20px;font-size:12px;font-weight:500;color:var(--muted-foreground);box-shadow:inset 0 -1px 0 var(--hair)"><span style="flex:1">Check</span><span style="flex:1.4">Result</span><span style="width:96px;text-align:right">Status</span></div>
+              <div style="display:flex;padding:12px 20px;font-size:12px;font-weight:500;color:var(--muted-foreground);box-shadow:inset 0 -1px 0 var(--hair)"><span style="flex:1 1 auto;min-width:0;display:flex;flex-wrap:wrap;gap:2px 12px"><span style="flex:1 1 110px">Check</span><span style="flex:1.4 1 170px">Result</span></span><span style="flex:none;min-width:96px;text-align:right">Status</span></div>
               <sc-for list="{{ checks }}" as="c" hint-placeholder-count="5">
                 <div style="display:flex;align-items:center;gap:12px;padding:14px 20px;font-size:14px;box-shadow:inset 0 -1px 0 var(--hair)">
-                  <span style="flex:1;font-weight:550;min-width:0">{{ c.name }}</span>
-                  <span style="flex:1.4;color:var(--muted-foreground);min-width:0;opacity:{{ c.op }};transition:opacity 220ms cubic-bezier(.23,1,.32,1)">{{ c.detail }}</span>
-                  <span style="width:96px;display:flex;justify-content:flex-end"><x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Badge" variant="{{ c.v }}" hint-size="80px,22px">{{ c.status }}</x-import></span>
+                  <span style="flex:1 1 auto;min-width:0;display:flex;flex-wrap:wrap;gap:2px 12px"><span style="flex:1 1 110px;font-weight:550;min-width:0">{{ c.name }}</span><span style="flex:1.4 1 170px;color:var(--muted-foreground);min-width:0;opacity:{{ c.op }};transition:opacity 220ms cubic-bezier(.23,1,.32,1)">{{ c.detail }}</span></span>
+                  <span style="flex:none;min-width:96px;display:flex;justify-content:flex-end"><x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Badge" variant="{{ c.v }}" hint-size="80px,22px">{{ c.status }}</x-import></span>
                 </div>
               </sc-for>
               <div style="display:flex;align-items:center;gap:12px;padding:14px 20px;font-size:14px">
