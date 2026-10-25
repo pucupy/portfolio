@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Competitor comparison · Almanac website lab</title>
+  <link rel="stylesheet" href="_ds/almanac-design-system-dcf446cd-d43d-4430-961d-531639d17cdf/styles.css">
+  <script src="vendor/lucide.min.js"></script>
+  <script src="_ds/almanac-design-system-dcf446cd-d43d-4430-961d-531639d17cdf/_ds_bundle.js"></script>
+  <script src="research/lab-data.js"></script>
+  <script src="image-slot.js"></script>
+  <style>html,body{margin:0;background:var(--canvas)} a{color:var(--accent);text-underline-offset:3px} a:hover{color:var(--foreground)}</style>
+</helmet>
+<div style="min-height:100vh;background:var(--canvas);color:var(--foreground);font-family:'Schibsted Grotesk',sans-serif;font-size:14px;line-height:20px">
+  <header style="position:sticky;top:0;z-index:5;background:var(--card);box-shadow:0 1px 0 var(--hair)">
+    <div style="max-width:100rem;margin:0 auto;padding:14px clamp(16px,3vw,32px) 0">
+      <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;text-decoration:none;color:var(--muted-foreground)" style-hover="color:var(--foreground)"><x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Icon" name="arrow-left" size="{{ 14 }}" hint-size="14px,14px"></x-import>Back to website</a>
+      <h1 style="margin:6px 0 0;font-size:22px;line-height:30px;font-weight:600;letter-spacing:-0.02em">Competitor comparison</h1>
+      <p style="margin:0;font-size:13px;color:var(--muted-foreground)">How competitor homepages compare with Almanac, section by section · Checked {{ updated }}</p>
+      <div role="tablist" aria-label="View" style="display:flex;gap:24px;margin-top:8px;overflow-x:auto;scrollbar-width:none">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4"><button type="button" role="tab" aria-selected="{{ t.sel }}" onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.label }}<sc-if value="{{ t.hasCount }}" hint-placeholder-val="{{ false }}"><span style="{{ t.countStyle }}">{{ t.count }}</span></sc-if></button></sc-for>
+      </div>
+    </div>
+    <sc-if value="{{ showFilters }}" hint-placeholder-val="{{ true }}"><div style="box-shadow:inset 0 1px 0 var(--hair);background:var(--background)">
+      <div style="max-width:100rem;margin:0 auto;padding:10px clamp(16px,3vw,32px);display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center">
+        <sc-if value="{{ showLens }}" hint-placeholder-val="{{ true }}"><div style="display:flex;align-items:center;gap:8px">
+          <span id="lens-l" style="font-size:12px;font-weight:550;color:var(--muted-foreground)">Focus</span>
+          <div role="group" aria-labelledby="lens-l" style="display:flex;gap:2px;padding:3px;border-radius:11px;background:var(--surface-sunken)">
+            <sc-for list="{{ lenses }}" as="l" hint-placeholder-count="4"><button type="button" aria-pressed="{{ l.sel }}" onClick="{{ l.onClick }}" style="{{ l.style }}">{{ l.label }}</button></sc-for>
+          </div>
+        </div></sc-if>
+        <sc-if value="{{ showSites }}" hint-placeholder-val="{{ true }}"><div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;flex:1 1 32rem;min-width:0">
+          <span style="font-size:12px;font-weight:550;color:var(--muted-foreground)">Sites</span>
+          <sc-for list="{{ siteGroups }}" as="g" hint-placeholder-count="5"><div role="group" aria-label="{{ g.name }}" style="display:flex;flex-wrap:wrap;align-items:center;gap:4px">
+            <sc-if value="{{ g.hasLabel }}" hint-placeholder-val="{{ true }}"><span style="font-size:11px;color:var(--muted-foreground);margin-right:2px">{{ g.name }}</span></sc-if>
+            <sc-for list="{{ g.items }}" as="c" hint-placeholder-count="2"><button type="button" aria-pressed="{{ c.sel }}" title="{{ c.title }}" onClick="{{ c.onClick }}" style="{{ c.style }}"><sc-if value="{{ c.sel }}" hint-placeholder-val="{{ false }}"><x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Icon" name="check" size="{{ 12 }}" hint-size="12px,12px"></x-import></sc-if>{{ c.name }}</button></sc-for>
+          </div></sc-for>
+          <div style="display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted-foreground)"><span>{{ selCount }}</span><sc-if value="{{ canReset }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ resetSel }}" style="border:0;background:none;padding:0;font:inherit;font-size:12px;font-weight:500;color:var(--foreground);cursor:pointer" style-hover="text-decoration:underline">Reset</button></sc-if></div>
+        </div></sc-if>
+      </div>
+    </div></sc-if>
+  </header>
+
+  <sc-if value="{{ isGrid }}" hint-placeholder-val="{{ true }}">
+  <main style="max-width:100rem;margin:0 auto;padding:24px clamp(16px,3vw,32px) 64px">
+    <div style="background:var(--card);border-radius:12px;box-shadow:var(--shadow-card);overflow:auto;max-height:calc(100vh - 170px)">
+      <div style="{{ gridStyle }}">
+        <div style="position:sticky;top:0;left:0;z-index:3;background:var(--card);padding:12px 16px;box-shadow:inset 0 -1px 0 var(--hair),inset -1px 0 0 var(--hair);font-size:12px;font-weight:500;color:var(--muted-foreground)">Block</div>
+        <sc-for list="{{ cols }}" as="c" hint-placeholder-count="4">
+          <div style="position:sticky;top:0;z-index:2;background:var(--card);padding:12px 16px;box-shadow:inset 0 -1px 0 var(--hair),inset -1px 0 0 var(--hair)">
+            <div style="display:flex;align-items:center;gap:8px"><span style="font-size:14px;font-weight:600">{{ c.name }}</span><x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Badge" variant="{{ c.statusV }}" size="sm" dot="{{ false }}" hint-size="70px,20px">{{ c.status }}</x-import></div>
+            <p style="margin:2px 0 0;font-size:12px;color:var(--muted-foreground)">{{ c.audience }}</p>
+            <a href="{{ c.url }}" target="_blank" rel="noopener" style="font-size:12px">{{ c.host }}</a>
+          </div>
+        </sc-for>
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="12">
+          <div style="position:sticky;left:0;z-index:1;background:var(--card);padding:14px 16px;box-shadow:inset 0 -1px 0 var(--hair),inset -1px 0 0 var(--hair)">
+            <p style="margin:0;font-weight:600">{{ r.name }}</p>
+            <p style="margin:2px 0 0;font-size:12px;color:var(--muted-foreground)">{{ r.lens }} · {{ r.q }}</p>
+            <sc-if value="{{ r.hasRec }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ r.openRec }}" style="display:inline-flex;align-self:flex-start;align-items:center;gap:6px;margin:10px 0 0;height:28px;padding:0 10px;border:0;border-radius:8px;cursor:pointer;font:inherit;font-size:12px;font-weight:600;color:var(--navy);background:var(--accent-pill)" style-hover="text-decoration:underline">{{ r.recLabel }}</button></sc-if>
+          </div>
+          <sc-for list="{{ r.cells }}" as="x" hint-placeholder-count="4">
+            <div style="{{ x.style }}">
+              <sc-if value="{{ x.has }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Badge" variant="{{ x.v }}" size="sm" hint-size="70px,20px">{{ x.rating }}</x-import></div>
+                <p style="margin:8px 0 0;font-size:13px;line-height:19px">{{ x.finding }}</p>
+                <sc-if value="{{ x.hasNote }}" hint-placeholder-val="{{ false }}"><p style="margin:6px 0 0;font-size:12px;line-height:17px;color:var(--muted-foreground)">{{ x.note }}</p></sc-if>
+              </sc-if>
+              <sc-if value="{{ x.none }}" hint-placeholder-val="{{ false }}"><p style="margin:0;font-size:12px;color:var(--muted-foreground)">Not reviewed</p></sc-if>
+            </div>
+          </sc-for>
+        </sc-for>
+      </div>
+    </div>
+    
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isVisual }}" hint-placeholder-val="{{ false }}">
+  <main style="max-width:120rem;margin:0 auto;padding:24px clamp(16px,3vw,32px) 64px;display:flex;flex-direction:column;gap:32px">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px">
+      <div role="group" aria-label="Section" style="display:flex;flex-wrap:wrap;gap:2px;padding:3px;border-radius:11px;background:var(--surface-sunken)">
+        <sc-for list="{{ vsecs }}" as="l" hint-placeholder-count="8"><button type="button" aria-pressed="{{ l.sel }}" onClick="{{ l.onClick }}" style="{{ l.style }}">{{ l.label }}</button></sc-for>
+      </div>
+      <div role="group" aria-label="Compare" style="display:flex;gap:2px;padding:3px;border-radius:11px;background:var(--surface-sunken)">
+        <sc-for list="{{ vmodes }}" as="l" hint-placeholder-count="2"><button type="button" aria-pressed="{{ l.sel }}" onClick="{{ l.onClick }}" style="{{ l.style }}">{{ l.label }}</button></sc-for>
+      </div>
+      <sc-if value="{{ isPair }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px">
+          <select aria-label="Left site" value="{{ pairA }}" onChange="{{ onPairA }}" key="{{ pairA }}" style="height:32px;border:0;border-radius:8px;box-shadow:inset 0 0 0 1px var(--control-edge);background:var(--card);font:inherit;font-size:13px;padding:0 8px"><sc-for list="{{ pairOptsA }}" as="o" hint-placeholder-count="10"><option value="{{ o.id }}" selected="{{ o.sel }}">{{ o.name }}</option></sc-for></select>
+          <button type="button" onClick="{{ swapPair }}" aria-label="Swap sides" style="width:32px;height:32px;border:0;border-radius:8px;background:var(--card);box-shadow:inset 0 0 0 1px var(--control-edge);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--foreground)"><x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Icon" name="arrow-left-right" size="{{ 14 }}" hint-size="14px,14px"></x-import></button>
+          <select aria-label="Right site" value="{{ pairB }}" onChange="{{ onPairB }}" key="{{ pairB }}" style="height:32px;border:0;border-radius:8px;box-shadow:inset 0 0 0 1px var(--control-edge);background:var(--card);font:inherit;font-size:13px;padding:0 8px"><sc-for list="{{ pairOptsB }}" as="o" hint-placeholder-count="10"><option value="{{ o.id }}" selected="{{ o.sel }}">{{ o.name }}</option></sc-for></select>
+        </div>
+      </sc-if>
+      <div role="group" aria-label="Viewport" style="display:none">
+        <sc-for list="{{ vvps }}" as="l" hint-placeholder-count="2"><button type="button" aria-pressed="{{ l.sel }}" onClick="{{ l.onClick }}" style="{{ l.style }}">{{ l.label }}</button></sc-for>
+      </div>
+      <p style="margin:0;font-size:13px;color:var(--muted-foreground)">Pick a section to see it on each site. Almanac shows live; competitors show 1440px screenshots, scroll inside a frame to see more. Empty frames take a dropped screenshot.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:{{ vcolsTpl }};gap:20px;align-items:start">
+      <sc-for list="{{ vcols }}" as="c" hint-placeholder-count="5">
+        <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+          <div style="display:flex;align-items:center;gap:8px;min-width:0"><span style="font-size:14px;font-weight:600;white-space:nowrap">{{ c.name }}</span><span style="font-size:12px;color:var(--muted-foreground);white-space:nowrap">{{ c.group }}</span><a href="{{ c.url }}" target="_blank" rel="noopener" style="margin-left:auto;font-size:12px;white-space:nowrap">Open site</a></div>
+          <div style="{{ c.frameStyle }}">
+            <sc-if value="{{ c.isLive }}" hint-placeholder-val="{{ false }}"><div data-live-frame="{{ c.baseW }}" style="position:absolute;inset:0;overflow:hidden"><iframe src="{{ c.src }}" data-anchor="{{ c.anchor }}" title="Almanac section preview" loading="lazy" style="{{ c.iframeStyle }}"></iframe></div></sc-if>
+            <sc-if value="{{ c.isShot }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;overflow:auto;display:flex;flex-direction:column;gap:12px;background:var(--canvas)"><sc-for list="{{ c.shots }}" as="u" hint-placeholder-count="1"><img src="{{ u.src }}" alt="{{ u.alt }}" loading="lazy" style="display:block;width:100%;height:auto"></sc-for></div></sc-if>
+            <sc-if value="{{ c.isAbsent }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:24px;text-align:center;background:var(--card)"><x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Icon" name="circle-off" size="{{ 24 }}" style="color:var(--muted-foreground)" hint-size="24px,24px"></x-import><p style="margin:0;font-size:16px;font-weight:600">Absent</p><p style="margin:0;max-width:28rem;font-size:13px;color:var(--muted-foreground);text-wrap:pretty">{{ c.name }} has no {{ c.secName }} on its site.</p></div></sc-if>
+            <sc-if value="{{ c.isSlot }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;inset:0"><image-slot id="{{ c.slotId }}" shape="rect" fit="cover" placeholder="{{ c.ph }}"></image-slot></div></sc-if>
+          </div>
+          <sc-if value="{{ c.has }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;align-items:center;gap:6px"><x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Badge" variant="{{ c.v }}" size="sm" hint-size="70px,20px">{{ c.rating }}</x-import></div>
+            <p style="margin:0;font-size:13px;line-height:19px">{{ c.finding }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <sc-if value="{{ vHasRec }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ vOpenRec }}" style="display:inline-flex;align-self:flex-start;align-items:center;gap:6px;margin:0;height:28px;padding:0 10px;border:0;border-radius:8px;cursor:pointer;font:inherit;font-size:12px;font-weight:600;color:var(--navy);background:var(--accent-pill);height:32px;font-size:13px" style-hover="text-decoration:underline">{{ vRecLabel }}</button></sc-if>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isColour }}" hint-placeholder-val="{{ false }}">
+  <main style="max-width:72rem;margin:0 auto;padding:24px clamp(16px,3vw,32px) 64px;display:flex;flex-direction:column;gap:12px">
+    <p style="margin:0 0 8px;color:var(--muted-foreground);font-size:14px;max-width:48rem">Each brand direction's main colours next to the direct competitors closest to them. Competitor colours were judged by eye from the screenshots.</p>
+    <sc-for list="{{ clash }}" as="c" hint-placeholder-count="7">
+      <div style="background:var(--card);border-radius:12px;box-shadow:0 0 0 1px var(--border);padding:18px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span style="font-size:16px;font-weight:600">{{ c.direction }}</span><x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Badge" variant="{{ c.v }}" hint-size="80px,22px">{{ c.verdict }}</x-import></div>
+          <span style="font-size:13px;color:var(--muted-foreground)">Closest: {{ c.near }}</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:12px;color:var(--muted-foreground)">{{ c.wasLabel }}</span>
+          <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ c.was }}" as="w" hint-placeholder-count="2"><span style="display:flex;align-items:center;gap:6px;font-size:13px"><span style="{{ w.sw }}"></span>{{ w.name }}</span></sc-for></div>
+          <sc-if value="{{ c.hasNow }}" hint-placeholder-val="{{ false }}">
+            <span style="font-size:12px;color:var(--muted-foreground);margin-top:4px">Now</span>
+            <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ c.now }}" as="w" hint-placeholder-count="2"><span style="display:flex;align-items:center;gap:6px;font-size:13px"><span style="{{ w.sw }}"></span>{{ w.name }}</span></sc-for></div>
+          </sc-if>
+        </div>
+        <p style="margin:0;font-size:14px;text-wrap:pretty">{{ c.note }}</p>
+      </div>
+    </sc-for>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isOpps }}" hint-placeholder-val="{{ false }}">
+  <main style="max-width:64rem;margin:0 auto;padding:24px clamp(16px,3vw,32px) 64px;display:flex;flex-direction:column;gap:12px">
+    <p style="margin:0 0 4px;color:var(--muted-foreground);max-width:48rem">Each recommendation starts from what competitors do, says why it matters for Almanac, and names how we will know it worked. Status reflects the website prototype on 24 Oct 2026.</p>
+    <sc-if value="{{ recFiltered }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px"><span>Showing recommendations for <span style="font-weight:600">{{ recBlockName }}</span></span><button type="button" onClick="{{ recClear }}" style="border:0;background:none;padding:0;cursor:pointer;font:inherit;font-size:13px;font-weight:500;color:var(--foreground)" style-hover="text-decoration:underline">Show all</button></div></sc-if>
+    <sc-for list="{{ opps }}" as="o" hint-placeholder-count="8">
+      <article style="background:var(--card);border-radius:12px;box-shadow:var(--shadow-card);padding:20px 24px">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px">
+          <x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Badge" variant="{{ o.v }}" dot="{{ false }}" hint-size="40px,22px">{{ o.p }}</x-import>
+          <span style="font-size:12px;color:var(--muted-foreground)">{{ o.block }}</span>
+          <span style="margin-left:auto"><x-import component-from-global-scope="AlmanacDesignSystem_dcf446.Badge" variant="{{ o.sv }}" hint-size="90px,22px">{{ o.status }}</x-import></span>
+        </div>
+        <p style="margin:12px 0 0;font-size:16px;line-height:24px;font-weight:600;text-wrap:pretty">{{ o.change }}</p>
+        <dl style="margin:16px 0 0;display:grid;grid-template-columns:minmax(0,9rem) minmax(0,1fr);gap:10px 20px">
+          <dt style="font-size:12px;font-weight:500;color:var(--muted-foreground)">Observation</dt><dd style="margin:0;text-wrap:pretty">{{ o.observation }}</dd>
+          <dt style="font-size:12px;font-weight:500;color:var(--muted-foreground)">Why it matters</dt><dd style="margin:0;text-wrap:pretty">{{ o.relevance }}</dd>
+          <dt style="font-size:12px;font-weight:500;color:var(--muted-foreground)">Validation</dt><dd style="margin:0;text-wrap:pretty">{{ o.validation }}</dd>
+          <dt style="font-size:12px;font-weight:500;color:var(--muted-foreground)">See</dt><dd style="margin:0;display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ o.refs }}" as="f" hint-placeholder-count="2"><button type="button" onClick="{{ f.onClick }}" style="height:24px;padding:0 10px;border:0;border-radius:8px;background:var(--surface-sunken);font:inherit;font-size:12px;font-weight:500;color:var(--foreground);cursor:pointer" style-hover="text-decoration:underline">{{ f.name }}</button></sc-for></dd>
+        </dl>
+      </article>
+    </sc-for>
+  </main>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lens: 'All', view: 'grid', sel: null, ready: !!window.LAB_DATA, vsec: 'hero', vvp: 'desktop', vmode: 'all', pairA: 'almanac', pairB: 'grand' };
+  componentDidMount() {
+    if (!window.LAB_DATA) this.p = setInterval(() => { if (window.LAB_DATA) { clearInterval(this.p); this.setState({ ready: true }); } }, 50);
+    try { const s = JSON.parse(localStorage.getItem('almanac-compare-v1') || 'null'); if (s && s.sel) this.setState({ sel: s.sel }); } catch (e) {}
+  }
+  fit() { document.querySelectorAll('[data-live-frame]').forEach(el => { const w = +el.getAttribute('data-live-frame') || 1280; const k = el.clientWidth / w; el.style.setProperty('--s', String(k)); const f = el.querySelector('iframe'); if (f && k) f.style.height = Math.ceil(el.clientHeight / k) + 'px'; if (!el.__ro) { el.__ro = new ResizeObserver(() => el.style.setProperty('--s', String(el.clientWidth / w))); el.__ro.observe(el); } }); }
+  componentDidUpdate() { this.fit(); this.anchor(); }
+  anchor() {
+    document.querySelectorAll('iframe[data-anchor]').forEach(f => {
+      if (!f.__l) { f.__l = 1; f.addEventListener('load', () => { f.__a = null; this.anchor(); }); }
+      const a = f.getAttribute('data-anchor'); if (f.__a === a) return; f.__a = a; clearInterval(f.__t); let n = 0;
+      const go = () => { try { const w = f.contentWindow, d = f.contentDocument; if (!d || !d.body) return false;
+        if (a === 'top') { w.scrollTo(0, 0); return true; }
+        if (a === 'bottom') { w.scrollTo(0, d.documentElement.scrollHeight); return d.documentElement.scrollHeight > 3000 && n > 6; }
+        const el = d.getElementById(a); if (!el) return false; w.scrollTo(0, el.getBoundingClientRect().top + w.scrollY); return n > 6; } catch (e) { return true; } };
+      f.__t = setInterval(() => { n++; if (go() || n > 40) clearInterval(f.__t); }, 150);
+    });
+  }
+  componentWillUnmount() { clearInterval(this.p); }
+  setSel(sel) { this.setState({ sel }); try { localStorage.setItem('almanac-compare-v1', JSON.stringify({ sel })); } catch (e) {} }
+  renderVals() {
+    const D = window.LAB_DATA;
+    if (!D) return { rows: [], cols: [], siteChips: [], lenses: [], views: [], opps: [], isGrid: true };
+    const s = this.state;
+    const sel = s.sel || ['almanac', 'grand', 'nuvo', 'adfin', 'chaser'];
+    const seg = (on) => ({ height: '30px', padding: '0 12px', border: 0, borderRadius: '8px', cursor: 'pointer', font: 'inherit', fontSize: '13px', fontWeight: 500, color: 'var(--foreground)', background: on ? 'var(--card)' : 'transparent', boxShadow: on ? '0 1px 2px rgba(0,0,0,.08), 0 0 0 1px var(--hair)' : 'none' });
+    const chip = (on) => ({ display: 'inline-flex', alignItems: 'center', gap: '4px', height: '28px', padding: on ? '0 10px 0 8px' : '0 10px', border: 0, borderRadius: '999px', cursor: 'pointer', font: 'inherit', fontSize: '13px', fontWeight: 500, background: on ? 'var(--foreground)' : 'var(--card)', color: on ? 'var(--background)' : 'var(--foreground)', boxShadow: on ? 'none' : 'inset 0 0 0 1px var(--control-edge)' });
+    const V = { Strong: 'success', Adequate: 'muted', Mixed: 'warning', Weak: 'danger', Absent: 'danger', Unknown: 'outline' };
+    const cols = D.sites.filter(x => sel.includes(x.id));
+    const VS = [['page', 'Full page', 'all'], ['nav', 'Navigation', 'hero'], ['hero', 'Hero', 'hero'], ['proof', 'Product proof', 'product'], ['how', 'How it works', 'all'], ['social', 'Social proof', 'evidence'], ['trust', 'Trust and security', 'all'], ['pricing', 'Pricing', 'all'], ['content', 'Content', 'all'], ['faq', 'FAQ', 'all'], ['form', 'Conversion form', 'form'], ['signup', 'Sign-up flow', 'form'], ['footer', 'Footer', 'all']];
+    const mob = s.vvp === 'mobile'; const pair = s.vmode === 'pair';
+    const blocks = D.blocks.filter(b => s.lens === 'All' || b.lens === s.lens);
+    const inLens = id => { const b = D.blocks.find(x => x.id === id); return s.lens === 'All' || !b || b.lens === s.lens; };
+    const recFor = id => { const n = D.opportunities.filter(o => o.block === id && o.status !== 'Done').length; const all = D.opportunities.filter(o => o.block === id).length; return { hasRec: all > 0, recLabel: n ? (n === 1 ? '1 recommendation' : n + ' recommendations') : (all === 1 ? '1 recommendation, done' : all + ' recommendations, done'), openRec: () => { this.setState({ view: 'opps', recBlock: id }); window.scrollTo(0, 0); } }; };
+    const VSL = s.view === 'visual' ? VS : VS.filter(x => inLens(x[0])); const vsecCur = VSL.some(x => x[0] === s.vsec) ? s.vsec : ((VSL[0] || [])[0] || s.vsec);
+    const colW = 280;
+    const rows = blocks.map(b => ({
+      name: b.name, lens: b.lens, q: b.q, take: D.takeaways[b.id] || '', ...recFor(b.id),
+      cells: cols.map(c => { const v = c.cells && c.cells[b.id]; const isA = c.id === 'almanac';
+        return { has: !!v, none: !v, rating: v ? v[0] : '', v: v ? (V[v[0]] || 'muted') : 'muted', finding: v ? v[1] : '', note: v ? v[2] : '', hasNote: !!(v && v[2]), ev: v ? v[3] : '',
+          style: { padding: '14px 16px', boxShadow: 'inset 0 -1px 0 var(--hair), inset -1px 0 0 var(--hair)', background: isA ? 'color-mix(in oklab, var(--accent) 4%, var(--card))' : 'var(--card)' } }; })
+    }));
+    const host = (u) => { try { return new URL(u).host.replace(/^www\./, ''); } catch (e) { return 'Prototype'; } };
+    return {
+      updated: D.updated,
+      isGrid: s.view === 'grid', isOpps: s.view === 'opps', isColour: s.view === 'colour',
+      clash: (window.COLOUR_CLASH || []).map(c => { const pairs = a => { const o = []; for (let i = 0; a && i < a.length; i += 2) o.push({ name: a[i + 1] + ' ' + a[i], sw: { width: '18px', height: '18px', borderRadius: '4px', background: a[i], boxShadow: '0 0 0 1px rgba(0,0,0,.15)', flex: 'none' } }); return o; }; return { direction: c.direction, verdict: c.verdict, v: c.verdict === 'Drop' ? 'danger' : c.verdict === 'Changed' ? 'accent' : c.verdict === 'At risk' ? 'warning' : 'success', near: c.near, note: c.note, wasLabel: c.now ? 'Was' : 'Colours', was: pairs(c.was), hasNow: !!c.now, now: pairs(c.now) }; }), isVisual: s.view === 'visual',
+      vsecs: VSL.map(([k, l]) => ({ label: l, sel: vsecCur === k, onClick: () => this.setState({ vsec: k }), style: seg(vsecCur === k) })),
+      vvps: [].map(([k, l]) => ({ label: l, sel: s.vvp === k, onClick: () => this.setState({ vvp: k }), style: seg(s.vvp === k) })),
+      vcolsTpl: (pair || cols.length === 2) ? 'repeat(2, minmax(0, 1fr))' : cols.length === 1 ? 'minmax(0, 1fr)' : 'repeat(auto-fill, minmax(' + (mob ? 220 : 360) + 'px, 1fr))',
+      isPair: pair, pairA: s.pairA, pairB: s.pairB,
+      vmodes: [['all', 'Selected sites'], ['pair', 'One to one']].map(([k, l]) => ({ label: l, sel: s.vmode === k, onClick: () => this.setState({ vmode: k }), style: seg(s.vmode === k) })),
+      pairOptsA: D.sites.map(x => ({ id: x.id, name: x.name, sel: x.id === s.pairA })), pairOptsB: D.sites.map(x => ({ id: x.id, name: x.name, sel: x.id === s.pairB })),
+      onPairA: e => this.setState({ pairA: e.target.value }), onPairB: e => this.setState({ pairB: e.target.value }),
+      swapPair: () => this.setState({ pairA: s.pairB, pairB: s.pairA }),
+      vtake: D.takeaways[vsecCur] || '', vHasRec: recFor(vsecCur).hasRec, vRecLabel: recFor(vsecCur).recLabel, vOpenRec: recFor(vsecCur).openRec,
+      vcols: (pair ? [s.pairA, s.pairB].map(id => D.sites.find(x => x.id === id)).filter(Boolean) : cols).map(c => { const v = c.cells && c.cells[vsecCur]; const live = c.id === 'almanac'; const sec = (VS.find(x => x[0] === vsecCur) || [])[2] || 'all';
+        const shot = ((D.shots || {})[c.id] || {})[mob ? 'mobile' : 'desktop']; const sv = shot && shot[vsecCur]; const shots = sv ? [].concat(sv).map((src, i) => ({ src, alt: c.name + ' ' + vsecCur + ' screenshot ' + (i + 1) })) : [];
+        const absent = !!(v && v[0] === 'Absent');
+        return { baseW: mob ? '390' : '1280', name: c.name, group: c.group, url: c.url, isAbsent: absent, isLive: live && !absent, isShot: !live && !absent && shots.length > 0, shots, isSlot: !live && !absent && !shots.length, unrated: !v, secName: ((D.blocks.find(b => b.id === vsecCur) || {}).name || 'section').toLowerCase(), slotId: 'cmp-' + c.id + '-' + vsecCur + '-' + s.vvp, ph: (v ? 'No screenshot yet. Drop ' : 'Not reviewed yet. Drop ') + c.name + ' ' + (vsecCur === 'page' ? 'full page' : ((D.blocks.find(b => b.id === vsecCur) || {}).name || '').toLowerCase()) + (mob ? ' (mobile)' : '') + ' screenshot',
+          anchor: sec === 'all' ? ({ how: 'how', trust: 'faq', pricing: 'faq', content: 'context', faq: 'faq', footer: 'bottom' })[vsecCur] || 'top' : 'top',
+          src: 'index.html?embed=1&section=' + sec + '&hero=I&bg=globe&mode=light&brand=ledger&pal=night-mint',
+          frameStyle: { position: 'relative', width: '100%', aspectRatio: mob ? '390 / 760' : ((pair || cols.length <= 2) ? '4 / 3' : '16 / 10'), borderRadius: '12px', overflow: 'hidden', background: 'var(--card)', boxShadow: 'var(--shadow-card)' },
+          iframeStyle: { position: 'absolute', top: 0, left: 0, border: 0, width: mob ? '390px' : '1280px', height: mob ? '760px' : '800px', transformOrigin: '0 0', transform: 'scale(var(--s, 1))' },
+          has: !!v, rating: v ? v[0] : '', v: v ? (V[v[0]] || 'muted') : 'muted', ev: v ? v[3] : '', finding: v ? v[1] : '' }; }),
+      showLens: s.view === 'grid' || s.view === 'opps', lenses: ['All', 'Marketing', 'SEO', 'Usability'].map(l => ({ label: l, sel: s.lens === l, onClick: () => this.setState({ lens: l }), style: seg(s.lens === l) })),
+      views: [['grid', 'Block by block'], ['visual', 'Visual'], ['colour', 'Colour clash']].map(([k, l]) => ({ label: l, sel: s.view === k, onClick: () => this.setState({ view: k }), style: seg(s.view === k) })),
+      recSel: s.view === 'opps', recCount: String(D.opportunities.filter(o => o.status !== 'Done').length), recOpen: () => this.setState({ view: 'opps', recBlock: null }), recStyle: { display: 'inline-flex', alignItems: 'center', gap: '8px', height: '36px', padding: '0 8px 0 14px', border: 0, borderRadius: '10px', cursor: 'pointer', font: 'inherit', fontSize: '14px', fontWeight: 600, color: '#fff', background: s.view === 'opps' ? 'var(--foreground)' : 'var(--navy)', boxShadow: s.view === 'opps' ? '0 0 0 3px color-mix(in oklab, var(--navy) 30%, transparent)' : 'none' },
+      tabs: [['grid', 'Block by block'], ['visual', 'Visual'], ['colour', 'Colour clash'], ['opps', 'Recommendations']].map(([k, l]) => { const on = s.view === k; const n = k === 'opps' ? D.opportunities.filter(o => o.status !== 'Done').length : 0; return { label: l, sel: on, hasCount: n > 0, count: String(n), onClick: () => this.setState(k === 'opps' ? { view: k, recBlock: null } : { view: k }),
+        style: { display: 'inline-flex', alignItems: 'center', gap: '6px', height: '44px', padding: 0, border: 0, background: 'none', cursor: 'pointer', font: 'inherit', fontSize: '14px', fontWeight: on ? 600 : 500, whiteSpace: 'nowrap', color: on ? 'var(--foreground)' : 'var(--muted-foreground)', boxShadow: on ? 'inset 0 -2px 0 var(--navy)' : 'none' },
+        countStyle: { display: 'inline-flex', alignItems: 'center', justifyContent: 'center', minWidth: '20px', height: '20px', padding: '0 6px', borderRadius: '999px', fontSize: '12px', fontWeight: 550, background: on ? 'var(--navy)' : 'var(--surface-sunken)', color: on ? '#fff' : 'var(--foreground)' } }; }),
+      showFilters: s.view === 'grid' || s.view === 'opps' || (s.view === 'visual' && !pair), showSites: s.view === 'grid' || (s.view === 'visual' && !pair),
+      selCount: sel.length + ' of ' + D.sites.length + ' shown', canReset: sel.join() !== 'almanac,grand,nuvo,adfin,chaser', resetSel: () => this.setSel(['almanac', 'grand', 'nuvo', 'adfin', 'chaser']),
+      siteGroups: ['Almanac', 'Direct', 'Adjacent', 'AI-native', 'Data', 'Best in class'].concat(Array.from(new Set(D.sites.map(x => x.group)))).filter((g, i, a) => a.indexOf(g) === i).map(g => ({ name: g, hasLabel: g !== 'Almanac', items: D.sites.filter(x => x.group === g).map(x => { const on = sel.includes(x.id); return { name: x.name, sel: on, title: on ? 'Hide ' + x.name : 'Show ' + x.name, style: chip(on), onClick: () => { const n = on ? sel.filter(i => i !== x.id) : sel.concat([x.id]); if (n.length) this.setSel(n); } }; }) })).filter(g => g.items.length),
+      siteChips: D.sites.map(x => { const on = sel.includes(x.id); return { name: x.name, group: x.group, sel: on, style: chip(on), onClick: () => { const n = on ? sel.filter(i => i !== x.id) : sel.concat([x.id]); if (n.length) this.setSel(n); } }; }),
+      gridStyle: { display: 'grid', gridTemplateColumns: '260px repeat(' + cols.length + ', minmax(' + colW + 'px, 1fr))', minWidth: (260 + cols.length * colW) + 'px' },
+      cols: cols.map(c => ({ name: c.name, status: c.status, statusV: c.status === 'Checked live' ? 'success' : c.status === 'Prototype' ? 'accent' : 'muted', audience: c.audience, url: c.url, host: host(c.url) })),
+      rows,
+      recFiltered: !!s.recBlock, recBlockName: ((D.blocks.find(b => b.id === s.recBlock) || {}).name || ''), recClear: () => this.setState({ recBlock: null }),
+      opps: D.opportunities.filter(o => s.recBlock ? o.block === s.recBlock : inLens(o.block)).map(o => ({ p: o.p, v: o.p === 'P0' ? 'danger' : o.p === 'P1' ? 'warning' : o.p === 'P2' ? 'muted' : 'outline', observation: o.observation, relevance: o.relevance, change: o.change, validation: o.validation, status: o.status, sv: ({ Done: 'success', 'In review': 'warning', 'In progress': 'accent', 'Needs decision': 'warning', Blocked: 'danger', 'Not started': 'muted', Holding: 'outline' })[o.status] || 'muted', block: (D.blocks.find(b => b.id === o.block) || {}).name || o.block,
+        refs: o.refs.map(id => { const x = D.sites.find(y => y.id === id) || { name: id }; return { name: x.name, onClick: () => { const n = Array.from(new Set(['almanac', id].concat(sel))); this.setSel(n); this.setState({ view: 'grid' }); } }; }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>
