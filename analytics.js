@@ -25,7 +25,8 @@
   var s = document.createElement('script');
   s.async = true;
   s.src = 'https://www.googletagmanager.com/gtag/js?id=' + MEASUREMENT_ID;
-  document.head.appendChild(s);
+  function load(){ document.head.appendChild(s); }
+  if (document.readyState === 'complete') setTimeout(load, 1500); else addEventListener('load', function(){ setTimeout(load, 1500); });
 
   gtag('js', new Date());
   gtag('config', MEASUREMENT_ID, { anonymize_ip: true });
