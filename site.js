@@ -101,10 +101,11 @@
       cv.addEventListener('pointerenter', function () { hover = true; });
       cv.addEventListener('pointerleave', function () { hover = false; });
     }
-    var lastT = 0, sweepT0 = 0;
+    var lastT = 0, sweepT0 = 0, dirty = true;
+    if (window.ResizeObserver) new ResizeObserver(function () { dirty = true; }).observe(cv); else window.addEventListener('resize', function () { dirty = true; });
     var frame = function (t) {
       raf = requestAnimationFrame(frame);
-      if (!w || Math.abs(cv.getBoundingClientRect().width - w) > 1) { if (!measure()) return; }
+      if (!w || dirty) { dirty = false; if (!measure()) return; }
       var dt = Math.min(64, lastT ? t - lastT : 16.7); lastT = t;
       var ease = function (k) { return 1 - Math.pow(1 - k, dt / 16.7); };
       look.x += (look.tx - look.x) * ease(0.1);
