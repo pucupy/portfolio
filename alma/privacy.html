@@ -8,44 +8,115 @@
 <link rel="icon" href="brand-assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="brand-assets/apple-touch-icon.png">
 <meta name="theme-color" content="#FFFFFF">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;550;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_ds/almanac-design-system-dcf446cd-d43d-4430-961d-531639d17cdf/styles.css">
 <style>
-*{box-sizing:border-box}
-html,body{margin:0}
-body{font-family:'Schibsted Grotesk',system-ui,sans-serif;color:#0E2A30;background:#FFFFFF;-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
-a{color:#0E2A30;text-underline-offset:3px}
-a:hover{color:#2a4a8a}
-header{display:flex;align-items:center;height:72px;padding:0 max(clamp(20px,4vw,40px), calc((100% - 80rem) / 2));box-shadow:inset 0 -1px 0 rgba(10,10,10,.08)}
-main{max-width:44rem;margin:0 auto;padding:clamp(48px,8vw,96px) clamp(20px,4vw,40px) 64px}
-h1{margin:0;font-size:clamp(36px,5vw,52px);line-height:1.08;font-weight:550;letter-spacing:-.035em}
-h2{margin:48px 0 0;font-size:20px;line-height:28px;font-weight:600}
-p,ul{margin:12px 0 0;color:#2E3F43;text-wrap:pretty}
-ul{padding-left:20px;display:flex;flex-direction:column;gap:6px}
-.lede{margin-top:16px;font-size:18px;color:#45585C}
-.meta{margin-top:12px;font-size:14px;color:#525252}
-.tbc{background:#FBF1D6;color:#6B4E00;padding:0 4px;border-radius:4px}
-footer{padding:24px max(clamp(20px,4vw,40px), calc((100% - 80rem) / 2));font-size:13px;color:#525252;box-shadow:inset 0 1px 0 rgba(10,10,10,.08)}
+  :root { --ink:#111216; --muted:#525252; --hair:rgba(20,20,20,.08); --accent:#368265; --radius:6px; }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#fff}
+  body{font-family:'Schibsted Grotesk',system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .skip-link{position:absolute;left:16px;top:-48px;z-index:100;padding:10px 16px;border-radius:var(--radius);background:var(--ink);color:#fff;text-decoration:none;font-size:14px;font-weight:500;transition:top 150ms}
+  .skip-link:focus{top:12px}
+  .wrap{max-width:80rem;margin:0 auto;padding:0 clamp(20px,4vw,40px)}
+  header{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 1px 0 var(--hair)}
+  .bar{height:68px;display:flex;align-items:center;gap:32px}
+  .logo{display:flex;align-items:center;min-height:44px;flex:none}
+  .logo img{display:block;height:18px;width:auto}
+  .nav{display:flex;gap:2px}
+  .nav a{color:var(--ink);text-decoration:none;font-size:15px;font-weight:500;padding:8px 14px;border-radius:var(--radius);transition:background 150ms}
+  .nav a:hover{background:color-mix(in oklab,var(--ink) 6%,transparent)}
+  .right{margin-left:auto;display:flex;align-items:center;gap:8px}
+  .signin{display:inline-flex;align-items:center;height:36px;padding:0 14px;border-radius:var(--radius);color:var(--ink);text-decoration:none;font-size:14px;font-weight:500}
+  .cta{display:inline-flex;align-items:center;white-space:nowrap;height:40px;padding:0 18px;border-radius:var(--radius);background:var(--ink);color:#fff;text-decoration:none;font-size:14px;font-weight:500;transition:opacity 150ms}
+  .cta:hover{opacity:.88}
+  .menu-btn{display:none;align-items:center;justify-content:center;width:44px;height:44px;margin-right:-10px;border:0;background:transparent;color:var(--ink);cursor:pointer;border-radius:8px}
+  .sheet{position:fixed;inset:0;z-index:60;background:#fff;display:none;flex-direction:column;overflow-y:auto}
+  .sheet.open{display:flex}
+  .sheet-top{height:68px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 0 var(--hair)}
+  .sheet nav{display:flex;flex-direction:column;padding-top:8px}
+  .sheet nav a{display:flex;align-items:center;min-height:60px;color:var(--ink);text-decoration:none;font-size:22px;font-weight:500;letter-spacing:-.01em;box-shadow:inset 0 -1px 0 var(--hair)}
+  .sheet-actions{margin-top:auto;display:flex;flex-direction:column;gap:12px;padding-top:32px;padding-bottom:32px}
+  .sheet-actions a{display:flex;align-items:center;justify-content:center;height:52px;border-radius:var(--radius);text-decoration:none;font-size:16px}
+  .sheet-actions .primary{background:var(--ink);color:#fff;font-weight:600}
+  .sheet-actions .secondary{box-shadow:inset 0 0 0 1px color-mix(in oklab,var(--ink) 24%,transparent);color:var(--ink);font-weight:500}
+  @media (max-width:1023px){ .nav,.signin,.right .cta{display:none} .menu-btn{display:flex} }
+  main{flex:1 0 auto;width:100%;max-width:44rem;margin:0 auto;padding:clamp(48px,8vw,96px) clamp(20px,4vw,40px) clamp(56px,7vw,88px)}
+  h1{margin:0;font-size:clamp(36px,5vw,52px);line-height:1.08;font-weight:500;letter-spacing:-.03em}
+  h2{margin:48px 0 0;font-size:20px;line-height:28px;font-weight:600;scroll-margin-top:96px}
+  main p,main ul{margin:12px 0 0;color:#2c2e33;text-wrap:pretty}
+  main ul{padding-left:20px;display:flex;flex-direction:column;gap:6px}
+  main a{text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:color-mix(in oklab,currentColor 45%,transparent);text-underline-offset:4px}
+  main a:hover{text-decoration-color:currentColor}
+  .lede{margin-top:16px;font-size:18px;color:var(--muted)}
+  .meta{font-size:14px;color:var(--muted)}
+  .tbc{background:color-mix(in oklab,oklch(0.8 0.13 92) 22%,transparent);color:oklch(0.42 0.09 88);padding:0 4px;border-radius:4px}
+  footer{padding:clamp(56px,7vw,88px) 0 40px;box-shadow:inset 0 1px 0 var(--hair)}
+  .foot{display:flex;flex-wrap:wrap;gap:40px 32px;font-size:15px}
+  .foot-logo{flex:1 1 240px;min-width:0}
+  .foot-logo a{display:inline-flex;align-items:center;min-height:44px}
+  .foot-logo img{display:block;height:18px;width:auto}
+  .foot nav{flex:2 1 360px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+  .col{display:flex;flex-direction:column;gap:8px;min-width:0}
+  .col h2{margin:0 0 6px;font-size:13px;line-height:1.5;font-weight:500;color:var(--muted)}
+  .col a{color:var(--ink);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px;padding:4px 0;align-self:flex-start;transition:text-decoration-color 160ms}
+  .col a:hover{text-decoration-color:currentColor}
+  .legal{margin-top:clamp(48px,6vw,72px);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;font-size:13px;color:var(--muted)}
+  .legal-links,.ai{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center}
+  .ai-links{display:flex;flex-wrap:wrap;gap:8px 20px}
+  .legal a{display:inline-flex;align-items:center;min-height:24px;color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:color-mix(in oklab,currentColor 45%,transparent);text-underline-offset:4px;transition:color 160ms,text-decoration-color 160ms}
+  .legal a:hover{color:var(--ink);text-decoration-color:currentColor}
+  .nowrap{white-space:nowrap}
+  @media (max-width:560px){ .ai{flex-direction:column;align-items:flex-start;gap:4px} }
 </style>
 </head>
 <body>
-<header><a class="home" href="index.html" aria-label="Almanac home"><img src="brand-assets/ds/logo-wordmark-ink.svg" alt="Almanac" width="120" height="13" style="display:block"></a></header>
-<main>
+<a class="skip-link" href="#main">Skip to content</a>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="index.html" aria-label="Almanac home"><img src="brand-assets/ds/logo-wordmark-ink.svg" alt=""></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html#product">Product</a>
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="right">
+      <a class="signin" href="https://app.almanacfin.com">Sign in</a>
+      <a class="cta" href="early-access.html">Get early access</a>
+      <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-menu"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="sheet" id="site-menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="wrap sheet-top" style="width:100%">
+    <a class="logo" href="index.html" aria-label="Almanac home"><img src="brand-assets/ds/logo-wordmark-ink.svg" alt=""></a>
+    <button class="menu-btn" style="display:flex" type="button" aria-label="Close menu" data-close><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+  </div>
+  <nav class="wrap" aria-label="Main" style="width:100%">
+    <a href="index.html#product">Product</a>
+    <a href="index.html#how">How it works</a>
+    <a href="index.html#faq">FAQ</a>
+  </nav>
+  <div class="wrap sheet-actions" style="width:100%">
+    <a class="primary" href="early-access.html">Get early access</a>
+    <a class="secondary" href="https://app.almanacfin.com">Sign in</a>
+  </div>
+</div>
+
+<main id="main" tabindex="-1">
   <h1>Privacy notice</h1>
   <p class="lede">How we use the details you share on this website.</p>
   <p class="meta">Last updated <span class="tbc">[date to confirm]</span></p>
 
   <h2>Who we are</h2>
-  <p>Almanac Technologies Ltd, registered in England and Wales, company no. 17060054. Registered office: 167–169 Great Portland Street, London W1W 5PF. We are the controller for the personal data described here. Our ICO registration is under way; we will add the number when it is issued.</p>
+  <p>Almanac Technologies Ltd, registered in England and Wales, company no. 17060054. Registered office: <span class="nowrap">167–169 Great Portland Street,</span> <span class="nowrap">London W1W 5PF</span>. We are the controller for the personal data described here. Our ICO registration is under way; we will add the number when it is issued.</p>
 
   <h2>What we collect</h2>
   <ul>
-    <li>When you ask for early access: your name, work email, company and role.</li>
-    <li>If you type your work email in the homepage form, it is carried into the early access form so you do not have to type it again.</li>
+    <li>When you ask for early access: your name, work email, company, how many new trade accounts you open a month, and, if you choose to tell us, your accounting system and how you assess credit today.</li>
+    <li>If you type your work email in the homepage form, it is kept in your browser for that tab only and carried into the early access form, so you do not have to type it again. It is cleared once the form has used it.</li>
     <li>Your cookie choice, stored in your browser.</li>
   </ul>
-  <p>We do not use advertising or tracking cookies on this website.</p>
 
   <h2>Why we use it</h2>
   <p>To reply to your request, arrange a walkthrough and set up early access. Our lawful basis is legitimate interests: responding to a business enquiry you started. We do not sell your details or use them for unrelated marketing.</p>
@@ -56,9 +127,45 @@ footer{padding:24px max(clamp(20px,4vw,40px), calc((100% - 80rem) / 2));font-siz
   <h2>How long we keep it</h2>
   <p><span class="tbc">[retention period to confirm]</span>. If you become a customer, our customer terms apply instead.</p>
 
+  <h2 id="cookies">Cookies</h2>
+  <p>We only use what the website needs to work. One item stored in your browser remembers that you have seen the cookie notice, so it does not appear on every page.</p>
+  <ul>
+    <li>We do not use analytics, advertising or tracking cookies.</li>
+    <li>We do not share your browsing with third parties.</li>
+    <li>You can clear the stored item at any time in your browser settings. The notice will then appear again.</li>
+  </ul>
+
   <h2>Your rights</h2>
   <p>You can ask to see, correct or delete your details, or object to how we use them. Email <span class="tbc">[privacy contact to confirm]</span>. You can also complain to the Information Commissioner’s Office at <a href="https://ico.org.uk/make-a-complaint/">ico.org.uk</a>.</p>
 </main>
-<footer>© 2026 Almanac Technologies Ltd</footer>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-logo"><a href="index.html" aria-label="Almanac home"><img src="brand-assets/ds/logo-wordmark-ink.svg" alt=""></a></div>
+      <nav aria-label="Footer">
+        <div class="col"><h2>Product</h2><a href="index.html#product">Overview</a><a href="index.html#how">How it works</a><a href="index.html#faq">FAQ</a></div>
+        <div class="col"><h2>Access</h2><a href="early-access.html">Get early access</a><a href="https://app.almanacfin.com">Sign in</a></div>
+      </nav>
+    </div>
+    <div class="legal">
+      <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+        <span>© 2026 Almanac Technologies Ltd · Registered in England and Wales · Company no. 17060054 · Registered office: <span class="nowrap">167–169 Great Portland Street,</span> <span class="nowrap">London W1W 5PF</span></span>
+        <div class="legal-links"><a href="privacy.html" aria-current="page">Privacy notice</a><a href="#cookies">Cookies</a></div>
+      </div>
+      <div class="ai"><span>Ask an AI assistant about Almanac:</span><span class="ai-links"><a href="https://chatgpt.com/?q=What%20is%20Almanac%20(almanacfin.com)%2C%20the%20UK%20trade%20credit%20application%20software%2C%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener">ChatGPT</a><a href="https://claude.ai/new?q=What%20is%20Almanac%20(almanacfin.com)%2C%20the%20UK%20trade%20credit%20application%20software%2C%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener">Claude</a><a href="https://www.perplexity.ai/search?q=What%20is%20Almanac%20(almanacfin.com)%2C%20the%20UK%20trade%20credit%20application%20software%2C%20and%20how%20does%20it%20work%3F" target="_blank" rel="noopener">Perplexity</a></span></div>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var sheet=document.getElementById('site-menu'), open=document.querySelector('header .menu-btn');
+  function set(v){ sheet.classList.toggle('open',v); open.setAttribute('aria-expanded',String(v)); document.documentElement.style.overflow=v?'hidden':''; if(v){ sheet.querySelector('[data-close]').focus(); } else { open.focus(); } }
+  open.addEventListener('click',function(){ set(true); });
+  sheet.querySelector('[data-close]').addEventListener('click',function(){ set(false); });
+  sheet.querySelectorAll('nav a').forEach(function(a){ a.addEventListener('click',function(){ set(false); }); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&sheet.classList.contains('open')) set(false); });
+})();
+</script>
 </body>
 </html>
