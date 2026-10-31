@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preload" as="image" href="brand-assets/industries/13-warehouse-and-distribution.webp" media="(min-width: 760px)" fetchpriority="high">
+<link rel="preload" as="image" href="brand-assets/industries/warehouse-mobile-light.webp" media="(max-width: 759px)" fetchpriority="high">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -541,10 +543,9 @@ img, svg { max-width: 100%; }
 
 </style>
   
-  <script src="vendor/lucide.min.js"></script>
-  <script src="_ds/almanac-design-system-dcf446cd-d43d-4430-961d-531639d17cdf/_ds_bundle.js"></script>
-  <script src="brand-themes.js"></script>
-  <script src="brand-assets/almanac-globe.js"></script>
+  <script src="vendor/lucide.min.js" defer></script>
+  <script src="_ds/almanac-design-system-dcf446cd-d43d-4430-961d-531639d17cdf/_ds_bundle.js" defer></script>
+  <script src="brand-themes.js" defer></script>
   <style>
     :root { --accent:#368265; --ring:#368265; --mk-ground:#F6F6F7; --mk-ground-fg:#111216; --mk-ground-muted:#45585C; --mk-accent:#368265; --mk-accent-ui:#368265; --mk-ink:#111216; --mk-page:#FFFFFF; --mk-alt:#F6F6F7; --mk-surface:#FFFFFF; --mk-text:#111216; --mk-muted:#525252; --mk-hair:rgba(20,20,20,.08); --mk-display:'Schibsted Grotesk', sans-serif; --mk-dw:500; --mk-dt:-0.03em; --mk-ds:1; --mk-mono:'Schibsted Grotesk', sans-serif; --mk-wm:'Schibsted Grotesk', sans-serif; --mk-wmw:600; --mk-wmt:0; --mk-cta-bg:#111216; --mk-cta-fg:#FFFFFF; --mk-ctag-bg:#111216; --mk-ctag-fg:#FFFFFF; --mk-radius:6px; --mk-card:8px; --mk-dur:150ms; --mk-ease:cubic-bezier(.23,1,.32,1); --mk-lift:0px; --mk-tone2:#368265; --mk-tone2g:#5CF2B4; }
     html, body { margin:0; padding:0; }
@@ -603,7 +604,7 @@ img, svg { max-width: 100%; }
     @supports (animation-timeline: view()) {
           }
     .src-wrap { position: relative; display: inline; }
-    .src-btn { all: unset; cursor: pointer; text-decoration: underline dotted; text-decoration-color: color-mix(in oklab, currentColor 45%, transparent); text-underline-offset: 4px; text-decoration-thickness: 1.5px; transition: text-decoration-color var(--t-fast) var(--ease-out); }
+    .src-btn { all: unset; display: inline-block; min-height: 24px; line-height: 24px; cursor: pointer; text-decoration: underline dotted; text-decoration-color: color-mix(in oklab, currentColor 45%, transparent); text-underline-offset: 4px; text-decoration-thickness: 1.5px; transition: text-decoration-color var(--t-fast) var(--ease-out); }
     .src-btn:hover, .src-wrap.is-open .src-btn { text-decoration-color: currentColor; }
     .src-btn:focus-visible { outline: 2px solid var(--mk-accent-ui); outline-offset: 3px; border-radius: 2px; }
     .src-pop { display: none; position: absolute; left: 0; top: calc(100% + 10px); z-index: 6; width: min(340px, calc(100vw - 48px)); padding: 14px; border-radius: 12px; background: var(--mk-surface); box-shadow: 0 0 0 1px var(--mk-hair), 0 12px 32px -8px rgba(17,18,22,.28); font-size: 13px; line-height: 19px; text-align: left; }
@@ -658,7 +659,7 @@ img, svg { max-width: 100%; }
       .ptabs > button { width: 100%; padding: 0 8px !important; }
       form[data-mini-hero] > input { flex: 1 1 100% !important; max-width: none !important; }
       form[data-mini-hero] > button { flex: 1 1 100% !important; width: 100% !important; justify-content: center !important; }
-      .cookie-bar { left: 0 !important; bottom: 0 !important; width: 100% !important; border-radius: 0 !important; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)) !important; display: flex; align-items: center; gap: 12px; }
+      .cookie-bar { left: 0 !important; bottom: 0 !important; transform: none !important; width: 100% !important; border-radius: 0 !important; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)) !important; display: flex; align-items: center; gap: 12px; }
       .cookie-bar h2 { display: none; }
       .cookie-bar p { margin: 0 !important; flex: 1 1 auto; font-size: 13px !important; line-height: 18px !important; }
       .cookie-bar > div { margin-top: 0 !important; flex: none; }
@@ -754,6 +755,7 @@ img, svg { max-width: 100%; }
     </div>
   </sc-if>
 
+  <main style="display:block">
   <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
 
   <sc-if value="{{ show.hero }}" hint-placeholder-val="{{ true }}">
@@ -978,17 +980,17 @@ img, svg { max-width: 100%; }
       <div style="margin-top:clamp(40px,5vw,64px)">
         <div class="ctx-cards" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 40px">
           <div style="padding:0 0 0 20px;box-shadow:inset 1px 0 0 var(--mk-hair)">
-            <img src="brand-assets/spot/iso-application.webp" alt="" aria-hidden="true" style="display:block;width:clamp(120px,10vw,140px);height:clamp(100px,8.5vw,116px);object-fit:contain;object-position:left center;margin:0 0 16px;pointer-events:none">
+            <img width="493" height="640" loading="lazy" decoding="async" src="brand-assets/spot/iso-application.webp" alt="" aria-hidden="true" style="display:block;width:clamp(120px,10vw,140px);height:clamp(100px,8.5vw,116px);object-fit:contain;object-position:left center;margin:0 0 16px;pointer-events:none">
             <p style="margin:0;font-size:19px;font-weight:600;letter-spacing:-0.01em">What the buyer tells you</p>
             <ul style="list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15px;color:var(--mk-muted)"><li>Company details and contacts</li><li>£50,000 requested</li><li>Two trade references</li></ul>
           </div>
           <div style="padding:0 0 0 20px;box-shadow:inset 1px 0 0 var(--mk-hair)">
-            <img src="brand-assets/spot/iso-records.webp" alt="" aria-hidden="true" style="display:block;width:clamp(120px,10vw,140px);height:clamp(100px,8.5vw,116px);object-fit:contain;object-position:left center;margin:0 0 16px;pointer-events:none">
+            <img width="629" height="640" loading="lazy" decoding="async" src="brand-assets/spot/iso-records.webp" alt="" aria-hidden="true" style="display:block;width:clamp(120px,10vw,140px);height:clamp(100px,8.5vw,116px);object-fit:contain;object-position:left center;margin:0 0 16px;pointer-events:none">
             <p style="margin:0;font-size:19px;font-weight:600;letter-spacing:-0.01em">What the data shows</p>
             <ul style="list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15px;color:var(--mk-muted)"><li>Companies House: active</li><li>Credit bureau: 66 · band B</li><li>Bank data: regular trading income</li></ul>
           </div>
           <div style="padding:0 0 0 20px;box-shadow:inset 1px 0 0 var(--mk-hair)">
-            <img src="brand-assets/spot/iso-policy.webp" alt="" aria-hidden="true" style="display:block;width:clamp(120px,10vw,140px);height:clamp(100px,8.5vw,116px);object-fit:contain;object-position:left center;margin:0 0 16px;pointer-events:none">
+            <img width="488" height="640" loading="lazy" decoding="async" src="brand-assets/spot/iso-policy.webp" alt="" aria-hidden="true" style="display:block;width:clamp(120px,10vw,140px);height:clamp(100px,8.5vw,116px);object-fit:contain;object-position:left center;margin:0 0 16px;pointer-events:none">
             <p style="margin:0;font-size:19px;font-weight:600;letter-spacing:-0.01em">What your policy requires</p>
             <ul style="list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15px;color:var(--mk-muted)"><li>Two trade references</li><li>Limit within the credit bureau recommendation</li><li>A named reviewer for every decision</li></ul>
           </div>
@@ -1078,7 +1080,7 @@ img, svg { max-width: 100%; }
       <div data-sticky-wide="" style="position:sticky;top:96px">
         <h2 id="fit-title" style="margin:0;font-family:var(--mk-display);font-weight:var(--mk-dw);letter-spacing:var(--mk-dt);font-size:calc(clamp(30px,3.6vw,48px) * var(--mk-ds));line-height:1.08;text-wrap:balance;max-width:14ch">Where Almanac fits.</h2>
         <p style="margin:16px 0 0;max-width:34rem;font-size:18px;line-height:1.6;color:var(--mk-muted);text-wrap:pretty">Almanac covers the decision before the first order, whether to open an account and on what terms, then keeps rechecking the customer after approval.</p>
-        <div aria-hidden="true" style="position:relative;width:clamp(180px,24vw,320px);margin:40px 0 0;pointer-events:none"><img src="brand-assets/spot/iso-alma-engine.webp" alt="" style="display:block;width:100%;height:auto"></div>
+        <div aria-hidden="true" style="position:relative;width:clamp(180px,24vw,320px);margin:40px 0 0;pointer-events:none"><img width="640" height="506" loading="lazy" decoding="async" src="brand-assets/spot/iso-alma-engine.webp" alt="" style="display:block;width:100%;height:auto"></div>
       </div>
       <dl style="margin:0;display:flex;flex-direction:column">
         <sc-for list="{{ fits }}" as="f" hint-placeholder-count="5">
@@ -1331,6 +1333,7 @@ img, svg { max-width: 100%; }
   </section>
   </sc-if>
 
+  </main>
   <sc-if value="{{ show.footer }}" hint-placeholder-val="{{ true }}">
   <footer style="background:var(--mk-page);padding:clamp(56px,7vw,88px) clamp(20px,4vw,40px) 40px">
     <div style="max-width:80rem;margin:0 auto">
@@ -1351,12 +1354,10 @@ img, svg { max-width: 100%; }
   </sc-if>
 
   <sc-if value="{{ cookieShow }}" hint-placeholder-val="{{ false }}">
-  <section class="cookie-bar" role="region" aria-labelledby="cookie-title" style="position:fixed;left:clamp(12px,2vw,24px);bottom:clamp(12px,2vw,24px);z-index:60;width:min(400px,calc(100vw - 24px));box-sizing:border-box;padding:20px;border-radius:var(--mk-card,16px);background:var(--mk-surface);color:var(--mk-text);box-shadow:0 0 0 1px var(--mk-hair),0 1px 2px rgba(0,0,0,.06),0 18px 40px -16px rgba(0,0,0,.28)">
-    <h2 id="cookie-title" style="margin:0;font-size:16px;line-height:24px;font-weight:600">Cookies</h2>
-    <p style="margin:6px 0 0;font-size:14px;line-height:20px;color:var(--mk-muted);text-wrap:pretty">We only use essential cookies, such as remembering that you have seen this message. No analytics or advertising cookies. <a href="privacy.html#cookies" style="color:var(--mk-text);text-underline-offset:3px">Privacy notice</a></p>
-    <div style="margin-top:16px;display:flex">
-      <button type="button" onClick="{{ cookieReject }}" style="height:36px;padding:0 14px;border:0;border-radius:var(--mk-radius,10px);font:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:opacity 150ms,transform 120ms;background:var(--mk-text);color:var(--mk-page)" style-hover="opacity:.88" style-active="transform:scale(.97)">Dismiss</button>
-    </div>
+  <section class="cookie-bar" role="region" aria-labelledby="cookie-title" style="position:fixed;left:50%;transform:translateX(-50%);bottom:clamp(8px,1.5vw,16px);z-index:60;width:min(680px,calc(100vw - 16px));box-sizing:border-box;padding:10px 10px 10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;border-radius:var(--mk-card,16px);background:var(--mk-surface);color:var(--mk-text);box-shadow:0 0 0 1px var(--mk-hair),0 1px 2px rgba(0,0,0,.06),0 12px 32px -14px rgba(0,0,0,.28)">
+    <h2 id="cookie-title" style="position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">Cookies</h2>
+    <p style="flex:1 1 300px;margin:0;font-size:13px;line-height:18px;color:var(--mk-muted);text-wrap:pretty">We only use essential cookies, such as remembering that you've seen this message. No analytics or advertising. <a href="privacy.html#cookies" style="color:var(--mk-text);text-underline-offset:3px">Privacy notice</a></p>
+    <button type="button" onClick="{{ cookieReject }}" style="flex:none;height:36px;padding:0 14px;border:0;border-radius:var(--mk-radius,10px);font:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:opacity 150ms,transform 120ms;background:var(--mk-text);color:var(--mk-page)" style-hover="opacity:.88" style-active="transform:scale(.97)">Dismiss</button>
   </section>
   </sc-if>
 
@@ -1780,12 +1781,12 @@ class Component extends DCLogic {
     const pv = { app: s.ptab === 'app', checks: s.ptab === 'checks', analysis: s.ptab === 'analysis', decision: s.ptab === 'decision' };
     const checks = [
       { name: 'Companies House', result: 'Active', detail: 'Active', status: 'Passed', v: 'success' },
-      { name: 'Credit bureau', result: '66 · B', detail: '66 · low risk', status: 'Passed', v: 'success' },
+      { name: 'Credit bureau', result: '66 · B', detail: '66 · band B', status: 'Passed', v: 'success' },
       { name: 'Open banking', result: 'Read-only', detail: 'Connected', status: 'Passed', v: 'success' },
-      { name: 'VAT number', result: 'Matched', detail: 'Matched', status: 'Passed', v: 'success' },
+      { name: 'VAT (HMRC)', result: 'Matched', detail: 'Matched', status: 'Passed', v: 'success' },
       { name: 'Trade references', result: '1 of 2', detail: '1 of 2', status: 'Awaiting', v: 'warning' }
     ].map((c, i) => i < (this.state.ckN ?? 5) ? Object.assign({ op: 1 }, c) : Object.assign({}, c, { status: 'Checking…', v: 'muted', op: 0.4 }));
-    const heroChecks = [['Companies House', 'building-2'], ['Credit report', 'file-text'], ['Open banking', 'landmark'], ['VAT number', 'receipt'], ['Trade references', 'users']].map(([name, icon], i) => ({ name, icon, ok: i < 4, wait: i === 4 }));
+    const heroChecks = [['Companies House', 'building-2'], ['Credit report', 'file-text'], ['Open banking', 'landmark'], ['VAT (HMRC)', 'receipt'], ['Trade references', 'users']].map(([name, icon], i) => ({ name, icon, ok: i < 4, wait: i === 4 }));
     const heroSegs = heroChecks.map(c => ({ style: { flex: 1, height: '4px', borderRadius: '2px', background: c.ok ? 'var(--success, #1f8a5b)' : 'var(--warning, #c9a227)' } }));
     const appRows = [
       { k: 'Requested limit', v: '£50,000' }, { k: 'Payment terms', v: 'Net 60' }, { k: 'Payment method', v: 'Direct debit' }
@@ -1823,7 +1824,7 @@ class Component extends DCLogic {
     const stS = st => { const [bg, ink] = tone(st); return { display: 'inline-flex', alignItems: 'center', gap: '6px', minHeight: '22px', padding: '3px 8px', boxSizing: 'border-box', lineHeight: '16px', borderRadius: '11px', background: bg, color: ink, fontSize: '12px', fontWeight: 550, maxWidth: '100%', '--dot': ink }; };
     const record = [
       { src: 'Companies House', find: 'Active, accounts on time', st: 'Passed', when: '13 Oct · 09:16', next: '—', from: 'Companies House · company 11482036', pulled: 'Retrieved 13 Oct 2026, 09:16', facts: [['Status', 'Active'], ['Accounts', 'Filed on time'], ['Directors', '2 active']] },
-      { src: 'Credit bureau', find: '66 · low risk', st: 'Passed', when: '13 Oct · 09:16', next: '—', from: 'Credit bureau report', pulled: 'Retrieved 13 Oct 2026, 09:16', facts: [['Score', '66 out of 100'], ['Risk band', 'B, low risk'], ['Recommended limit', '£60,000']] },
+      { src: 'Credit bureau', find: '66 · band B', st: 'Passed', when: '13 Oct · 09:16', next: '—', from: 'Credit bureau report', pulled: 'Retrieved 13 Oct 2026, 09:16', facts: [['Score', '66 out of 100'], ['Risk band', 'B, low risk'], ['Recommended limit', '£60,000']] },
       { src: 'Open banking', find: '12 months of steady income', st: 'Passed', when: '13 Oct · 09:15', next: '—', from: 'Read-only bank connection · business current account', pulled: 'Retrieved 13 Oct 2026, 09:15', facts: [['Months with trading income', '12 of 12'], ['Returned payments', 'None'], ['Access', 'Read-only until 12 Jan 2027']] },
       { src: 'Trade references', find: '1 of 2 received', st: 'Awaiting response', when: '—', next: 'Request the second reference', from: 'Reference forms sent by Almanac', pulled: 'First received 12 Oct 2026, 16:40', facts: [['First reference', 'Trading since 2021, pays on time'], ['Second reference', 'Requested 12 Oct, not yet returned']] },
       { src: 'AI analysis', find: 'Approve once the second reference arrives', st: 'Drafted', when: '13 Oct · 09:17', next: '—', from: 'Alma, using the four checks above', pulled: 'Drafted 13 Oct 2026, 09:17', facts: [['Based on', 'Credit score, bank income, Companies House'], ['Still missing', 'Second trade reference']] },
