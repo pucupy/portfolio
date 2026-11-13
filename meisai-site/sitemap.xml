@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://meisai.io/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meisai.io/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://meisai.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://meisai.io/"/>
+  </url>
+  <url>
+    <loc>https://meisai.io/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meisai.io/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://meisai.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://meisai.io/"/>
+  </url>
+  <url>
+    <loc>https://meisai.io/about-us.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meisai.io/about-us.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://meisai.io/es/about-us.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://meisai.io/about-us.html"/>
+  </url>
+  <url>
+    <loc>https://meisai.io/es/about-us.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meisai.io/about-us.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://meisai.io/es/about-us.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://meisai.io/about-us.html"/>
+  </url>
+  <url>
+    <loc>https://meisai.io/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meisai.io/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://meisai.io/es/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://meisai.io/contact.html"/>
+  </url>
+  <url>
+    <loc>https://meisai.io/es/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meisai.io/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://meisai.io/es/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://meisai.io/contact.html"/>
+  </url>
+  <url>
+    <loc>https://meisai.io/privacy-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meisai.io/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://meisai.io/es/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://meisai.io/privacy-policy.html"/>
+  </url>
+  <url>
+    <loc>https://meisai.io/es/privacy-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meisai.io/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://meisai.io/es/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://meisai.io/privacy-policy.html"/>
+  </url>
+  <url>
+    <loc>https://meisai.io/terms-of-service.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meisai.io/terms-of-service.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://meisai.io/es/terms-of-service.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://meisai.io/terms-of-service.html"/>
+  </url>
+  <url>
+    <loc>https://meisai.io/es/terms-of-service.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meisai.io/terms-of-service.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://meisai.io/es/terms-of-service.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://meisai.io/terms-of-service.html"/>
+  </url>
+  <url>
+    <loc>https://meisai.io/cookie-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meisai.io/cookie-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://meisai.io/es/cookie-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://meisai.io/cookie-policy.html"/>
+  </url>
+  <url>
+    <loc>https://meisai.io/es/cookie-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://meisai.io/cookie-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://meisai.io/es/cookie-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://meisai.io/cookie-policy.html"/>
+  </url>
+</urlset>

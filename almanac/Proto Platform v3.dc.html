@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/radius.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/base.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/components/components.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/styles.css">
+  <link rel="stylesheet" href="Design System v2 Tokens.css">
+  <link rel="stylesheet" href="Almanac v3 Theme.css">
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/_ds_bundle.js"></script>
+  <style>a{color:var(--foreground)}a:hover{color:var(--accent)}</style>
+</helmet>
+<div style="min-width:0">
+  <sc-if value="{{ isWorkspaces }}" hint-placeholder-val="{{ true }}">
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.PageHeader" title="Workspaces" description="Login teams on the platform." dc-props="{{ wsHeader }}" hint-size="100%,96px"></x-import>
+    <div style="padding:28px 24px 24px">
+      <sc-if value="{{ wsEmpty }}">
+        <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No workspaces yet" description="Create a workspace to start provisioning people on the platform." dc-props="{{ wsEmptyProps }}" hint-size="100%,200px"></x-import>
+      </sc-if>
+      <sc-if value="{{ wsFull }}" hint-placeholder-val="{{ true }}">
+        <div class="alm-table-wrap">
+          <table class="alm-table">
+            <thead><tr><th class="alm-th">Name</th><th class="alm-th">Slug</th><th class="alm-th">Members</th><th class="alm-th">Created</th></tr></thead>
+            <tbody>
+              <sc-for list="{{ workspaces }}" as="w" hint-placeholder-count="3">
+                <tr class="alm-tr" style="cursor:pointer">
+                  <td class="alm-td"><span style="font-size:14px;font-weight:500">{{ w.name }}</span></td>
+                  <td class="alm-td"><span class="alm-mono" style="color:var(--muted-foreground)">{{ w.slug }}</span></td>
+                  <td class="alm-td"><span style="color:var(--muted-foreground)">{{ w.members }}</span></td>
+                  <td class="alm-td" style="white-space:nowrap;color:var(--muted-foreground)">{{ w.created }}</td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+      </sc-if>
+    </div>
+  </sc-if>
+  <sc-if value="{{ isUsers }}">
+    <x-import component-from-global-scope="AlmanacDesignSystem_94f443.PageHeader" title="Users" description="People on the platform." hint-size="100%,96px"></x-import>
+    <div style="padding:28px 24px 24px">
+      <sc-if value="{{ usersEmpty }}">
+        <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="No users yet" description="Users on the platform appear here." dc-props="{{ usersEmptyProps }}" hint-size="100%,200px"></x-import>
+      </sc-if>
+      <sc-if value="{{ usersFull }}" hint-placeholder-val="{{ true }}">
+        <div class="alm-table-wrap">
+          <table class="alm-table">
+            <thead><tr><th class="alm-th">Name</th><th class="alm-th">Email</th><th class="alm-th">Status</th><th class="alm-th">Roles</th><th class="alm-th">Last seen</th></tr></thead>
+            <tbody>
+              <sc-for list="{{ users }}" as="u" hint-placeholder-count="3">
+                <tr class="alm-tr" style="cursor:pointer">
+                  <td class="alm-td"><span style="font-size:14px;font-weight:500">{{ u.name }}</span></td>
+                  <td class="alm-td"><span style="color:var(--muted-foreground)">{{ u.email }}</span></td>
+                  <td class="alm-td"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Badge" variant="{{ u.variant }}" hint-size="70px,20px">{{ u.status }}</x-import></td>
+                  <td class="alm-td"><span style="color:var(--muted-foreground)">{{ u.roles }}</span></td>
+                  <td class="alm-td" style="white-space:nowrap;color:var(--muted-foreground)">{{ u.lastSeen }}</td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+      </sc-if>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const WORKSPACES = [['Almanac Technologies', 'almanac-technologies', '4', '12 Jan 2026'], ['Northwind Trading', 'northwind-trading', '2', '3 Mar 2026'], ['Contoso', 'contoso', '0', '1 Sep 2026']];
+const USERS = [['Dan Kelly', 'ada@example.com', 'active', 'Platform Admin', '3 Sep 2026'], ['Grace Hopper', 'grace@example.com', 'active', 'Admin, Member', '1 Sep 2026'], ['Alan Turing', 'alan@example.com', 'disabled', 'None', 'Never signed in']];
+class Component extends DCLogic {
+  renderVals() {
+    const { screen = 'pp.workspaces', state: st = 'Default' } = this.props;
+    const DS = window.AlmanacDesignSystem_94f443 || {}, h = React.createElement;
+    const empty = st === 'Empty';
+    const newWs = DS.Button ? h(DS.Button, { variant: 'solid', size: 'md' }, 'New workspace') : null;
+    const ic = (n) => (DS.Icon ? h(DS.Icon, { name: n, size: 18 }) : null);
+    return {
+      isWorkspaces: screen === 'pp.workspaces', isUsers: screen === 'pp.users',
+      wsHeader: { actions: newWs }, wsEmpty: empty, wsFull: !empty, wsEmptyProps: { icon: ic('Building2'), actions: newWs },
+      workspaces: empty ? [] : WORKSPACES.map(([name, slug, members, created]) => ({ name, slug, members, created })),
+      usersEmpty: empty, usersFull: !empty, usersEmptyProps: { icon: ic('Users') },
+      users: empty ? [] : USERS.map(([name, email, s, roles, lastSeen]) => ({ name, email, roles, lastSeen, status: s === 'disabled' ? 'Disabled' : 'Active', variant: s === 'disabled' ? 'warning' : 'success' })),
+    };
+  }
+}
+</script>
+</body>
+</html>

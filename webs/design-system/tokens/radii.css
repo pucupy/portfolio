@@ -1,0 +1,8 @@
+:root {
+  --hb-radius-sm: 6px;    /* list rows, nav pills */
+  --hb-radius-md: 8px;    /* inputs, buttons */
+  --hb-radius-lg: 10px;   /* media, small cards */
+  --hb-radius-xl: 12px;   /* venue cards, hero panel */
+  --hb-radius-pill: 999px;/* chips */
+  --hb-radius-circle: 50%;
+}

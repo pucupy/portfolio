@@ -1,0 +1,34 @@
+/* Motion (guidelines/motion.md). */
+:root {
+  --duration-instant: 0ms;     /* @kind other */ /* keyboard and frequent actions */
+  --duration-fast: 150ms;      /* @kind other */ /* hover, colour, opacity */
+  --duration-press: 120ms;     /* @kind other */ /* button press scale */
+  --duration-enter: 220ms;     /* @kind other */ /* content entering */
+  --duration-move: 260ms;      /* @kind other */ /* tab indicator */
+  --duration-thumb: 280ms;     /* @kind other */ /* segmented control thumb */
+  --duration-panel: 300ms;     /* @kind other */ /* sheets, sidebar collapse */
+  --duration-leave: 200ms;     /* @kind other */ /* sheet close, dialog open */
+  --stagger: 30ms;             /* @kind other */ /* per table row, max 5 rows */
+
+  --ease-out: cubic-bezier(.23, 1, .32, 1);    /* @kind other */ /* entering, hover */
+  --ease-in-out: cubic-bezier(.32, .72, 0, 1); /* @kind other */ /* panels, rail, moving things */
+  --ease-in: cubic-bezier(.4, 0, 1, 1);        /* @kind other */ /* leaving */
+
+  --rise: 4px;                 /* @kind other */ /* entrance offset */
+  --press-scale: 0.97;         /* @kind other */
+
+  /* Aliases kept so existing components resolve to the new scale */
+  --duration-hover: var(--duration-fast);    /* @kind other */
+  --duration-entrance: var(--duration-enter); /* @kind other */
+  --duration-sheet: var(--duration-panel);   /* @kind other */
+  --duration-sheet-in: var(--duration-panel); /* @kind other */
+  --ease-entrance: var(--ease-out);          /* @kind other */
+  --ease-rail: var(--ease-in-out);           /* @kind other */
+  --ease-sheet: var(--ease-out);             /* @kind other */
+  --rise-distance: var(--rise);              /* @kind other */
+  --motion-instant: 100ms linear;                                  /* @kind other */
+  --motion-fast: var(--duration-fast) var(--ease-out);             /* @kind other */
+  --motion-base: var(--duration-enter) var(--ease-out);            /* @kind other */
+  --motion-slow: var(--duration-panel) var(--ease-in-out);         /* @kind other */
+  --motion-brand: 900ms cubic-bezier(0.2, 0.8, 0.2, 1);            /* @kind other */ /* site only */
+}

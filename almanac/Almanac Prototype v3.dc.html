@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Almanac prototype v3 · Proposed</title>
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/radius.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/tokens/base.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/components/components.css">
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/styles.css">
+  <link rel="stylesheet" href="Design System v2 Tokens.css">
+  <link rel="stylesheet" href="Almanac v3 Theme.css">
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/_ds_bundle.js"></script>
+  <style>.sc-placeholder{background:linear-gradient(90deg,color-mix(in srgb,var(--muted,#f4f4f4) 100%,transparent) 0%,color-mix(in srgb,var(--muted,#f4f4f4) 40%,var(--background,#fff)) 50%,color-mix(in srgb,var(--muted,#f4f4f4) 100%,transparent) 100%) 0 0/200% 100% !important;border:0 !important;border-radius:var(--radius-md,9.6px) !important;animation:almSkel 1.4s ease-in-out infinite}@keyframes almSkel{0%{background-position:100% 0}100%{background-position:-100% 0}}@media (prefers-reduced-motion: reduce){.sc-placeholder{animation:none}}html,body{margin:0;height:100%;overflow:hidden}a{color:var(--foreground)}a:hover{color:var(--accent)}@keyframes almspin{to{transform:rotate(360deg)}}.alm-spin{animation:almspin 1s linear infinite}</style>
+</helmet>
+<div style="height:100vh;display:flex;flex-direction:column;background:var(--background);color:var(--foreground);font-family:var(--font-sans, ui-sans-serif, system-ui, sans-serif)">
+  <sc-if value="{{ showCompact }}" hint-placeholder-val="{{ true }}">
+    <div style="flex-shrink:0;display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;background:#161616;color:#f5f5f5;font-size:12px">
+      <button onClick="{{ prev }}" title="Previous (Alt ←)" style="height:24px;padding:0 8px;border:0;border-radius:4px;background:transparent;color:#d4d4d4;font-size:12px;cursor:pointer" style-hover="background:#262626">←</button>
+      <span style="color:#d4d4d4;font-variant-numeric:tabular-nums;white-space:nowrap">{{ stepLabel }}</span>
+      <span style="color:#737373;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ stepName }}</span>
+      <button onClick="{{ next }}" title="Next (Alt →)" style="height:24px;padding:0 8px;border:0;border-radius:4px;background:transparent;color:#d4d4d4;font-size:12px;cursor:pointer" style-hover="background:#262626">→</button>
+      <div style="flex:1"></div>
+      <button onClick="{{ toPlatform }}" style="height:24px;padding:0 10px;border:1px solid {{ ppBorder }};border-radius:4px;background:{{ ppBg }};color:{{ ppFg }};font-size:12px;cursor:pointer" style-hover="background:#262626">Platform portal</button>
+      <div style="display:flex;background:#262626;border-radius:6px;padding:2px;gap:2px;flex-shrink:0" role="group" aria-label="Device">
+            <sc-for list="{{ deviceOpts }}" as="o" hint-placeholder-count="3">
+              <button onClick="{{ o.onClick }}" aria-pressed="{{ o.pressed }}" aria-label="{{ o.label }}" title="{{ o.label }}" style="display:flex;align-items:center;justify-content:center;width:30px;height:24px;padding:0;border:0;border-radius:4px;cursor:pointer;background:{{ o.bg }};color:{{ o.fg }}">{{ o.icon }}</button>
+            </sc-for>
+          </div>
+          <sc-if value="{{ showOrient }}">
+            <div style="display:flex;background:#262626;border-radius:6px;padding:2px;gap:2px;flex-shrink:0" role="group" aria-label="Orientation">
+              <sc-for list="{{ orientOpts }}" as="o" hint-placeholder-count="2">
+                <button onClick="{{ o.onClick }}" aria-pressed="{{ o.pressed }}" aria-label="{{ o.label }}" title="{{ o.label }}" style="display:flex;align-items:center;justify-content:center;width:30px;height:24px;padding:0;border:0;border-radius:4px;cursor:pointer;background:{{ o.bg }};color:{{ o.fg }}">{{ o.icon }}</button>
+              </sc-for>
+            </div>
+          </sc-if>
+      <button onClick="{{ expand }}" style="height:24px;padding:0 10px;border:1px solid #3a3a3a;border-radius:4px;background:transparent;color:#f5f5f5;font-size:12px;cursor:pointer" style-hover="background:#262626">Show controls</button>
+      <button onClick="{{ hide }}" title="Hide (Alt H)" style="height:24px;padding:0 8px;border:0;border-radius:4px;background:transparent;color:#a3a3a3;font-size:12px;cursor:pointer" style-hover="background:#262626">Hide</button>
+    </div>
+  </sc-if>
+  <sc-if value="{{ showFull }}">
+    <div style="flex-shrink:0;background:#161616;color:#f5f5f5;border-bottom:1px solid #2a2a2a">
+      <div style="display:flex;align-items:center;gap:10px 16px;min-height:48px;padding:10px 16px;box-sizing:border-box;font-size:13px;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+          <span style="font-weight:600;letter-spacing:-0.01em">Almanac prototype</span>
+          <select value="{{ selVersion }}" onChange="{{ onVersion }}" aria-label="Version" style="background:#262626;color:#f5f5f5;border:1px solid #3a3a3a;border-radius:6px;height:28px;padding:0 6px;font-size:12px">
+            <option value="v1">v1 As built</option>
+            <option value="v2">v2 Proposed</option>
+            <option value="v3">v3 Proposed</option>
+          </select>
+        </div>
+        <button onClick="{{ openDrawer }}" style="display:flex;align-items:center;gap:6px;height:28px;padding:0 10px;border-radius:6px;border:1px solid #3a3a3a;background:#262626;color:#f5f5f5;font-size:12px;cursor:pointer;flex-shrink:0" style-hover="background:#303030">All screens</button>
+        <button onClick="{{ toPlatform }}" style="display:flex;align-items:center;gap:6px;height:28px;padding:0 10px;border-radius:6px;border:1px solid {{ ppBorder }};background:{{ ppBg }};color:{{ ppFg }};font-size:12px;cursor:pointer;flex-shrink:0" style-hover="background:#303030">Platform portal</button>
+        <div style="display:flex;background:#262626;border-radius:6px;padding:2px;gap:2px;flex-shrink:0" role="group" aria-label="Device">
+            <sc-for list="{{ deviceOpts }}" as="o" hint-placeholder-count="3">
+              <button onClick="{{ o.onClick }}" aria-pressed="{{ o.pressed }}" aria-label="{{ o.label }}" title="{{ o.label }}" style="display:flex;align-items:center;justify-content:center;width:30px;height:24px;padding:0;border:0;border-radius:4px;cursor:pointer;background:{{ o.bg }};color:{{ o.fg }}">{{ o.icon }}</button>
+            </sc-for>
+          </div>
+          <sc-if value="{{ showOrient }}">
+            <div style="display:flex;background:#262626;border-radius:6px;padding:2px;gap:2px;flex-shrink:0" role="group" aria-label="Orientation">
+              <sc-for list="{{ orientOpts }}" as="o" hint-placeholder-count="2">
+                <button onClick="{{ o.onClick }}" aria-pressed="{{ o.pressed }}" aria-label="{{ o.label }}" title="{{ o.label }}" style="display:flex;align-items:center;justify-content:center;width:30px;height:24px;padding:0;border:0;border-radius:4px;cursor:pointer;background:{{ o.bg }};color:{{ o.fg }}">{{ o.icon }}</button>
+              </sc-for>
+            </div>
+          </sc-if>
+        <div style="width:1px;height:20px;background:#333;flex-shrink:0"></div>
+        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+          <span style="color:#a3a3a3;font-size:12px">Viewing as</span>
+          <div style="display:flex;background:#262626;border-radius:6px;padding:2px;gap:2px">
+            <sc-for list="{{ personaOpts }}" as="o" hint-placeholder-count="2">
+              <button onClick="{{ o.onClick }}" style="height:24px;padding:0 10px;border:0;border-radius:4px;font-size:12px;cursor:pointer;background:{{ o.bg }};color:{{ o.fg }}">{{ o.label }}</button>
+            </sc-for>
+          </div>
+          <span style="color:#a3a3a3;font-size:12px">User</span>
+          <div style="display:flex;background:#262626;border-radius:6px;padding:2px;gap:2px">
+            <sc-for list="{{ userOpts }}" as="o" hint-placeholder-count="2">
+              <button onClick="{{ o.onClick }}" style="height:24px;padding:0 10px;border:0;border-radius:4px;font-size:12px;cursor:pointer;background:{{ o.bg }};color:{{ o.fg }}">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="flex:1;min-width:16px"></div>
+        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+          <button onClick="{{ prev }}" title="Previous (Alt ←)" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #3a3a3a;background:#262626;color:#f5f5f5;font-size:12px;cursor:pointer">← Prev</button>
+          <span style="font-size:12px;color:#d4d4d4;min-width:110px;text-align:center;font-variant-numeric:tabular-nums">{{ stepLabel }}</span>
+          <button onClick="{{ next }}" title="Next (Alt →)" style="height:28px;padding:0 10px;border-radius:6px;border:0;background:#2f45d0;color:#fff;font-size:12px;cursor:pointer">Next →</button>
+        </div>
+        <div style="width:1px;height:20px;background:#333;flex-shrink:0"></div>
+        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+          <span style="color:#a3a3a3;font-size:12px">State</span>
+          <select value="{{ state }}" onChange="{{ onState }}" aria-label="Screen state" style="background:#262626;color:#f5f5f5;border:1px solid #3a3a3a;border-radius:6px;height:28px;padding:0 6px;font-size:12px;max-width:180px">
+            <sc-for list="{{ stateOpts }}" as="s" hint-placeholder-count="2">
+              <option value="{{ s }}">{{ s }}</option>
+            </sc-for>
+          </select>
+          <button onClick="{{ toggleDark }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #3a3a3a;background:#262626;color:#f5f5f5;font-size:12px;cursor:pointer">{{ themeLabel }}</button>
+          <button onClick="{{ collapse }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #3a3a3a;background:#262626;color:#f5f5f5;font-size:12px;cursor:pointer">Minimise</button>
+          <button onClick="{{ hide }}" title="Hide (Alt H)" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #3a3a3a;background:#262626;color:#f5f5f5;font-size:12px;cursor:pointer">Hide</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:4px;padding:0 16px 8px;overflow-x:auto;scrollbar-width:thin">
+        <sc-for list="{{ rail }}" as="r" hint-placeholder-count="14">
+          <button onClick="{{ r.onClick }}" style="display:flex;align-items:center;gap:6px;flex-shrink:0;height:26px;padding:0 10px 0 4px;border-radius:13px;border:1px solid {{ r.border }};background:{{ r.bg }};color:{{ r.fg }};font-size:12px;cursor:pointer;white-space:nowrap">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:9px;background:{{ r.numBg }};font-size:10px;font-variant-numeric:tabular-nums">{{ r.n }}</span>{{ r.label }}
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ showDevice }}">
+    <div style="flex:1;min-height:0;overflow:auto;background:#2a2a2a;display:flex;justify-content:center;align-items:flex-start;padding:24px">
+      <div style="flex-shrink:0;width:{{ deviceW }};height:{{ deviceH }};border-radius:{{ deviceR }};border:10px solid #0e0e0e;background:#0e0e0e;box-shadow:0 24px 60px -20px rgba(0,0,0,.6);overflow:hidden">
+        <iframe src="Almanac%20Prototype%20v3.dc.html?frame=1" title="{{ deviceTitle }}" style="display:block;width:100%;height:100%;border:0;background:#ffffff"></iframe>
+      </div>
+    </div>
+  </sc-if>
+  <div style="flex:1;min-height:0;position:relative;overflow:auto;display:{{ inlineDisplay }}">
+    <sc-if value="{{ isSite }}">
+      <dc-import name="Proto Site v3" screen="{{ screen }}" state="{{ state }}" go="{{ go }}" ctx="{{ ctx }}" set-ctx="{{ setCtx }}" hint-size="100%,100%"></dc-import>
+    </sc-if>
+    <sc-if value="{{ isWizard }}">
+      <dc-import name="Proto Buyer Wizard v3" screen="{{ screen }}" state="{{ state }}" go="{{ go }}" ctx="{{ ctx }}" set-ctx="{{ setCtx }}" hint-size="100%,100%"></dc-import>
+    </sc-if>
+    <sc-if value="{{ isWizardV2 }}">
+      <dc-import name="Proto Buyer Wizard v3" screen="{{ screen }}" state="{{ state }}" go="{{ go }}" ctx="{{ ctx }}" set-ctx="{{ setCtx }}" hint-size="100%,100%"></dc-import>
+    </sc-if>
+    <sc-if value="{{ isShell }}">
+      <div ref="{{ shellRef }}" data-tabbar-on="{{ tabAttr }}" style="position:relative;height:100%">
+      <x-import component-from-global-scope="AlmanacDesignSystem_94f443.MainLayout" dc-props="{{ shellProps }}" hint-size="100%,100%">
+        <sc-if value="{{ hasSection }}">
+          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.PageHeader" dc-props="{{ sectionHeader }}" hint-size="100%,112px"></x-import>
+        </sc-if>
+        <sc-if value="{{ isSpApps }}">
+          <dc-import name="Proto Supplier Apps v3" screen="{{ screen }}" state="{{ state }}" go="{{ go }}" ctx="{{ ctx }}" set-ctx="{{ setCtx }}" hint-size="100%,600px"></dc-import>
+        </sc-if>
+        <sc-if value="{{ isSpVer }}">
+          <dc-import name="Proto Supplier Verification v3" screen="{{ screen }}" state="{{ state }}" go="{{ go }}" ctx="{{ ctx }}" set-ctx="{{ setCtx }}" hint-size="100%,600px"></dc-import>
+        </sc-if>
+        <sc-if value="{{ isSpCust }}">
+          <dc-import name="Proto Supplier Customers v3" screen="{{ screen }}" state="{{ state }}" go="{{ go }}" ctx="{{ ctx }}" set-ctx="{{ setCtx }}" hint-size="100%,600px"></dc-import>
+        </sc-if>
+        <sc-if value="{{ isSpMoney }}">
+          <dc-import name="Proto Supplier Money v3" screen="{{ screen }}" state="{{ state }}" go="{{ go }}" ctx="{{ ctx }}" set-ctx="{{ setCtx }}" hint-size="100%,600px"></dc-import>
+        </sc-if>
+        <sc-if value="{{ isBp }}">
+          <dc-import name="Proto Buyer Portal v3" screen="{{ screen }}" state="{{ state }}" go="{{ go }}" ctx="{{ ctx }}" set-ctx="{{ setCtx }}" hint-size="100%,600px"></dc-import>
+        </sc-if>
+        <sc-if value="{{ isPp }}">
+          <dc-import name="Proto Platform v3" screen="{{ screen }}" state="{{ state }}" go="{{ go }}" ctx="{{ ctx }}" set-ctx="{{ setCtx }}" hint-size="100%,400px"></dc-import>
+        </sc-if>
+        <sc-if value="{{ isNa }}">
+          <x-import component-from-global-scope="AlmanacDesignSystem_94f443.PageHeader" title="{{ naTitle }}" hint-size="100%,72px"></x-import>
+          <div style="padding:28px 24px 24px">
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Empty" title="Not in this prototype" description="This page exists in the product but is not part of the v1 prototype journeys." hint-size="100%,200px"></x-import>
+          </div>
+        </sc-if>
+      </x-import>
+      <sc-if value="{{ showTabBar }}">
+        <nav aria-label="Main" style="position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));background:var(--card);border-top:1px solid var(--border);padding:4px 4px calc(4px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px -18px rgba(26,26,26,.3)">
+          <sc-for list="{{ tabItems }}" as="tb" hint-placeholder-count="5">
+            <button type="button" onClick="{{ tb.onClick }}" aria-current="{{ tb.current }}" aria-label="{{ tb.label }}" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:56px;padding:6px 0;border:0;border-radius:12px;background:transparent;color:{{ tb.fg }};font:500 12px/1.1 'Work Sans',system-ui,sans-serif;cursor:pointer;min-width:0">
+              <span style="display:flex;align-items:center;justify-content:center;width:56px;height:30px;border-radius:15px;background:{{ tb.pill }};transition:background-color 200ms cubic-bezier(.2,.8,.2,1)">{{ tb.icon }}</span>
+              <span style="max-width:100%;white-space:nowrap;overflow:hidden;text-align:center">{{ tb.short }}</span>
+            </button>
+          </sc-for>
+        </nav>
+      </sc-if>
+      <sc-if value="{{ moreOpen }}">
+        <div style="position:fixed;inset:0;z-index:45">
+          <button type="button" aria-label="Close menu" onClick="{{ closeMore }}" style="position:absolute;inset:0;border:0;background:rgba(26,26,26,.4);cursor:pointer"></button>
+          <div role="dialog" aria-modal="true" aria-label="More" style="position:absolute;left:0;right:0;bottom:0;max-height:80vh;overflow:auto;background:var(--card);border-radius:19.2px 19.2px 0 0;padding:8px 16px calc(16px + env(safe-area-inset-bottom));animation:almSheetUp 300ms cubic-bezier(.4,0,.2,1) both">
+            <div style="width:36px;height:4px;border-radius:2px;background:var(--border);margin:4px auto 12px"></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 4px 8px">
+              <span style="font-size:16px;font-weight:600">More</span>
+              <button type="button" onClick="{{ closeMore }}" aria-label="Close" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;border-radius:22px;background:transparent;color:var(--foreground);cursor:pointer">{{ closeIcon }}</button>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:2px">
+              <sc-for list="{{ moreItems }}" as="mi" hint-placeholder-count="4">
+                <button type="button" onClick="{{ mi.onClick }}" style="display:flex;align-items:center;gap:14px;min-height:52px;padding:0 12px;border:0;border-radius:12px;background:{{ mi.bg }};color:{{ mi.fg }};font:500 15px 'Work Sans',system-ui,sans-serif;text-align:left;cursor:pointer">{{ mi.icon }}<span style="flex:1;min-width:0">{{ mi.label }}</span>{{ mi.chev }}</button>
+              </sc-for>
+            </div>
+            <div style="margin-top:12px;padding:12px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px">
+              <span style="display:flex;align-items:center;gap:10px;min-width:0"><span style="width:32px;height:32px;border-radius:16px;background:var(--muted);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0">{{ meInitial }}</span><span style="font-size:14px;font-weight:500">{{ meName }}</span></span>
+              <sc-if value="{{ poweredInSheet }}"><span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted-foreground);white-space:nowrap">Powered by<img src="assets/almanac-wordmark-v3.svg" alt="Almanac" width="78" height="11" style="display:block;height:11px;width:auto"></span></sc-if>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+      </div>
+    </sc-if>
+  </div>
+  <sc-if value="{{ showRestore }}">
+    <button onClick="{{ show }}" style="position:fixed;left:12px;bottom:12px;z-index:60;height:28px;padding:0 12px;border-radius:14px;border:0;background:#161616;color:#f5f5f5;font-size:12px;cursor:pointer;opacity:.85;box-shadow:var(--shadow-sm)">Show prototype controls (Alt H)</button>
+  </sc-if>
+  <sc-if value="{{ drawerOpen }}">
+    <div style="position:fixed;inset:0;z-index:70;display:flex">
+      <div style="width:380px;max-width:90vw;height:100%;background:var(--card);border-right:1px solid var(--border);box-shadow:var(--shadow-lg);display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border)">
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <span style="font-size:16px;font-weight:600">All screens</span>
+            <span style="font-size:12px;color:var(--muted-foreground)">{{ drawerCount }}</span>
+          </div>
+          <button onClick="{{ closeDrawer }}" style="border:0;background:transparent;color:var(--muted-foreground);font-size:13px;cursor:pointer">Close</button>
+        </div>
+        <div style="padding:12px 20px;border-bottom:1px solid var(--border)">
+          <input value="{{ query }}" onChange="{{ onQuery }}" placeholder="Search screens and states…" class="alm-input" style="width:100%;box-sizing:border-box;height:32px;padding:0 10px;border:1px solid var(--input);border-radius:var(--radius-md);background:var(--background);color:var(--foreground);font-size:14px">
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:8px 12px 24px">
+          <sc-for list="{{ drawerGroups }}" as="g" hint-placeholder-count="3">
+            <div style="padding:14px 8px 6px;font-size:.65rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted-foreground);font-weight:600">{{ g.title }}</div>
+            <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="4">
+              <div style="padding:8px;border-radius:var(--radius-md);background:{{ it.bg }}">
+                <div style="font-size:14px;font-weight:500;margin-bottom:6px">{{ it.label }}</div>
+                <div style="display:flex;flex-wrap:wrap;gap:4px">
+                  <sc-for list="{{ it.states }}" as="st" hint-placeholder-count="2">
+                    <button onClick="{{ st.onClick }}" style="height:22px;padding:0 8px;border-radius:var(--radius-sm);border:1px solid {{ st.border }};background:{{ st.bg }};color:{{ st.fg }};font-size:12px;cursor:pointer">{{ st.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </sc-for>
+        </div>
+      </div>
+      <button onClick="{{ closeDrawer }}" aria-label="Close" style="flex:1;border:0;background:var(--overlay-scrim);cursor:pointer"></button>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const A = 'Supplier portal', B = 'Buyer portal', C = 'Platform portal';
+const SCREENS = [
+  ['site.home', 'Site', 'Site', 'Home', ['Default', 'Signed In'], 'site'],
+  ['site.signin', 'Site', 'Site', 'Sign in', ['Default', 'Code', 'Error'], 'site'],
+  ['site.portal', 'Site', 'Site', 'Select portal', ['Default', 'No Workspace', 'Supplier Only', 'With Platform Portal'], 'site'],
+  ['site.invite', 'Site', 'Site', 'Accept invitation', ['Default', 'Choose Workspace', 'Waiting', 'Loading', 'Terminal Accepted', 'Terminal Expired', 'Empty'], 'site'],
+  ['site.company', 'Site', 'First company', 'Create', ['Default'], 'site'],
+  ['sp.customers', A, 'Customers', 'List', ['Default', 'Empty', 'Empty Connected', 'Locked Import', 'Create Customer Open'], 'spCust'],
+  ['sp.customer', A, 'Customers', 'Detail', ['Default', 'Empty', 'Loading', 'Not Connected'], 'spCust', 'cust'],
+  ['sp.cInvites', A, 'Customers', 'Invitations', ['Default', 'Claimed', 'Empty', 'Error', 'Restricted', 'Sending'], 'spCust', 'cust'],
+  ['sp.cImports', A, 'Customers', 'Import history', ['Default', 'Empty', 'Empty Search', 'Filtered Statuses'], 'spMoney'],
+  ['sp.cCompany', A, 'Customers', 'Company information', ['Default', 'Refresh Restricted', 'Empty', 'Loading'], 'spVer', 'cust'],
+  ['sp.cBureau', A, 'Customers', 'Credit bureau', ['Default', 'Changes Since Report', 'Stale Report', 'Refresh Fails', 'Empty', 'Read Only'], 'spVer', 'cust'],
+  ['sp.cBanking', A, 'Customers', 'Open banking', ['Default', 'Refresh Restricted', 'Sync Inactive', 'Empty'], 'spVer', 'cust'],
+  ['sp.cCredit', A, 'Customers', 'Credit management', ['Default', 'Empty', 'Write Restricted'], 'spCust', 'cust'],
+  ['sp.cPayments', A, 'Customers', 'Payments', ['Default', 'Active Card', 'Pending', 'Empty'], 'spCust', 'cust'],
+  ['sp.apps', A, 'Credit applications', 'List', ['Default', 'Empty', 'Locked Create'], 'spApps'],
+  ['sp.appCreate', A, 'Credit applications', 'Create', ['Default', 'Empty', 'Optional Steps', 'Unlinked Customer', 'Unlinked Customer Pending Invitation', 'Creating', 'Create Failed'], 'spApps'],
+  ['sp.appOverview', A, 'Credit applications', 'Overview', ['Default', 'Approve Recommended', 'Decision Open', 'Credit Analysis Open', 'Decided', 'Write Restricted'], 'spApps', 'app'],
+  ['sp.aCompany', A, 'Credit applications', 'Company information', ['Default', 'Decided', 'Empty', 'Loading'], 'spVer', 'app'],
+  ['sp.aBureau', A, 'Credit applications', 'Credit bureau', ['Default', 'Decided', 'Empty'], 'spVer', 'app'],
+  ['sp.aBanking', A, 'Credit applications', 'Open banking', ['Default', 'Decided', 'Empty'], 'spVer', 'app'],
+  ['sp.aMandate', A, 'Credit applications', 'Payment mandate', ['Default', 'Active Card', 'Pending', 'Failed', 'Cancelled', 'Empty'], 'spVer', 'app'],
+  ['sp.aRefs', A, 'Credit applications', 'Trade references', ['Default', 'All Responded', 'Empty'], 'spVer', 'app'],
+  ['sp.policy', A, 'Credit policy', 'Overview', ['Default'], 'spMoney'],
+  ['sp.rules', A, 'Credit policy', 'Credit advisor rules', ['Default', 'New Rule'], 'spMoney'],
+  ['sp.portfolio', A, 'Credit portfolio', 'Overview', ['Default', 'Empty', 'With Notes'], 'spMoney'],
+  ['sp.invoices', A, 'Invoices', 'List', ['Default', 'Empty'], 'spMoney'],
+  ['sp.invoice', A, 'Invoices', 'Detail', ['Default', 'No Activity'], 'spMoney'],
+  ['sp.imports', A, 'Invoices', 'Import history', ['Default', 'Empty', 'Empty Search', 'Filtered Statuses'], 'spMoney'],
+  ['sp.transactions', A, 'Transactions', 'List', ['Default', 'Empty', 'Export Blocked', 'Last Import Failed', 'Without Accounting'], 'spMoney'],
+  ['sp.billing', A, 'Settings', 'Billing', ['Default', 'Empty'], 'spMoney'],
+  ['sp.notifications', A, 'Notifications', 'Inbox', ['Default', 'Empty'], 'spMoney'],
+  ['sp.account', A, 'Settings', 'Account', ['Default', 'Empty', 'Loading'], 'spMoney'],
+  ['sp.notifsettings', A, 'Settings', 'Notifications', ['Default', 'Empty', 'Loading'], 'spMoney'],
+  ['sp.roles', A, 'Settings', 'Roles', ['Default', 'Create Role', 'Empty', 'Write Restricted'], 'spMoney'],
+  ['sp.org', A, 'Settings', 'Organization', ['Default', 'Read Only'], 'spMoney'],
+  ['sp.branding', A, 'Settings', 'Branding', ['Default', 'Too Light', 'Read Only'], 'spMoney'],
+  ['sp.workspace', A, 'Settings', 'Workspace', ['Default', 'Create Organization', 'Empty', 'Link Request Detail', 'Link Request Detail Confirm', 'Link Request Join', 'Link Request Join Confirm', 'With Link Requests'], 'spMoney'],
+  ['sp.users', A, 'Settings', 'Users', ['Default', 'Empty', 'Create User', 'User Detail'], 'spMoney'],
+  ['sp.integrations', A, 'Settings', 'Integrations', ['Default', 'Creditsafe Credentials Refused', 'Ledger Account Refused', 'Empty', 'Loading', 'Write Restricted'], 'spMoney'],
+  ['bw.company', B, 'Credit application wizard', 'Company', ['Default', 'With Registry Search'], 'bw'],
+  ['bw.contacts', B, 'Credit application wizard', 'Contacts', ['Default'], 'bw'],
+  ['bw.banking', B, 'Credit application wizard', 'Open banking', ['Default', 'Connected', 'Connected After Verification'], 'bw'],
+  ['bw.mandate', B, 'Credit application wizard', 'Payment mandate', ['Default'], 'bw'],
+  ['bw.terms', B, 'Credit application wizard', 'Credit terms', ['Default'], 'bw'],
+  ['bw.refs', B, 'Credit application wizard', 'References', ['Default'], 'bw'],
+  ['bw.docs', B, 'Credit application wizard', 'Documents', ['Default'], 'bw'],
+  ['bw.review', B, 'Credit application wizard', 'Review & submit', ['Default'], 'bw'],
+  ['bp.application', B, 'Credit applications', 'Detail', ['Default', 'Empty'], 'bp'],
+  ['bp.notifications', B, 'Notifications', 'Inbox', ['Default', 'Empty'], 'spMoney'],
+  ['bp.suppliers', B, 'Suppliers', 'List', ['Default', 'Empty'], 'bp'],
+  ['bp.profile', B, 'Profile', 'Details', ['Default', 'Empty', 'Needs confirmation'], 'bp'],
+  ['bp.terms', B, 'Credit terms', 'Details', ['Default', 'Empty'], 'bp'],
+  ['bp.invoices', B, 'Invoices', 'List', ['Default', 'Empty'], 'bp'],
+  ['bp.payments', B, 'Payment methods', 'List', ['Default', 'Empty', 'Needs setup'], 'bp'],
+  ['bp.banks', B, 'Bank connections', 'List', ['Default', 'Empty'], 'bp'],
+  ['bp.refs', B, 'Trade references', 'List', ['Default', 'Empty', 'Needs setup'], 'bp'],
+  ['bp.docs', B, 'Documents', 'List', ['Default', 'Empty'], 'bp'],
+  ['bp.setAccount', B, 'Settings', 'Account', ['Default', 'Empty', 'Loading'], 'spMoney'],
+  ['bp.setNotifs', B, 'Settings', 'Notifications', ['Default', 'Empty', 'Loading'], 'spMoney'],
+  ['bp.setUsers', B, 'Settings', 'Users', ['Default', 'Empty', 'Create User', 'User Detail'], 'spMoney'],
+  ['bp.setRoles', B, 'Settings', 'Roles', ['Default', 'Empty', 'Write Restricted', 'Create Role'], 'spMoney'],
+  ['bp.setOrg', B, 'Settings', 'Organization', ['Default', 'Read Only'], 'spMoney'],
+  ['bp.setWorkspace', B, 'Settings', 'Workspace', ['Default', 'Empty', 'With Link Requests', 'Link Request Detail', 'Link Request Detail Confirm', 'Link Request Join', 'Link Request Join Confirm', 'Create Organization'], 'spMoney'],
+  ['pp.workspaces', C, 'Workspaces', 'List', ['Default', 'Empty'], 'pp'],
+  ['pp.users', C, 'Users', 'List', ['Default', 'Empty'], 'pp'],
+].map(([id, portal, area, label, states, file, section]) => ({ id, portal, area, label, states, file, section }));
+const BY = Object.fromEntries(SCREENS.map((s) => [s.id, s]));
+
+const J = {
+  'supplier-new': [['site.home', 'Default', 'Home'], ['site.signin', 'Default', 'Sign in'], ['site.signin', 'Code', 'Enter code'], ['site.company', 'Default', 'Create company'], ['sp.customers', 'Empty', 'No customers yet'], ['sp.integrations', 'Empty', 'Connect integrations'], ['sp.customers', 'Empty Connected', 'Customers, connected'], ['sp.customers', 'Create Customer Open', 'Add a customer'], ['sp.apps', 'Empty', 'No applications yet'], ['sp.appCreate', 'Default', 'Create application'], ['sp.portfolio', 'Empty', 'Empty portfolio'], ['sp.invoices', 'Empty', 'No invoices yet'], ['sp.billing', 'Empty', 'No credits used'], ['sp.users', 'Create User', 'Invite teammates']],
+  'supplier-returning': [['site.home', 'Default', 'Home'], ['site.signin', 'Default', 'Sign in'], ['site.signin', 'Code', 'Enter code'], ['site.portal', 'Default', 'Choose portal'], ['sp.apps', 'Default', 'Applications'], ['sp.appOverview', 'Default', 'Application overview'], ['sp.aCompany', 'Default', 'Company information'], ['sp.aBureau', 'Default', 'Credit bureau'], ['sp.aBanking', 'Default', 'Open banking'], ['sp.aRefs', 'Default', 'Trade references'], ['sp.appOverview', 'Decision Open', 'Make decision'], ['sp.appOverview', 'Decided', 'Decided'], ['sp.customers', 'Default', 'Customers'], ['sp.customer', 'Default', 'Customer'], ['sp.cBureau', 'Changes Since Report', 'Bureau changes'], ['sp.cCredit', 'Default', 'Credit management'], ['sp.cPayments', 'Default', 'Payments'], ['sp.portfolio', 'Default', 'Credit portfolio'], ['sp.invoices', 'Default', 'Invoices'], ['sp.invoice', 'Default', 'Invoice'], ['sp.transactions', 'Default', 'Transactions'], ['sp.billing', 'Default', 'Billing']],
+  'buyer-new': [['site.invite', 'Default', 'Accept invitation'], ['site.invite', 'Choose Workspace', 'Create workspace'], ['bw.company', 'Default', 'Company'], ['bw.contacts', 'Default', 'Contacts'], ['bw.banking', 'Default', 'Open banking'], ['bw.mandate', 'Default', 'Payment mandate'], ['bw.terms', 'Default', 'Credit terms'], ['bw.refs', 'Default', 'References'], ['bw.docs', 'Default', 'Documents'], ['bw.review', 'Default', 'Review & submit'], ['bp.application', 'Default', 'Application sent'], ['bp.suppliers', 'Empty', 'No suppliers yet'], ['bp.payments', 'Needs setup', 'Set up payment']],
+  'buyer-returning': [['site.signin', 'Default', 'Sign in'], ['site.signin', 'Code', 'Enter code'], ['site.portal', 'Default', 'Choose portal'], ['bp.suppliers', 'Default', 'Suppliers'], ['bp.terms', 'Default', 'Credit terms'], ['bp.invoices', 'Default', 'Invoices'], ['bp.payments', 'Default', 'Payment methods'], ['bp.banks', 'Default', 'Bank connections'], ['bp.docs', 'Default', 'Documents'], ['bp.refs', 'Default', 'Trade references'], ['bp.application', 'Default', 'Application'], ['bp.profile', 'Default', 'Profile']],
+};
+const SP_NAV = [['customers', 'Customers', 'BookUser', 'sp.customers', 'Customers'], ['applications', 'Credit applications', 'ListTodo', 'sp.apps', 'Credit applications'], ['invoices', 'Invoices', 'FileText', 'sp.invoices', 'Invoices'], ['payments', 'Transactions', 'CreditCard', 'sp.transactions', 'Transactions'], ['policy', 'Credit policy', 'ShieldCheck', 'sp.policy', 'Credit policy'], ['portfolio', 'Credit portfolio', 'PieChart', 'sp.portfolio', 'Credit portfolio'], ['notifications', 'Notifications', 'Bell', 'sp.notifications', 'Notifications'], ['settings', 'Settings', 'Settings', 'sp.account', 'Settings']];
+const BP_NAV = [['suppliers', 'Suppliers', 'BookUser', 'bp.suppliers', 'Suppliers'], ['applications', 'Credit applications', 'ListTodo', 'bp.application', 'Credit applications'], ['invoices', 'Invoices', 'FileText', 'bp.invoices', 'Invoices'], ['banks', 'Bank connections', 'Landmark', 'bp.banks', 'Bank connections'], ['notifications', 'Notifications', 'Bell', 'bp.notifications', 'Notifications'], ['settings', 'Settings', 'Settings', 'bp.setAccount', 'Settings']];
+const PP_NAV = [['workspaces', 'Workspaces', 'Component', 'pp.workspaces', 'Workspaces'], ['users', 'Users', 'Users', 'pp.users', 'Users'], ['audit', 'Audit', 'History', 'pp.na:Audit', 'Audit'], ['prices', 'Credit prices', 'Coins', 'pp.na:Credit prices', 'Credit prices']];
+const KEY = 'alm-proto-v1-v3';
+const FRAME = /[?&]frame=1/.test(window.location.search);
+
+class Component extends DCLogic {
+  shellRef = React.createRef();
+  measureUserMenu() {
+    const el = this.shellRef.current; const col = el && el.querySelector('aside > div');
+    const old = el && el.querySelector('[data-powered-by]');
+    if (!this.pbOn || !col) { if (old) { const p = old.previousElementSibling; if (p) p.style.paddingBottom = ''; old.remove(); } return; }
+    let pb = old;
+    if (!pb) {
+      pb = document.createElement('div'); pb.setAttribute('data-powered-by', '');
+      pb.style.cssText = 'flex-shrink:0;display:flex;align-items:center;justify-content:flex-start;gap:6px;padding:4px 12px 16px 22px;color:var(--muted-foreground);font-size:12px;line-height:1;white-space:nowrap;overflow:hidden';
+      pb.innerHTML = '<span data-pb-text>Powered by</span><img data-pb-word src="assets/almanac-wordmark-v3.svg" alt="Almanac" width="92" height="13" style="display:block;flex-shrink:0;height:13px;width:auto"><img data-pb-mark src="assets/almanac-symbol-v3.svg" alt="Almanac" width="21" height="16" style="display:none;flex-shrink:0">';
+      const um = col.lastElementChild; um.style.paddingBottom = '20px'; col.appendChild(pb);
+    }
+    const cz = this.state.navCollapsed; pb.querySelector('[data-pb-text]').style.display = cz ? 'none' : ''; pb.querySelector('[data-pb-word]').style.display = cz ? 'none' : 'block'; pb.querySelector('[data-pb-mark]').style.display = cz ? 'block' : 'none';
+    pb.setAttribute('aria-label', 'Powered by Almanac');
+  }
+  state = (() => {
+    let s = {};
+    try { s = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+    return { vw: window.innerWidth, vh: window.innerHeight, more: false, orient: s.orient === 'landscape' ? 'landscape' : 'portrait', device: FRAME ? 'desktop' : (s.device || 'desktop'), version: 'v2', compact: s.compact !== false, journey: s.journey || 'supplier-returning', screen: s.screen || 'site.home', st: s.st || 'Default', dark: !!s.dark, hidden: FRAME, drawer: false, query: '', ctx: {}, ds: !!window.AlmanacDesignSystem_94f443 };
+  })();
+
+  labelTables() {
+    const compact = window.innerWidth < 600;
+    document.querySelectorAll('table').forEach((t) => {
+      if (!compact) { t.removeAttribute('data-stacked'); return; }
+      const heads = [...t.querySelectorAll('thead th')].map((th) => th.textContent.trim());
+      t.setAttribute('data-stacked', '');
+      t.querySelectorAll('tbody tr').forEach((tr) => [...tr.children].forEach((td, i) => { const l = heads[i] || ''; if (td.getAttribute('data-label') !== l) td.setAttribute('data-label', l); }));
+    });
+  }
+  syncVersionSelect() { document.querySelectorAll('select[aria-label="Version"]').forEach((s) => { if (s.value !== 'v3') s.value = 'v3'; }); }
+  componentDidMount() { this.onVw = () => this.setState({ vw: window.innerWidth, vh: window.innerHeight }); window.addEventListener('resize', this.onVw); this.tblObs = new MutationObserver(() => { clearTimeout(this.tblT); this.tblT = setTimeout(() => this.labelTables(), 80); }); this.tblObs.observe(document.body, { childList: true, subtree: true }); window.addEventListener('resize', () => this.labelTables()); setTimeout(() => this.syncVersionSelect(), 0); setTimeout(() => this.syncVersionSelect(), 500); setTimeout(() => this.measureUserMenu(), 300); setTimeout(() => this.measureUserMenu(), 1200);
+    document.documentElement.classList.toggle('dark', this.state.dark);
+    if (!this.state.ds) this.poll = setInterval(() => { if (window.AlmanacDesignSystem_94f443) { clearInterval(this.poll); this.setState({ ds: true }); } }, 100);
+    this.onKey = (e) => {
+      if (!e.altKey) return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); this.step(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); this.step(-1); }
+      if (e.code === 'KeyH') { e.preventDefault(); this.setState((s) => ({ hidden: !s.hidden })); }
+    };
+    window.addEventListener('keydown', this.onKey);
+    this.onStorage = (e) => { if (e.key !== KEY || !e.newValue) return; let s = {}; try { s = JSON.parse(e.newValue); } catch (err) { return; } const c = this.state; if (s.screen !== c.screen || s.st !== c.st || s.journey !== c.journey || !!s.dark !== c.dark) this.setState({ screen: s.screen || c.screen, st: s.st || 'Default', journey: s.journey || c.journey, dark: !!s.dark }); };
+    window.addEventListener('storage', this.onStorage);
+  }
+  componentWillUnmount() { window.removeEventListener('storage', this.onStorage); window.removeEventListener('keydown', this.onKey); clearInterval(this.poll); }
+  componentDidUpdate() { this.measureUserMenu(); this.syncVersionSelect(); setTimeout(() => this.labelTables(), 60);
+    const { journey, screen, st, dark, compact, version, device, orient } = this.state;
+    let prevS = {}; try { prevS = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+    localStorage.setItem(KEY, JSON.stringify({ journey, screen, st, dark, compact, version, device: FRAME ? prevS.device : device, orient: FRAME ? prevS.orient : orient }));
+    document.documentElement.classList.toggle('dark', dark);
+  }
+
+  go = (screen, st) => { if (screen === '@next') return this.step(1); this.setState({ screen, st: st || 'Default', drawer: false, more: false }); };
+  setCtx = (patch) => this.setState((s) => ({ ctx: { ...s.ctx, ...(typeof patch === 'function' ? patch(s.ctx) : patch) } }));
+  stepIndex() { const steps = J[this.state.journey]; return steps.findIndex(([id, st]) => id === this.state.screen && st === this.state.st); }
+  step(d) {
+    const steps = J[this.state.journey];
+    let i = this.stepIndex();
+    if (i < 0) { const loose = steps.findIndex(([id]) => id === this.state.screen); i = loose < 0 ? (d > 0 ? -1 : steps.length) : loose; }
+    const n = Math.max(0, Math.min(steps.length - 1, i + d));
+    this.go(steps[n][0], steps[n][1]);
+  }
+  setJourney(persona, user) {
+    const journey = persona + '-' + user; const [id, st] = J[journey][0];
+    this.setState({ journey, screen: id, st, ctx: {} });
+  }
+
+  renderVals() {
+    const { journey, screen, st, dark, hidden, drawer, query, ctx } = this.state;
+    const [persona, user] = journey.split('-');
+    const naTitle = screen.includes(':') ? screen.split(':')[1] : '';
+    const PENDING = {};
+    let sc = BY[screen] || { id: screen, file: screen.startsWith('bp') ? 'na-bp' : screen.startsWith('pp') ? 'na-pp' : 'na-sp', states: ['Default'], label: naTitle };
+    if (PENDING[sc.file]) sc = { ...sc, file: 'na-bp' };
+    const steps = J[journey];
+    const idx = this.stepIndex();
+    const seg = (cur, val, onClick, label) => ({ label, onClick, bg: cur === val ? '#f5f5f5' : 'transparent', fg: cur === val ? '#161616' : '#d4d4d4' });
+    const rail = steps.map(([id, s, label], i) => {
+      const on = i === idx, done = idx >= 0 && i < idx;
+      return { n: i + 1, label, onClick: () => this.go(id, s), bg: on ? '#2f45d0' : 'transparent', fg: on ? '#fff' : done ? '#e5e5e5' : '#a3a3a3', border: on ? '#2f45d0' : '#333', numBg: on ? 'rgba(0,0,0,.2)' : '#2a2a2a' };
+    });
+    const q = query.trim().toLowerCase();
+    const groups = [];
+    SCREENS.forEach((s) => {
+      const full = (s.portal + ' ' + s.area + ' ' + s.label + ' ' + s.states.join(' ')).toLowerCase();
+      if (q && !full.includes(q)) return;
+      let g = groups.find((x) => x.title === s.portal);
+      if (!g) { g = { title: s.portal, items: [] }; groups.push(g); }
+      const cur = s.id === screen;
+      g.items.push({ label: s.area === s.portal || s.area === 'Site' ? s.label : s.area + ' › ' + s.label, bg: cur ? 'var(--accent-10)' : 'transparent', states: s.states.map((x) => { const on = cur && x === st; return { label: x, onClick: () => this.go(s.id, x), bg: on ? 'var(--accent)' : 'var(--background)', fg: on ? '#fff' : 'var(--foreground)', border: on ? 'var(--accent)' : 'var(--border)' }; }) });
+    });
+
+    const DS = window.AlmanacDesignSystem_94f443;
+    const h = React.createElement;
+    const isBpShell = screen.startsWith('bp') || sc.file === 'bp' || sc.file === 'na-bp';
+    const isPp = sc.file === 'pp' || sc.file === 'na-pp';
+    const isSp = !isBpShell && !isPp && (sc.file.startsWith('sp') || sc.file === 'na-sp');
+    let shellProps = null, sectionHeader = null;
+    this.pbOn = isSp;
+    if (DS && (isSp || isBpShell || isPp)) {
+      const nav = isPp ? PP_NAV : isSp ? SP_NAV : BP_NAV;
+      const areaOf = (s) => (BY[s] ? BY[s].area : s.split(':')[1]);
+      const curArea = BY[screen] ? sc.area : naTitle;
+      shellProps = {
+        style: { height: '100%' },
+        collapsed: !!this.state.navCollapsed || window.innerWidth < 840, onCollapsedChange: (v) => this.setState({ navCollapsed: v }),
+        logo: isSp ? h('span', { style: { width: 36, height: 36, flexShrink: 0, borderRadius: 'var(--radius-md)', background: '#ffffff', border: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' } }, h('img', { src: 'assets/brewdog-mark.png', alt: 'BrewDog', style: { display: 'block', maxWidth: 28, maxHeight: 28, width: 'auto', height: 'auto', objectFit: 'contain' } })) : h('span', { style: { width: 36, height: 36, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' } }, h('img', { src: 'assets/almanac-symbol-v3.svg', alt: 'Almanac', width: 31, height: 24, style: { display: 'block', height: 24, width: 'auto' } })),
+        organizationName: isSp ? 'BrewDog' : isPp ? 'Almanac' : 'Kelly & Rose Taverns Ltd',
+        workspaceName: isPp ? 'Platform portal' : isSp ? 'Supplier portal' : 'Buyer portal',
+        navItems: nav.map(([id, label, icon, target, area]) => ({ label, href: '#' + target, icon: h(DS.Icon, { name: icon, size: 18 }), active: curArea === area })),
+        __tabs: (() => { const SHORT = { 'Credit applications': 'Apps', 'Transactions': 'Payments', 'Credit portfolio': 'Portfolio', 'Credit Portfolio': 'Portfolio', 'Credit policy': 'Policy', 'Notifications': 'Alerts', 'Bank connections': 'Banks', 'Credit prices': 'Prices' }; const mk = ([id, label, icon, target, area]) => ({ id, label, short: SHORT[label] || label, icon, target, active: curArea === area }); const all = nav.map(mk); const PRI = ['applications', 'customers', 'suppliers', 'invoices', 'notifications', 'workspaces', 'users', 'payments']; const main = PRI.map((id) => all.find((x) => x.id === id)).filter(Boolean).slice(0, 4); return { main, more: all.filter((x) => !main.includes(x)) }; })(),
+        onNavigate: (it) => { const t = it.href.slice(1); this.go(t, BY[t] ? 'Default' : 'Default'); },
+        user: isPp ? { displayName: 'Alex Rivera', initial: 'A', items: [
+          { label: 'Supplier portal', icon: h(DS.Icon, { name: 'SquareArrowOutUpRight', size: 14 }), onSelect: () => this.go('sp.customers') },
+          { label: 'Buyer portal', icon: h(DS.Icon, { name: 'SquareArrowOutUpRight', size: 14 }), onSelect: () => this.go('bp.suppliers') },
+          { type: 'separator' },
+          { label: 'Sign out', onSelect: () => this.go('site.signin') },
+        ] } : { displayName: isSp ? 'Alex Rivera' : 'Dan Kelly', initial: isSp ? 'A' : 'A', items: [
+          { label: 'Switch organization', onSelect: () => this.go('site.portal') },
+          { label: isSp ? 'Buyer portal' : 'Supplier portal', icon: h(DS.Icon, { name: 'SquareArrowOutUpRight', size: 14 }), onSelect: () => this.go(isSp ? 'bp.suppliers' : 'sp.customers') },
+          { type: 'separator' },
+          { label: 'Sign out', onSelect: () => this.go('site.signin') },
+        ] },
+      };
+      if (sc.section) {
+        const items = sc.section === 'app'
+          ? [['Overview', 'sp.appOverview'], ['Company information', 'sp.aCompany'], ['Credit bureau', 'sp.aBureau'], ['Open banking', 'sp.aBanking'], ['Payment mandate', 'sp.aMandate'], ['Trade references', 'sp.aRefs']]
+          : [['Overview', 'sp.customer'], ['Company information', 'sp.cCompany'], ['Credit bureau', 'sp.cBureau'], ['Open banking', 'sp.cBanking'], ['Credit management', 'sp.cCredit'], ['Payments', 'sp.cPayments']];
+        const decided = sc.section === 'app' && (st === 'Decided');
+        const keep = (t) => (sc.section === 'app' && t !== 'sp.appOverview' && t !== 'sp.aRefs' && t !== 'sp.aMandate' && (decided || ctx.decision) ? 'Decided' : 'Default');
+        sectionHeader = {
+          title: 'Kelly & Rose Taverns Ltd',
+          'aria-label': sc.section === 'app' ? 'Application sections' : 'Customer sections',
+          navItems: items.map(([label, t]) => ({ label, href: '#' + t, active: t === screen || (t === 'sp.customer' && screen === 'sp.cInvites') })),
+          onNavigate: (it) => { const t = it.href.slice(1); this.go(t, t === 'sp.appOverview' && ctx.decision ? 'Decided' : keep(t)); },
+          actions: h(DS.BackLink, { href: '#', onClick: (e) => { e.preventDefault(); this.go(sc.section === 'app' ? 'sp.apps' : 'sp.customers'); } }, sc.section === 'app' ? 'Applications' : 'Customers'),
+        };
+      }
+    }
+
+    return {
+      screen, state: st, go: this.go, ctx: { ...ctx, theme: this.state.themePref || (this.state.dark ? 'dark' : 'light'), setTheme: (v) => { if (this._mq) this._mq.onchange = null; if (v === 'system') { this._mq = window.matchMedia('(prefers-color-scheme: dark)'); this._mq.onchange = (e) => this.setState({ dark: e.matches }); this.setState({ themePref: 'system', dark: this._mq.matches }); } else this.setState({ themePref: v, dark: v === 'dark' }); } }, setCtx: this.setCtx,
+      showChrome: !hidden, showCompact: !hidden && this.state.compact, showFull: !hidden && !this.state.compact, expand: () => this.setState({ compact: false }), collapse: () => this.setState({ compact: true }), stepName: idx >= 0 ? steps[idx][2] : '', hidden, show: () => this.setState({ hidden: false }), hide: () => this.setState({ hidden: true }),
+      ...(() => {
+        const tabsOn = !!shellProps && this.state.vw < 600 && this.state.vw < this.state.vh;
+        if (!tabsOn) return { tabAttr: undefined, showTabBar: false, moreOpen: false };
+        const T = shellProps.__tabs; const moreActive = T.more.some((x) => x.active);
+        const ic = (n, c) => h(DS.Icon, { name: n, size: 22, style: { color: c } });
+        const tab = (x) => ({ label: x.label, short: x.short, current: x.active ? 'page' : undefined, fg: x.active ? 'var(--accent-strong, #2f45d0)' : 'var(--muted-foreground)', pill: x.active ? 'rgba(47,69,208,.12)' : 'transparent', icon: ic(x.icon), onClick: () => { this.setState({ more: false }); this.go(x.target); } });
+        const moreTab = { label: 'More', short: 'More', current: moreActive ? 'page' : undefined, fg: moreActive || this.state.more ? 'var(--accent-strong, #2f45d0)' : 'var(--muted-foreground)', pill: moreActive || this.state.more ? 'rgba(47,69,208,.12)' : 'transparent', icon: ic('Menu'), onClick: () => this.setState((s) => ({ more: !s.more })) };
+        const u = shellProps.user || {};
+        const moreItems = [...T.more.map((x) => ({ label: x.label, icon: ic(x.icon), chev: h(DS.Icon, { name: 'ChevronRight', size: 16 }), bg: x.active ? 'rgba(47,69,208,.08)' : 'transparent', fg: x.active ? 'var(--accent-strong, #2f45d0)' : 'var(--foreground)', onClick: () => { this.setState({ more: false }); this.go(x.target); } })), ...(u.items || []).map((it) => ({ label: it.label, icon: it.icon || null, chev: null, bg: 'transparent', fg: 'var(--foreground)', onClick: () => { this.setState({ more: false }); it.onSelect && it.onSelect(); } }))];
+        return { tabAttr: '', showTabBar: true, tabItems: [...T.main.map(tab), moreTab], moreOpen: !!this.state.more, closeMore: () => this.setState({ more: false }), moreItems, closeIcon: h(DS.Icon, { name: 'X', size: 20 }), meName: u.displayName || '', meInitial: u.initial || '', poweredInSheet: this.pbOn };
+      })(),
+      showRestore: hidden && !FRAME,
+      showDevice: !FRAME && this.state.device !== 'desktop', inlineDisplay: !FRAME && this.state.device !== 'desktop' ? 'none' : 'block',
+      deviceW: (() => { const L = this.state.orient === 'landscape'; const d = this.state.device; return d === 'mobile' ? (L ? '864px' : '410px') : (L ? '1132px' : '854px'); })(), deviceH: (() => { const L = this.state.orient === 'landscape'; const d = this.state.device; return d === 'mobile' ? (L ? '410px' : '864px') : (L ? '854px' : '1132px'); })(), deviceR: this.state.device === 'mobile' ? '44px' : '28px', deviceTitle: (this.state.device === 'mobile' ? 'Mobile' : 'Tablet') + ' ' + (this.state.orient === 'landscape' ? 'landscape' : 'portrait') + ' preview',
+      showOrient: !FRAME && this.state.device !== 'desktop', orientLabel: this.state.orient === 'landscape' ? 'Switch to portrait' : 'Switch to landscape', orientIcon: DS ? h(DS.Icon, { name: 'RotateCw', size: 14 }) : '⟳', orientOpts: [['portrait', 'Portrait', 'RectangleVertical'], ['landscape', 'Landscape', 'RectangleHorizontal']].map(([id, label, iconName]) => ({ label, pressed: (this.state.orient || 'portrait') === id, bg: (this.state.orient || 'portrait') === id ? '#2f45d0' : 'transparent', fg: (this.state.orient || 'portrait') === id ? '#fff' : '#d4d4d4', icon: DS ? h(DS.Icon, { name: iconName, size: 14 }) : label[0], onClick: () => this.setState({ orient: id }) })), toggleOrient: () => this.setState((s) => ({ orient: s.orient === 'landscape' ? 'portrait' : 'landscape' })),
+      deviceOpts: [['mobile', 'Mobile', 'Smartphone'], ['tablet', 'Tablet', 'Tablet'], ['desktop', 'Desktop', 'Monitor']].map(([id, label, iconName]) => ({ label, icon: DS ? h(DS.Icon, { name: iconName, size: 14 }) : label[0], pressed: this.state.device === id, bg: this.state.device === id ? '#2f45d0' : 'transparent', fg: this.state.device === id ? '#fff' : '#d4d4d4', onClick: () => this.setState({ device: id }) })),
+      version: this.state.version, selVersion: 'v3', onVersion: (e) => { const val = e.target.value; if (val === 'v3') return; let x = {}; try { x = JSON.parse(localStorage.getItem('alm-proto-v1') || '{}'); } catch (err) {} const { journey, screen, st, dark, compact } = this.state; localStorage.setItem('alm-proto-v1', JSON.stringify({ ...x, journey, screen, st, dark, compact, version: val === 'v2' ? 'v2' : 'v1' })); window.location.href = encodeURI('Almanac Prototype.dc.html'); },
+      toPlatform: () => this.go('pp.workspaces'), ppBg: isPp ? '#2f45d0' : 'transparent', ppFg: isPp ? '#fff' : '#f5f5f5', ppBorder: isPp ? '#2f45d0' : '#3a3a3a',
+      openDrawer: () => this.setState({ drawer: true }), closeDrawer: () => this.setState({ drawer: false }), drawerOpen: drawer,
+      query, onQuery: (e) => this.setState({ query: e.target.value }), drawerGroups: groups,
+      drawerCount: SCREENS.length + ' screens · ' + SCREENS.reduce((a, s) => a + s.states.length, 0) + ' states',
+      personaOpts: [seg(persona, 'supplier', () => this.setJourney('supplier', user), 'Supplier'), seg(persona, 'buyer', () => this.setJourney('buyer', user), 'Buyer')],
+      userOpts: [seg(user, 'new', () => this.setJourney(persona, 'new'), 'New'), seg(user, 'returning', () => this.setJourney(persona, 'returning'), 'Returning')],
+      prev: () => this.step(-1), next: () => this.step(1),
+      stepLabel: idx >= 0 ? 'Step ' + (idx + 1) + ' of ' + steps.length : 'Off journey · ' + (sc.label || ''),
+      rail, stateOpts: sc.states, onState: (e) => this.go(screen, e.target.value),
+      toggleDark: () => this.setState({ dark: !dark, themePref: null }), themeLabel: dark ? 'Light' : 'Dark',
+      isSite: sc.file === 'site', isWizard: sc.file === 'bw' && this.state.version !== 'v2', isWizardV2: sc.file === 'bw' && this.state.version === 'v2', isShell: !!shellProps, shellProps, shellRef: this.shellRef, hasSection: !!sectionHeader, sectionHeader,
+      isSpApps: sc.file === 'spApps', isSpVer: sc.file === 'spVer', isSpCust: sc.file === 'spCust', isSpMoney: sc.file === 'spMoney', isBp: sc.file === 'bp', isPp: sc.file === 'pp',
+      isNa: sc.file === 'na-sp' || sc.file === 'na-bp' || sc.file === 'na-pp', naTitle,
+    };
+  }
+}
+</script>
+</body>
+</html>

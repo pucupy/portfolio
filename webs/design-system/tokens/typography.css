@@ -1,0 +1,28 @@
+:root {
+  --hb-font-ui: 'Montserrat', helvetica, arial, sans-serif;   /* headings + all UI */
+  --hb-font-body: 'Open Sans', helvetica, arial, sans-serif;  /* long-form copy */
+
+  --hb-weight-regular: 400;
+  --hb-weight-bold: 700;   /* the system has no mid weights: 400 or 700 */
+
+  --hb-text-display: 46px;   /* landing h1, desktop */
+  --hb-text-display-sm: 32px;/* landing h1, <860px */
+  --hb-text-h1: 40px;
+  --hb-text-h1-sm: 30px;
+  --hb-text-h2: 22px;
+  --hb-text-h3: 19px;
+  --hb-text-h4: 16px;
+  --hb-text-lede: 18px;
+  --hb-text-body: 18px;
+  --hb-text-control: 17px;   /* input and select text */
+  --hb-text-action: 15px;    /* buttons, nav */
+  --hb-text-label: 14px;     /* field labels (bold), meta */
+  --hb-text-hint: 14px;
+  --hb-text-caption: 13px;
+  --hb-text-eyebrow: 11px;   /* uppercase, 0.08em tracking */
+
+  --hb-leading-display: 1.15;
+  --hb-leading-heading: 1.2;
+  --hb-leading-body: 1.5;
+  --hb-tracking-eyebrow: 0.08em;
+}

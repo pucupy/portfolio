@@ -1,0 +1,344 @@
+/* Portfolio behaviour: copy-email buttons and the hero ASCII rain. ~2kb, deferred. */
+(function () {
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    var label = btn.querySelector('span');
+    var live = document.querySelector('[aria-live="polite"]');
+    var timer;
+    btn.addEventListener('click', function () {
+      var text = btn.getAttribute('data-copy');
+      var done = function () {
+        if (label) label.textContent = 'Copied';
+        if (live) live.textContent = 'Email address copied to clipboard';
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          if (label) label.textContent = 'Copy';
+          if (live) live.textContent = '';
+        }, 2200);
+      };
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+        done();
+      }
+    });
+  });
+
+
+  /* Character grids: the hero portrait (eyes follow the cursor), the waving hand
+     written in hello in many languages, and the About board. */
+  var REDUCE = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var GRIDS = {
+    face: ["1110000000000000000000000000000000000000000000000000000000000011","1000000000000000000000000000011111110000000000000000000000000000","0000000000000000000000001478999999999873100000000000000000000000","0000000000000000000013899999999989999989997100000000000000000000","0000000000000000001699999999999999999999985983000000000000000000","0000000000000000049999999999999999999999999999810000000000000000","0000000000000000799999999999999999999999999999993000000000000000","0000000000000006999999999999999999999999999999999300000000000000","0000000000000059999999999999999999999999999999999920000000000000","0000000000000199999999999999999999999999999999999960000000000000","0000000000000599999999999999999999999999999999999992000000000000","0000000000000799999999999999999999999999999999999993000000000000","0000000000001899999999999999999999999999999999999995000000000000","0000000000001999999999999999999999999999999999999997100000000000","0000000000001999999743211248999999999852111236999997100000000000","0000000000001999961113321110699999996011344441179998100000000000","0000000000001998887777667777889999988887776667778897100000000000","0000000000001566899842112368866666678742111137998664000000000000","0000000003871396997486103976986998688588102986999692178300000000","0000000016211196799999999999978999779999999999998691112710000000","0000000016982188699999999999879999968999999999996881399610000000","0000000003971059779999999998689999986899999999976950169300000000","0000000001854229998766666678999999999877666677799922348100000000","0000000000299518999999999999989999988999999999999815992000000000","0000000000059817999999999999823675128999999999999518930000000000","0000000000002713999999999999796525697999999999999316200000000000","0000000000000001589999968577696969685674879999986100000000000000","0000000000000001894999989776555555555668988999598100000000000000","0000000000000000699859896678888888888876799949996000000000000000","0000000000000000178997999999988989889999999499981000000000000000","0000000000000000017699869999986858589999988995810000000000000000","0000000000000000000658999999999999999999999876000000000000000000","0000000000000000000017585999999999999999483810000000000000000000","0000000000000000000000385858799999996858585100000000000000000000","0000000000000000000000004989984849599989400000000000000000000000","0000000000000000000000000136599999994621000000000000000000000000","0000000000000000000000000000001111100000000000000000000000000000","0000000000000000000000000000000000000000000000000000000000000000"],
+    hand: ["0000000000000000000000060000000000000000","0000000000000003990002006600000000000000","0000000000998009999700460160000000000000","0000000006999912899980006026000000000000","0000000000799997089999001606300089920000","0000000001028999907999900000006999980000","0000000299990899995699997000008999800000","0000000089999639999908999900009999300000","0000000006999990799996999998699998000000","0000000000089999839999999999999999000000","0000000009933999991899999999999999400000","0000000079999179999999999999999999700000","0000005106999990799999999999999999800000","0000610610079999989999999999999999800000","0000064036000899999999999999999999800000","0000004600250018999999999999999988000000","0000000046400000189999999999998871000000","0000000000000000002899999999887600000000","0000000000000000000007899988740000000000","0000000000000000000000001100000000000000","0000000000000000000000000000000000000000","0000000000000000000000000000000000000000","0000000000000000000000000000000000000000","0000000000000000000000000000000000000000"]
+  };
+  var DENSE = 'aleuxhireme<3';
+  var SPARSE = '\u00b7:.-';
+  var HELLOS = 'holahellociaosaluthalloolahejahojmerhabanamasteshalomjamboprivetalohanihaoannyeongbonjourteresveikimoiyassouzdravo';
+
+  function startGrid(cv, kind) {
+    var grid = GRIDS[kind], ROWS = grid.length, COLS = grid[0].length;
+    var ctx = cv.getContext('2d');
+    var hello = kind === 'hand';
+    var si = Math.floor(Math.random() * HELLOS.length);
+    var glyph = function (v) {
+      if (hello) return HELLOS[si++ % HELLOS.length];
+      return v < 3 ? SPARSE[Math.floor(Math.random() * SPARSE.length)] : DENSE[Math.floor(Math.random() * DENSE.length)];
+    };
+    var lv = new Uint8Array(ROWS * COLS), ch = new Array(ROWS * COLS), live = [];
+    var eyes = [{ c: 22.0, r: 19.3 }, { c: 41.4, r: 19.3 }];
+    var inEye = function (q, r) {
+      for (var k = 0; k < eyes.length; k++) {
+        var dx = (q - eyes[k].c) / 3.4, dy = (r - eyes[k].r) / 2.1;
+        if (dx * dx + dy * dy < 1) return true;
+      }
+      return false;
+    };
+    for (var r = 0; r < ROWS; r++) for (var q = 0; q < COLS; q++) {
+      var i = r * COLS + q;
+      var v = (kind === 'face' && inEye(q, r)) ? 0 : parseInt(grid[r][q], 36);
+      lv[i] = v; ch[i] = v ? glyph(v) : '';
+      if (v) live.push(i);
+    }
+    var PAD = kind === 'hand' ? 5 : 0;
+    var w = 0, cw = 0, chh = 0, dpr = 1, raf = 0;
+    var measure = function () {
+      var rect = cv.getBoundingClientRect();
+      if (!rect.width) return false;
+      w = rect.width;
+      cw = w / (COLS + PAD * 2);
+      chh = cw * COLS / ROWS;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      cv.width = Math.round(w * dpr);
+      cv.height = Math.round((ROWS + (PAD ? 3 : 0)) * chh * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.font = Math.max(6, chh * 0.95).toFixed(1) + 'px ui-monospace, SFMono-Regular, Menlo, monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      return true;
+    };
+    var look = { x: 0, y: 0, tx: 0, ty: 0 };
+    if (kind === 'face') {
+      window.addEventListener('pointermove', function (e) {
+        var rect = cv.getBoundingClientRect();
+        var cx = rect.left + rect.width / 2, cy = rect.top + rect.height * 0.5;
+        look.tx = Math.max(-1, Math.min(1, (e.clientX - cx) / (rect.width * 0.9)));
+        look.ty = Math.max(-1, Math.min(1, (e.clientY - cy) / (rect.height * 0.9)));
+      }, { passive: true });
+    }
+    var blinkAt = performance.now() + 3000 + Math.random() * 3000, blink = 0;
+    var hover = false, hoverStart = 0, handGlow = 0, faceDark = 0;
+    if (kind === 'hand') {
+      cv.style.cursor = 'pointer';
+      cv.addEventListener('pointerenter', function () { hover = true; hoverStart = 0; });
+      cv.addEventListener('pointerleave', function () { hover = false; });
+    }
+    if (kind === 'face') {
+      cv.addEventListener('pointerenter', function () { hover = true; });
+      cv.addEventListener('pointerleave', function () { hover = false; });
+    }
+    var lastT = 0, sweepT0 = 0, dirty = true;
+    if (window.ResizeObserver) new ResizeObserver(function () { dirty = true; }).observe(cv); else window.addEventListener('resize', function () { dirty = true; });
+    var frame = function (t) {
+      raf = requestAnimationFrame(frame);
+      if (!w || dirty) { dirty = false; if (!measure()) return; }
+      var dt = Math.min(64, lastT ? t - lastT : 16.7); lastT = t;
+      var ease = function (k) { return 1 - Math.pow(1 - k, dt / 16.7); };
+      look.x += (look.tx - look.x) * ease(0.1);
+      look.y += (look.ty - look.y) * ease(0.1);
+      if (!REDUCE) {
+        if (blink) { if (t > blinkAt) { blink = 0; blinkAt = t + 2600 + Math.random() * 4200; } }
+        else if (t > blinkAt) { blink = 1; blinkAt = t + 150; }
+      }
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, cv.width, cv.height);
+      handGlow += ((hover ? 1 : 0) - handGlow) * ease(0.1);
+      if (hover && faceDark < 0.02) sweepT0 = t;
+      faceDark += ((hover ? 1 : 0) - faceDark) * (REDUCE ? 1 : ease(0.09));
+      if (PAD) {
+        ctx.translate(PAD * cw, chh);
+        if (hover && !hoverStart) hoverStart = t;
+        var since = hover ? t - hoverStart : 0;
+        var cycle = (since % 4200) / 1000;
+        var wave = (REDUCE || !hover) ? 0 : cycle < 2 ? Math.sin(cycle * Math.PI * 2.2) * 0.26 * Math.min(1, (2 - cycle) * 1.6) : 0;
+        var px = COLS * cw * 0.62, py = 19.5 * chh;
+        ctx.translate(px, py); ctx.rotate(wave); ctx.translate(-px, -py);
+      }
+      var sweep = REDUCE ? 0.5 : -0.35 + ((t - sweepT0) * 0.00038) % 1.9;
+      var glow = 0;
+      var spread = kind === 'face' ? 1 + 0.07 * faceDark : 1, smx = COLS * cw / 2, smy = ROWS * chh / 2;
+      var SX = function (x) { return smx + (x - smx) * spread; }, SY = function (y) { return smy + (y - smy) * spread; };
+      var alphaBase = kind === 'hand' ? 0.18 : 0.13;
+      var alphaSpan = kind === 'hand' ? 0.78 : 0.72;
+      for (var m = 0; m < live.length; m++) {
+        var ii = live[m], vv = lv[ii], qq = ii % COLS, rr = (ii - qq) / COLS;
+        var a = alphaBase + (vv / 9) * alphaSpan;
+        var dy = 0, rad = cw * (kind === 'face' ? (0.08 + (vv / 9) * 0.17) : (0.12 + (vv / 9) * 0.24)), aa = a;
+        if (kind === 'hand') {
+          var nz = Math.sin(qq * 0.055 + rr * 0.10) * 0.55 + Math.sin(qq * 0.019 - rr * 0.16 + 1.3) * 0.32 + Math.sin((qq * 0.11 + rr * 0.037) + 2.6) * 0.20;
+          var nz2 = Math.sin(qq * 0.055 + (rr + 1) * 0.10) * 0.55 + Math.sin(qq * 0.019 - (rr + 1) * 0.16 + 1.3) * 0.32 + Math.sin((qq * 0.11 + (rr + 1) * 0.037) + 2.6) * 0.20;
+          var ridge = Math.pow(1 / (1 + Math.abs(nz2 - nz) * 0.9 * 2.6), 1.6);
+          dy = 0;
+          if (vv <= 2) continue;
+          rad = cw * (0.04 + Math.pow(vv / 9, 1.4) * 0.26) * (1 + handGlow * 0.4);
+          aa = Math.min(1, (0.06 + Math.pow(vv / 9, 1.6) * 0.9) * (1 + handGlow * 0.45));
+        }
+        if (kind === 'face') {
+          var band = (qq / COLS) * 0.6 + (rr / ROWS) * 0.4 - sweep;
+          var spec = (REDUCE ? faceDark : 0.4 + 0.6 * faceDark) * Math.exp(-(band * band) / 0.0035) * (vv / 9);
+          var lift = Math.min(1, faceDark * 0.75 + spec);
+          var mx = function (c1, c2) { return Math.round(c1 + (c2 - c1) * lift); };
+          var ha = Math.min(1, aa * (1 + faceDark * 1.4) + spec * 0.6);
+          ctx.fillStyle = vv > 8
+            ? 'rgba(' + mx(232, 255) + ',' + mx(240, 255) + ',' + mx(190, 236) + ',' + ha.toFixed(2) + ')'
+            : 'rgba(' + mx(86, 190) + ',' + mx(212, 255) + ',' + mx(168, 226) + ',' + ha.toFixed(2) + ')';
+          glow = vv > 5 ? faceDark * 0.08 + spec * 0.22 : 0;
+          rad = rad * (1 - faceDark * 0.12 + spec * 0.45);
+        } else {
+          ctx.fillStyle = (vv > 8 ? 'rgba(178,240,200,' : 'rgba(111,203,146,') + aa.toFixed(2) + ')';
+        }
+        ctx.beginPath();
+        if (kind === 'face') ctx.ellipse(SX(qq * cw + cw / 2), SY(rr * chh + chh / 2), rad * 0.82, rad * 1.18, 0, 0, 6.2832);
+        else ctx.arc(qq * cw + cw / 2, rr * chh + chh / 2 + dy, rad, 0, 6.2832);
+        ctx.fill();
+        if (kind === 'face') {
+          var fx0 = SX(qq * cw + cw / 2), fy0 = SY(rr * chh + chh / 2);
+          var fr = (0.1 + 0.3 * (1 - vv / 9)) * (0.7 + 0.3 * faceDark);
+          ctx.fillStyle = 'rgba(255,70,120,' + fr.toFixed(3) + ')';
+          ctx.beginPath(); ctx.ellipse(fx0 - rad * 1.05, fy0, rad * 0.4, rad * 0.75, 0, 0, 6.2832); ctx.fill();
+          ctx.fillStyle = 'rgba(80,110,255,' + fr.toFixed(3) + ')';
+          ctx.beginPath(); ctx.ellipse(fx0 + rad * 1.05, fy0, rad * 0.4, rad * 0.75, 0, 0, 6.2832); ctx.fill();
+        }
+        if (glow > 0.02) {
+          ctx.fillStyle = 'rgba(200,255,222,' + glow.toFixed(3) + ')';
+          ctx.beginPath();
+          ctx.arc(SX(qq * cw + cw / 2), SY(rr * chh + chh / 2 + dy), rad * 2.2, 0, 6.2832);
+          ctx.fill();
+          glow = 0;
+        }
+      }
+      if (kind === 'face' && !REDUCE) {
+        var BW = COLS * cw, BH = ROWS * chh, gx = 0.6 / BW, gy = 0.4 / BH, bk = 1 / (0.36 / (BW * BW) + 0.16 / (BH * BH));
+        var bg = ctx.createLinearGradient(0, 0, gx * bk, gy * bk);
+        var cl = function (x) { return Math.max(0, Math.min(1, x)); };
+        bg.addColorStop(cl(sweep - 0.09), 'rgba(255,255,255,0)');
+        bg.addColorStop(cl(sweep), 'rgba(255,255,255,' + (0.35 + 0.5 * faceDark).toFixed(2) + ')');
+        bg.addColorStop(cl(sweep + 0.09), 'rgba(255,255,255,0)');
+        ctx.globalCompositeOperation = 'source-atop';
+        ctx.fillStyle = bg; ctx.fillRect(0, 0, BW, BH + 40);
+        ctx.globalCompositeOperation = 'source-over';
+      }
+      ctx.shadowBlur = 0;
+      if (kind === 'face') {
+        ctx.shadowColor = 'rgba(111,203,146,0.85)';
+        for (var ee = 0; ee < eyes.length; ee++) {
+          var e2 = eyes[ee], pc = e2.c + look.x * 1.7, pr = e2.r + look.y * 1.0;
+          if (blink) {
+            ctx.shadowBlur = 0;
+            ctx.fillStyle = 'rgba(111,203,146,0.8)';
+            for (var qd = -2; qd <= 2; qd++) { ctx.beginPath(); ctx.arc(SX((e2.c + qd) * cw + cw / 2), SY(e2.r * chh + chh / 2), cw * 0.13, 0, 6.2832); ctx.fill(); }
+            continue;
+          }
+          for (var q2 = -2; q2 <= 2; q2++) for (var r2 = -1; r2 <= 1; r2++) {
+            var gq = Math.round(pc) + q2, gr = Math.round(pr) + r2;
+            var dx2 = (gq - pc) / 2.0, dy2 = (gr - pr) / 1.15;
+            var d2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+            if (d2 > 1) continue;
+            var a2 = 0.5 + (1 - d2) * 0.5;
+            ctx.shadowBlur = 5 * (1 - d2);
+            ctx.fillStyle = 'rgba(224,255,235,' + a2.toFixed(2) + ')';
+            ctx.beginPath();
+            ctx.arc(SX(gq * cw + cw / 2), SY(gr * chh + chh / 2), cw * (d2 < 0.5 ? 0.32 : 0.20), 0, 6.2832);
+            ctx.fill();
+          }
+        }
+        ctx.shadowBlur = 0;
+      }
+    };
+    measure();
+    raf = requestAnimationFrame(frame);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('canvas[data-grid]'), function (cv) {
+    startGrid(cv, cv.getAttribute('data-grid'));
+  });
+
+  function startField(cv) {
+    var ctx = cv.getContext('2d');
+    var host = cv.parentNode;
+    var CELL = 9, AMP = 52;
+    var noise = function (x, y) {
+      return Math.sin(x * 0.055 + y * 0.10) * 0.55
+        + Math.sin(x * 0.019 - y * 0.16 + 1.3) * 0.32
+        + Math.sin((x * 0.11 + y * 0.037) + 2.6) * 0.20
+        + Math.sin(x * 0.007 + y * 0.28 + 4.1) * 0.13;
+    };
+
+    var w = 0, h = 0, dpr = 1, pts = [];
+
+    var build = function () {
+      var rect = cv.getBoundingClientRect();
+      if (!rect.width || !rect.height) return false;
+      w = rect.width; h = rect.height;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      pts = [];
+      var cols = Math.max(2, Math.round(w / CELL)), rows = Math.max(2, Math.round(h / (CELL * 1.25)));
+      var stepX = w / cols, stepY = h / rows;
+      for (var j = 0; j < rows; j++) for (var i = 0; i < cols; i++) {
+        var s = Math.sin(i * 12.9898 + j * 78.233) * 43758.5453; s = s - Math.floor(s);
+        var px0 = (i + 0.5) * stepX, py0 = (j + 0.5) * stepY;
+        var e = Math.min(1, Math.min(px0, w - px0) / 150, Math.min(py0, h - py0) / 110);
+        var s2 = Math.sin(i * 39.346 + j * 11.135) * 24634.6345; s2 = s2 - Math.floor(s2);
+        var cl = 0.5 + 0.5 * Math.sin(i * 0.53 + j * 0.91) * Math.sin(i * 0.21 - j * 0.37);
+        if (s2 > Math.pow(e, 0.7) * (0.7 + 0.45 * cl) || s2 > 0.985) continue;
+        pts.push({ x: px0, y: py0, i: i, j: j, s: s, k: 1 });
+      }
+      var crc = cv.getBoundingClientRect();
+      [].forEach.call(host.querySelectorAll('h1, h1 ~ p'), function (el) {
+        var r = el.getBoundingClientRect(); if (!r.width) return;
+        var x0 = r.left - crc.left - 16, x1 = r.right - crc.left + 16, y0 = r.top - crc.top - 12, y1 = r.bottom - crc.top + 12;
+        for (var q = 0; q < pts.length; q++) { var p = pts[q];
+          var dx = Math.max(x0 - p.x, 0, p.x - x1), dy = Math.max(y0 - p.y, 0, p.y - y1);
+          var k = 0.12 + 0.88 * Math.min(1, Math.sqrt(dx * dx + dy * dy) / 70); if (k < p.k) p.k = k; }
+      });
+      return true;
+    };
+    var ptr = { x: -9999, y: -9999, on: 0, target: 0 };
+    var R = 190, lastDraw = -99, wt = 0, lt = 0;
+    var draw = function (t) {
+      if (t && t - lastDraw < 30) return;
+      lastDraw = t;
+      wt += Math.max(0, Math.min(64, t - lt)) * ptr.on; lt = t;
+      ctx.clearRect(0, 0, w, h);
+      var tt = wt * 0.0022, wa = ptr.on;
+      for (var n = 0; n < pts.length; n++) {
+        var p = pts[n];
+        var px = p.x, py = p.y;
+        var v = noise(p.i * 0.7 + tt, p.j * 1.1 - tt * 0.5);
+        var b = Math.max(0, Math.min(1, (v + 0.3) / 1.25)); b = b * b * b;
+        var hf = 0;
+        if (ptr.on > 0.01) {
+          var dx = p.x - ptr.x, dy = p.y - ptr.y, d = Math.sqrt(dx * dx + dy * dy);
+          if (d < R) { var f = (1 - d / R) * (1 - d / R) * ptr.on; b = Math.min(1, b + f * 0.4); hf = Math.min(1, f * 1.3); px -= dx * f * 0.2; py -= dy * f * 0.2; }
+        }
+        b *= p.k; hf *= p.k;
+        var g = b * b, rw = CELL * (0.13 + b * 0.12), rh = rw * 1.7;
+        var cr = 86 + 154 * g, cg = 212 + 30 * g, cb = 168 + 30 * g;
+        ctx.fillStyle = 'rgba(' + Math.round(cr) + ',' + Math.round(cg) + ',' + Math.round(cb) + ',' + (0.08 + b * 0.78).toFixed(3) + ')';
+        ctx.beginPath();
+        if (hf > 0.3) {
+          var rs = Math.sin(p.i * 7.13 + p.j * 3.71 + Math.floor(wt * 0.0035 + p.s * 7) * 1.618) * 9631.7; rs -= Math.floor(rs);
+          var sz = rw * (1.1 + hf * 0.9);
+          if (rs < 0.34) ctx.rect(px - sz, py - sz, sz * 2, sz * 2);
+          else if (rs < 0.67) { ctx.moveTo(px, py - sz * 1.35); ctx.lineTo(px + sz, py); ctx.lineTo(px, py + sz * 1.35); ctx.lineTo(px - sz, py); ctx.closePath(); }
+          else { var th = sz * 0.45; ctx.rect(px - sz * 1.2, py - th, sz * 2.4, th * 2); ctx.rect(px - th, py - sz * 1.2, th * 2, sz * 2.4); }
+        } else ctx.ellipse(px, py, rw, rh, 0, 0, 6.2832);
+        ctx.fill();
+        if (p.s > 0.55 || b > 0.25) {
+          var fr = p.k * (0.05 + 0.16 * (1 - b) + 0.12 * b) * (p.s > 0.9 ? 2.6 : 1);
+          ctx.fillStyle = 'rgba(255,70,120,' + fr.toFixed(3) + ')';
+          ctx.beginPath(); ctx.ellipse(px - rw * 1.8, py, rw * 0.6, rh * 0.85, 0, 0, 6.2832); ctx.fill();
+          ctx.fillStyle = 'rgba(80,110,255,' + fr.toFixed(3) + ')';
+          ctx.beginPath(); ctx.ellipse(px + rw * 1.8, py, rw * 0.6, rh * 0.85, 0, 0, 6.2832); ctx.fill();
+        }
+      }
+    };
+    if (!build()) { requestAnimationFrame(function () { startField(cv); }); return; }
+    draw(0);
+    window.addEventListener('resize', function () { if (build()) draw(performance.now()); });
+    if (REDUCE) return;
+    host.addEventListener('pointermove', function (e) {
+      var rect = cv.getBoundingClientRect();
+      ptr.x = e.clientX - rect.left; ptr.y = e.clientY - rect.top;
+      ptr.target = 1;
+    });
+    host.addEventListener('pointerleave', function () { ptr.target = 0; });
+    var tick = function (now) {
+      requestAnimationFrame(tick);
+      ptr.on += (ptr.target - ptr.on) * 0.12;
+      draw(now);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('canvas[data-field]'), startField);
+  (function (root) {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+    var eyes = root.querySelectorAll('.hero-eye'); if (!eyes.length) return null;
+    var face = eyes[0].parentNode, raf = 0, lx = 0, ly = 0;
+    var apply = function () { raf = 0; var r = face.getBoundingClientRect(), cell = r.width / 47;
+      var dx = Math.max(-1, Math.min(1, (lx - (r.left + r.width / 2)) / Math.min(innerWidth / 2, 420)));
+      var dy = Math.max(-1, Math.min(1, (ly - (r.top + r.height * 0.53)) / Math.min(innerHeight / 2, 360)));
+      var t = 'translate(' + (dx * cell * 1.7).toFixed(2) + 'px,' + (dy * cell * 1.2).toFixed(2) + 'px)';
+      for (var i = 0; i < eyes.length; i++) eyes[i].style.transform = t; };
+    var move = function (e) { lx = e.clientX; ly = e.clientY; if (!raf) raf = requestAnimationFrame(apply); };
+    addEventListener('pointermove', move, { passive: true });
+    return function () { removeEventListener('pointermove', move); };
+  })(document);
+})();

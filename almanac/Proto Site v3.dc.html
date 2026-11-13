@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/styles.css">
+  <link rel="stylesheet" href="Design System v2 Tokens.css">
+  <link rel="stylesheet" href="Almanac v3 Theme.css">
+  <style>@keyframes vlRise{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}@keyframes vlMarkIn{0%{opacity:0;transform:scale(.6) rotate(-90deg)}60%{opacity:1}100%{opacity:1;transform:none}}@media (prefers-reduced-motion: reduce){[data-reveal]{opacity:1!important;transform:none!important}}</style>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="_ds/almanac-design-system-94f44331-518c-4665-bd70-f4e165ff8344/_ds_bundle.js"></script>
+</helmet>
+<div ref="{{ siteRef }}" style="min-height:100%;background:var(--background);color:var(--foreground)">
+  <sc-if value="{{ isHome }}">
+    <main style="background:#faf7f2;color:#1a1a1a">
+      <nav style="position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(16px,4vw,56px);background:#2f45d0;color:#ffffff;border-bottom:1px solid rgba(255,255,255,.25)">
+        <img src="assets/almanac-wordmark-v3.svg" alt="Almanac" width="113" height="16" style="display:block;height:16px;width:auto;filter:invert(1)">
+        <div style="display:flex;align-items:center;gap:8px">
+          <sc-if value="{{ signedOut }}" hint-placeholder-val="{{ true }}">
+            <button type="button" onClick="{{ toSignIn }}" style="white-space:nowrap;min-height:44px;height:44px;padding:0 16px;border-radius:9.6px;border:1px solid rgba(255,255,255,.55);background:transparent;color:#ffffff;font:500 14px 'Work Sans',system-ui,sans-serif;cursor:pointer;transition:background-color 150ms ease-out" style-hover="background:rgba(255,255,255,.12)">Sign in</button>
+          </sc-if>
+          <button type="button" data-nav-secondary="" onClick="{{ onCta }}" style="white-space:nowrap;min-height:44px;height:44px;padding:0 16px;border-radius:9.6px;border:0;background:#ffffff;color:#2f45d0;font:500 14px 'Work Sans',system-ui,sans-serif;cursor:pointer;transition:opacity 150ms ease-out" style-hover="opacity:.9">{{ ctaLabel }}</button>
+        </div>
+      </nav>
+      <section ref="{{ heroRef }}" onMouseMove="{{ heroMove }}" onMouseLeave="{{ heroLeave }}" data-screen-label="Home hero" style="position:relative;min-height:max(100vh - 60px,640px);box-sizing:border-box;display:flex;align-items:stretch;gap:clamp(32px,5vw,80px);padding:clamp(40px,6vw,88px) clamp(16px,4vw,56px);background:#2f45d0;color:#ffffff;overflow:hidden">
+        <div data-net-box="m" aria-hidden="true" style="display:none;position:absolute;z-index:0;pointer-events:none;left:16px;right:16px;bottom:16px;height:clamp(130px,20vh,220px);border-radius:12.8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.22);overflow:hidden">
+          <div data-world-bg="" style="position:absolute;inset:-20%;background:radial-gradient(40% 35% at 30% 30%,rgba(120,140,255,.55) 0%,rgba(120,140,255,0) 70%),radial-gradient(45% 40% at 75% 70%,rgba(20,30,130,.7) 0%,rgba(20,30,130,0) 70%),radial-gradient(35% 30% at 70% 20%,rgba(236,227,213,.18) 0%,rgba(236,227,213,0) 70%),#2f45d0"></div>
+          <canvas data-globe="" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+        </div>
+        <div style="position:relative;z-index:1;flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:40px">
+        <span style="position:relative;z-index:1;align-self:flex-start;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(255,255,255,.55);border-radius:999px;padding:6px 14px;animation:vlRise .8s cubic-bezier(.2,.8,.2,1) .1s both">Trade credit for suppliers</span>
+        <h1 style="position:relative;z-index:1;margin:0;max-width:16ch;font-family:Newsreader,Georgia,serif;font-weight:300;font-size:clamp(48px,6.6vw,120px);line-height:.95;letter-spacing:-0.035em;text-wrap:balance;animation:vlRise 1s cubic-bezier(.2,.8,.2,1) .2s both">Faster onboarding. Smarter credit decisions.</h1>
+        <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;gap:28px;animation:vlRise 1s cubic-bezier(.2,.8,.2,1) .35s both">
+          <p style="margin:0;max-width:52ch;font-size:clamp(17px,1.5vw,20px);line-height:1.55;color:#ffffff;text-wrap:pretty">Almanac checks every new buyer against registry, bureau, bank and sanctions data, and gives your credit team one verified file to decide from.</p>
+          <div data-mobile-full="" style="display:flex;flex-wrap:wrap;gap:10px;align-self:stretch">
+            <button type="button" onClick="{{ onCta }}" style="display:flex;align-items:center;gap:8px;height:48px;padding:0 22px;border-radius:12.8px;border:0;background:#ffffff;color:#2f45d0;font:500 16px 'Work Sans',system-ui,sans-serif;cursor:pointer;transition:opacity 150ms ease-out" style-hover="opacity:.9">{{ ctaLabel }}<x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="ArrowRight" size="{{ 18 }}" hint-size="18px,18px"></x-import></button>
+            <sc-if value="{{ signedOut }}" hint-placeholder-val="{{ true }}">
+              <button type="button" onClick="{{ toSignIn }}" style="height:48px;padding:0 22px;border-radius:12.8px;border:1px solid rgba(255,255,255,.55);background:transparent;color:#ffffff;font:500 16px 'Work Sans',system-ui,sans-serif;cursor:pointer;transition:background-color 150ms ease-out" style-hover="background:rgba(255,255,255,.12)">Sign in</button>
+            </sc-if>
+          </div>
+        </div>
+        </div>
+        <div data-net-box="d" aria-hidden="true" style="position:relative;z-index:0;pointer-events:none;flex:0 0 min(42%,640px);align-self:stretch;min-height:440px;border-radius:19.2px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.22);overflow:hidden">
+          <div data-world-bg="" style="position:absolute;inset:-20%;background:radial-gradient(40% 35% at 30% 30%,rgba(120,140,255,.55) 0%,rgba(120,140,255,0) 70%),radial-gradient(45% 40% at 75% 70%,rgba(20,30,130,.7) 0%,rgba(20,30,130,0) 70%),radial-gradient(35% 30% at 70% 20%,rgba(236,227,213,.18) 0%,rgba(236,227,213,0) 70%),#2f45d0"></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,45,170,.6) 0%,rgba(36,54,190,.35) 45%,rgba(30,45,170,.65) 100%)"></div>
+          <canvas data-globe="" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+        </div>
+      </section>
+      <section data-screen-label="How it works" style="padding:clamp(72px,10vw,160px) clamp(16px,4vw,56px)">
+        <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:56px">
+          <div style="display:flex;flex-direction:column;gap:20px"><span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:#2f45d0">01 / How it works</span><h2 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:300;font-size:clamp(40px,5.5vw,84px);line-height:1;letter-spacing:-0.03em">How it works</h2></div>
+          <p style="margin:0;max-width:40ch;font-size:17px;line-height:1.6;color:#4a4a4a">From invitation to credit decision in four steps.</p>
+        </div>
+        <div data-steps-grid="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1px;background:#e2d8c9;border:1px solid #e2d8c9">
+          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+            <div data-reveal="" style="background:#ffffff;padding:28px;display:flex;flex-direction:column;gap:20px;min-height:280px">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+                <span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:#5b5b5b">{{ s.n }}</span>
+                <span style="display:flex;width:40px;height:40px;align-items:center;justify-content:center;border-radius:9.6px;background:#eef0fb;color:#2f45d0"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="{{ s.icon }}" size="{{ 20 }}" hint-size="20px,20px"></x-import></span>
+              </div>
+              <h3 style="margin:auto 0 0;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:26px;line-height:1.1;letter-spacing:-0.02em;text-wrap:balance">{{ s.title }}</h3>
+              <p style="margin:0;font-size:14px;line-height:1.6;color:#4a4a4a;text-wrap:pretty">{{ s.description }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+      <section data-screen-label="Who we work with" style="padding:clamp(72px,10vw,160px) clamp(16px,4vw,56px);background:#ece3d5">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(40px,6vw,96px);align-items:start">
+          <div data-reveal="" style="display:flex;flex-direction:column;gap:24px">
+            <span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:#2f45d0">02 / Who we work with</span>
+            <h2 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:300;font-size:clamp(40px,5.5vw,84px);line-height:1;letter-spacing:-0.03em">Who we work with</h2>
+            <p style="margin:0;max-width:48ch;font-size:17px;line-height:1.6;color:#3d3d3d;text-wrap:pretty">For any business that sells on credit terms.</p>
+          </div>
+          <ul data-reveal="" style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-top:1px solid #1a1a1a">
+            <sc-for list="{{ audience }}" as="a" hint-placeholder-count="4">
+              <li style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;border-bottom:1px solid #d6cab7">
+                <span style="font-family:Newsreader,Georgia,serif;font-size:clamp(22px,2.2vw,30px);font-weight:300;line-height:1.2;letter-spacing:-0.01em">{{ a }}</span>
+                <span style="color:#2f45d0;flex-shrink:0;display:flex"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="CheckCircle" size="{{ 20 }}" hint-size="20px,20px"></x-import></span>
+              </li>
+            </sc-for>
+          </ul>
+        </div>
+      </section>
+      <section ref="{{ gsRef }}" data-screen-label="Get started" style="position:relative;overflow:hidden;isolation:isolate;padding:clamp(96px,12vw,200px) clamp(16px,4vw,56px) 28px;background:#2f45d0;color:#ffffff">
+        <div aria-hidden="true" style="position:absolute;inset:0;z-index:-1;pointer-events:none">
+          {{ gsVideo }}
+          <div style="position:absolute;inset:0;background:#2f45d0;mix-blend-mode:multiply"></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(31,42,128,.55) 0%, rgba(31,42,128,.25) 55%, rgba(31,42,128,0) 100%)"></div>
+          <div style="position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(180deg, rgba(20,28,92,0) 0%, rgba(20,28,92,.82) 100%)"></div>
+        </div>
+        <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:40px">
+          <div style="display:flex;flex-direction:column;gap:24px">
+            <span style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:#ffffff">03 / Get started</span>
+            <h2 style="margin:0;max-width:12ch;font-family:Newsreader,Georgia,serif;font-weight:300;font-size:clamp(44px,6.5vw,104px);line-height:.95;letter-spacing:-0.035em">Get started with Almanac</h2>
+            <p style="margin:0;max-width:48ch;font-size:17px;line-height:1.6;color:#ffffff">Tell us about your buyers and we'll show you Almanac on your own data.</p>
+          </div>
+          <button type="button" data-mobile-full="" onClick="{{ onCta }}" style="display:flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 24px;border-radius:12.8px;border:0;background:#ffffff;color:#2f45d0;font:500 16px 'Work Sans',system-ui,sans-serif;cursor:pointer;transition:opacity 150ms ease-out" style-hover="opacity:.9">{{ ctaLabel }}<x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="ArrowRight" size="{{ 18 }}" hint-size="18px,18px"></x-import></button>
+        </div>
+        <footer style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 24px;margin-top:clamp(72px,9vw,140px)">
+          <div style="display:flex;align-items:center;gap:4px">
+            <a href="mailto:info@almanacfin.com" style="font-size:15px;color:#ffffff;text-decoration:none;text-shadow:0 1px 2px rgba(0,0,0,.35)" style-hover="text-decoration:underline">info@almanacfin.com</a>
+            <button type="button" aria-label="{{ copyLabel }}" title="{{ copyLabel }}" onClick="{{ copyEmail }}" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;border-radius:9.6px;background:transparent;color:#ffffff;cursor:pointer;transition:background 150ms ease-out" style-hover="background:rgba(255,255,255,.14)"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="{{ copyIcon }}" size="{{ 16 }}" hint-size="16px,16px"></x-import></button>
+            <span role="status" aria-live="polite" style="font-size:13px;color:#ffffff">{{ copiedMsg }}</span>
+          </div>
+          <p style="margin:0;font-size:13px;color:#ffffff;text-shadow:0 1px 2px rgba(0,0,0,.35)">© 2026 Almanac Technologies. All rights reserved. London, UK</p>
+        </footer>
+      </section>
+
+    </main>
+  </sc-if>
+
+  <sc-if value="{{ isSignIn }}">
+    <main data-fill="" style="min-height:100%;display:grid;grid-template-columns:1fr 1fr">
+      <section style="position:relative;overflow:hidden;display:flex;flex-direction:column;background:#2f45d0;color:#ffffff">
+        <div data-panel-inner="" style="position:relative;margin:auto;max-width:512px;padding:64px 48px;display:flex;flex-direction:column;gap:40px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <img src="assets/almanac-wordmark-v3.svg" alt="Almanac" width="141" height="20" style="display:block;height:20px;width:auto;filter:invert(1)">
+          </div>
+          <div data-wide="" style="display:flex;flex-direction:column;gap:20px;align-items:flex-start">
+            <span style="font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(255,255,255,.55);border-radius:999px;padding:6px 14px">Trade credit for suppliers</span>
+            <h2 style="margin:0;font-family:Newsreader,Georgia,serif;font-size:clamp(36px,3.6vw,52px);line-height:1;font-weight:300;letter-spacing:-0.03em;text-wrap:balance">Faster onboarding. Smarter credit decisions.</h2>
+            <p style="margin:0;font-size:16px;line-height:24px;color:#ffffff">Verify trade credit with company registry data, credit bureau reports, open banking, and sanctions screening in one file.</p>
+          </div>
+          <div data-wide="" style="display:flex;flex-direction:column;gap:20px">
+            <sc-for list="{{ points }}" as="p" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;gap:10px">
+                <span style="display:flex;width:36px;height:36px;flex-shrink:0;align-items:center;justify-content:center;border-radius:var(--radius-md);border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.12);color:#ffffff"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="{{ p.icon }}" size="{{ 18 }}" hint-size="18px,18px"></x-import></span>
+                <span style="font-size:14px;font-weight:500">{{ p.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+      <section data-form-side="" style="display:flex;align-items:center;justify-content:center;padding:64px 24px">
+        <div style="width:100%;max-width:384px;display:flex;flex-direction:column;gap:28px">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <h1 style="margin:0;font-size:24px;line-height:32px;font-weight:600;letter-spacing:-0.025em">{{ signTitle }}</h1>
+            <p style="margin:0;font-size:14px;color:var(--muted-foreground)">{{ signDesc }}</p>
+          </div>
+          <sc-if value="{{ linkError }}">
+            <div class="alm-card alm-card--danger" style="padding:12px 16px"><span style="font-size:14px">That sign-in link has expired. Enter your email to get a fresh code.</span></div>
+          </sc-if>
+          <sc-if value="{{ isEmailStep }}" hint-placeholder-val="{{ true }}">
+            <form data-mobile-full="" onSubmit="{{ submitEmail }}" novalidate="" style="display:flex;flex-direction:column;gap:24px">
+              <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" html-for="email" label="Email address" error="{{ emailErr }}" hint-size="100%,64px">
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Input" id="email" type="email" size="lg" placeholder="you@example.com" value="{{ email }}" on-change="{{ onEmail }}" disabled="{{ busy }}" hint-size="100%,40px"></x-import>
+              </x-import>
+              <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" type="submit" size="lg" disabled="{{ busy }}" style="width:100%" hint-size="100%,40px">{{ continueLabel }}</x-import>
+            </form>
+          </sc-if>
+          <sc-if value="{{ isCodeStep }}">
+            <form data-mobile-full="" onSubmit="{{ submitCode }}" style="display:flex;flex-direction:column;gap:20px">
+              <p style="margin:0;font-size:14px;color:var(--muted-foreground)">Sent to <span style="color:var(--foreground)">{{ sentTo }}</span></p>
+              <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="One-time code" error="{{ codeErr }}" hint-size="100%,64px">
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Input" size="lg" input-mode="numeric" max-length="{{ 6 }}" placeholder="000000" value="{{ code }}" on-change="{{ onCode }}" class-name="alm-mono" style="letter-spacing:0.5em;text-align:center;font-size:20px" hint-size="100%,40px"></x-import>
+              </x-import>
+              <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" type="submit" size="lg" disabled="{{ busy }}" style="width:100%" hint-size="100%,40px">{{ confirmLabel }}</x-import>
+              <div style="display:flex;flex-direction:column;align-items:flex-start;gap:8px">
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="ghost" size="sm" on-click="{{ resend }}" disabled="{{ resendLocked }}" hint-size="200px,24px"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="Mail" size="{{ 16 }}" hint-size="16px,16px"></x-import>{{ resendLabel }}</x-import>
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="ghost" size="sm" aria-label="Use a different email" on-click="{{ changeEmail }}" hint-size="180px,24px"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="ChevronLeft" size="{{ 16 }}" hint-size="16px,16px"></x-import>Use a different email</x-import>
+              </div>
+            </form>
+          </sc-if>
+          <div style="display:flex;align-items:center;gap:12px">
+            <span style="height:1px;flex:1;background:var(--border)"></span>
+            <span style="font-size:12px;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em">or</span>
+            <span style="height:1px;flex:1;background:var(--border)"></span>
+          </div>
+          <div data-mobile-full="" style="display:flex;flex-direction:column"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" size="lg" on-click="{{ passkey }}" style="width:100%" hint-size="100%,40px"><x-import component-from-global-scope="AlmanacDesignSystem_94f443.Icon" name="Fingerprint" size="{{ 18 }}" hint-size="18px,18px"></x-import>Sign in with passkey</x-import></div>
+        </div>
+      </section>
+    </main>
+  </sc-if>
+
+  <sc-if value="{{ isCentered }}">
+    <div style="min-height:100%;display:flex;flex-direction:column">
+      <header style="position:sticky;top:0;z-index:10;display:flex;height:56px;flex-shrink:0;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:var(--background);padding:0 24px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <img src="assets/almanac-wordmark-v3.svg" alt="Almanac" width="127" height="18" style="display:block;height:18px;width:auto">
+        </div>
+        <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" on-click="{{ signOut }}" hint-size="80px,32px">Sign out</x-import>
+      </header>
+      <main style="flex:1;display:flex;align-items:center;justify-content:center;padding:64px 24px">
+        <div style="width:100%;max-width:512px;display:flex;flex-direction:column;gap:28px">
+          <sc-if value="{{ loading }}"><p style="margin:0;font-size:14px;color:var(--muted-foreground)">Loading invitation…</p></sc-if>
+          <sc-if value="{{ hasHead }}">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <h1 style="margin:0;font-size:24px;line-height:32px;font-weight:600;letter-spacing:-0.025em">{{ headTitle }}</h1>
+              <p style="margin:0;font-size:14px;line-height:20px;color:var(--muted-foreground);text-wrap:pretty">{{ headDesc }}</p>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isPortal }}">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <sc-for list="{{ portalCards }}" as="c" hint-placeholder-count="2">
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.ChoiceCard" icon="{{ c.icon }}" title="{{ c.title }}" description="{{ c.description }}" on-click="{{ c.onClick }}" hint-size="100%,76px"></x-import>
+              </sc-for>
+              <sc-if value="{{ noWorkspace }}">
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" on-click="{{ signOut }}" style="width:100%" hint-size="100%,32px">Sign out</x-import>
+              </sc-if>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isInvitePending }}">
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Card" hint-size="100%,160px">
+              <div class="alm-card__header">
+                <h3 class="alm-card__title">Your company details</h3>
+                <p class="alm-card__desc">Check these details match the company you represent.</p>
+              </div>
+              <div class="alm-card__content">
+                <dl style="display:grid;grid-template-columns:minmax(8rem,12rem) minmax(0,1fr);column-gap:24px;row-gap:8px;margin:0">
+                  <dt style="font-size:14px;color:var(--muted-foreground)">Company name</dt><dd style="margin:0;font-size:14px;font-weight:500">Kelly & Rose Taverns Ltd</dd>
+                  <dt style="font-size:14px;color:var(--muted-foreground)">Registration number</dt><dd style="margin:0;font-size:14px;font-weight:500">12345678</dd>
+                  <dt style="font-size:14px;color:var(--muted-foreground)">Country</dt><dd style="margin:0;font-size:14px;font-weight:500">United Kingdom</dd>
+                </dl>
+              </div>
+            </x-import>
+            <p style="margin:0;font-size:14px;line-height:20px;color:var(--muted-foreground)">{{ inviteCopy }}</p>
+            <sc-if value="{{ isChoose }}">
+              <div style="display:flex;flex-direction:column;gap:20px">
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" on-click="{{ joinExisting }}" disabled="{{ busy }}" style="width:100%" hint-size="100%,32px">Join the existing Kelly & Rose Taverns Ltd workspace</x-import>
+                  <p style="margin:0;font-size:12px;color:var(--muted-foreground)">The administrators of Kelly & Rose Taverns Ltd will be notified of your request. If they approve it, you will join the existing workspace and the company will be linked as a customer of BrewDog.</p>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" on-click="{{ createWorkspace }}" disabled="{{ busy }}" style="width:100%" hint-size="100%,32px">{{ createLabel }}</x-import>
+                  <p style="margin:0;font-size:12px;color:var(--muted-foreground)">You will become the administrator of a new workspace associated with Kelly & Rose Taverns Ltd.</p>
+                </div>
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" on-click="{{ decline }}" style="width:100%" hint-size="100%,32px">Decline</x-import>
+              </div>
+            </sc-if>
+            <sc-if value="{{ isInviteDefault }}">
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" on-click="{{ accept }}" disabled="{{ busy }}" style="width:100%" hint-size="100%,32px">{{ acceptLabel }}</x-import>
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" on-click="{{ decline }}" style="width:100%" hint-size="100%,32px">Decline</x-import>
+              </div>
+            </sc-if>
+            <sc-if value="{{ isWaiting }}">
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <p style="margin:0;font-size:12px;color:var(--muted-foreground)">You can wait, or decline this invitation.</p>
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" variant="outline" on-click="{{ decline }}" style="width:100%" hint-size="100%,32px">Decline</x-import>
+              </div>
+            </sc-if>
+          </sc-if>
+          <sc-if value="{{ isAccepted }}">
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" on-click="{{ continueApp }}" style="width:100%" hint-size="100%,32px">Continue to Almanac</x-import>
+          </sc-if>
+
+          <sc-if value="{{ isCompany }}">
+            <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Card" hint-size="100%,220px">
+              <div class="alm-card__header">
+                <h3 class="alm-card__title">New organization</h3>
+                <p class="alm-card__desc">Search Companies House and add the company to this workspace.</p>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Field" label="Company" required="{{ true }}" error="{{ companyErr }}" hint-size="100%,64px">
+                  <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Input" size="lg" placeholder="Search by company name or number…" value="{{ companyQuery }}" on-change="{{ onCompanyQuery }}" hint-size="100%,40px"></x-import>
+                </x-import>
+                <sc-if value="{{ showHits }}">
+                  <div style="border:1px solid var(--border);border-radius:var(--radius-lg);padding:4px;margin-top:-4px">
+                    <sc-for list="{{ hits }}" as="h" hint-placeholder-count="3">
+                      <button type="button" class="alm-menu-item" onClick="{{ h.onClick }}" style="flex-direction:column;align-items:flex-start;gap:2px;width:100%">
+                        <span>{{ h.title }}</span><span class="alm-mono" style="color:var(--muted-foreground);font-weight:400">{{ h.companyNumber }} · {{ h.addressSnippet }}</span>
+                      </button>
+                    </sc-for>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ hasSel }}">
+                  <dl style="display:grid;grid-template-columns:minmax(8rem,11rem) minmax(0,1fr);column-gap:24px;row-gap:8px;margin:0;border-radius:var(--radius-lg);border:1px solid var(--border);background:var(--muted-20);padding:12px 16px;font-size:14px">
+                    <dt style="color:var(--muted-foreground)">Company name</dt><dd style="margin:0">{{ sel.title }}</dd>
+                    <dt style="color:var(--muted-foreground)">Registration number</dt><dd style="margin:0" class="alm-mono">{{ sel.companyNumber }}</dd>
+                    <dt style="color:var(--muted-foreground)">Company status</dt><dd style="margin:0">{{ sel.companyStatus }}</dd>
+                    <dt style="color:var(--muted-foreground)">Registered address</dt><dd style="margin:0">{{ sel.addressSnippet }}</dd>
+                  </dl>
+                </sc-if>
+                <x-import component-from-global-scope="AlmanacDesignSystem_94f443.Button" size="lg" on-click="{{ createOrg }}" disabled="{{ busy }}" style="align-self:flex-end" hint-size="160px,40px">{{ createOrgLabel }}</x-import>
+              </div>
+            </x-import>
+          </sc-if>
+        </div>
+      </main>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const HITS = [
+  { title: 'ACME LTD', companyNumber: '09876543', companyStatus: 'Active', addressSnippet: '10 Wharf Road, London N1 7GR' },
+  { title: 'ACME WHOLESALE LIMITED', companyNumber: '11223344', companyStatus: 'Active', addressSnippet: '4 Dock Street, Leeds LS10 1JF' },
+  { title: 'ACME FOODS UK LTD', companyNumber: '07654321', companyStatus: 'Active', addressSnippet: '22 Market Hill, Cambridge CB2 3NJ' },
+  { title: 'KELLY & ROSE TAVERNS LTD', companyNumber: '11482036', companyStatus: 'Active', addressSnippet: '24 Gloucester Road, Bristol BS7 8AE' },
+];
+class Component extends DCLogic {
+  siteRef = React.createRef();
+  heroRef = React.createRef();
+  gsRef = React.createRef();
+  gsVideoRef = React.createRef();
+  fill() { const r = this.siteRef.current; const m = r && r.querySelector('[data-fill]'); if (!m) return; let sc = m.parentElement; while (sc && sc !== document.body && !/(auto|scroll)/.test(getComputedStyle(sc).overflowY)) sc = sc.parentElement; const h = sc && sc !== document.body ? sc.clientHeight : window.innerHeight; if (m.__h !== h) { m.style.minHeight = h + 'px'; m.__h = h; } const narrow = m.clientWidth < 840 && !(m.clientWidth >= 800 && window.innerWidth > window.innerHeight && window.innerHeight >= 600); m.style.gridTemplateColumns = narrow ? '1fr' : '1fr 1fr'; m.style.gridTemplateRows = narrow ? 'auto 1fr' : ''; const roomy = narrow && m.clientWidth >= 600; const ws = m.querySelectorAll('[data-wide]'); ws.forEach((el, i) => { el.style.display = !narrow || (roomy && i === 0) ? 'flex' : 'none'; }); const pi = m.querySelector('[data-panel-inner]'); if (pi) { pi.style.padding = narrow ? (roomy ? '40px 48px 48px' : '20px 24px') : '64px 48px'; pi.style.margin = narrow ? '0' : 'auto'; pi.style.gap = roomy ? '28px' : '40px'; pi.style.maxWidth = roomy ? '640px' : '512px'; } const fs = m.querySelector('[data-form-side]'); if (fs) { fs.style.alignItems = narrow ? 'flex-start' : 'center'; fs.style.padding = narrow ? (roomy ? '48px 48px 64px' : '32px 20px 40px') : '64px 24px'; fs.style.justifyContent = narrow && roomy ? 'flex-start' : 'center'; const inner = fs.firstElementChild; if (inner) inner.style.maxWidth = roomy ? '480px' : '384px'; } }
+  componentDidMount() {
+    this.reveal(); this.fill(); this.onResize = () => this.fill(); window.addEventListener('resize', this.onResize);
+    this.onScroll = () => { const hero = this.heroRef.current; if (!hero) return; const r = hero.getBoundingClientRect(); this.scrollY = Math.max(0, -r.top); this.scrollP = Math.min(1, this.scrollY / (r.height * 0.7)); this.kick = (this.kick || 0) + 1; };
+    this.neuronState = [];
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const tick = (now) => {
+      const hero = this.heroRef.current;
+      if (hero) {
+        const short = window.innerHeight < 500 && window.innerWidth > window.innerHeight, mobile = !short && (hero.clientWidth < 840 && !(hero.clientWidth >= 800 && window.innerWidth > window.innerHeight && window.innerHeight >= 600)), key = mobile ? 'm' : 'd';
+        const box = hero.querySelector('[data-net-box="' + key + '"]'), other = hero.querySelector('[data-net-box="' + (mobile ? 'd' : 'm') + '"]');
+        if (box.style.display === 'none') box.style.display = ''; if (other.style.display !== 'none') other.style.display = 'none';
+        const compact = hero.clientWidth < 600; hero.style.minHeight = mobile ? 'auto' : short ? 'auto' : 'max(100vh - 60px, 640px)'; if (!mobile) { box.style.minHeight = short ? '0px' : '440px'; box.style.flex = short ? '0 0 38%' : '0 0 min(42%,640px)'; box.style.alignSelf = short ? 'flex-start' : 'stretch'; box.style.height = short ? 'calc(100vh - 116px)' : ''; box.style.maxHeight = short ? '340px' : ''; } if (mobile) box.style.height = compact ? '200px' : '240px'; hero.style.paddingTop = mobile ? (compact ? '40px' : '56px') : short ? '28px' : 'clamp(40px,6vw,88px)'; hero.style.paddingBottom = mobile ? (box.offsetHeight + (compact ? 40 : 56)) + 'px' : short ? '28px' : 'clamp(40px,6vw,88px)';
+        { this.globe(box, now, reduce); if (!reduce) this.raf = requestAnimationFrame(tick); return; }
+        this.nets = this.nets || {}; const N = this.nets[key] || (this.nets[key] = { st: [] }); const br = box.getBoundingClientRect(); const W = box.clientWidth, H = box.clientHeight, p = this.scrollP || 0, sy = this.scrollY || 0, m = this.mouse ? { x: this.mouse.cx - br.left, y: this.mouse.cy - br.top } : null; const sc = mobile ? 0.6 : 1;
+        const neurons = box.querySelectorAll('[data-neuron]');
+        if (!N.edges && neurons.length) {
+          const P = [...neurons].map((el) => [parseFloat(el.style.left) * W / 100, parseFloat(el.style.top) * H / 100]); N.edges = [];
+          { const n = P.length, D = (i, j) => Math.hypot(P[i][0] - P[j][0], P[i][1] - P[j][1]);
+            const cross = (a, b, c, d) => { if (a === c || a === d || b === c || b === d) return false; const o = (p, q, r) => Math.sign((q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0])); return o(P[a], P[b], P[c]) !== o(P[a], P[b], P[d]) && o(P[c], P[d], P[a]) !== o(P[c], P[d], P[b]); };
+            const segD = (p, a, b) => { const ax = P[a][0], ay = P[a][1], bx = P[b][0] - ax, by = P[b][1] - ay, L = bx * bx + by * by || 1, u = Math.max(0, Math.min(1, ((p[0] - ax) * bx + (p[1] - ay) * by) / L)); return Math.hypot(p[0] - ax - u * bx, p[1] - ay - u * by); };
+            const ang = (o, a, b) => { const v1 = [P[a][0] - P[o][0], P[a][1] - P[o][1]], v2 = [P[b][0] - P[o][0], P[b][1] - P[o][1]]; return Math.acos(Math.max(-1, Math.min(1, (v1[0] * v2[0] + v1[1] * v2[1]) / (Math.hypot(...v1) * Math.hypot(...v2) || 1)))) * 180 / Math.PI; };
+            const gap = Math.max(W, H) * 0.035, maxL = Math.max(W, H) * 0.24;
+            const ok = (i, j) => N.edges.every(([c, d]) => { if (cross(i, j, c, d)) return false; const sh = i === c ? [i, j, d] : i === d ? [i, j, c] : j === c ? [j, i, d] : j === d ? [j, i, c] : null; if (sh) return ang(sh[0], sh[1], sh[2]) > 28; const mid = [(P[i][0] + P[j][0]) / 2, (P[i][1] + P[j][1]) / 2], mid2 = [(P[c][0] + P[d][0]) / 2, (P[c][1] + P[d][1]) / 2]; return segD(mid, c, d) > gap && segD(mid2, i, j) > gap; }) && P.every((p, k) => k === i || k === j || segD(p, i, j) > gap * 0.8);
+            const cand = []; for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) cand.push([i, j, D(i, j)]); cand.sort((x, y) => x[2] - y[2]);
+            const deg = P.map(() => 0); cand.forEach(([i, j, d]) => { if (d > maxL || deg[i] >= 4 || deg[j] >= 4) return; if (ok(i, j)) { N.edges.push([i, j]); deg[i]++; deg[j]++; } });
+            const par = P.map((_, i) => i); const f = (x) => (par[x] === x ? x : (par[x] = f(par[x]))); N.edges.forEach(([x, y]) => { par[f(x)] = f(y); });
+            cand.forEach(([i, j]) => { if (f(i) !== f(j) && N.edges.every(([c, d]) => !cross(i, j, c, d))) { N.edges.push([i, j]); par[f(i)] = f(j); } });
+            cand.forEach(([i, j]) => { if (f(i) !== f(j)) { N.edges.push([i, j]); par[f(i)] = f(j); } }); }
+          { const adj = P.map(() => []); N.edges.forEach(([a, b]) => { adj[a].push(b); adj[b].push(a); }); let s0 = 0; P.forEach((a, i) => { if (a[1] < P[s0][1]) s0 = i; }); N.rank = P.map(() => -1); const q = [s0]; N.rank[s0] = 0; let r = 1; while (q.length) { const c = q.shift(); adj[c].sort((x, y) => Math.hypot(P[x][0] - P[c][0], P[x][1] - P[c][1]) - Math.hypot(P[y][0] - P[c][0], P[y][1] - P[c][1])).forEach((n) => { if (N.rank[n] < 0) { N.rank[n] = r++; q.push(n); } }); } }
+          const goo = box.querySelector('[data-goo]'); const NS = 'http://www.w3.org/2000/svg';
+          N.lines = N.edges.map(() => { const l = document.createElementNS(NS, 'line'); l.setAttribute('stroke-width', '1'); l.setAttribute('vector-effect', 'non-scaling-stroke'); goo.appendChild(l); return l; });
+        }
+        const pos = [], vis = []; this.hp = (this.hp || 0) + ((this.mouse ? 1.08 : 0) - (this.hp || 0)) * (this.mouse ? 0.025 : 0.04);
+        neurons.forEach((el) => {
+          const i = +el.getAttribute('data-neuron').slice(1);
+          const st = N.st[i] || (N.st[i] = { dx: 0, dy: 0, vx: 0, vy: 0, spin: 0, glow: 0, ph: i * 1.7, hx: parseFloat(el.style.left) / 100, hy: parseFloat(el.style.top) / 100 });
+          let tx = 0, ty = 0, near = 0;
+          if (!reduce) {
+            tx = Math.sin(now / 2400 + st.ph) * 4; ty = Math.cos(now / 3100 + st.ph * 1.3) * 5;
+            if (m) { const ex = st.hx * W + st.dx - m.x, ey = st.hy * H + st.dy - m.y, d = Math.hypot(ex, ey) || 1, R = 110 * sc; if (d < R) { near = 1 - d / R; tx += (ex / d) * near * 24 * sc; ty += (ey / d) * near * 24 * sc; } }
+            st.vx = (st.vx + (tx - st.dx) * 0.06) * 0.82; st.vy = (st.vy + (ty - st.dy) * 0.06) * 0.82; st.dx += st.vx; st.dy += st.vy;
+            st.glow += (near - st.glow) * 0.12;
+          }
+          const order = (N.rank ? N.rank[i] : i) / Math.max(1, neurons.length - 1), reveal = mobile ? Math.max(0.22 + p * 1.1, this.hp || 0) : 1.1, on = Math.min(1, Math.max(0, (reveal - order) / 0.06 + 1));
+          const base = 0.35 + ((i * 37) % 10) / 20;
+          el.style.opacity = on > 0.01 ? '1' : '0'; { st.flash = (st.flash || 0) * 0.955; const k = Math.min(1, on * (base + st.glow * 0.6 + st.flash)); const c = 'rgb(' + Math.round(47 + 208 * k) + ',' + Math.round(69 + 186 * k) + ',' + Math.round(208 + 47 * k) + ')'; if (el.__c !== c) { el.firstChild.setAttribute('fill', c); el.__c = c; } }
+          pos[i] = [st.hx * W + st.dx, st.hy * H + st.dy]; vis[i] = on;
+          el.style.transform = 'translate(-50%,-50%) translate(' + st.dx.toFixed(1) + 'px,' + st.dy.toFixed(1) + 'px) scale(' + (sc * (1 + st.glow * 0.4 + (st.flash || 0) * 0.35)).toFixed(3) + ')';
+        });
+        (N.edges || []).forEach(([a, b], k) => { const l = N.lines[k], A = pos[a], B = pos[b]; if (!A || !B) return; l.setAttribute('x1', A[0].toFixed(1)); l.setAttribute('y1', A[1].toFixed(1)); l.setAttribute('x2', B[0].toFixed(1)); l.setAttribute('y2', B[1].toFixed(1)); { const k = Math.min(vis[a], vis[b]) * 0.3; l.setAttribute('stroke', 'rgb(' + Math.round(47 + 208 * k) + ',' + Math.round(69 + 186 * k) + ',' + Math.round(208 + 47 * k) + ')'); l.setAttribute('stroke-opacity', k > 0.005 ? '1' : '0'); } });
+        if (!reduce && N.edges && N.edges.length) this.beams(N, pos, vis, box, goo, now, sc);
+      }
+      if (!reduce) this.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+    setTimeout(this.onScroll, 50);
+    setTimeout(() => this.setupVideo(), 100);
+  }
+  beams(N, pos, vis, box, goo, now, sc) {
+    const NS = 'http://www.w3.org/2000/svg';
+    if (!N.adj || N.adj.length !== pos.length) { N.adj = pos.map(() => []); N.edges.forEach(([a, b]) => { N.adj[a].push(b); N.adj[b].push(a); }); N.bm = []; N.nextBeam = now + 900; N.lastT = now; }
+    const dt = Math.min(64, now - N.lastT); N.lastT = now;
+    if (now > N.nextBeam && N.bm.length < 3) {
+      N.nextBeam = now + 1100 + Math.random() * 1300;
+      const live = pos.map((p, i) => i).filter((i) => pos[i] && vis[i] > 0.9);
+      if (live.length > 4) {
+        const tops = live.slice().sort((a, b) => pos[a][1] - pos[b][1]).slice(0, Math.max(3, Math.round(live.length / 3)));
+        const path = [tops[Math.floor(Math.random() * tops.length)]]; const len = 3 + Math.floor(Math.random() * 3);
+        while (path.length <= len) { const cur = path[path.length - 1]; const nb = N.adj[cur].filter((n) => !path.includes(n) && vis[n] > 0.9); if (!nb.length) break; nb.sort((a, b) => pos[b][1] - pos[a][1]); path.push(Math.random() < 0.65 ? nb[0] : nb[Math.floor(Math.random() * nb.length)]); }
+        if (path.length >= 3) { const el = document.createElementNS(NS, 'line'); el.setAttribute('stroke', '#ffffff'); el.setAttribute('stroke-width', '1.5'); el.setAttribute('stroke-linecap', 'round'); goo.appendChild(el); N.st[path[0]] && (N.st[path[0]].flash = 0.8); N.bm.push({ path, seg: 0, t: 0, el, ok: Math.random() < 0.68 }); }
+      }
+    }
+    N.bm = N.bm.filter((b) => {
+      const A = pos[b.path[b.seg]], B = pos[b.path[b.seg + 1]]; if (!A || !B) { b.el.remove(); return false; }
+      const L = Math.hypot(B[0] - A[0], B[1] - A[1]) || 1; b.t += (dt * 0.22 * sc) / L;
+      if (b.t >= 1) { b.seg++; b.t = 0; const st = N.st[b.path[b.seg]]; if (st) st.flash = 0.75;
+        if (b.seg >= b.path.length - 1) { b.el.remove(); this.outcome(box, pos[b.path[b.seg]], b.ok, sc); if (st) st.flash = 1; return false; } return true; }
+      const tail = Math.max(0, b.t - 22 / L), hx = A[0] + (B[0] - A[0]) * b.t, hy = A[1] + (B[1] - A[1]) * b.t;
+      b.el.setAttribute('x1', (A[0] + (B[0] - A[0]) * tail).toFixed(1)); b.el.setAttribute('y1', (A[1] + (B[1] - A[1]) * tail).toFixed(1)); b.el.setAttribute('x2', hx.toFixed(1)); b.el.setAttribute('y2', hy.toFixed(1));
+      b.el.setAttribute('stroke-opacity', (0.55 + 0.45 * Math.sin(Math.PI * Math.min(1, b.t + 0.15))).toFixed(2));
+      return true;
+    });
+  }
+  outcome(box, p, ok, sc) {
+    if (!p) return; const d = document.createElement('div'); const z = Math.round(20 * Math.max(0.8, sc));
+    d.setAttribute('aria-hidden', 'true');
+    d.style.cssText = 'position:absolute;left:' + p[0] + 'px;top:' + (p[1] - 24 * sc) + 'px;width:' + z + 'px;height:' + z + 'px;margin:-' + z / 2 + 'px 0 0 -' + z / 2 + 'px;color:' + (ok ? '#a6f0cc' : '#ffc2b8') + ';opacity:0;transform:translateY(6px) scale(.8);transition:opacity 260ms cubic-bezier(.2,.8,.2,1),transform 260ms cubic-bezier(.2,.8,.2,1);pointer-events:none';
+    d.innerHTML = ok ? '<svg viewBox="0 0 78 78" width="100%" height="100%"><path d=\"M34.1233 45.3468C33.3664 46.1036 32.1479 46.1304 31.3585 45.4077L22.8745 37.64C22.0601 36.8944 20.7954 36.9499 20.0494 37.764L18.7018 39.2347C17.9553 40.0494 18.0109 41.315 18.8259 42.0611L31.5482 53.7076C32.3378 54.4304 33.5564 54.4034 34.3132 53.6464L59.0363 28.9142C59.8171 28.1331 59.817 26.867 59.0361 26.0861L57.6242 24.6742C56.8432 23.8932 55.5768 23.8932 54.7958 24.6742L34.1233 45.3468Z\" fill=\"currentColor\"><path d=\"M38.89 0C31.1983 0 23.6793 2.28086 17.2839 6.55415C10.8885 10.8274 5.90383 16.9012 2.96034 24.0074C0.0168502 31.1137 -0.753301 38.9331 0.747278 46.4771C2.24786 54.021 5.95177 60.9505 11.3906 66.3894C16.8295 71.8282 23.759 75.5322 31.303 77.0327C38.8469 78.5333 46.6664 77.7632 53.7726 74.8197C60.8788 71.8762 66.9526 66.8916 71.2259 60.4961C75.4992 54.1007 77.78 46.5817 77.78 38.89C77.7694 28.579 73.6687 18.6933 66.3777 11.4023C59.0867 4.11132 49.201 0.010589 38.89 0ZM38.89 71.78C32.385 71.78 26.026 69.851 20.6173 66.237C15.2086 62.623 10.993 57.4863 8.50362 51.4765C6.01425 45.4666 5.36292 38.8535 6.63199 32.4735C7.90106 26.0934 11.0335 20.233 15.6333 15.6333C20.233 11.0335 26.0935 7.90104 32.4735 6.63197C38.8535 5.3629 45.4666 6.01424 51.4765 8.5036C57.4863 10.993 62.6231 15.2086 66.2371 20.6173C69.8511 26.026 71.78 32.385 71.78 38.89C71.7721 47.6105 68.3043 55.9716 62.138 62.138C55.9716 68.3043 47.6106 71.7721 38.89 71.78Z\" fill=\"currentColor\"></svg>' : '<svg viewBox="0 0 74 74" width="100%" height="100%"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M36.875 0C57.2266 0 73.75 16.5234 73.75 36.875C73.75 57.2266 57.2266 73.75 36.875 73.75C16.5234 73.75 0 57.2266 0 36.875C0 16.5234 16.5234 0 36.875 0ZM36.875 5.14535C19.3637 5.14535 5.14535 19.3637 5.14535 36.875C5.14535 54.3863 19.3637 68.6047 36.875 68.6047C54.3863 68.6047 68.6047 54.3863 68.6047 36.875C68.6047 19.3637 54.3863 5.14535 36.875 5.14535Z\" fill=\"currentColor\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.6872 50.6988C25.6856 51.7039 24.0528 51.7039 23.0511 50.6988C22.0461 49.6972 22.0461 48.0644 23.0511 47.0628L47.0628 23.0512C48.0644 22.0461 49.6972 22.0461 50.6988 23.0512C51.7039 24.0528 51.7039 25.6856 50.6988 26.6872L26.6872 50.6988Z\" fill=\"currentColor\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M50.6988 47.0628C51.7039 48.0644 51.7039 49.6972 50.6988 50.6988C49.6972 51.7039 48.0644 51.7039 47.0628 50.6988L23.0511 26.6872C22.0461 25.6856 22.0461 24.0528 23.0511 23.0512C24.0528 22.0461 25.6856 22.0461 26.6872 23.0512L50.6988 47.0628Z\" fill=\"currentColor\"></svg>';
+    box.appendChild(d);
+    requestAnimationFrame(() => { d.style.opacity = '1'; d.style.transform = 'translateY(0) scale(1)'; });
+    setTimeout(() => { d.style.transitionDuration = '600ms'; d.style.opacity = '0'; d.style.transform = 'translateY(-6px) scale(1)'; }, 1300);
+    setTimeout(() => d.remove(), 2000);
+  }
+  globe(box, now, reduce) {
+    const cv = box.querySelector('[data-globe]'); if (!cv) return;
+    const bg = box.querySelector('[data-world-bg]');
+    if (bg && !reduce) { const u = now / 9000; bg.style.transform = 'translate(' + (Math.sin(u) * 6).toFixed(2) + '%,' + (Math.cos(u * 0.8) * 5).toFixed(2) + '%) rotate(' + (Math.sin(u * 0.5) * 8).toFixed(2) + 'deg)'; }
+        const dpr = Math.min(2, window.devicePixelRatio || 1), W = box.clientWidth, H = box.clientHeight;
+    if (cv.width !== Math.round(W * dpr) || cv.height !== Math.round(H * dpr)) { cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); }
+    const ctx = cv.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+    const G = this.G || (this.G = (() => {
+      const n = 420, pts = []; let sd = 7; const rnd = () => (sd = (sd * 16807) % 2147483647) / 2147483647;
+      const unit = (v) => { const L = Math.hypot(v[0], v[1], v[2]) || 1; return [v[0] / L, v[1] / L, v[2] / L]; };
+      const rndDir = () => { const u = rnd() * 2 - 1, th = rnd() * Math.PI * 2, s = Math.sqrt(1 - u * u); return [s * Math.cos(th), u, s * Math.sin(th)]; };
+      const hubs = Array.from({ length: 7 }, rndDir);
+      const ga = Math.PI * (3 - Math.sqrt(5)); void hubs;
+      for (let i = 0; i < n; i++) { const y = 1 - ((i + 0.5) / n) * 2, rr0 = Math.sqrt(1 - y * y), th = ga * i; const j = 0.035; const p = unit([Math.cos(th) * rr0 + (rnd() - 0.5) * j, y + (rnd() - 0.5) * j, Math.sin(th) * rr0 + (rnd() - 0.5) * j]); const rr = 0.985 + rnd() * 0.025; pts.push([p[0] * rr, p[1] * rr, p[2] * rr, 0.5 + rnd() * 0.7]); }
+      const nb = pts.map((p, i) => { const k = 4; return pts.map((q, j) => [j, (p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2 + (p[2] - q[2]) ** 2]).filter(([j]) => j !== i).sort((a, b) => a[1] - b[1]).slice(0, k).map(([j]) => j); });
+      const edges = []; nb.forEach((l, i) => l.forEach((j) => { if (i < j || !nb[j].includes(i)) edges.push([i, j]); }));
+      const ctrl = edges.map(([a, b]) => { const A = pts[a], B = pts[b], m = [(A[0] + B[0]) / 2, (A[1] + B[1]) / 2, (A[2] + B[2]) / 2], L = Math.hypot(m[0], m[1], m[2]) || 1, d = Math.hypot(A[0] - B[0], A[1] - B[1], A[2] - B[2]), w = (rnd() - 0.5) * d * 0.3, nx = (A[1] - B[1]), ny = (B[0] - A[0]), nz = (A[2] - B[2]) * 0.3, bulge = 1 + d * (0.08 + rnd() * 0.1); return [m[0] / L * bulge + nx * w, m[1] / L * bulge + ny * w, m[2] / L * bulge + nz * w]; });
+      const path = new Path2D('M5 0 C5.4 3.6 6.4 4.6 10 5 C6.4 5.4 5.4 6.4 5 10 C4.6 6.4 3.6 5.4 0 5 C3.6 4.6 4.6 3.6 5 0 Z');
+      const ok = new Path2D('M34.12 45.35a2 2 0 0 1-2.76.06l-8.49-7.77a2 2 0 0 0-2.82.13l-1.35 1.47a2 2 0 0 0 .12 2.83l12.73 11.64a2 2 0 0 0 2.76-.06l24.72-24.73a2 2 0 0 0 0-2.83l-1.41-1.41a2 2 0 0 0-2.83 0z');
+      const no = new Path2D('M26.69 50.7a2.57 2.57 0 0 1-3.64-3.64l24.01-24.01a2.57 2.57 0 0 1 3.64 3.64zM50.7 47.06a2.57 2.57 0 0 1-3.64 3.64L23.05 26.69a2.57 2.57 0 0 1 3.64-3.64z');
+      const grid = []; const d2r = Math.PI / 180;
+      for (let la = -60; la <= 60; la += 30) for (let lo = 0; lo < 360; lo += 5) { const a = la * d2r, b = lo * d2r; grid.push([Math.cos(a) * Math.cos(b), Math.sin(a), Math.cos(a) * Math.sin(b)]); }
+      for (let lo = 0; lo < 180; lo += 30) for (let la = -84; la <= 84; la += 5) { if (la % 30 === 0) continue; const a = la * d2r, b = lo * d2r; grid.push([Math.cos(a) * Math.cos(b), Math.sin(a), Math.cos(a) * Math.sin(b)], [-Math.cos(a) * Math.cos(b), Math.sin(a), -Math.cos(a) * Math.sin(b)]); }
+      return { pts, edges, ctrl, path, ok, no, grid, arcs: [], pops: [], next: 0, rot: 0.6, last: now };
+    })());
+    const dt = Math.min(64, now - G.last); G.last = now;
+    if (!box.__drag) { box.__drag = true; box.style.pointerEvents = 'auto'; box.style.cursor = 'grab'; box.style.touchAction = 'pan-y'; box.setAttribute('aria-label', 'Interactive globe of credit decisions. Drag to rotate.');
+      let last = null;
+      box.addEventListener('pointerdown', (e) => { last = [e.clientX, e.clientY, performance.now()]; G.drag = true; G.vel = 0; box.style.cursor = 'grabbing'; try { box.setPointerCapture(e.pointerId); } catch (x) {} });
+      box.addEventListener('pointermove', (e) => { if (!last) return; const dx = e.clientX - last[0], dy = e.clientY - last[1], tn = performance.now(), d = Math.max(1, tn - last[2]); G.rot += dx * 0.006; G.tiltOff = Math.max(-0.5, Math.min(0.6, (G.tiltOff || 0) + dy * 0.004)); G.vel = (dx * 0.006) / d; last = [e.clientX, e.clientY, tn]; });
+      const end = () => { last = null; G.drag = false; box.style.cursor = 'grab'; };
+      box.addEventListener('pointerup', end); box.addEventListener('pointercancel', end); box.addEventListener('lostpointercapture', end); }
+    if (!G.drag) { const v = G.vel || 0; if (Math.abs(v) > 0.00002) { G.rot += v * dt; G.vel = v * Math.pow(0.94, dt / 16); } else if (!reduce) G.rot += dt * 0.00006; G.tiltOff = (G.tiltOff || 0) * Math.pow(0.985, dt / 16); }
+    const wide = W > H * 1.25, R = wide ? W * 0.6 : Math.min(W * 0.62, H * 0.5), cx = W / 2, cy = wide ? H * 0.22 + R : H * 0.66, tilt = 0.32 + (G.tiltOff || 0), ct = Math.cos(tilt), st = Math.sin(tilt);
+    const m = this.mouse ? (() => { const br = box.getBoundingClientRect(); return { x: this.mouse.cx - br.left, y: this.mouse.cy - br.top }; })() : null;
+    const proj = (p) => { const c = Math.cos(G.rot), s = Math.sin(G.rot); const x = p[0] * c + p[2] * s, z0 = -p[0] * s + p[2] * c; const y = p[1] * ct - z0 * st, z = p[1] * st + z0 * ct; return [cx + x * R, cy - y * R, z]; };
+    const P = G.pts.map(proj);
+    const mix = (k) => 'rgb(' + Math.round(70 + 185 * k) + ',' + Math.round(90 + 165 * k) + ',' + Math.round(210 + 45 * k) + ')';
+    // rim
+    ctx.lineWidth = 1; ctx.strokeStyle = mix(0.25); ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.stroke();
+    G.off = G.off || G.pts.map(() => [0, 0]); G.hm = G.hm || { x: -999, y: -999 }; if (m) { G.hm.x += (m.x - G.hm.x) * 0.1; G.hm.y += (m.y - G.hm.y) * 0.1; }
+    P.forEach((q, i) => { const O = G.off[i]; let tx = 0, ty = 0; if (m && !reduce && q[2] > -0.1) { const dx = q[0] - G.hm.x, dy = q[1] - G.hm.y, d = Math.hypot(dx, dy) || 1, Rr = 150; if (d < Rr) { const near = Math.pow(1 - d / Rr, 1.5), wob = 1 + Math.sin(now / 700 + i * 1.3) * 0.3; tx = (dx / d) * near * 16 * wob + Math.sin(now / 900 + i) * near * 2; ty = (dy / d) * near * 16 * wob + Math.cos(now / 1100 + i) * near * 2; } } O[0] += (tx - O[0]) * 0.07; O[1] += (ty - O[1]) * 0.07; q[0] += O[0]; q[1] += O[1]; });
+    // network lines (front hemisphere)
+    G.edges.forEach(([a, b], ei) => { const A = P[a], B = P[b]; if (A[2] < -0.05 || B[2] < -0.05) return; const k = Math.min(A[2], B[2]); const C = proj(G.ctrl[ei]), oa = G.off[a], ob = G.off[b]; ctx.strokeStyle = mix(0.16 + k * 0.34); ctx.beginPath(); ctx.moveTo(A[0], A[1]); ctx.quadraticCurveTo(C[0] + (oa[0] + ob[0]) / 2, C[1] + (oa[1] + ob[1]) / 2, B[0], B[1]); ctx.stroke(); });
+    // neurons
+    G.glow = G.glow || G.pts.map(() => 0);
+    P.forEach((q, i) => { if (q[2] < -0.1) return; let near = 0; if (m) { const d = Math.hypot(q[0] - m.x, q[1] - m.y); if (d < 90) near = 1 - d / 90; } G.glow[i] = Math.max(G.glow[i] * 0.94, near); const k = Math.min(1, 0.25 + q[2] * 0.55 + G.glow[i] * 0.6); const z = (6 + G.pts[i][3] * 6 + G.glow[i] * 4) * (0.7 + q[2] * 0.45) * Math.min(1, Math.max(0.75, W / 560)); ctx.save(); ctx.translate(q[0] - z / 2, q[1] - z / 2); ctx.scale(z / 10, z / 10); ctx.fillStyle = mix(k); ctx.fill(G.path); ctx.restore(); });
+    // pulses: credit decisions travel along the network lines, neuron to neuron
+    if (!G.adj) { G.adj = G.pts.map(() => []); G.edges.forEach(([a, b], ei) => { G.adj[a].push([b, ei]); G.adj[b].push([a, ei]); }); }
+    const qp = (A, C, B, u) => [(1 - u) * (1 - u) * A[0] + 2 * (1 - u) * u * C[0] + u * u * B[0], (1 - u) * (1 - u) * A[1] + 2 * (1 - u) * u * C[1] + u * u * B[1]];
+    if (!reduce && now > G.next && G.arcs.length < 4) {
+      G.next = now + 900 + Math.random() * 1200;
+      const front = P.map((q, i) => [q, i]).filter(([q]) => q[2] > 0.4 && q[0] > 24 && q[0] < W - 24 && q[1] > 34 && q[1] < H - 14).map(([, i]) => i);
+      if (front.length > 6) {
+        const a = front[Math.floor(Math.random() * front.length)], path = [a], segs = [], len = 4 + Math.floor(Math.random() * 4);
+        while (path.length <= len) { const cur = path[path.length - 1]; const opts = G.adj[cur].filter(([nb]) => !path.includes(nb) && P[nb][2] > 0.15); if (!opts.length) break; const pick = opts[Math.floor(Math.random() * opts.length)]; path.push(pick[0]); segs.push(pick[1]); }
+        if (path.length >= 4) { G.glow[a] = 1; G.arcs.push({ path, segs, seg: 0, t: 0, ok: Math.random() < 0.7 }); }
+      }
+    }
+    G.arcs = G.arcs.filter((arc) => {
+      if (arc.done) { arc.fade = (arc.fade || 1) - dt / 500; return arc.fade > 0; }
+      const a = arc.path[arc.seg], b = arc.path[arc.seg + 1], A = P[a], B = P[b]; if (!A || !B || A[2] < 0 || B[2] < 0) return false;
+      const ei = arc.segs[arc.seg], fwd = G.edges[ei][0] === a, C0 = proj(G.ctrl[ei]), oa = G.off[a], ob = G.off[b], C = [C0[0] + (oa[0] + ob[0]) / 2, C0[1] + (oa[1] + ob[1]) / 2];
+      const L = Math.hypot(B[0] - A[0], B[1] - A[1]) || 1; arc.t += (dt * 0.16) / L; void fwd;
+      const head = Math.min(1, arc.t), tail = Math.max(0, head - 26 / L);
+      ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 1.6; ctx.globalAlpha = 0.95; ctx.beginPath(); const p0 = qp(A, C, B, tail); ctx.moveTo(p0[0], p0[1]); for (let u = tail; u <= head; u += 0.04) { const pp = qp(A, C, B, u); ctx.lineTo(pp[0], pp[1]); } const ph = qp(A, C, B, head); ctx.lineTo(ph[0], ph[1]); ctx.stroke();
+      ctx.fillStyle = '#ffffff'; ctx.beginPath(); ctx.arc(ph[0], ph[1], 2, 0, Math.PI * 2); ctx.fill(); ctx.globalAlpha = 1; ctx.lineWidth = 1;
+      if (arc.t >= 1) { arc.seg++; arc.t = 0; G.glow[b] = Math.max(G.glow[b], 0.8); if (arc.seg >= arc.segs.length) { arc.done = true; G.glow[b] = 1; G.pops.push({ i: b, t0: now, ok: arc.ok }); } }
+      return true;
+    });
+    G.pops = G.pops.filter((p) => {
+      const q = P[p.i], age = (now - p.t0) / 1600; if (age > 1 || q[2] < 0) return false;
+      const ring = 6 + age * 26; ctx.strokeStyle = '#ffffff'; ctx.globalAlpha = (1 - age) * 0.7; ctx.beginPath(); ctx.arc(q[0], q[1], ring, 0, Math.PI * 2); ctx.stroke();
+      const z = 12; ctx.globalAlpha = Math.min(1, (1 - age) * 1.6); ctx.save(); ctx.translate(q[0] - z / 2, q[1] - z / 2); ctx.scale(z / 74, z / 74); ctx.fillStyle = '#ffffff'; ctx.beginPath(); ctx.arc(37, 37, 37, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#2f45d0'; ctx.fill(p.ok ? G.ok : G.no); ctx.restore(); ctx.globalAlpha = 1;
+      return true;
+    });
+  }
+  setupVideo() {
+    {
+      const sec = this.gsRef.current, vid = this.gsVideoRef.current; if (!sec || !vid || !('IntersectionObserver' in window)) { if (this.gsIo && !sec) { this.gsIo.disconnect(); this.gsIo = null; } return; }
+      if (this.gsIo && this.gsSec === sec) return; if (this.gsIo) this.gsIo.disconnect(); this.gsSec = sec;
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      vid.muted = true;
+      this.gsIo = new IntersectionObserver(([en]) => { if (en.isIntersecting) { vid.preload = 'auto'; const p = vid.play(); if (p && p.catch) p.catch(() => {}); } else vid.pause(); }, { rootMargin: '200px 0px' });
+      this.gsIo.observe(sec);
+    }
+    document.addEventListener('scroll', this.onScroll, true);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); cancelAnimationFrame(this.raf); if (this.gsIo) this.gsIo.disconnect(); if (this.io) this.io.disconnect(); document.removeEventListener('scroll', this.onScroll, true); }
+  reveal() {
+    const root = this.siteRef.current; if (!root || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!this.io) this.io = new IntersectionObserver((es) => es.forEach((en) => { if (en.isIntersecting) { en.target.style.opacity = '1'; en.target.style.transform = 'none'; this.io.unobserve(en.target); } }), { threshold: 0.12 });
+    root.querySelectorAll('[data-reveal]:not([data-revealed])').forEach((el) => { el.setAttribute('data-revealed', ''); el.style.opacity = '0'; el.style.transform = 'translateY(28px)'; el.style.transition = 'opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1)'; this.io.observe(el); });
+  }
+  state = { email: '', emailErr: null, code: '', codeErr: null, busy: false, q: '', sel: null, companyErr: null };
+  componentDidUpdate(prev) { this.reveal(); this.fill(); this.setupVideo();
+    if (prev.screen !== this.props.screen || prev.state !== this.props.state) this.setState({ busy: false, emailErr: null, codeErr: null });
+  }
+  later(fn, ms = 600) { this.setState({ busy: true }); setTimeout(() => { this.setState({ busy: false }); fn(); }, ms); }
+  renderVals() {
+    const { screen, state: st = 'Default', go = () => {}, ctx = {}, setCtx = () => {} } = this.props;
+    const s = this.state;
+    const inv = screen === 'site.invite';
+    const portal = screen === 'site.portal';
+    const company = screen === 'site.company';
+    let headTitle = '', headDesc = '';
+    if (portal) {
+      if (st === 'No Workspace') { headTitle = 'No workspace yet'; headDesc = 'You are signed in, but you do not belong to a workspace. Open an invitation if you have one, or sign out.'; }
+      else { headTitle = 'Choose a portal'; headDesc = 'Open the Supplier portal or the Buyer portal.'; }
+    }
+    if (inv) {
+      if (st === 'Waiting') { headTitle = 'Waiting for approval'; headDesc = 'You asked an administrator of Kelly & Rose Taverns Ltd to add you to that workspace and connect it to BrewDog. They still need to approve it. The invitation expires in 5 days.'; }
+      else if (st === 'Terminal Accepted') { headTitle = 'You are connected'; headDesc = 'This invitation is already accepted. Continue to open Almanac.'; }
+      else if (st === 'Terminal Expired') { headTitle = 'This invitation has expired'; headDesc = 'Ask the supplier to send a new invitation.'; }
+      else if (st === 'Empty') { headTitle = 'No open invitations'; headDesc = 'There is no pending invitation for this email. If you expected one, ask the supplier to send it again.'; }
+      else { headTitle = 'BrewDog invited you to connect'; headDesc = 'Almanac is a platform suppliers use to work with their customers. BrewDog wants to connect Kelly & Rose Taverns Ltd so they can send you invoices, credit checks, and other requests in one place.'; }
+    }
+    if (company) { headTitle = 'Create a company'; headDesc = 'Add the first company for this workspace.'; }
+    let portalCards = [];
+    if (portal) {
+      if (st === 'No Workspace') portalCards = [{ icon: 'Mail', title: 'Open invitations', description: 'Continue an invitation to join or create a workspace.', onClick: () => go('site.invite') }];
+      else {
+        portalCards = [{ icon: 'Store', title: 'Supplier portal', description: 'Credit applications, accounts, and invoices.', onClick: () => go('sp.apps') }];
+        if (st !== 'Supplier Only') portalCards.push({ icon: 'ShoppingCart', title: 'Buyer portal', description: 'Your credit applications and invoices.', onClick: () => go('bp.suppliers') });
+        if (st === 'With Platform Portal') portalCards.push({ icon: 'ShieldCheck', title: 'Platform portal', description: 'Workspaces, users, and audit.', onClick: () => go('pp.workspaces') });
+      }
+    }
+    const q = s.q.trim().toLowerCase();
+    const hits = !s.sel && q ? HITS.filter((h) => (h.title + h.companyNumber).toLowerCase().includes(q)).map((h) => ({ ...h, onClick: () => this.setState({ sel: h, companyErr: null }) })) : [];
+    const signedIn = st === 'Signed In';
+    return {
+      isHome: screen === 'site.home', siteRef: this.siteRef, heroRef: this.heroRef, gsRef: this.gsRef, gsVideo: React.createElement('video', { ref: this.gsVideoRef, src: 'assets/get-started.mp4', poster: 'assets/get-started-poster.png', muted: true, loop: true, playsInline: true, preload: 'none', 'aria-hidden': true, style: { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', transform: 'scaleX(-1)', filter: 'grayscale(1) contrast(1.15) brightness(1.05)' } }), heroMove: (e) => { this.mouse = { cx: e.clientX, cy: e.clientY }; }, heroLeave: () => { this.mouse = null; }, heroMark: React.createElement('img', { src: 'assets/almanac-symbol-v3.svg', alt: '', width: 104, height: 80, style: { display: 'block', height: 'clamp(56px,7vw,88px)', width: 'auto', filter: 'invert(1)', animation: 'vlMarkIn 1.2s cubic-bezier(.2,.8,.2,1) both' } }), signedOut: !signedIn, ctaLabel: signedIn ? 'Go to the app' : 'Email us for early access',
+      onCta: () => (signedIn ? go('site.portal') : window.open('mailto:info@almanacfin.com?subject=Almanac%20early%20access')),
+      copyIcon: this.state.copied ? 'Check' : 'Copy', copyLabel: this.state.copied ? 'Email copied' : 'Copy email address', copiedMsg: this.state.copied ? 'Copied' : '',
+      copyEmail: () => { const done = () => { this.setState({ copied: true }); clearTimeout(this._cpT); this._cpT = setTimeout(() => this.setState({ copied: false }), 1600); }; if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText('info@almanacfin.com').then(done, done); else done(); },
+      toSignIn: () => go('@next'),
+      steps: [
+        { icon: 'FileCheck', title: 'Buyers apply online', description: 'Buyers complete one digital application in minutes: company details, bank connection and trade references.' },
+        { icon: 'Database', title: 'Checks run automatically', description: 'Registry, credit bureau, open banking and sanctions data are assembled into one credit file.' },
+        { icon: 'CheckCircle', title: 'You decide, with an audit trail', description: 'Your credit team reviews the credit file and sets terms. Every decision is logged.' },
+        { icon: 'Users', title: 'Buyers reuse their profile', description: 'Verified buyer data can be shared with other suppliers, so buyers apply faster next time.' },
+      ].map((x, i) => ({ ...x, n: String(i + 1).padStart(2, '0') })),
+      audience: ['Wholesale distributors', 'B2B suppliers and manufacturers', 'Marketplaces and trading platforms'],
+      isSignIn: screen === 'site.signin',
+      points: [{ icon: 'Shield', label: 'Automated buyer onboarding' }, { icon: 'FileCheck', label: 'One verified credit file' }, { icon: 'CheckCircle', label: 'Decisions with a full audit trail' }],
+      signTitle: st === 'Code' ? 'Check your email' : 'Sign in',
+      signDesc: st === 'Code' ? 'Enter the six-digit code we sent.' : 'Enter your work email. We will send a one-time code.',
+      linkError: st === 'Error', isEmailStep: st !== 'Code', isCodeStep: st === 'Code',
+      email: s.email, emailErr: s.emailErr, busy: s.busy,
+      onEmail: (e) => this.setState({ email: e.target.value, emailErr: null }),
+      continueLabel: s.busy ? 'Sending…' : 'Continue',
+      submitEmail: (e) => { e.preventDefault(); if (!s.email.trim()) return this.setState({ emailErr: 'Please enter your email address' }); if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.email)) return this.setState({ emailErr: 'Please enter a valid email address' }); setCtx({ email: s.email }); this.later(() => go('site.signin', 'Code')); },
+      sentTo: ctx.email || 'alex.rivera@acme.example',
+      code: s.code, codeErr: s.codeErr,
+      onCode: (e) => this.setState({ code: e.target.value.replace(/\D/g, '').slice(0, 6), codeErr: null }),
+      confirmLabel: s.busy ? 'Verifying...' : 'Confirm and continue',
+      resendLabel: s.resendLeft ? 'Wait ' + s.resendLeft + 's to resend' : s.resending ? 'Sending...' : 'Resend verification code', resendLocked: !!s.resendLeft || !!s.resending || s.busy,
+      resend: () => { this.setState({ resending: true }); setTimeout(() => { this.setState({ resending: false, resendLeft: 30 }); clearInterval(this.cd); this.cd = setInterval(() => this.setState((x) => { const n = (x.resendLeft || 1) - 1; if (n <= 0) clearInterval(this.cd); return { resendLeft: n }; }), 1000); }, 700); },
+      submitCode: (e) => { e.preventDefault(); if (s.code.length < 6) return this.setState({ codeErr: 'Sign-in failed. Check your code, or try the passkey option below.' }); this.later(() => { this.setState({ code: '' }); go('@next'); }); },
+      changeEmail: () => go('site.signin', 'Default'),
+      passkey: () => go('site.portal'),
+      isCentered: portal || inv || company,
+      signOut: () => go('site.signin'),
+      loading: inv && st === 'Loading', hasHead: !(inv && st === 'Loading'),
+      headTitle, headDesc,
+      isPortal: portal, portalCards, noWorkspace: portal && st === 'No Workspace',
+      isInvitePending: inv && ['Default', 'Choose Workspace', 'Waiting'].includes(st),
+      isChoose: inv && st === 'Choose Workspace', isInviteDefault: inv && st === 'Default', isWaiting: inv && st === 'Waiting',
+      inviteCopy: st === 'Choose Workspace' ? 'Kelly & Rose Taverns Ltd already exists on Almanac in another workspace. Ask to join that workspace, or create your own.' : st === 'Waiting' ? '' : 'Accepting creates a workspace and company for Kelly & Rose Taverns Ltd. You will manage it and see what BrewDog sends you.',
+      acceptLabel: s.busy ? 'Working…' : 'Accept invitation',
+      createLabel: s.busy ? 'Working…' : 'Create a new workspace',
+      accept: () => this.later(() => go('site.invite', 'Choose Workspace')),
+      joinExisting: () => this.later(() => go('site.invite', 'Waiting')),
+      createWorkspace: () => this.later(() => go('bw.company')),
+      decline: () => go('site.invite', 'Empty'),
+      isAccepted: inv && st === 'Terminal Accepted', continueApp: () => go('bp.suppliers'),
+      isCompany: company, companyQuery: s.sel ? s.sel.title : s.q, companyErr: s.companyErr,
+      onCompanyQuery: (e) => this.setState({ q: e.target.value, sel: null }),
+      showHits: hits.length > 0, hits, hasSel: !!s.sel, sel: s.sel || {},
+      createOrgLabel: s.busy ? 'Creating…' : 'Create organization',
+      createOrg: () => { if (!s.sel) return this.setState({ companyErr: 'Select a company from Companies House' }); setCtx({ org: s.sel.title }); this.later(() => go('@next')); },
+    };
+  }
+}
+</script>
+</body>
+</html>

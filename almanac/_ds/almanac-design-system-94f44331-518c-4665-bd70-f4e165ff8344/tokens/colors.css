@@ -1,0 +1,116 @@
+/* Almanac colour tokens — lifted verbatim from packages/ui/src/styles/tokens.css.
+   Light is :root; dark is .dark (put the class on <html>). */
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --card-plain: #fafafa;
+  --muted: #e5e5e5;
+  --muted-foreground: #525252;
+  --placeholder: #a3a3a3;
+  --accent: #00b3c0;
+  --accent-foreground: #ffffff;
+  --danger: #d3592f;
+  --danger-foreground: #ffffff;
+  --success: #209a70;
+  --success-foreground: #ffffff;
+  --warning: #ee9d28;
+  --warning-foreground: #000000;
+  --border: #e8e8e8;
+  --input: #dfdfdf;
+  --ring: #00b3c0;
+
+  /* Brand mark palette (AlmanacLogo gradient — logo only, never UI) */
+  --brand-teal-900: #0f766e;
+  --brand-teal-600: #0d9488;
+  --brand-teal-400: #2dd4bf;
+  --brand-slate-500: #64748b;
+
+  /* Semantic aliases */
+  --surface-page: var(--background);
+  --surface-card: var(--card);
+  --surface-plain: var(--card-plain);
+  --surface-sidebar: color-mix(in srgb, var(--muted) 30%, var(--background));
+  --text-body: var(--foreground);
+  --text-muted: var(--muted-foreground);
+  --text-placeholder: var(--placeholder);
+  --text-link: var(--accent);
+  --overlay-scrim: color-mix(in srgb, var(--foreground) 40%, transparent);
+
+  /* Alpha tints (Tailwind /5 /10 /15 /30 /50 equivalents) */
+  --accent-5: color-mix(in srgb, var(--accent) 5%, transparent);
+  --accent-10: color-mix(in srgb, var(--accent) 10%, transparent);
+  --accent-15: color-mix(in srgb, var(--accent) 15%, transparent);
+  --accent-30: color-mix(in srgb, var(--accent) 30%, transparent);
+  --accent-50: color-mix(in srgb, var(--accent) 50%, transparent);
+  --danger-5: color-mix(in srgb, var(--danger) 5%, transparent);
+  --danger-10: color-mix(in srgb, var(--danger) 10%, transparent);
+  --danger-15: color-mix(in srgb, var(--danger) 15%, transparent);
+  --danger-30: color-mix(in srgb, var(--danger) 30%, transparent);
+  --danger-50: color-mix(in srgb, var(--danger) 50%, transparent);
+  --success-5: color-mix(in srgb, var(--success) 5%, transparent);
+  --success-10: color-mix(in srgb, var(--success) 10%, transparent);
+  --success-15: color-mix(in srgb, var(--success) 15%, transparent);
+  --success-30: color-mix(in srgb, var(--success) 30%, transparent);
+  --success-50: color-mix(in srgb, var(--success) 50%, transparent);
+  --warning-5: color-mix(in srgb, var(--warning) 5%, transparent);
+  --warning-10: color-mix(in srgb, var(--warning) 10%, transparent);
+  --warning-15: color-mix(in srgb, var(--warning) 15%, transparent);
+  --warning-30: color-mix(in srgb, var(--warning) 30%, transparent);
+  --warning-50: color-mix(in srgb, var(--warning) 50%, transparent);
+  --muted-20: color-mix(in srgb, var(--muted) 20%, transparent);
+  --muted-30: color-mix(in srgb, var(--muted) 30%, transparent);
+  --muted-40: color-mix(in srgb, var(--muted) 40%, transparent);
+  --muted-50: color-mix(in srgb, var(--muted) 50%, transparent);
+  --border-50: color-mix(in srgb, var(--border) 50%, transparent);
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --card: #141414;
+  --card-foreground: #fafafa;
+  --card-plain: #1a1a1a;
+  --muted: #262626;
+  --muted-foreground: #a3a3a3;
+  --placeholder: #737373;
+  --accent: #00dcd1;
+  --accent-foreground: #000000;
+  --danger: #e07a52;
+  --danger-foreground: #000000;
+  --success: #3dbe94;
+  --success-foreground: #000000;
+  --warning: #f5b84a;
+  --warning-foreground: #000000;
+  --border: #444444;
+  --input: #444444;
+  --ring: #00dcd1;
+  --surface-sidebar: color-mix(in srgb, var(--muted) 30%, var(--background));
+  --overlay-scrim: rgb(0 0 0 / 0.6);
+  --accent-5: color-mix(in srgb, var(--accent) 5%, transparent);
+  --accent-10: color-mix(in srgb, var(--accent) 10%, transparent);
+  --accent-15: color-mix(in srgb, var(--accent) 15%, transparent);
+  --accent-30: color-mix(in srgb, var(--accent) 30%, transparent);
+  --accent-50: color-mix(in srgb, var(--accent) 50%, transparent);
+  --danger-5: color-mix(in srgb, var(--danger) 5%, transparent);
+  --danger-10: color-mix(in srgb, var(--danger) 10%, transparent);
+  --danger-15: color-mix(in srgb, var(--danger) 15%, transparent);
+  --danger-30: color-mix(in srgb, var(--danger) 30%, transparent);
+  --danger-50: color-mix(in srgb, var(--danger) 50%, transparent);
+  --success-5: color-mix(in srgb, var(--success) 5%, transparent);
+  --success-10: color-mix(in srgb, var(--success) 10%, transparent);
+  --success-15: color-mix(in srgb, var(--success) 15%, transparent);
+  --success-30: color-mix(in srgb, var(--success) 30%, transparent);
+  --success-50: color-mix(in srgb, var(--success) 50%, transparent);
+  --warning-5: color-mix(in srgb, var(--warning) 5%, transparent);
+  --warning-10: color-mix(in srgb, var(--warning) 10%, transparent);
+  --warning-15: color-mix(in srgb, var(--warning) 15%, transparent);
+  --warning-30: color-mix(in srgb, var(--warning) 30%, transparent);
+  --warning-50: color-mix(in srgb, var(--warning) 50%, transparent);
+  --muted-20: color-mix(in srgb, var(--muted) 20%, transparent);
+  --muted-30: color-mix(in srgb, var(--muted) 30%, transparent);
+  --muted-40: color-mix(in srgb, var(--muted) 40%, transparent);
+  --muted-50: color-mix(in srgb, var(--muted) 50%, transparent);
+  --border-50: color-mix(in srgb, var(--border) 50%, transparent);
+}

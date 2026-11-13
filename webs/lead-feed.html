@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HeadBox Lead Feed — prototype</title>
+<link rel="icon" href="favicon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans&display=swap" rel="stylesheet" />
+<meta name="theme-color" content="#ffffff" />
+<style>
+body { margin: 0; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+a { color: #16719B; text-decoration: none; font-weight: 700; }
+a:hover { color: #0F5473; }
+select, button { font-family: 'Montserrat', helvetica, arial, sans-serif; box-sizing: border-box; }
+*:focus-visible { outline: 3px solid #0F5473; outline-offset: 2px; border-radius: 4px; }
+button, a, select { touch-action: manipulation; -webkit-tap-highlight-color: rgba(22,113,155,0.12); }
+p { text-wrap: pretty; }
+img { max-width: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+</style>
+</helmet>
+<nav aria-label="Prototypes" style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;background:#2f2f2f;padding:8px clamp(12px,3vw,16px);font-family:'Montserrat',helvetica,arial,sans-serif">
+  <span style="color:#c9c9c9;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:700;margin-right:10px">Prototypes</span>
+  <a href="venue-listing.html" style="color:#e6e6e6;font-size:13px;font-weight:400;padding:11px 12px;border-radius:6px;text-decoration:none" style-hover="background:#454545;color:#fff">Create your free listing</a>
+  <a href="index.html" style="color:#e6e6e6;font-size:13px;font-weight:400;padding:11px 12px;border-radius:6px;text-decoration:none" style-hover="background:#454545;color:#fff">Find the perfect venue</a>
+  <a href="lead-feed.html" aria-current="page" style="color:#fff;background:#16719B;font-size:13px;font-weight:700;padding:11px 12px;border-radius:6px;text-decoration:none">Lead Feed</a>
+</nav>
+<a href="#main" style="position:absolute;left:-9999px;top:0;z-index:3000;background:#16719B;color:#fff;padding:12px 16px;border-radius:0 0 8px 0;font-family:'Montserrat',helvetica,arial,sans-serif;font-size:15px" style-focus="left:0">Skip to content</a>
+
+<div style="background:#fff;color:#2f2f2f;font-family:'Montserrat',helvetica,arial,sans-serif;min-height:100vh">
+  <header style="border-bottom:1px solid #e6e6e6;position:sticky;top:0;z-index:2000;background:#fff">
+    <div style="margin:0 auto;max-width:1280px;padding:14px clamp(16px,4vw,24px);display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="index.html" style="width:170px;display:block;flex:0 0 auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2340 450" width="100%" role="img" aria-label="HeadBox">
+<path fill="#AF231C" d="M2002.3 82.2h-279.6c-6.7 0-12.2 5.2-12.2 11.9v278.5c.2 6.6 5.5 11.9 12.1 11.9h63.4v-46.9h-27.2V129.2h207.3v208.3h-112.7l-68.2 89.3 25.3 20.5c5.3 4.2 13 3.2 17.1-2.1l47.8-60.8h126.7c6.6 0 12-5.3 12.2-11.9v-278c.1-6.7-5.3-12.3-12-12.3M2341.2 82h-41.5s-9.8.1-16.6 3.6c-4.5 2.3-13.2 13.1-13.2 13.1l-76.1 99.8-89.1-116.6h-55.1l115.9 153.5-114.7 148.4h45.2s6.3-.2 11.7-3.1c5.2-2.8 9.3-7.5 9.3-7.5l76.8-100.5 83.6 111.2h57.9L2222 235.4 2341.2 82zM1607.5 321.9c-13.2 12.5-24.3 16.2-40.1 16.7l-3.6.1h-118.6v-135c16.7 0 116-.1 116.7-.1 18.8 0 33.2 5.9 45.2 18.5 12.6 13.2 23.1 27.7 23.1 48.4.1 19.9-9.6 38.8-22.7 51.4M1545.2 46s23.9 1 37 14.2c10.6 10.7 18.3 24.6 18.3 42 0 16.7-6.2 28.5-16.9 39.1-16.1 16.1-38.3 15.8-38.3 15.8l-100.1 1.3V47.3c15.4-.2 100.1-1.3 100-1.3m69.6 126.1c22.8-21.1 30.3-42.2 31.4-69.4 1.1-27.3-7.6-50.4-24.9-68.5-15.5-16.3-31-30.7-71.5-31.7l-104.7-.1h-34.4-.5c-.1 0-5.9-.4-9.6 3.3-3.5 3.6-3.3 8.9-3.3 8.9v368.3h167.6c.5 0 31.8-2.1 46.4-9.8 19.6-10.4 60.4-34.8 64.1-101.5 1.7-31-13.7-59-33.3-79.7-8.1-8.8-17.8-14.4-27.3-19.8M256.2 5.9c-3.5 3.7-3.3 9.3-3.3 9.3v144.3h-205V2.3H12S7.6 2 3.8 5.6C.3 8.8 0 14.2 0 14.2v370h36.7s4.8-.2 7.5-3.1c4-4.3 3.8-7.4 3.8-7.4v-168h205v178.5h36.8s4.4-.1 7.7-3.8c3.1-3.3 3.2-8.3 3.2-8.3V2.4h-34.9s-5.9-.5-9.6 3.5M1193.3 345.3c-61.7 0-111.8-50-111.8-111.8s50-111.8 111.8-111.8 111.8 50 111.8 111.8-50 111.8-111.8 111.8M1306.1 5.9c-3.5 3.7-3.3 9.3-3.3 9.3v105.7c-28.3-27.5-66.9-44.5-109.4-44.5-86.8 0-157.2 70.4-157.2 157.2s70.4 157.2 157.2 157.2c42.6 0 81.1-17 109.4-44.5v38h36.8s4.4-.1 7.7-3.8c2.3-2.5 3-6 3.1-7.5 0-.3.1-.5.1-.5V2.4h-34.9c.1 0-5.8-.5-9.5 3.5M387.9 202.1c13.7-44.8 55.4-77.4 104.6-77.4s90.9 32.6 104.6 77.4H387.9zM492.5 77.7c-86.4 0-156.5 70.1-156.5 156.5s70.1 156.5 156.5 156.5c62.4 0 116.2-36.5 141.3-89.4L602.7 285s-4-2.5-8.1-1.3c-1.3.4-5.3 1.5-6.9 4.3-18.8 33.2-54.4 55.6-95.2 55.6-55.7 0-101.6-41.6-108.5-95.3l264.3-.5c.4-4.5.6-9 .6-13.6 0-11-1.1-21.7-3.3-32C631 131 568 77.7 492.5 77.7M842.5 346.4c-61.7 0-111.8-50-111.8-111.8s50-111.8 111.8-111.8c61.7 0 111.8 50 111.8 111.8s-50.1 111.8-111.8 111.8M955.2 90.9c-3.5 3.7-3.3 9.3-3.3 9.3V122C923.6 94.5 885 77.5 842.5 77.5c-86.8 0-157.1 70.4-157.1 157.2s70.4 157.2 157.1 157.2c42.6 0 81.1-17 109.4-44.5v36.8H988.8s4.1-.1 7.5-3.4c3.1-2.9 3.4-7.2 3.4-7.2V87.3h-34.9c0 .1-5.9-.3-9.6 3.6"></path>
+</svg></a>
+      <nav aria-label="Host" style="display:flex;align-items:center;gap:clamp(8px,2vw,28px);flex-wrap:wrap">
+        <a href="index.html" style="display:flex;align-items:center;gap:8px;color:#2f2f2f;font-weight:400;font-size:16px;padding:10px 4px;min-height:44px">Home <span style="background:#AF231C;color:#fff;font-size:13px;font-weight:700;border-radius:4px;padding:2px 7px">36</span></a>
+        <span aria-current="page" style="display:flex;align-items:center;gap:8px;color:#AF231C;font-weight:400;font-size:16px;padding:10px 4px;min-height:44px;box-shadow:inset 0 -3px 0 0 #AF231C">Lead Feed</span>
+        <a href="venue-listing.html" style="color:#2f2f2f;font-weight:400;font-size:16px;padding:10px 4px;min-height:44px;display:flex;align-items:center">Your venues</a>
+        <span aria-hidden="true" style="width:40px;height:40px;border-radius:50%;background:#d9d9d9;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#5a5a5a">JM</span>
+      </nav>
+    </div>
+    <div style="border-top:1px solid #f1f1f1">
+      <nav aria-label="Lead Feed sections" style="margin:0 auto;max-width:1280px;padding:0 clamp(16px,4vw,24px);display:flex;gap:clamp(12px,3vw,32px);flex-wrap:wrap;font-size:15px">
+        <span aria-current="page" style="color:#AF231C;padding:14px 2px;box-shadow:inset 0 -3px 0 0 #AF231C">Lead Feed</span>
+        <span style="color:#5a5a5a;padding:14px 2px">Interested guests</span>
+        <span style="color:#5a5a5a;padding:14px 2px">Sent messages</span>
+        <span style="color:#5a5a5a;padding:14px 2px">Insights</span>
+        <span style="color:#5a5a5a;padding:14px 2px">Templates</span>
+        <span style="color:#5a5a5a;padding:14px 2px">Filters</span>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" style="margin:0 auto;max-width:1280px;padding:0 clamp(16px,4vw,24px) 80px">
+    <h1 style="font-size:34px;font-weight:700;margin:28px 0 22px 0">Lead Feed</h1>
+
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px">
+      <label for="leadfilter" style="font-size:16px;color:#2f2f2f">Filter:</label>
+      <select id="leadfilter" value="{{ filter }}" onChange="{{ onFilter }}" style="font-size:15px;padding:11px 12px;min-height:44px;border:1px solid #b4b4b4;border-radius:6px;background:#fff;color:#2f2f2f">
+        <option value="weekday">Weekday events</option>
+        <option value="good">Good fit only</option>
+        <option value="all">All leads</option>
+      </select>
+      <span style="font-size:16px;color:#2f2f2f;font-variant-numeric:tabular-nums">{{ countLabel }}</span>
+    </div>
+
+    <p role="status" style="display:{{ toastDisplay }};margin:0 0 16px 0;padding:12px 14px;background:#EDF5EE;border:1px solid #3F9142;border-radius:6px;font-size:15px;color:#2E6B31">{{ toast }}</p>
+
+    <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+      <div style="border:1px dashed #c4c4c4;border-radius:8px;padding:56px 24px;text-align:center">
+        <p style="margin:0 0 8px 0;font-size:20px;font-weight:700">No leads match this filter</p>
+        <p style="margin:0;font-size:16px;color:#5a5a5a">Widen the filter to see briefs outside your usual availability.</p>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ hasRows }}" hint-placeholder-val="{{ true }}">
+    <table style="width:100%;border-collapse:collapse;font-size:16px">
+      <caption style="position:absolute;left:-9999px">Event briefs submitted by guests, with budget, guests, timings and how well each matches your venue</caption>
+      <thead>
+        <tr style="text-align:left;color:#5a5a5a;font-weight:400">
+          <th scope="col" style="padding:12px 8px;border-bottom:1px solid #e6e6e6;font-weight:400"><span style="position:absolute;left:-9999px">Shortlist</span></th>
+          <th scope="col" style="padding:12px 8px;border-bottom:1px solid #e6e6e6;font-weight:400">Event info</th>
+          <th scope="col" style="padding:12px 8px;border-bottom:1px solid #e6e6e6;font-weight:400">Preferred location</th>
+          <th scope="col" style="padding:12px 8px;border-bottom:1px solid #e6e6e6;font-weight:400">Details</th>
+          <th scope="col" style="padding:12px 8px;border-bottom:1px solid #e6e6e6;font-weight:400">Timings</th>
+          <th scope="col" style="padding:12px 8px;border-bottom:1px solid #e6e6e6;font-weight:400">Submitted</th>
+          <th scope="col" style="padding:12px 8px;border-bottom:1px solid #e6e6e6;font-weight:400"><span style="position:absolute;left:-9999px">Respond</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="7">
+          <tr style="background:{{ r.rowBg }};border-bottom:1px solid #ededed">
+            <td style="padding:16px 8px;vertical-align:top">
+              <button type="button" onClick="{{ r.onStar }}" aria-label="{{ r.starLabel }}" style="border:0;background:none;cursor:pointer;font-size:22px;line-height:1;color:{{ r.starColor }};min-width:44px;min-height:44px">{{ r.starGlyph }}</button>
+            </td>
+            <td style="padding:16px 8px;vertical-align:top">
+              <div style="font-weight:{{ r.titleWeight }}">{{ r.title }}</div>
+              <div style="color:#5a5a5a;font-size:15px">{{ r.type }}</div>
+            </td>
+            <td style="padding:16px 8px;vertical-align:top;font-weight:{{ r.cellWeight }}">{{ r.loc }}</td>
+            <td style="padding:16px 8px;vertical-align:top;font-variant-numeric:tabular-nums">
+              <div style="font-weight:{{ r.cellWeight }}">{{ r.budget }}</div>
+              <div style="color:#5a5a5a;font-size:15px">{{ r.guests }}</div>
+            </td>
+            <td style="padding:16px 8px;vertical-align:top;font-variant-numeric:tabular-nums">
+              <div style="font-weight:{{ r.cellWeight }}">{{ r.date }}</div>
+              <div style="color:#5a5a5a;font-size:15px">{{ r.time }}</div>
+            </td>
+            <td style="padding:16px 8px;vertical-align:top">
+              <div style="color:#5a5a5a;font-size:15px;margin-bottom:6px">{{ r.sub }}</div>
+              <span style="display:inline-flex;align-items:center;gap:6px;border:1px solid {{ r.fitBorder }};color:{{ r.fitColor }};border-radius:4px;padding:3px 8px;font-size:14px"><span aria-hidden="true">{{ r.fitGlyph }}</span>{{ r.fit }}</span>
+            </td>
+            <td style="padding:16px 8px;vertical-align:top">
+              <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap">
+                <button type="button" onClick="{{ r.onRespond }}" disabled="{{ r.actionDisabled }}" aria-label="{{ r.actionAria }}" style="font-size:15px;font-weight:700;padding:12px 16px;min-height:44px;border-radius:4px;cursor:pointer;background:{{ r.actionBg }};color:{{ r.actionColor }};border:{{ r.actionBorder }}">{{ r.actionLabel }}</button>
+                <button type="button" onClick="{{ r.onDismiss }}" aria-label="Hide this lead" style="font-size:15px;padding:12px 14px;min-height:44px;border-radius:4px;cursor:pointer;background:#fff;color:#5a5a5a;border:1px solid #b4b4b4">Hide</button>
+              </div>
+            </td>
+          </tr>
+        </sc-for>
+      </tbody>
+    </table>
+    </sc-if>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { filter: 'weekday', starred: {}, sent: {}, dismissed: {}, toast: '' };
+  data = [{"id":"r1","title":"Company Lunch","type":"Private Dining","loc":"Soho, London","budget":"£3,500","guests":"30 guests","date":"Fri, 10 May 2023","time":"13:00 – 16:00","sub":"2 minutes ago","fit":"Good fit","unread":true,"weekday":true,"sent":false},{"id":"r2","title":"Work anniversary","type":"Party","loc":"King’s Cross, London","budget":"£1,000","guests":"15 guests","date":"Thu, 09 May 2023","time":"18:00 – 22:00","sub":"10 minutes ago","fit":"Good fit","unread":true,"weekday":true,"sent":false},{"id":"r3","title":"Anniversary Dinner","type":"Private Dining","loc":"Shoreditch, London","budget":"£500","guests":"6 guests","date":"Fri, 10 May 2023","time":"18:00 – 22:00","sub":"34 minutes ago","fit":"Good fit","unread":true,"weekday":true,"sent":false},{"id":"r4","title":"Team time","type":"Team activity","loc":"Soho, London","budget":"£4,000","guests":"40 guests","date":"Mon, 14 May 2023","time":"09:00 – 17:00","sub":"1 hour ago","fit":"Good fit","unread":false,"weekday":true,"sent":false},{"id":"r5","title":"Spring Workshop","type":"Meeting","loc":"King’s Cross, London","budget":"£3,000","guests":"20 guests","date":"Fri, 08 May 2023","time":"10:00 – 13:00","sub":"1 hour ago","fit":"Good fit","unread":false,"weekday":true,"sent":true},{"id":"r6","title":"2023 Workshop","type":"Meeting","loc":"Soho, London","budget":"£3,000","guests":"20 guests","date":"Fri, 08 May 2023","time":"10:00 – 13:00","sub":"2 hours ago","fit":"Good fit","unread":false,"weekday":true,"sent":false},{"id":"r7","title":"Q1 wrap up","type":"Meeting","loc":"London","budget":"£2,000","guests":"20 guests","date":"Wed, 09 May 2023","time":"13:00 – 16:00","sub":"2 hours ago","fit":"Poor fit","unread":true,"weekday":true,"sent":false},{"id":"r8","title":"Summer social","type":"Party","loc":"Shoreditch, London","budget":"£6,000","guests":"80 guests","date":"Sat, 12 May 2023","time":"19:00 – 23:30","sub":"3 hours ago","fit":"Good fit","unread":false,"weekday":false,"sent":false},{"id":"r9","title":"Wedding reception","type":"Wedding","loc":"Hackney, London","budget":"£12,000","guests":"120 guests","date":"Sun, 13 May 2023","time":"12:00 – 23:00","sub":"5 hours ago","fit":"Poor fit","unread":false,"weekday":false,"sent":false}];
+  setFilter = e => this.setState({ filter: e.target.value });
+  toggleStar = id => () => this.setState(s => ({ starred: { ...s.starred, [id]: !s.starred[id] } }));
+  respond = (id, title) => () => this.setState(s => ({ sent: { ...s.sent, [id]: true }, toast: 'Availability sent for ' + title }));
+  dismiss = id => () => this.setState(s => ({ dismissed: { ...s.dismissed, [id]: true }, toast: 'Lead hidden' }));
+  renderVals() {
+    const f = this.state.filter;
+    const visible = this.data.filter(r => !this.state.dismissed[r.id] && (f === 'all' || (f === 'weekday' ? r.weekday : f === 'good' ? r.fit === 'Good fit' : true)));
+    const total = 200;
+    const shown = f === 'all' ? total : f === 'weekday' ? 85 : 140;
+    const rows = visible.map(r => {
+      const sent = !!this.state.sent[r.id];
+      const starred = !!this.state.starred[r.id];
+      return {
+        ...r,
+        rowBg: r.unread ? '#fff' : '#fbfbfb',
+        titleWeight: r.unread ? '700' : '400',
+        cellWeight: r.unread ? '700' : '400',
+        starLabel: (starred ? 'Remove ' : 'Save ') + r.title + ' from shortlist',
+        starColor: starred ? '#AF231C' : '#b4b4b4',
+        starGlyph: starred ? '★' : '☆',
+        fitBorder: r.fit === 'Good fit' ? '#3F9142' : '#8a8a8a',
+        fitColor: r.fit === 'Good fit' ? '#2E6B31' : '#5a5a5a',
+        fitGlyph: r.fit === 'Good fit' ? '☺' : '☹',
+        actionLabel: sent ? 'Availability sent' : 'I’m available',
+        actionBg: sent ? '#EDF5EE' : '#16719B',
+        actionColor: sent ? '#2E6B31' : '#fff',
+        actionBorder: sent ? '1px solid #3F9142' : '1px solid #16719B',
+        actionAria: sent ? 'Availability already sent for ' + r.title : 'Send availability for ' + r.title,
+        actionDisabled: sent,
+        onRespond: sent ? undefined : this.respond(r.id, r.title),
+        onStar: this.toggleStar(r.id),
+        onDismiss: this.dismiss(r.id)
+      };
+    });
+    return {
+      rows,
+      hasRows: rows.length > 0,
+      isEmpty: rows.length === 0,
+      countLabel: 'shows ' + shown + ' / ' + total + ' leads',
+      filter: f,
+      onFilter: this.setFilter,
+      toast: this.state.toast,
+      toastDisplay: this.state.toast ? 'block' : 'none'
+    };
+  }
+}
+</script>
+</body>
+</html>

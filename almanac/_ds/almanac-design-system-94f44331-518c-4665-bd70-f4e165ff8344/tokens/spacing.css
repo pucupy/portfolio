@@ -1,0 +1,24 @@
+/* Spacing. Tailwind 4px base; Stack gaps are the kit's named steps (~20% larger than 4/8/16/24/32). */
+:root {
+  --space-1: 4px; --space-1-5: 6px; --space-2: 8px; --space-2-5: 10px; --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-7: 28px; --space-8: 32px; --space-10: 40px; --space-12: 48px; --space-16: 64px;
+
+  --stack-xs: 6px;
+  --stack-sm: 10px;
+  --stack-md: 20px;
+  --stack-lg: 28px;
+  --stack-xl: 40px;
+
+  /* Control heights (Button / Input / Badge md / ToggleGroup) */
+  --control-xs: 20px;
+  --control-sm: 24px;
+  --control-md: 32px;
+  --control-lg: 40px;
+
+  /* Shell */
+  --sidebar-width: 238px;
+  --sidebar-rail-width: 64px;
+  --page-gutter: 24px;
+  --sheet-max-width: 480px;
+  --modal-max-width: 32rem;
+}

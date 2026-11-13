@@ -1,0 +1,22 @@
+/* Derived tokens on ":root, .dark" so nested .dark scopes resolve them; dark overrides follow. */
+:root, .dark {
+  --shadow-card: 0 0 0 1px var(--hair), 0 1px 2px var(--soft), 0 12px 32px -16px color-mix(in oklab, var(--foreground) 16%, transparent);
+  --shadow-control: 0 0 0 1px var(--hair), 0 1px 2px var(--soft); /* logo tile, quiet cards. Outline buttons use --button-outline-ring */
+  --shadow-primary: 0 1px 2px color-mix(in oklab, var(--foreground) 20%, transparent);
+  --shadow-sm: 0 0 0 1px var(--hair), 0 1px 3px color-mix(in oklab, var(--foreground) 12%, transparent); /* segmented thumb */
+  --shadow-menu: 0 0 0 1px var(--hair), 0 12px 32px -8px color-mix(in oklab, var(--foreground) 22%, transparent);
+  --shadow-lg: 0 16px 48px -12px rgb(20 20 20 / 0.24);
+  --shadow-rail: 1px 0 0 var(--hair);
+  --scrim: color-mix(in oklab, var(--foreground) 32%, transparent); /* sheets and dialogs */
+  --shadow-overlay: 0 0 0 1px var(--hair), 0 24px 64px -16px color-mix(in oklab, var(--foreground) 35%, transparent);
+  --focus-ring: 0 0 0 2px var(--background), 0 0 0 4px var(--ring);
+}
+/* Dark: no drop shadows (grey halos on dark). Cards lift with tone + a hairline. */
+.dark {
+  --scrim: rgb(0 0 0 / 0.6);
+  --shadow-card: 0 0 0 1px var(--hair);
+  --shadow-control: 0 0 0 1px var(--hair);
+  --shadow-primary: none;
+  --shadow-menu: 0 0 0 1px var(--hair), 0 12px 32px -8px rgb(0 0 0 / 0.5);
+  --shadow-overlay: 0 0 0 1px var(--hair), 0 24px 64px -16px rgb(0 0 0 / 0.6);
+}

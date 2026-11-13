@@ -1,0 +1,1121 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "almanac",
+  "homepage": "https://almanacfin.com",
+  "items": [
+    {
+      "name": "almanac-theme",
+      "type": "registry:style",
+      "title": "Almanac theme",
+      "description": "Semantic tokens (light + .dark) and Tailwind 4 theme mapping. Install first.",
+      "files": [
+        {
+          "path": "packages/ui/src/styles/tokens.css",
+          "type": "registry:style"
+        },
+        {
+          "path": "packages/ui/src/styles/theme.css",
+          "type": "registry:style"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bar-chart",
+      "type": "registry:ui",
+      "title": "Bar Chart",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/bar-chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "count-circle",
+      "type": "registry:ui",
+      "title": "Count Circle",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/count-circle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown",
+      "type": "registry:ui",
+      "title": "Dropdown",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/dropdown.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "focus-pane",
+      "type": "registry:ui",
+      "title": "Focus Pane",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/focus-pane.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "line-chart",
+      "type": "registry:ui",
+      "title": "Line Chart",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/line-chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "markdown",
+      "type": "registry:ui",
+      "title": "Markdown",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/markdown.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "meter",
+      "type": "registry:ui",
+      "title": "Meter",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/meter.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "metric-card",
+      "type": "registry:ui",
+      "title": "Metric Card",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/metric-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "modal",
+      "type": "registry:ui",
+      "title": "Modal",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/modal.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "no-style-button",
+      "type": "registry:ui",
+      "title": "No Style Button",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/no-style-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radial-meter",
+      "type": "registry:ui",
+      "title": "Radial Meter",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/radial-meter.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio",
+      "type": "registry:ui",
+      "title": "Radio",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/radio.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spark-bars",
+      "type": "registry:ui",
+      "title": "Spark Bars",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/spark-bars.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stack",
+      "type": "registry:ui",
+      "title": "Stack",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/stack.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "text",
+      "type": "registry:ui",
+      "title": "Text",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Almanac primitive. Read the story for variants.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "back-link",
+      "type": "registry:block",
+      "title": "Back Link",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/back-link.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "chat",
+      "type": "registry:block",
+      "title": "Chat",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/chat.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "checkbox-card",
+      "type": "registry:block",
+      "title": "Checkbox Card",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/checkbox-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "choice-card",
+      "type": "registry:block",
+      "title": "Choice Card",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/choice-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "company-information",
+      "type": "registry:block",
+      "title": "Company Information",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/company-information.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "contacts",
+      "type": "registry:block",
+      "title": "Contacts",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/contacts.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "credit-advisor-recommendation",
+      "type": "registry:block",
+      "title": "Credit Advisor Recommendation",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/credit-advisor-recommendation.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "credit-bureau-changes-notice",
+      "type": "registry:block",
+      "title": "Credit Bureau Changes Notice",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/credit-bureau-changes-notice.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "credit-bureau-report",
+      "type": "registry:block",
+      "title": "Credit Bureau Report",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/credit-bureau-report.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "credit-decision-cta",
+      "type": "registry:block",
+      "title": "Credit Decision Cta",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/credit-decision-cta.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "credit-decision-sheet",
+      "type": "registry:block",
+      "title": "Credit Decision Sheet",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/credit-decision-sheet.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "credit-decision",
+      "type": "registry:block",
+      "title": "Credit Decision",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/credit-decision.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:block",
+      "title": "Empty",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/empty.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "expandable-table",
+      "type": "registry:block",
+      "title": "Expandable Table",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/expandable-table.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "metric-table",
+      "type": "registry:block",
+      "title": "Metric Table",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/metric-table.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "multi-select",
+      "type": "registry:block",
+      "title": "Multi Select",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/multi-select.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "option-card",
+      "type": "registry:block",
+      "title": "Option Card",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/option-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "organization-role-table",
+      "type": "registry:block",
+      "title": "Organization Role Table",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/organization-role-table.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "page-header",
+      "type": "registry:block",
+      "title": "Page Header",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/page-header.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "page-navbar",
+      "type": "registry:block",
+      "title": "Page Navbar",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/page-navbar.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "page-section-header",
+      "type": "registry:block",
+      "title": "Page Section Header",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/page-section-header.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "passkeys",
+      "type": "registry:block",
+      "title": "Passkeys",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/passkeys.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "payment-mandate",
+      "type": "registry:block",
+      "title": "Payment Mandate",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/payment-mandate.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "permission-lock",
+      "type": "registry:block",
+      "title": "Permission Lock",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/permission-lock.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "permission-table",
+      "type": "registry:block",
+      "title": "Permission Table",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/permission-table.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "refresh-button",
+      "type": "registry:block",
+      "title": "Refresh Button",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/refresh-button.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "restricted",
+      "type": "registry:block",
+      "title": "Restricted",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/restricted.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "role-assignment-table",
+      "type": "registry:block",
+      "title": "Role Assignment Table",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/role-assignment-table.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "search-select",
+      "type": "registry:block",
+      "title": "Search Select",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/search-select.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "settings-connection-row",
+      "type": "registry:block",
+      "title": "Settings Connection Row",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/settings-connection-row.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-nav-item",
+      "type": "registry:block",
+      "title": "Sidebar Nav Item",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/sidebar-nav-item.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-user-menu",
+      "type": "registry:block",
+      "title": "Sidebar User Menu",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/sidebar-user-menu.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "snapshot-lock",
+      "type": "registry:block",
+      "title": "Snapshot Lock",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/snapshot-lock.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "suggested-credit-policy-rules",
+      "type": "registry:block",
+      "title": "Suggested Credit Policy Rules",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/suggested-credit-policy-rules.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "supplier-buyer-credit-summary",
+      "type": "registry:block",
+      "title": "Supplier Buyer Credit Summary",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/supplier-buyer-credit-summary.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "supplier-buyer-payment-behaviour",
+      "type": "registry:block",
+      "title": "Supplier Buyer Payment Behaviour",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/supplier-buyer-payment-behaviour.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "supplier-buyer-timeline",
+      "type": "registry:block",
+      "title": "Supplier Buyer Timeline",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/supplier-buyer-timeline.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "trend-card",
+      "type": "registry:block",
+      "title": "Trend Card",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/trend-card.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "version-history",
+      "type": "registry:block",
+      "title": "Version History",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/version-history.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "workspace-member-table",
+      "type": "registry:block",
+      "title": "Workspace Member Table",
+      "description": "Almanac composition built from primitives.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/compositions/workspace-member-table.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select (v2, to build)",
+      "description": "v2 proposal: native select, appearance none, ChevronDown 16px at right 12px. Not yet in packages/ui.",
+      "registryDependencies": [
+        "almanac-theme"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/select.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "meta": {
+        "status": "to-build"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+/* One family, Schibsted Grotesk (variable 400–900), for text and figures. All sizes in rem so text scales to 200%. */
+:root {
+  --font-family-sans: 'Schibsted Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-family-mono: 'Schibsted Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono-size-scale: 1em;
+  --font-family-wordmark: 'PP Watch', 'Schibsted Grotesk', sans-serif; /* wordmark typeface: logo lock-ups only, never UI text */
+  --font-feature-figures: "lnum" 1;          /* lining proportional: running text and UI (type.md › Figures) */
+  --font-feature-figures-tabular: "lnum" 1, "tnum" 1; /* tables, amount fields, figures compared in a column */
+  --font-feature-figures-display: "lnum" 1, "pnum" 1; /* KPI and display figures: Schibsted's tabular comma is very wide */
+
+  /* App scale */
+  --text-display: 2rem;        /* 32 / 600 / -0.03em */
+  --text-page-title: 1.75rem;  /* 28 / 600 / -0.025em, line-height 2.125rem */
+  --text-section: 1.125rem;    /* 18 / 26 / 600 (H2: in-page section, e.g. Timeline) */
+  --line-section: 1.625rem;
+  --text-card-title: 1rem;     /* 16 / 24 / 600 (H3) */
+  --line-card-title: 1.5rem;
+  --text-body: 1rem;           /* 16 / 400 / 1.5 */
+  --text-ui: 0.875rem;         /* 14: UI and tables, line-height 1.25rem */
+  --text-input: var(--text-ui); /* typed text in fields; 16 on touch screens (user-preferences.css) so phones never zoom */
+  --text-small: 0.8125rem;     /* 13: meta lines, back links, segmented items */
+  --text-caption: 0.75rem;     /* 12: captions, table headers, pills */
+  --text-kpi: 1.75rem;         /* 28 / 450 / -0.03em, proportional lining figures */
+  --weight-kpi: 450;
+
+  /* Marketing scale (site only) */
+  --text-hero: clamp(2.5rem, 5.5vw, 4.75rem);    /* 550 / -0.04em / 1 */
+  --text-marketing-h2: clamp(1.875rem, 3.6vw, 2.5rem); /* 600 / -0.03em / 1.08 */
+  --text-stat: clamp(2.5rem, 4.4vw, 3.25rem);    /* 450 / -0.03em, navy */
+  --text-lede: clamp(1.0625rem, 1.6vw, 1.1875rem); /* 1.55 */
+
+  --line-ui: 1.25rem;
+  --line-page-title: 2.125rem;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-emphasis: 550;  /* names, pills, labels */
+  --weight-semibold: 600;
+  --weight-display: 550;   /* display headlines (hero, slides); 650 retired */
+  --weight-bold: 700;
+  --tracking-eyebrow: 0.06em;
+  --tracking-page-title: -0.025em;
+  --tracking-display: -0.045em;
+}
